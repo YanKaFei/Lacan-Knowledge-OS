@@ -32,6 +32,17 @@ UI_REF = re.compile(r"\{\{ui:([A-Za-z0-9._\-]+)\}\}")
 TEXT_KINDS = ("h2", "h3", "p", "callout")
 LIST_KINDS = ("ul", "ol")
 DL_KINDS = ("dl",)
+FIGURE_KINDS = ("figure",)
+
+# ── 内置示意图（P5D-005 UI 升级）：**客户端** workspace_ui/static/src/diagrams.js
+#    定义几何与文字，服务端只负责校验名字。两边的名字集合必须一致
+#    （_scripts/_tests/test_p5d005_help_structure.py 守这条边界）。
+DIAGRAMS = ("architecture", "evidence-chain", "workflow")
+
+
+def figure_alt_key(name):
+    """示意图的可访问描述 key（正文在 diagrams.js 里逐条字面量调用）。"""
+    return "diagram.%s.alt" % name
 
 # ── 模块 → contextual help 目标（§9：**不得**全部指向 /help 首页）
 MODULES = {
@@ -109,6 +120,12 @@ def compile_doc():
                 out["items"] = [{"term_key": _key(slug, i, j, "term"),
                                  "desc_key": _key(slug, i, j, "desc")}
                                 for j in range(1, len(b.get("items") or []) + 1)]
+            elif kind in FIGURE_KINDS:
+                name = b.get("name")
+                if name not in DIAGRAMS:
+                    raise ValueError("unknown help figure %r (page %s)" % (name, slug))
+                out["name"] = name
+                out["alt_key"] = figure_alt_key(name)
             elif kind != "p" and kind != "h3" and kind != "callout":
                 raise ValueError("unknown help block kind: %r (page %s)" % (kind, slug))
             if kind == "h3":
@@ -130,10 +147,17 @@ def compile_doc():
     for sec in raw.get("sections") or []:
         sections.append({"id": sec["id"], "title_key": "help.section." + sec["id"],
                          "pages": [p for p in (sec.get("pages") or []) if p in slugs]})
+    index = {"title_key": "help.center",
+             "intro_key": "help.index.intro",
+             "topics": list(slugs)}
+    idx_fig = (raw.get("index") or {}).get("figure")
+    if idx_fig:
+        if idx_fig.get("name") not in DIAGRAMS:
+            raise ValueError("unknown help index figure %r" % (idx_fig.get("name"),))
+        index["figure"] = {"name": idx_fig["name"], "key": "help.index.figure",
+                           "alt_key": figure_alt_key(idx_fig["name"])}
     return {"schema_version": SCHEMA,
-            "index": {"title_key": "help.center",
-                      "intro_key": "help.index.intro",
-                      "topics": list(slugs)},
+            "index": index,
             "sections": sections, "pages": pages, "slugs": slugs,
             "modules": MODULES}
 
@@ -159,6 +183,9 @@ def i18n_entries():
 
     add("help.center", raw["index"]["en"], raw["index"]["zh"])
     add("help.index.intro", raw["index"]["intro_en"], raw["index"]["intro_zh"])
+    idx_fig = (raw.get("index") or {}).get("figure")
+    if idx_fig:
+        add("help.index.figure", idx_fig.get("en"), idx_fig.get("zh"))
     for sec in raw.get("sections") or []:
         add("help.section." + sec["id"], sec["en"], sec["zh"])
     for page in raw.get("pages") or []:

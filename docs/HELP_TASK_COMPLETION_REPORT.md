@@ -54,12 +54,12 @@ FIRST_TIME_USER_TASKS = 8/8 PASS
 
 ## 4. §11 Documentation fiction = 0
 
-`help_claims.json` 里的 42 条 functional claim 全部有机器可核的检验方式：
+`help_claims.json` 里的 45 条 functional claim 全部有机器可核的检验方式：
 
 | 类型 | 条数 | 谁核验 |
 |---|---|---|
 | `ui_key`（引用的控件名必须存在于 i18n 词典）| 6 | `build_help.py`（静态）|
-| `element`（真实 DOM 上必须存在）| 26 | 浏览器套件逐条执行 JS 断言 |
+| `element`（真实 DOM 上必须存在）| 29 | 浏览器套件逐条执行 JS 断言 |
 | `api`（真实接口/字段必须存在）| 4 | `build_help.py --url`（真实实例）|
 | `source`（产品源码里必须有对应实现）| 2 | `build_help.py`（静态）|
 | `pages_all` / `links_all` / `ui_refs_all` / `styles_subset` | 4 | `build_help.py` + 链接报告 |
@@ -67,7 +67,7 @@ FIRST_TIME_USER_TASKS = 8/8 PASS
 ```text
 DOCUMENTATION_FICTION = 0
 CLAIM_PENDING        = 0        （在 F20 的核验环境里：真实实例 + 真实浏览器）
-CLAIM_VERIFIED       = 42 / 42
+CLAIM_VERIFIED       = 45 / 45
 BROKEN_INTERNAL_LINKS = 0
 BROKEN_ANCHORS        = 0
 MODULE_DEEP_LINKS     = 16（全部指向真实页）
@@ -103,3 +103,51 @@ F20 的 13 个子条件与本报告的 8 个任务直接对应：
 `HELP_INTERNAL_LINKS` / `BROKEN_LINKS_0` / `BROKEN_ANCHORS_0` /
 `FIRST_TIME_TASKS_8_8` / `DOCUMENTATION_FICTION_0` / `CLAIM_PENDING_0` /
 `CLAIM_VERIFIED_ALL` / `HELP_PAGES_13` / `I18N_OK` / `ELEMENT_CLAIMS_BROWSER`。
+
+---
+
+## 7. UI 升级轮（P5D-005-UI：示意图 + 排版）—— 新一次验收记录
+
+> 触发：用户要求「**UI 升级：文字 + 排版 + 图片示意，更高级、更清楚**」。
+> 本轮只动产品层（示意图 / 排版 / 承载它们的词典·测试·claim）；**§1–§6 的历史记录不改写**。
+> 设计与取舍见 `P5D-005-UX-AUDIT.md` §6。
+
+### 7.1 交付
+
+| 项 | 内容 |
+|---|---|
+| 新模块 | `workspace_ui/static/src/diagrams.js` —— 三张**内联 SVG**（`workflow` / `evidence-chain` / `architecture`）|
+| 放置 | 首页 hero（一次研究任务的全程）· `/help`（系统分层）· `/help/evidence`（证据链）|
+| 契约 | Help 新增块类型 `kind="figure"`（名字 + 双语题注）；`help_view.DIAGRAMS` ↔ `diagrams.js` 的名字集合必须一致 |
+| 词典 | 新增 72 条 `diagram.*` 词条：50 条 `translated` + 22 条 `intentional_source_text`（机器 token 不翻译）|
+| 排版 | Help h2 分隔线 / 标题 28px / 正文行高 1.72；首页 hero 与卡片间距、hover 位移 |
+| 为什么不用 `<img>` | 图片里的文字是烘焙死的：中文界面会留下英文图（违反 P5D-004 即时切换）；内联 SVG 同时保证主题同色、缩放不糊 |
+
+### 7.2 新增的可核性
+
+| 证据 | 结果 |
+|---|---|
+| Help functional claim | **42 → 45**（新增 C43/C44/C45：三张图在真实 DOM 里尺寸非零、文字非空、无 key 文本漏出）|
+| `element` claim | 29/29 PASS（浏览器套件逐条执行）|
+| 新增浏览器任务 | `DIAGRAM_LOCALE` PASS —— 切界面语言后图内文字**即时**变中文，且段号/课次/witness/API/状态名**原样保留** |
+| 结构回归 | `test_p5d005_help_structure` 26 项 OK（含图名字典边界、字面量 key、无 `innerHTML`、无动态 key）|
+| 源=产物 | `check_ui_artifacts.py` 19/19 资产 sha256 一致（F19 内也复核为 `artifact_assets_checked=19`）|
+
+### 7.3 验收（全量 Gate v3）
+
+```text
+ACCEPTANCE_RUN = daily_use_bibliography_acceptance_20260930T033032Z_03ed2773
+  verdict=COMPLETE  passed=20  failed=[]  total_secs=3455.4
+  gate: final-daily-use-gate-v3 · items_n=20 · hash=1017ae26bbe92022…
+  head_before == head_after == f70402e5b852923028283c93f81dbfb12f1911f4（head_unchanged=true）
+
+  F15 freeze lineage：semantic_changes_total=0（7 段全 0）
+  F16 回归：suites=146 / checks=78 / failed=[] / skipped=[] / quick_mode=false / secs=3075.98
+  F17 core freeze：39 组件哈希一致 → SCHOLARLY_CORE_READY
+  F19 语言切换：9/9 子条件 true；artifact 19/19 一致；i18n_check_exit=0
+  F20 Help 系统：13/13 子条件 true（含 CLAIM_PENDING_0 / DOCUMENTATION_FICTION_0 / ELEMENT_CLAIMS_BROWSER）
+       infra_retry_used=false
+```
+
+结论：**UI 升级不触碰学术语义**（冻结内核与谱系逐位一致），且新增的图示能力本身
+也有机器可核的证据（claim + 浏览器任务 + 结构测试），不是"文档说它有"。

@@ -145,7 +145,7 @@ e casi, bibliografia, zotero, obsidian, lingue, stati, risoluzione problemi*.
 
 **Ogni nome di controllo nell'Help è reso dall'interfaccia reale** e ogni affermazione
 funzionale è verificata a macchina
-(`HELP_CLAIM_VERIFICATION.json`: **42/42 verificate, 0 finzione, 0 in sospeso**).
+(`HELP_CLAIM_VERIFICATION.json`: **45/45 verificate, 0 finzione, 0 in sospeso**).
 
 ### 5.4 Lingua dell'interfaccia vs lingua di ricerca
 

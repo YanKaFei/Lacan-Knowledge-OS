@@ -34,7 +34,7 @@ Help 内部链接 = PASS     broken links = 0           broken anchors = 0
                     │                                        │
                     │ /api/help/content                      ▼
                     ▼                          _data/daily_use/i18n/manual_keys.json
-   workspace_ui/static/src/help.js             （help.* 337 条 + ui_keys 63 条）
+   workspace_ui/static/src/help.js             （help.* 339 + ui_keys 63 + diagram.* 72）
    （用既有 i18n.js 的 t() 渲染正文）                        │
                     │                                        ▼
                     │                        workspace_ui/static/src/i18n_messages.js
@@ -49,6 +49,7 @@ Help 内部链接 = PASS     broken links = 0           broken anchors = 0
 | API 只回**结构 + key**，不回正文 | 正文必须由既有 `i18n.js` 渲染（§17：不建第二套 locale）；也顺手缩小了响应体 |
 | 正文里引控件写 `{{ui:KEY}}`，渲染时取真实标签 | Help **不可能**说出一个产品里不存在的按钮名（不存在 → link/claim 检查当场失败）|
 | 原文块 `kind="source"` 只有一份文本、不进词典 | Layer B：示例问题/引文不随 UI 语言变化（§17）|
+| 示意图块 `kind="figure"` 只写**名字 + 题注**，几何与文字在 `static/src/diagrams.js` | 图是**内联 SVG**：语言切换即时生效、颜色走主题变量、缩放不糊；名字集合由测试对齐（服务端 `DIAGRAMS` ↔ 客户端 `DIAGRAM_NAMES`）|
 | 每个 functional claim 都带机器可核的检验方式 | §11 禁止 documentation fiction；`element` 类由真实浏览器套件逐条验证 |
 
 ## 3. 路由
@@ -130,7 +131,7 @@ System Status（折叠，8 层）+ Recent
 | 产物 | 内容 | 谁在守 |
 |---|---|---|
 | `HELP_LINK_REPORT.json` | 内部链接 / 跨页 anchor / 16 个模块 deep link 的可达性 | `test_p5d005_help`、F20 |
-| `HELP_CLAIM_VERIFICATION.json` | 42 条 functional claim 的 status（browser/API/source） | `test_p5d005_help`、F20 |
+| `HELP_CLAIM_VERIFICATION.json` | 45 条 functional claim 的 status（browser/API/source） | `test_p5d005_help`、F20 |
 | `_workspace/ui_qa/p5d005_help_claim_browser.json` | `element` 类 claim 在真实 DOM 上的逐条结果 | 浏览器套件写入 |
 | `_workspace/ui_qa/p5d005_help_browser.json` | 8 个首用者任务 + findability + 浏览器 QA | 浏览器套件写入 |
 | `_workspace/ui_qa/p5d005_help_*`（gate run 内） | F20 的逐步证据 | `daily_use_acceptance.py --run --gate v3` |

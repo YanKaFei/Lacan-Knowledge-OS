@@ -164,15 +164,15 @@ LLM synthesis are optional extras ([`docs/EMBEDDING_PROVIDER.md`](docs/EMBEDDING
 
 | Where | What |
 |---|---|
-| **Home** | task-based: *what do you want to do?* — six task cards, the six-step workflow, a five-minute quick start. Every entry is a real link. |
+| **Home** | task-based: *what do you want to do?* — six task cards, the six-step workflow (with a diagram of one run end to end), a five-minute quick start. Every entry is a real link. |
 | **Research** | question box, mode / provider / research-language, and measured provenance on every answer (`provider · model · wall-clock · cached · attempts`) |
 | **Explore** | passages, sessions, seminars, concepts, terminology, persons, cases — read-only |
 | **Evidence Inspector** | the right-hand panel: original passage, quoted span, context controls, source chain, translation |
-| **Help Centre** | `/help` — 13 topics, sidebar, anchors, previous/next, topic search, instant language switch |
+| **Help Centre** | `/help` — 13 topics, sidebar, anchors, previous/next, topic search, instant language switch, and three in-product diagrams (system layers · evidence chain · one research task) drawn as inline SVG, so their labels follow the interface language |
 | **Languages** | interface language (EN/中文) and *research language* are independent settings |
 
 Every control name inside Help is rendered from the real interface, and every functional claim is
-machine-checked: **42/42 claims verified · 0 documentation fiction · 0 broken links**.
+machine-checked: **45/45 claims verified · 0 documentation fiction · 0 broken links**.
 
 ---
 

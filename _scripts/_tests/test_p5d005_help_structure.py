@@ -18,6 +18,7 @@ from __future__ import annotations
 import io
 import json
 import os
+import re
 import sys
 import threading
 import unittest
@@ -306,6 +307,94 @@ class OnboardingUI(unittest.TestCase):
                      "'/projects'", "'/bibliography'", "'/persons'", "'/cases'",
                      "'zotero'"):
             self.assertIn(path, router, path)
+
+
+class Diagrams(unittest.TestCase):
+    """P5D-005 UI 升级：产品内示意图的**结构与词典边界**（行为由浏览器 claim 核验）。
+
+    守三件事：
+      ① 服务端 help_view.DIAGRAMS 与客户端 diagrams.js 的名字集合**完全一致**；
+      ② 图里的每一句文字都走 `t('字面量 key')`，key 在词典里 en/zh 齐备
+         （机器 token 走 intentional_source_text，**不得**被翻译）；
+      ③ Help 正文/首页真的用了这些图（不是写了模块没人调用）。
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.js = _read(SRC, "diagrams.js")
+        # 注释里出现 t(…) 只是**说明**，不算调用点；检查一律针对去掉注释的源码
+        cls.code = re.sub(r"(?m)\s*//.*$", "", re.sub(r"/\*.*?\*/", "", cls.js,
+                                                      flags=re.S))
+        cls.help_js = _read(SRC, "help.js")
+        cls.home = _read(SRC, "home.js")
+        with io.open(CATALOG, encoding="utf-8") as fh:
+            cls.catalog = {r["key"]: r for r in json.load(fh)["entries"]}
+
+    def test_23_diagram_names_match_between_server_and_client(self):
+        m = re.search(r"DIAGRAM_NAMES\s*=\s*\[([^\]]*)\]", self.code)
+        self.assertIsNotNone(m, "diagrams.js 必须导出声明的 DIAGRAM_NAMES")
+        names = re.findall(r"'([^']+)'", m.group(1))
+        self.assertEqual(sorted(names), sorted(HV.DIAGRAMS),
+                         "服务端 DIAGRAMS 与客户端 DIAGRAM_NAMES 漂移")
+        build = re.search(r"const BUILD = \{(.*?)\n\};", self.code, re.S)
+        self.assertIsNotNone(build, "diagrams.js 必须有 BUILD 分发表")
+        for n in names:
+            key = "'%s'" % n if "-" in n else n
+            self.assertIn(key, build.group(1), "BUILD 表里没有示意图 %s" % n)
+        for fn in re.findall(r":\s*(\w+)\s*,", build.group(1)):
+            self.assertIn("function %s(" % fn, self.code,
+                          "BUILD 引用了未定义的绘制函数 %s" % fn)
+
+    def test_24_every_diagram_label_is_a_literal_catalog_key(self):
+        keys = sorted(set(re.findall(r"\bt\('(diagram\.[^']+)'\)", self.code)))
+        self.assertTrue(keys, "diagrams.js 里没有任何 diagram.* 词典调用")
+        declared = {k for k in self.catalog if k.startswith("diagram.")}
+        self.assertEqual(keys, sorted(declared),
+                         "图的文字与词典条目不是一一对应（漏译或多写）")
+        untranslated = []
+        for k in keys:
+            e = self.catalog[k]
+            self.assertTrue(e["en"] and e["zh"], "词典条目缺 en/zh：%s" % k)
+            self.assertIn(e["status"], ("translated", "intentional_source_text"),
+                          "示意图文字不得是 hardcoded：%s" % k)
+            if e["status"] == "translated" and e["zh"] == e["en"]:
+                untranslated.append(k)
+        # 只允许极少数天然同形（如 Obsidian）；其余必须真的有中文
+        self.assertLessEqual(len(untranslated), 4,
+                             "以下条目标为 translated 却没有中文：%s" % untranslated)
+
+    def test_25_diagram_text_is_never_a_dynamic_key(self):
+        # 反例：t(altKey) 这类变量调用会让 i18n 检查器看不见调用点（曾出过 key 漏到界面）
+        bad = [m.group(0) for m in re.finditer(r"\bt\((?!'|\))", self.code)]
+        self.assertEqual(bad, [], "diagrams.js 出现非常量 t() 调用：%s" % bad[:5])
+        self.assertNotIn("innerHTML", self.code)
+        self.assertIn("createElementNS", self.code)
+        self.assertNotIn("document.createElement(", self.code)
+
+    def test_26_figures_are_wired_into_help_and_home(self):
+        raw = HV.load_raw()
+        ev = [p for p in raw["pages"] if p["slug"] == "evidence"][0]
+        figs = [(i, b) for i, b in enumerate(ev["blocks"], start=1)
+                if b.get("kind") == "figure"]
+        self.assertEqual([b["name"] for _i, b in figs], ["evidence-chain"],
+                         "/help/evidence 必须且只能有一个证据链示意图")
+        self.assertTrue(figs[0][1].get("en") and figs[0][1].get("zh"),
+                        "示意图必须双语题注")
+        # 编译层：figure 块带 alt_key，且指向词典里真实存在的 key
+        page = [p for p in HV.compile_doc()["pages"] if p["slug"] == "evidence"][0]
+        fig = [b for b in page["blocks"] if b["kind"] == "figure"][0]
+        self.assertEqual(fig["alt_key"], "diagram.evidence-chain.alt")
+        self.assertIn(fig["alt_key"], self.catalog)
+        self.assertIn(fig["key"], self.catalog)          # 题注 key 也进词典
+        idx = HV.compile_doc()["index"]["figure"]
+        self.assertEqual(idx["name"], "architecture")
+        self.assertIn(idx["key"], self.catalog)
+        # 渲染层：help.js 支持 figure 块，home.js 在 hero 里放 workflow 图
+        self.assertIn("case 'figure'", self.help_js)
+        self.assertIn("richFigure(doc.index.figure)", self.help_js)
+        self.assertIn("diagram('workflow')", self.home)
+        self.assertIn("home.hero.figure", self.home)
+        self.assertIn("home.hero.figure", self.catalog)
 
 
 if __name__ == "__main__":

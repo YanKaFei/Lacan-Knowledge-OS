@@ -21,6 +21,12 @@
    "zh": "第一次使用？"
   },
   {
+   "key": "home.hero.figure",
+   "surface": "Home",
+   "en": "One research task, end to end: ask, verify, read the original, save it, sort the sources — and know when the corpus cannot support the question.",
+   "zh": "一次研究任务的全程：提问、核对、读原文、存档、整理书目——以及语料撑不住时，系统会明说。"
+  },
+  {
    "key": "home.tasks.title",
    "surface": "Home",
    "en": "What do you want to do?",

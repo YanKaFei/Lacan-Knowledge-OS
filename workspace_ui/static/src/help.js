@@ -8,6 +8,7 @@
 //   * 全部用 DOM 节点构建（无 innerHTML），键盘可达，链接都是真实 `<a href="/…">`。
 import { h, mount } from './dom.js';
 import { t } from './i18n.js';
+import { diagram } from './diagrams.js';
 
 const CACHE = { doc: null, at: 0 };
 const UI_REF = /\{\{ui:([A-Za-z0-9._\-]+)\}\}/g;
@@ -39,6 +40,19 @@ function richP(text, cls) {
   const p = h('p', { class: cls || '' });
   for (const n of resolveRich(text)) p.appendChild(n);
   return p;
+}
+
+/** 示意图（P5D-005 UI 升级）：内联 SVG，文字随当前 locale 即时切换（不是图片）。 */
+export function richFigure(b) {
+  if (!b || !b.name) return null;
+  const svg = diagram(b.name);
+  if (!svg) return null;
+  const fig = h('figure', { class: 'figure figure-' + b.name, id: 'figure-' + b.name });
+  fig.appendChild(svg);
+  const cap = h('figcaption', { class: 'figure-caption' });
+  for (const n of resolveRich(b.key ? t(b.key) : '')) cap.appendChild(n);
+  fig.appendChild(cap);
+  return fig;
 }
 
 function hrefWithQuery(href, query) {
@@ -85,6 +99,8 @@ function block(b) {
       return h('p', { class: 'help-link-row' }, [
         h('a', { class: 'link-btn', href: hrefWithQuery(b.href, b.query),
                  text: t(b.key) })]);
+    case 'figure':
+      return richFigure(b);
     case 'source':
       // Layer B：原文不翻译、不经过词典
       return h('pre', { class: 'help-source', text: b.text });
@@ -209,6 +225,7 @@ export async function renderHelp(host, st) {
     const box = h('article', { class: 'help-body', id: 'help-article' }, [
       h('h1', { class: 'help-title', text: t(doc.index.title_key) }),
       richP(t(doc.index.intro_key)),
+      richFigure(doc.index.figure),
       h('h2', { id: 'topics', text: t('help.topics') }),
     ]);
     for (const sec of doc.sections || []) {

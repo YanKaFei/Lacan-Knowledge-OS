@@ -23,7 +23,13 @@ First public release: the engine edition (no corpus). Scope of this release.
   previous/next, "back to module", topic search, and instant language switching (no reload).
   Content lives in `_data/daily_use/help/help_content.json`; every cited control name is
   rendered from the real product dictionary, and every functional claim is machine-checked
-  (`HELP_CLAIM_VERIFICATION.json`: 42/42 verified, 0 fiction, 0 pending).
+  (`HELP_CLAIM_VERIFICATION.json`: 45/45 verified, 0 fiction, 0 pending).
+- **In-product diagrams.** Three diagrams are drawn as **inline SVG** (`workspace_ui/static/src/diagrams.js`)
+  rather than shipped images, so their labels follow the interface language instantly and their
+  colours come from the same theme variables as the text: *one research task end to end* (home hero),
+  *the system layers* (`/help`), and *the evidence chain* (`/help/evidence`). Machine tokens
+  (passage ids, session ids, witness ids, API paths, state names) are marked
+  `intentional_source_text` and are never translated.
 - **Real product routes.** `/research`, `/explore`, `/projects`, `/bibliography`, `/persons`,
   `/cases`, `/zotero`, `/help`, `/help/<topic>` are served as SPA routes. Legacy `?view=…`
   deep links keep working; navigation items became genuine links.

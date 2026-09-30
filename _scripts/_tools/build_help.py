@@ -328,8 +328,11 @@ def content_problems():
         seen = set()
         for i, b in enumerate(p.get("blocks") or [], start=1):
             k = b.get("kind")
-            if k not in ("h2", "h3", "p", "ul", "ol", "callout", "link", "source", "dl"):
+            if k not in ("h2", "h3", "p", "ul", "ol", "callout", "link", "source", "dl",
+                         "figure"):
                 probs.append("%s#%d: bad kind %r" % (p["slug"], i, k))
+            if k == "figure" and b.get("name") not in HV.DIAGRAMS:
+                probs.append("%s#%d: unknown figure %r" % (p["slug"], i, b.get("name")))
             if k == "h2" or k == "h3":
                 a = b.get("anchor") or ("s%d" % i)
                 if a in seen:
@@ -363,6 +366,13 @@ def content_problems():
     for item in HV.hrefs():
         if not item["href"].startswith("/"):
             probs.append("relative href: %s" % item["href"])
+    # 首页示意图（Help Center 索引）必须是内置图 + 双语题注
+    idx_fig = (raw.get("index") or {}).get("figure")
+    if idx_fig:
+        if idx_fig.get("name") not in HV.DIAGRAMS:
+            probs.append("index: unknown figure %r" % (idx_fig.get("name"),))
+        if not idx_fig.get("en") or not idx_fig.get("zh"):
+            probs.append("index: figure caption missing en/zh")
     return probs
 
 

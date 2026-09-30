@@ -57,6 +57,7 @@ TASK_OF_METHOD = {
     "test_task_09_findability_metrics": "FINDABILITY",
     "test_task_10_browser_qa_narrow_and_keyboard": "BROWSER_QA",
     "test_task_11_element_claims_verified": "CLAIMS_ELEMENT",
+    "test_task_12_diagram_labels_follow_locale": "DIAGRAM_LOCALE",
 }
 
 SPY = r"""
@@ -530,6 +531,45 @@ class FirstTimeUserTasks(unittest.TestCase):
         self._record("TASK_COMPLETION", True, {
             "tasks_passed": len(passed), "tasks_n": len(HELP_TASK_IDS),
             "tasks": done, "findability": self.__class__.evidence.get("findability")})
+
+    # ══════════════════════════════════════════════════ §23 diagram locale（UI 升级）
+    def test_task_12_diagram_labels_follow_locale(self):
+        """示意图是**内联 SVG** 而不是图片：切界面语言时图内文字必须即时跟着变。
+
+        反例（若用 `<img src="*.svg">`）：正文变成中文、图还是英文 —— 这正是 P5D-004
+        禁止的混合状态。同时核对 §17 Layer B：机器 token（段号/课次/witness/API/状态名）
+        **原样保留**，不得被翻译。
+        """
+        cdp = self._open("/help/evidence", locale="en")
+        try:
+            probe = ("(function(){const f=document.querySelector("
+                     "'.figure-evidence-chain svg.diagram');"
+                     "return f?Array.from(f.querySelectorAll('text'))"
+                     ".map(function(x){return x.textContent;}).join(' | '):null;})()")
+            en = cdp.js(probe)
+            self.assertIsNotNone(en, "证据链示意图没有渲染")
+            self.assertIn("The chain you follow", en)
+            # 真实用户操作：改 select 并派发 change（不刷新页面、不重新请求图片）
+            cdp.js("(function(){const s=document.getElementById('ui-locale-select');"
+                   "s.value='zh';s.dispatchEvent(new Event('change',{bubbles:true}));"
+                   "return 'ok';})()")
+            changed = cdp.wait_js(
+                "(function(){const f=document.querySelector("
+                "'.figure-evidence-chain svg.diagram');"
+                "return !!f && f.textContent.indexOf('你要走的链条')>=0;})()", 10)
+            self.assertTrue(changed, "切到中文后示意图文字没有跟着变（图是烘焙死的？）")
+            zh = cdp.js(probe)
+            for token in ("passage.S11.unknown.P2253", "session.S11.unknown.L05",
+                          "witness.fr.staferla", "witness.fr.seuil-pdf",
+                          "SOURCE_TRACE_INCOMPLETE",
+                          "GET /api/passage?id=passage.S11.unknown.P2253&before=2&after=2"):
+                self.assertIn(token, zh, "机器 token 被翻译了：%s" % token)
+            self.assertEqual(cdp.js("document.documentElement.lang"), "zh-CN")
+            self._record("DIAGRAM_LOCALE", True, {
+                "en_head": (en or "")[:70], "zh_head": (zh or "")[:70],
+                "tokens_verbatim": True, "html_lang": "zh-CN"})
+        finally:
+            cdp.close()
 
 
 if __name__ == "__main__":

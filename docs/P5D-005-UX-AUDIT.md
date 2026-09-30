@@ -175,3 +175,61 @@ GET /research /explore /projects /bibliography /persons /cases /zotero → 全�
 | A13 contextual help | 全站 0 个 | 8 个模块入口，全部指向**模块专属**帮助页（F20 逐个核对）|
 | A15 Recent 重复 id | `recent-item-` ×5 | 用历史文件名做 id |
 | A12 空状态 | `No projects yet.` 一行 | 教学型空状态：说明 + 两个真实动作（Projects / Explore 零结果 / History / Bibliography）|
+
+---
+
+## 6. UI 升级轮（P5D-005-UI：示意图 + 排版 + 文字）
+
+> 触发：用户直接要求「**UI 升级：文字 + 排版 + 图片示意，更高级、更清楚**」。
+> 这一轮**不改**任何学术语义（`core_freeze --verify` 39 组件一致、`freeze_lineage` `semantic=0`），
+> 只改产品层：示意图、排版尺度、以及承载它们所需的词典/测试/claim。
+
+### 6.1 审计发现（同一视角：第一次打开的研究者）
+
+| # | 发现 | 影响 |
+|---|---|---|
+| U1 | Help 13 页**全是文字**：证据链、系统分层、一次任务的全过程都只能用句子描述 | 用户要把三句话在脑子里拼成一张图；「断言 → 段号」这条核心链条最容易看漏 |
+| U2 | 首页 hero 只有标题 + 一句 lede + 两个按钮 | 首屏没有任何"这个系统怎么运转"的可视信息 |
+| U3 | 已有的三张示意图（`assets/diagrams/*.svg`）只在 GitHub README 里，**产品内看不到** | 文档与产品两套表达，用户读完 README 再打开产品是断的 |
+| U4 | Help 正文 h2 之间没有分隔、标题 26px、行高 1.6 | 长页面（Getting Started / Evidence）段落挤在一起，扫读困难 |
+| U5 | 图片式示意图（`<img src>`）会带来语言问题：图里的文字是烘焙死的 | 中文界面上留着英文图 —— 与 P5D-004「界面语言即时切换」直接冲突 |
+
+### 6.2 做法（以及为什么不用 `<img>`）
+
+**内联 SVG + 词典**，而不是往页面里塞 PNG/SVG 文件：
+
+| 决定 | 理由 |
+|---|---|
+| 几何在 `workspace_ui/static/src/diagrams.js`（原生 `createElementNS`），文字全部 `t('字面量 key')` | 语言切换**即时**（不刷新、不重新请求图片）；颜色走 `--bg/--ink/--line/--accent`，与正文永远同色；缩放不糊 |
+| viewBox 宽度按**真实渲染宽度**取（Help 正文列 600、首页 hero 900） | 缩放系数 ≈ 1.0，屏幕上的字号就是设计字号（第一版按 960 设计、被压到 0.82，实测偏小 → 重画） |
+| 机器 token（段号 / 课次 id / witness id / API 路径 / 状态名）标 `intentional_source_text`（en = zh = 原样） | §17 Layer B：机器标识**不得**被翻译 |
+| Help 侧新增 `kind="figure"` 块（只写名字 + 双语题注） | 结构进 JSON、几何进代码；名字集合由测试与服务端 `DIAGRAMS` 对齐 |
+| 窄屏（≤640px）图内横向滚动，不缩成看不清 | 430px 视口实测 `scrollWidth == clientWidth`（无页面级溢出）|
+
+三张图分别放在：**首页 hero**（一次研究任务的全程，含"诚实的不作答"面板）、
+**`/help` 首页**（系统分层：产品层可改 / 内核哈希锁定 / 语料自带）、
+**`/help/evidence`**（证据链：答案 → 断言 → 段落 → 课次，加见证本与证据检查器）。
+
+### 6.3 修后核对（实测）
+
+| # | 修前 | 修后（实测） |
+|---|---|---|
+| U1 | Help 无任何图示 | 3 张内联 SVG；`/help/evidence` 证据链 21 个文字节点、`/help` 分层图 22 个 |
+| U2 | hero 只有文字 | hero 内含 `#home-hero-figure`（880×273，32 个文字节点），紧随 CTA 之后 |
+| U3 | 图只在 README | 产品内与 README 同一套内容/同一套配色（README 版仍是静态 SVG，供 GitHub 渲染）|
+| U4 | h2 无分隔、标题 26px | h2 上线细分隔线 + 间距 30/16；标题 28px；正文行高 1.72；卡片 hover 有位移反馈 |
+| U5 | —（无图）| 切到中文：图内文字**全部**变中文（含状态说明、见证本说明）；机器 id 原样不动；`<html lang>` 同步 |
+
+**证据链**（每一条都可机器复核）：
+
+```text
+浏览器 element claim  C43 / C44 / C45   = PASS（真实 DOM：尺寸非零、文字非空、无 key 文本漏出）
+结构回归             test_p5d005_help_structure 26 项 = OK（含图名字典边界、字面量 key、无 innerHTML）
+词典                 build_i18n.py --check  problems=0
+Help 构建            build_help.py --check  content_problems=0 · broken_links=0 · broken_anchors=0
+源=产物=被服务的字节  check_ui_artifacts.py  19/19 资产 sha256 一致（+diagrams.js）
+窄视口               sw == cw == 500（无横向溢出）
+界面语言即时切换      DIAGRAM_LOCALE = PASS（图内文字变中文；机器 id 原样；不刷新）
+全量验收             daily_use…20260930T033032Z_03ed2773 = COMPLETE · 20/20 · failed=[]
+                     F16 146 suites/78 checks failed=[] skipped=[] · F20 13/13 · semantic=0
+```

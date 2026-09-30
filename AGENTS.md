@@ -72,8 +72,12 @@ from your own knowledge.
    Promotion to canonical, and any human-review record, is a human act.
 4. **Never weaken a test.** Fix the code or record the defect with evidence.
 5. **No documentation fiction.** If you document a control, route, status or workflow, it must
-   exist. Help text is machine-checked: `python3 _scripts/_tools/build_help.py --check` requires
-   42/42 claims verified, 0 pending, 0 broken links. `build_i18n.py --check` must stay clean.
+   exist. Help text is machine-checked: `python3 _scripts/_tools/build_help.py --check` must report
+   0 content problems and 0 broken links/anchors, and the upstream acceptance run requires
+   45/45 functional claims verified with 0 pending. (Element claims are verified by the real-browser
+   suite; its evidence under `_workspace/ui_qa/` is deliberately not shipped here, so in a bare clone
+   those claims read as `pending` — that is missing evidence, not a broken claim.)
+   `build_i18n.py --check` must stay clean.
 6. **Credentials never flow through the product API** and never into logs, fixtures or docs.
    Never commit a token, and never print one.
 7. **Licensing.** Corpus text stays out of this repository. The companion corpus repository is

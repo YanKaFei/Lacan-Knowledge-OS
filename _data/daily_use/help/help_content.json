@@ -4,7 +4,12 @@
   "en": "Help Center",
   "zh": "帮助中心",
   "intro_en": "Short, verifiable pages for the things you actually do here: ask a question, check the evidence, browse the corpus, keep a project, manage sources, and continue in Obsidian. Every control name in this Help is rendered from the real product interface, so it cannot drift from what you see on screen.",
-  "intro_zh": "这里只写你真正会做的事：提问、查证据、读语料、做长期项目、管理来源、在 Obsidian 继续。本 Help 里出现的每个控件名都是从真实产品界面取的，不可能和屏幕上的对不上。"
+  "intro_zh": "这里只写你真正会做的事：提问、查证据、读语料、做长期项目、管理来源、在 Obsidian 继续。本 Help 里出现的每个控件名都是从真实产品界面取的，不可能和屏幕上的对不上。",
+  "figure": {
+   "name": "architecture",
+   "en": "The product layer may evolve freely; the scholarly core cannot. Retrieval semantics, the evidence contract, sufficiency, citation integrity and the abstention policy are hash-pinned, and the corpus is supplied by you — the engine ships no source text.",
+   "zh": "产品层可以自由演进，学术内核不能改：检索语义、证据契约、充分性、引用完整性与弃权策略全部哈希锁定；语料由你自己提供——引擎本身不含任何源文本。"
+  }
  },
  "sections": [
   {
@@ -620,6 +625,12 @@
      "anchor": "chain",
      "en": "The chain you are following",
      "zh": "你要顺着走的链"
+    },
+    {
+     "kind": "figure",
+     "name": "evidence-chain",
+     "en": "Every claim an answer makes must land on a passage number: a session, a seminar or document, and the witness the text came from. The Evidence Inspector is where you check that chain by hand.",
+     "zh": "答案里的每一条断言都必须落到一个段号上：课次、研讨班或文献，以及文本来自哪个见证本。证据链就是这条路径，证据检查器是你亲手核对它的地方。"
     },
     {
      "kind": "dl",

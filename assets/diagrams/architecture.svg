@@ -52,8 +52,8 @@
   <!-- corpus -->
   <rect class="panel" x="24" y="452" width="912" height="52" stroke-dasharray="5 4"/>
   <text class="t h ink" x="44" y="476">Corpus — you supply it</text>
-  <text class="t s ink3" x="200" y="476">passage store · witnesses · ontology · indexes … NOT distributed in this repository (CORPUS.md)</text>
-  <text class="t mono xs" x="44" y="494" fill="#8a6d1f">3rd-party copyrighted text stays private · public-domain demo corpus in demo-corpus/ · corpus pack via tools/pack-corpus.py</text>
+  <text class="t s ink3" x="240" y="476">passage store · witnesses · ontology · indexes · no source text ships here (CORPUS.md)</text>
+  <text class="t mono xs" x="44" y="494" fill="#8a6d1f">reference corpus pack: separate public repo, research access only · public-domain demo in demo-corpus/ · tools/pack-corpus.py</text>
 
   <defs>
     <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">

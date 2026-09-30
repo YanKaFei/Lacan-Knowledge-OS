@@ -358,6 +358,30 @@
    "url": "/help/research-vs-explore",
    "js": "(function(){const t=(document.querySelector('.help-body')||{}).textContent||'';const a=Array.from(document.querySelectorAll('.help-body a[href]'));return t.indexOf('starts from a question')>=0 && a.some(function(x){return x.getAttribute('href')==='/explore';});})()",
    "claim": "Research vs Explore 帮助页说明三者区别，并给出可点的真实模块链接"
+  },
+  {
+   "id": "C43",
+   "help_page": "/help/evidence",
+   "kind": "element",
+   "url": "/help/evidence",
+   "js": "(function(){const f=document.querySelector('.figure-evidence-chain svg.diagram');if(!f)return false;const b=f.getBoundingClientRect();const tx=Array.from(f.querySelectorAll('text')).map(function(x){return (x.textContent||'').trim();});return b.width>=480&&b.height>=400&&tx.length>=18&&tx.every(function(v){return v.length>0&&v.indexOf('diagram.')!==0;});})()",
+   "claim": "Help › Evidence 里的证据链是**真实内联 SVG**（尺寸非零、文字随界面语言切换、无 key 文本漏出），不是烘焙死的图片或占位框"
+  },
+  {
+   "id": "C44",
+   "help_page": "/help",
+   "kind": "element",
+   "url": "/help",
+   "js": "(function(){const f=document.querySelector('.figure-architecture svg.diagram');if(!f)return false;const b=f.getBoundingClientRect();const tx=Array.from(f.querySelectorAll('text')).map(function(x){return (x.textContent||'').trim();});return b.width>=480&&b.height>=400&&tx.length>=16&&tx.every(function(v){return v.length>0&&v.indexOf('diagram.')!==0;});})()",
+   "claim": "Help 首页的系统分层图同样是真实内联 SVG，且与正文主题同色（不是一张贴上去的 PNG）"
+  },
+  {
+   "id": "C45",
+   "help_page": "/",
+   "kind": "element",
+   "url": "/",
+   "js": "(function(){const f=document.querySelector('#home-hero-figure svg.diagram');if(!f)return false;const b=f.getBoundingClientRect();const tx=Array.from(f.querySelectorAll('text')).map(function(x){return (x.textContent||'').trim();});return b.width>=640&&b.height>=180&&tx.length>=20&&tx.every(function(v){return v.length>0&&v.indexOf('diagram.')!==0;})&&!!f.closest('.home-hero');})()",
+   "claim": "首页 hero 的「一次研究任务」示意图真实渲染在 hero 之内（≥640px 宽），且诚实的不作答面板与有依据的结论并列出现"
   }
  ]
 }

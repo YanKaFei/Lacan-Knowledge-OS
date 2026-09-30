@@ -173,7 +173,7 @@ vectorielle et un vrai LLM sont des extras optionnels ([`docs/EMBEDDING_PROVIDER
 | **Langues** | langue de l'interface (EN/中文) et *langue de recherche* sont deux réglages indépendants |
 
 Chaque nom de contrôle cité dans l'aide est rendu depuis l'interface réelle, et chaque affirmation
-fonctionnelle est vérifiée par machine : **42/42 vérifiées · 0 fiction documentaire · 0 lien cassé**.
+fonctionnelle est vérifiée par machine : **45/45 vérifiées · 0 fiction documentaire · 0 lien cassé**.
 
 ---
 

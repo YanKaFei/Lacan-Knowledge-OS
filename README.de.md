@@ -167,7 +167,7 @@ Bibliographie, Zotero, Obsidian, Sprachen, Status, Fehlersuche*.
 
 **Jeder Steuerelement-Name im Help wird aus der echten Oberfläche gerendert**, und jede
 funktionale Behauptung ist maschinell geprüft
-(`HELP_CLAIM_VERIFICATION.json`: **42/42 verifiziert, 0 Fiktion, 0 offen**).
+(`HELP_CLAIM_VERIFICATION.json`: **45/45 verifiziert, 0 Fiktion, 0 offen**).
 
 ### 5.4 Oberflächensprache vs. Recherchesprache
 

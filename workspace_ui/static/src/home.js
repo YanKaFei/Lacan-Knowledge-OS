@@ -7,6 +7,7 @@
 import { h, mount } from './dom.js';
 import { t } from './i18n.js';
 import { goTo } from './router.js';
+import { diagram } from './diagrams.js';
 
 async function get(url) {
   const r = await fetch(url, { headers: { 'Accept': 'application/json' } });
@@ -68,6 +69,11 @@ export async function renderHome(host, st) {
            t('home.hero.cta-research')),
       link('btn', '/help/getting-started', 'hero-first-time',
            t('home.hero.cta-first-time')),
+    ]),
+    // P5D-005 UI 升级：hero 里的示意图（内联 SVG，文字随界面语言即时切换）
+    h('figure', { class: 'figure figure-workflow', id: 'home-hero-figure' }, [
+      diagram('workflow'),
+      h('figcaption', { class: 'figure-caption', text: t('home.hero.figure') }),
     ]),
   ]);
   root.appendChild(hero);

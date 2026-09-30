@@ -45,11 +45,12 @@
 
   <!-- witness row -->
   <path class="arrow" d="M805 148 V 196" marker-end="url(#b)"/>
-  <rect class="panel" x="500" y="196" width="430" height="96" rx="7"/>
+  <rect class="panel" x="500" y="196" width="430" height="112" rx="7"/>
   <text class="t h ink" x="518" y="224">Witness / Source</text>
   <text class="t s ink3" x="518" y="244">which carrier the text came from, and its trace status</text>
-  <text class="t mono xs ink2" x="518" y="264">witness.fr.staferla · witness.zh.translation-project · witness.fr.seuil-print</text>
-  <text class="t xs" x="518" y="282" fill="#8a6d1f">SOURCE_TRACE_INCOMPLETE → still usable, cannot carry a formal bibliographic citation</text>
+  <text class="t mono xs ink2" x="518" y="264">witness.fr.staferla · witness.fr.seuil-pdf</text>
+  <text class="t mono xs ink2" x="518" y="280">witness.zh.translation-project</text>
+  <text class="t xs" x="518" y="300" fill="#8a6d1f">SOURCE_TRACE_INCOMPLETE → still usable, cannot carry a formal citation</text>
 
   <!-- principle panel -->
   <rect class="panel" x="30" y="196" width="430" height="96" rx="7"/>

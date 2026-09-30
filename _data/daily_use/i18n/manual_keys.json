@@ -175,6 +175,510 @@
   "status": "translated"
  },
  {
+  "key": "diagram.workflow.alt",
+  "en": "One research task, end to end: ask, check the evidence, read the original, save the material, sort the sources, and carry your own knowledge into Obsidian — with honest non-answers shown next to supported results.",
+  "zh": "一次研究任务的全程：提问、核对证据、读原文、存材料、整理书目，最后把知识带进 Obsidian——有依据的结论与诚实的不作答并列显示。",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.1.title",
+  "en": "Ask",
+  "zh": "提问",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.1.sub",
+  "en": "one question",
+  "zh": "一个问题",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.1.route",
+  "en": "/research",
+  "zh": "/research",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.step.2.title",
+  "en": "Check evidence",
+  "zh": "核对证据",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.2.sub",
+  "en": "claims + citations",
+  "zh": "断言 + 引文",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.2.route",
+  "en": "/help/evidence",
+  "zh": "/help/evidence",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.step.3.title",
+  "en": "Read source",
+  "zh": "读原文",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.3.sub",
+  "en": "passage in context",
+  "zh": "段落连同上下文",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.3.route",
+  "en": "/explore",
+  "zh": "/explore",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.step.4.title",
+  "en": "Save the material",
+  "zh": "存材料",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.4.sub",
+  "en": "run into a topic",
+  "zh": "归入长期课题",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.4.route",
+  "en": "/projects",
+  "zh": "/projects",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.step.5.title",
+  "en": "Sort sources",
+  "zh": "整理书目",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.5.sub",
+  "en": "review · metadata",
+  "zh": "复核 · 元数据",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.5.route",
+  "en": "/bibliography",
+  "zh": "/bibliography",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.step.6.title",
+  "en": "Your knowledge",
+  "zh": "你的知识",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.6.sub",
+  "en": "your own notes",
+  "zh": "你自己的笔记",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.step.6.route",
+  "en": "Obsidian",
+  "zh": "Obsidian",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.supported.title",
+  "en": "Supported outcomes",
+  "zh": "有依据的结论",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.supported.tokens1",
+  "en": "VALIDATED · VALIDATED_WITH_QUALIFICATIONS",
+  "zh": "VALIDATED · VALIDATED_WITH_QUALIFICATIONS",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.supported.tokens2",
+  "en": "PARTIALLY_SUPPORTED",
+  "zh": "PARTIALLY_SUPPORTED",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.supported.note",
+  "en": "the state is shown literally; qualifications are never hidden",
+  "zh": "状态原样显示，限定条件不会被藏起来",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.nonanswer.title",
+  "en": "Honest non-answers — not errors",
+  "zh": "诚实的不作答——不是错误",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.workflow.nonanswer.tokens1",
+  "en": "ABSTAINED · INSUFFICIENT_EVIDENCE",
+  "zh": "ABSTAINED · INSUFFICIENT_EVIDENCE",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.nonanswer.tokens2",
+  "en": "VALIDATION_FAILED",
+  "zh": "VALIDATION_FAILED",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.workflow.nonanswer.note",
+  "en": "the corpus could not support the question, and the system says so",
+  "zh": "语料撑不住这个问题，系统会明说",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.alt",
+  "en": "Evidence chain: an answer carries claims, each claim points to a passage, a passage sits in a session and a seminar or document, and a witness or source carries the text.",
+  "zh": "证据链：答案由断言组成，每条断言指向一个段落，段落属于某个课次与研讨班或文献，文本由某个见证本或来源承载。",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.title",
+  "en": "The chain you follow — every claim must land on a passage number",
+  "zh": "你要走的链条——每条断言都必须落到一个段号上",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.answer.title",
+  "en": "Answer",
+  "zh": "答案",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.answer.sub",
+  "en": "state + citations",
+  "zh": "状态 + 引文",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.claim.title",
+  "en": "Claim",
+  "zh": "断言",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.claim.sub",
+  "en": "one atomic statement",
+  "zh": "一条最小陈述",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.passage.title",
+  "en": "Passage",
+  "zh": "段落",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.passage.sub",
+  "en": "the unit of evidence",
+  "zh": "证据的最小单位",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.passage.id",
+  "en": "passage.S11.unknown.P2253",
+  "zh": "passage.S11.unknown.P2253",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.evidence-chain.session.title",
+  "en": "Session → Seminar",
+  "zh": "课次 → 研讨班",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.session.sub",
+  "en": "where the passage sits",
+  "zh": "这一段所在的位置",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.session.id",
+  "en": "session.S11.unknown.L05",
+  "zh": "session.S11.unknown.L05",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.evidence-chain.witness.title",
+  "en": "Witness / Source",
+  "zh": "见证本 / 来源",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.witness.sub",
+  "en": "which carrier the text came from, and its trace status",
+  "zh": "文本来自哪个载体，以及它的溯源状态",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.witness.ids1",
+  "en": "witness.fr.staferla · witness.fr.seuil-pdf",
+  "zh": "witness.fr.staferla · witness.fr.seuil-pdf",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.evidence-chain.witness.ids2",
+  "en": "witness.zh.translation-project",
+  "zh": "witness.zh.translation-project",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.evidence-chain.witness.warn",
+  "en": "SOURCE_TRACE_INCOMPLETE → still usable, cannot carry a formal citation",
+  "zh": "SOURCE_TRACE_INCOMPLETE → 仍可用，但不能承载正式引用",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.inspector.title",
+  "en": "Evidence Inspector — what you verify with",
+  "zh": "证据检查器——你用来核对的东西",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.inspector.sub",
+  "en": "original passage · quoted span · context · source chain · translation when one exists",
+  "zh": "原文段落 · 引文片段 · 上下文 · 来源链 · 有译本时给出译本",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.inspector.api",
+  "en": "GET /api/passage?id=passage.S11.unknown.P2253&before=2&after=2",
+  "zh": "GET /api/passage?id=passage.S11.unknown.P2253&before=2&after=2",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.alt",
+  "en": "Lacan Knowledge OS layers: agents and editors enter through MCP or the web workspace; the product layer may change freely; a three-component scholarly_api boundary; a 39-component hash-pinned core; and a corpus you supply.",
+  "zh": "Lacan Knowledge OS 的分层：智能体与编辑器经 MCP 或网页工作区进入；产品层可自由演进；由三个组件构成的 scholarly_api 边界；39 个哈希锁定的内核组件；以及由你提供的语料。",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.agents.title",
+  "en": "Agents & editors",
+  "zh": "智能体与编辑器",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.agents.sub",
+  "en": "connect over MCP, or use the web workspace",
+  "zh": "经 MCP 接入，或使用网页工作区",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.agents.mono1",
+  "en": "MCP · stdio",
+  "zh": "MCP · stdio",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.agents.mono2",
+  "en": "10 tools · mcp__lacan-kb__*",
+  "zh": "10 tools · mcp__lacan-kb__*",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.entry.title",
+  "en": "Entry surfaces",
+  "zh": "进入界面",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.entry.mono1",
+  "en": "mcp_server/ · stdio",
+  "zh": "mcp_server/ · stdio",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.entry.mono2",
+  "en": "workspace_ui/ (web)",
+  "zh": "workspace_ui/ (web)",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.entry.mono3",
+  "en": "browse_api/ · project_api/",
+  "zh": "browse_api/ · project_api/",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.product.title",
+  "en": "Product layer — may evolve freely",
+  "zh": "产品层——可以自由演进",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.product.sub",
+  "en": "research UI · Evidence Inspector · Explore · Projects · Bibliography · Export · Obsidian bridge",
+  "zh": "研究界面 · 证据检查器 · 语料浏览 · 课题 · 书目 · 导出 · Obsidian 桥",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.product.note",
+  "en": "no bundler — ES modules and stdlib Python",
+  "zh": "无打包器——ES 模块 + Python 标准库",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.boundary",
+  "en": "scholarly_api v1 — product boundary (3 hash-pinned components)",
+  "zh": "scholarly_api v1 —— 产品边界（3 个哈希锁定组件）",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.core.title",
+  "en": "Frozen scholarly core — 39 hash-pinned components",
+  "zh": "冻结的学术内核——39 个哈希锁定组件",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.core.sub",
+  "en": "retrieval · evidence contract · sufficiency · citation integrity · abstention",
+  "zh": "检索 · 证据契约 · 充分性 · 引用完整性 · 弃权",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.core.verify1",
+  "en": "core_freeze.py --verify → SCHOLARLY_CORE_READY",
+  "zh": "core_freeze.py --verify → SCHOLARLY_CORE_READY",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.core.verify2",
+  "en": "freeze_lineage.py --verify → semantic=0",
+  "zh": "freeze_lineage.py --verify → semantic=0",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.corpus.title",
+  "en": "Corpus — you supply it",
+  "zh": "语料库——由你提供",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.corpus.sub",
+  "en": "install the reference corpus pack (a separate public repository), or bring your own text",
+  "zh": "安装参考语料包（另一个公开仓库），或者自带你已有权使用的文本",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.inspector.note1",
+  "en": "A validated claim means the corpus supports the statement under the core's rules —",
+  "zh": "「已校验」意味着语料在内核规则下支持这条陈述——",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.evidence-chain.inspector.note2",
+  "en": "not that the passage says everything the sentence suggests.",
+  "zh": "不等于这一段说了那句话暗示的一切。",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.product.paths1",
+  "en": "workspace_ui/ · browse_api/ · project_api/ · export_system/",
+  "zh": "workspace_ui/ · browse_api/ · project_api/ · export_system/",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.product.paths2",
+  "en": "bibliography/ · obsidian_adapter/",
+  "zh": "bibliography/ · obsidian_adapter/",
+  "surface": "Diagrams",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "diagram.architecture.corpus.note1",
+  "en": "third-party copyrighted text · research access only",
+  "zh": "第三方版权文本 · 仅供研究访问",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
+  "key": "diagram.architecture.corpus.note2",
+  "en": "no commercial use · no redistribution · no re-serving",
+  "zh": "不得商用 · 不得再分发 · 不得转服务",
+  "surface": "Diagrams",
+  "status": "translated"
+ },
+ {
   "key": "help.back-to-help",
   "en": "Back to Help",
   "zh": "返回帮助中心",
@@ -421,127 +925,134 @@
  },
  {
   "key": "help.evidence.10",
+  "en": "Status reference",
+  "zh": "状态速查",
+  "surface": "Help",
+  "status": "translated"
+ },
+ {
+  "key": "help.evidence.11",
   "en": "Why a citation may be unavailable",
   "zh": "为什么某条引用不可用",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.1.desc",
+  "key": "help.evidence.2",
+  "en": "Every claim an answer makes must land on a passage number: a session, a seminar or document, and the witness the text came from. The Evidence Inspector is where you check that chain by hand.",
+  "zh": "答案里的每一条断言都必须落到一个段号上：课次、研讨班或文献，以及文本来自哪个见证本。证据链就是这条路径，证据检查器是你亲手核对它的地方。",
+  "surface": "Help",
+  "status": "translated"
+ },
+ {
+  "key": "help.evidence.3.1.desc",
   "en": "A final scholarly answer with a state, claims and citations. It is the core's conclusion, not the source.",
   "zh": "一份带状态、claims 与引文的最终学术答案。它是内核的**结论**，不是来源本身。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.1.term",
+  "key": "help.evidence.3.1.term",
   "en": "Answer",
   "zh": "答案",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.2.desc",
+  "key": "help.evidence.3.2.desc",
   "en": "One atomic statement. Each claim must survive citation and entailment validation, or it is dropped.",
   "zh": "一条原子陈述。每条 claim 都必须通过引用与蕴含校验，否则会被剔除。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.2.term",
+  "key": "help.evidence.3.2.term",
   "en": "Claim",
   "zh": "Claim（主张）",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.3.desc",
+  "key": "help.evidence.3.3.desc",
   "en": "The unit of evidence: a real passage id such as passage.S11.unknown.P2253, with its own text and locator.",
   "zh": "证据的单位：一个真实 passage id（例如 passage.S11.unknown.P2253），带自己的文本与定位。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.3.term",
+  "key": "help.evidence.3.3.term",
   "en": "Passage",
   "zh": "Passage（段落）",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.4.desc",
+  "key": "help.evidence.3.4.desc",
   "en": "Where that passage sits: a session of a seminar, or another corpus document.",
   "zh": "该段落所在的位置：某次研讨班的某次课，或另一份语料文档。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.4.term",
+  "key": "help.evidence.3.4.term",
   "en": "Session → Seminar / Document",
   "zh": "Session → 研讨班 / 文档",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.5.desc",
+  "key": "help.evidence.3.5.desc",
   "en": "Which witness the text came from (for example a French transcript witness or the Chinese translation project), and what its trace status is.",
   "zh": "文本来自哪个见证本（例如某法文转录见证本，或中文翻译项目），以及它的溯源状态。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.2.5.term",
+  "key": "help.evidence.3.5.term",
   "en": "Witness / Source",
   "zh": "见证本 / 来源",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.3",
+  "key": "help.evidence.4",
   "en": "The Evidence Inspector",
   "zh": "Evidence Inspector",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.4",
+  "key": "help.evidence.5",
   "en": "Click a citation chip under a claim and the inspector opens on the right. It shows: Original passage, Quoted span (the exact sentence used), Context (with ± controls), Source chain, and Translation when one exists. At the bottom there is {{ui:evidence-inspector.save-passage}}.",
   "zh": "点 claim 下面的引文 chip，检查器会在右侧打开。它显示：Original passage、Quoted span（实际被引用的那一句）、Context（带 ± 调节）、Source chain，以及存在时的 Translation。底部有 {{ui:evidence-inspector.save-passage}}。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.5",
+  "key": "help.evidence.6",
   "en": "Why this matters",
   "zh": "为什么这件事重要",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.6",
+  "key": "help.evidence.7",
   "en": "A validated claim means the corpus supports the statement under the core's rules — it does not mean the passage says everything the sentence suggests. Read the quoted span in its context before you rely on it. \"What the AI said\" and \"what Lacan's text proves\" are two different things, and only the second one belongs in your argument.",
   "zh": "一条 validated claim 的意思是：在内核的规则下，语料**支持**这条陈述 —— 它**不**意味着那段原文说了这句话暗示的全部内容。在你依赖它之前，先把它引用的那句放回上下文里读。「AI 说了什么」和「拉康原文证明了什么」是两件事，能进你论证的只有后者。",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.7",
+  "key": "help.evidence.8",
   "en": "When the trace is incomplete",
   "zh": "当溯源不完整",
   "surface": "Help",
   "status": "translated"
  },
  {
-  "key": "help.evidence.8",
+  "key": "help.evidence.9",
   "en": "Some witnesses are available for corpus research while their upstream publication or edition trace is incomplete. Those passages are marked SOURCE_TRACE_INCOMPLETE. This is a scholarly limitation of the source, not an operational error and not a UI bug: the text is still usable, it just cannot carry a full bibliographic citation.",
   "zh": "有些见证本可以用于语料研究，但它们的上游出版/版本溯源不完整。这些段落会被标 SOURCE_TRACE_INCOMPLETE。这是来源的**学术限制**，不是运行错误，也不是界面 bug：文本仍可用，只是扛不起一条完整的书目引用。",
-  "surface": "Help",
-  "status": "translated"
- },
- {
-  "key": "help.evidence.9",
-  "en": "Status reference",
-  "zh": "状态速查",
   "surface": "Help",
   "status": "translated"
  },
@@ -871,6 +1382,13 @@
   "key": "help.getting-started.title",
   "en": "5-minute quick start",
   "zh": "5 分钟快速开始",
+  "surface": "Help",
+  "status": "translated"
+ },
+ {
+  "key": "help.index.figure",
+  "en": "The product layer may evolve freely; the scholarly core cannot. Retrieval semantics, the evidence contract, sufficiency, citation integrity and the abstention policy are hash-pinned, and the corpus is supplied by you — the engine ships no source text.",
+  "zh": "产品层可以自由演进，学术内核不能改：检索语义、证据契约、充分性、引用完整性与弃权策略全部哈希锁定；语料由你自己提供——引擎本身不含任何源文本。",
   "surface": "Help",
   "status": "translated"
  },
@@ -2824,6 +3342,13 @@
   "key": "home.hero.cta-research",
   "en": "Start a research run",
   "zh": "开始一次研究",
+  "surface": "Home",
+  "status": "translated"
+ },
+ {
+  "key": "home.hero.figure",
+  "en": "One research task, end to end: ask, verify, read the original, save it, sort the sources — and know when the corpus cannot support the question.",
+  "zh": "一次研究任务的全程：提问、核对、读原文、存档、整理书目——以及语料撑不住时，系统会明说。",
   "surface": "Home",
   "status": "translated"
  },
