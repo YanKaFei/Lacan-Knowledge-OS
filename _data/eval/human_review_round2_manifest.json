@@ -1,0 +1,685 @@
+{
+  "schema_version": "human-review-round2-manifest/v1",
+  "round2_review_set_version": "round2-review-set/v1",
+  "phase": "Phase 4C.1-E",
+  "generated_at": "2026-09-24T14:40:36+00:00",
+  "git_head": "f70402e5b852923028283c93f81dbfb12f1911f4",
+  "source_run_id": "4c1d2_llm_20260924T190203Z_50de1609",
+  "source_run_dir": "_data/eval/runs/4c1d2_llm_20260924T190203Z_50de1609",
+  "source_run_manifest_hash": "6f45d95ca2242418ee8ae7e94b6931cc5cf61e4ea1e3ed0c87a7df583127a0ab",
+  "source_run_results_hash": "908cb6e2f92a4a41ea12fa50933d407a66b74f23b564cd39332ca40e1742f548",
+  "source_run_metrics_hash": "0d3d4fc3908b91035e2985a3d8c71c66523f6125efb2e6e4d618556cba2627c3",
+  "source_run_seal": {
+    "sealed": true,
+    "human_validated": false,
+    "provider_success": "14/14",
+    "gate21_violations": 0,
+    "validator_version": "entailment-validator/1"
+  },
+  "legacy_seal_logical_hashes": {
+    "raw_provider_outputs_hash": "c3fe7334987acc5d1887665ac4861cf06c87ce36b337b8a6a242aa22bcbae6bd",
+    "structured_claims_hash": "0e095f73b4e0a86f550ae1366c46627bab2aae1be58042a0e739fecb11e6a6e8",
+    "entailment_results_hash": "da79450244a76fc802114f05ce70c3c226fc0fb093c2c4e7a4a19de03c01b481",
+    "validated_claims_hash": "ee116fa09e911e687a61b700960d3047403a35b5916fa1322370d02b26dbb066",
+    "final_answers_hash": "ee116fa09e911e687a61b700960d3047403a35b5916fa1322370d02b26dbb066",
+    "reproducible_from_repo": false,
+    "note": "这 5 个是当年按逻辑子集算的哈希，生成 recipe 未落库；本阶段改用 E1 自己定义的逐题 answer_hash / packet_view_hash 复算，并以 seal 的 3 个字节哈希 + manifest + audit + Gate 21 作为 run 完整性依据。"
+  },
+  "engine_hashes": {
+    "synthesis_contract.py": "11cd37d77ece043c188295dc86dbc35e73bc28af65462dacab8ef6c64e2b5584",
+    "synthesis_claims.py": "d498506c8cca3b7fb57b2893d4f2fcf6d56a1a2e475adfcb00c0c6bd7ee8c294",
+    "synthesis_render.py": "b0caac57c4745bba69cc716dda552177d11da66220ed97711f750c86b7140605",
+    "synthesis_adapters.py": "251704dc43270930d00d4a9035f265c86ba54ade7d15232d58e94d892aaf4688",
+    "synthesis_entailment.py": "271514b28e20fbf8c23af04f3212cd114612a0bdc2b2dfa5e96c562213ef892b",
+    "synthesis_validation.py": "40ee0d45f747e5ff1fc9f9ab4591fc4a8cfd1baf5acb262202f12fbc30b112ed",
+    "run_synthesis_4c1d.py": "0ef55506b21980121df745ba91ebcb67985f87b145e4f7fe948511e2692b114b",
+    "research_execution.py": "89062bf7324ec2b823182490459973e51631ca213dd9ec7d07c5c57a82dc5d07",
+    "research_contract.py": "a2c7510b28ac6eb7bcbc942f0d00c9d0cba4f3b3b831eff59b602244e58c201b",
+    "research_answer.py": "eedfa81d000109fd2c6d60a774398e78784d12b8ce85fb9057e0a015f66d8a0f"
+  },
+  "prompt_hashes": {
+    "synthesis_prompt_hash": "cc7170f8bbd21f5d711826f6d99804db19db82e9494c9f43b6484cffda60ae59",
+    "judge_prompt_hash": "3708ccb8e02459dccf95ed6432e4ebbb2b7a0fdd57622b0de42ee182509634c7"
+  },
+  "reviewer": {
+    "reviewer_count": 1,
+    "reviewer_status": "SINGLE_REVIEWER",
+    "inter_rater_agreement": "NOT_APPLICABLE"
+  },
+  "frozen_artifacts": {
+    "gate": {
+      "path": "_data/eval/scholarly_readiness_gate_v1.json",
+      "sha256": "ca915b0ba362d7a716430a55502a1fe6406366e5f9eff4ef3760bfb4be97d121"
+    },
+    "taxonomy": {
+      "path": "_data/eval/round2_taxonomy_v1.json",
+      "sha256": "f38ec734f4d241a986ef4b84ae494188a17dfd7d18e1362844086947b9155c24"
+    },
+    "schema": {
+      "path": "_data/eval/round2_review_schema.json",
+      "sha256": "c970e104bbcae784110208501b010ff1f9fb2e0adef87ed7e7a13009b2e6ca5e"
+    },
+    "frozen_identity": {
+      "path": "_data/eval/phase4c1d2_frozen_identity.json",
+      "sha256": "5ca5ca0aaf8dc25a7b21ac6feac4702b27915be6e470bac54a81211a65d3c9e5"
+    },
+    "round1_records": {
+      "path": "_data/eval/research_human_review.jsonl",
+      "sha256": "a14ea5316ccaaf90f95e197f9674bca9620848fcc726a1bd5d4c9694fe4bfb3d"
+    },
+    "round1_results": {
+      "path": "_data/eval/human_review_results_v1.json",
+      "sha256": "43a3438bebb8961169e12f97d0cad4b7da24c07a35823f4073463617c1fa6168"
+    }
+  },
+  "dataset_state_at_freeze": {
+    "total": 14,
+    "reviewed": 0,
+    "not_reviewed": 14,
+    "any_human_score_present": false,
+    "note": "gate 在本状态（reviewed=0）冻结；此后不得修改。"
+  },
+  "blindness": {
+    "clean": true,
+    "checked_packets": 14,
+    "forbidden_tokens": [
+      "Round 1",
+      "Round1",
+      "round 1",
+      "第一轮",
+      "第一轮评分",
+      "旧 Agent",
+      "旧答案",
+      "bucket",
+      "strong_success",
+      "borderline",
+      "insufficient_evidence_bucket",
+      "SUPPORTED",
+      "PARTIALLY_SUPPORTED",
+      "INSUFFICIENT_EVIDENCE",
+      "CONFLICTING_EVIDENCE",
+      "expected improvement",
+      "应该改善",
+      "以前失败",
+      "之前失败",
+      "从 1 分提升",
+      "已剔除",
+      "剔除",
+      "未通过验证",
+      "NOT_ENTAILED",
+      "PARTIALLY_ENTAILED",
+      "CONTRADICTED",
+      "SOURCE_ROLE_MISMATCH",
+      "INSUFFICIENT_CONTEXT",
+      "rejected_claim",
+      "rejected claims",
+      "repair",
+      "repaired",
+      "NARROW_CLAIM",
+      "entailment",
+      "judge",
+      "validator",
+      "Gate",
+      "gate21",
+      "D_SOURCE_ROLE",
+      "tool_call",
+      "tool calls",
+      "lane",
+      "budget",
+      "execution_state",
+      "evidence_n",
+      "retrieval",
+      "scheduler",
+      "class_quota",
+      "passage_store",
+      "vector_unavailable",
+      "VECTOR_UNAVAILABLE",
+      "SEPARATE_LANES_ENFORCED",
+      "ONTOLOGY_REPAIRED",
+      "TERMS_NOT_IN_CORPUS",
+      "QUERY_DECOMPOSED",
+      "provider",
+      "latency",
+      "retry",
+      "attempts",
+      "token",
+      "trace_summary",
+      "failure taxonom",
+      "RANKING_FAILURE",
+      "ONTOLOGY_GAP",
+      "FORMALISM_MISSING",
+      "forbidden_outputs_observed",
+      "theoretical_development_without_evidence",
+      "pipeline_log_as_answer",
+      "search_passages",
+      "resolve_entity",
+      "find_concept_evidence",
+      "citation_eligibility",
+      "state_ceiling",
+      "failed_constraints",
+      "resolved_operations",
+      "missing_operations"
+    ],
+    "hits": {}
+  },
+  "answer_hash_per_task": {
+    "rt-A01": "48529254cb15c69a56f2e43ef1cba630544f6d180d42c476bea869cda0ea5fcf",
+    "rt-D01": "4dd344c232fe73faca2b166c0f676816fb7a678f91543a768f2da2e6e5ebb9dc",
+    "rt-B01": "d20cd5640a4eb14c4ff48af83aef562e9b1556e194ae1b3e6ad8a7b88763c79a",
+    "rt-E01": "2116b3f725378f7f84ed7d25507231537ce66d884aecd4adbe444570f5746c72",
+    "rt-I02": "da4c6bc9be7679bc069644b7f6996c04a19f18d9471a8ae8753f60efd125ca33",
+    "rt-C03": "2aa7b816a9f0dfe39afe5f3bb14e9c93e5de990b1022d78aa9402a731643cb3b",
+    "rt-F01": "aa85671a95f3cebd94cd453171acd2e1ae43a4683b41acc4c7a16b447146063b",
+    "rt-G02": "57c9fec3c67b977c03834f21141bfae8b2c9b9d35955d7082f0acd86138e402c",
+    "rt-J02": "071d512650b88a55c023d233183655ac89fe7b9ec882cff40ab7d1ef30f21cd5",
+    "rt-J03": "9f7c0c2961d12713ea95c331dc00af52e876a93695e88605cbc4f015e388a715",
+    "rt-H02": "bed188f9af8238b1f65ac8af8fc65c04569de93367829cc3aec098a5ef69226c",
+    "rt-I03": "1f02f9953f6ce3c5616743dce4c247593f4cb97a6e4c6454eebd5dd297a7ab8f",
+    "rt-J01": "28a65346366ff60f97886feddfe8524bc0396ead0c81c5f73fc8284349ed75c7",
+    "rt-G01": "ca93988aa684d40477eb9a90202dabb3b89637aff98f132eed3778f0947145ab"
+  },
+  "packet_view_hash_per_task": {
+    "rt-A01": "69ce070aa4ae8ff4f817874a50da86de278f9065093ebee80fd969106143ac7b",
+    "rt-D01": "c573c553e1557007b02d2c6a3cfd45b4a10cb32dcdd0d860be31b99587ee7996",
+    "rt-B01": "d397562a21b998a7d7d672dbf2016b845eae479681609dab9b27bf3714c8aa70",
+    "rt-E01": "75d2637bdb565197de8a5e56df54b56056f7c2bc02768613a6ee1dcaee9d928a",
+    "rt-I02": "fa4c4942be4c6cae7956b75297273d27d6517572dd8823e34a46cd2d08e1876d",
+    "rt-C03": "352b5bf5660b6bd589d03ed15446c61f8a7dd51863efcaf49a4c9338c4803b7f",
+    "rt-F01": "a7f958707b49367873c2867c1f3b079311bf84a3145a023b05a540fd07b4329f",
+    "rt-G02": "a755d376316bf4028780d2f5a7b1246851e7300d4e35f48b07446caf5cbce66d",
+    "rt-J02": "e32372c0c173e31d27de0e399ca42301e710cc907f5d3a905e9f80a3760c1a07",
+    "rt-J03": "18caecdfcc8d944beef67d4d5e20934e47e06135046c4b6934191336868fb53c",
+    "rt-H02": "3a90c89d4bc5ebbe33f1352e36abf3aac8b32de0550f3b4770a81f709eb9ddfd",
+    "rt-I03": "90fbd716ecae4fa102d5aff61f27a7f94412d88a0e726fded2c8ebf523b26718",
+    "rt-J01": "dac082513a8eeffda388e018a8f75202f18082e9b9c962bff063845b4cf87ee7",
+    "rt-G01": "141de77192fa9c216131c6dc7a3227d65e519013a276556f3260ef59cff08b89"
+  },
+  "tasks": [
+    {
+      "order": 1,
+      "task_id": "rt-A01",
+      "answer_hash": "48529254cb15c69a56f2e43ef1cba630544f6d180d42c476bea869cda0ea5fcf",
+      "packet_view_hash": "69ce070aa4ae8ff4f817874a50da86de278f9065093ebee80fd969106143ac7b",
+      "claims_n": 5,
+      "citations_n": 6,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 2,
+      "task_id": "rt-D01",
+      "answer_hash": "4dd344c232fe73faca2b166c0f676816fb7a678f91543a768f2da2e6e5ebb9dc",
+      "packet_view_hash": "c573c553e1557007b02d2c6a3cfd45b4a10cb32dcdd0d860be31b99587ee7996",
+      "claims_n": 4,
+      "citations_n": 6,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 3,
+      "task_id": "rt-B01",
+      "answer_hash": "d20cd5640a4eb14c4ff48af83aef562e9b1556e194ae1b3e6ad8a7b88763c79a",
+      "packet_view_hash": "d397562a21b998a7d7d672dbf2016b845eae479681609dab9b27bf3714c8aa70",
+      "claims_n": 7,
+      "citations_n": 12,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 4,
+      "task_id": "rt-E01",
+      "answer_hash": "2116b3f725378f7f84ed7d25507231537ce66d884aecd4adbe444570f5746c72",
+      "packet_view_hash": "75d2637bdb565197de8a5e56df54b56056f7c2bc02768613a6ee1dcaee9d928a",
+      "claims_n": 7,
+      "citations_n": 11,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 5,
+      "task_id": "rt-I02",
+      "answer_hash": "da4c6bc9be7679bc069644b7f6996c04a19f18d9471a8ae8753f60efd125ca33",
+      "packet_view_hash": "fa4c4942be4c6cae7956b75297273d27d6517572dd8823e34a46cd2d08e1876d",
+      "claims_n": 6,
+      "citations_n": 5,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 6,
+      "task_id": "rt-C03",
+      "answer_hash": "2aa7b816a9f0dfe39afe5f3bb14e9c93e5de990b1022d78aa9402a731643cb3b",
+      "packet_view_hash": "352b5bf5660b6bd589d03ed15446c61f8a7dd51863efcaf49a4c9338c4803b7f",
+      "claims_n": 6,
+      "citations_n": 14,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 7,
+      "task_id": "rt-F01",
+      "answer_hash": "aa85671a95f3cebd94cd453171acd2e1ae43a4683b41acc4c7a16b447146063b",
+      "packet_view_hash": "a7f958707b49367873c2867c1f3b079311bf84a3145a023b05a540fd07b4329f",
+      "claims_n": 5,
+      "citations_n": 7,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 8,
+      "task_id": "rt-G02",
+      "answer_hash": "57c9fec3c67b977c03834f21141bfae8b2c9b9d35955d7082f0acd86138e402c",
+      "packet_view_hash": "a755d376316bf4028780d2f5a7b1246851e7300d4e35f48b07446caf5cbce66d",
+      "claims_n": 6,
+      "citations_n": 5,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 9,
+      "task_id": "rt-J02",
+      "answer_hash": "071d512650b88a55c023d233183655ac89fe7b9ec882cff40ab7d1ef30f21cd5",
+      "packet_view_hash": "e32372c0c173e31d27de0e399ca42301e710cc907f5d3a905e9f80a3760c1a07",
+      "claims_n": 1,
+      "citations_n": 1,
+      "answer_state": "ABSTAINED"
+    },
+    {
+      "order": 10,
+      "task_id": "rt-J03",
+      "answer_hash": "9f7c0c2961d12713ea95c331dc00af52e876a93695e88605cbc4f015e388a715",
+      "packet_view_hash": "18caecdfcc8d944beef67d4d5e20934e47e06135046c4b6934191336868fb53c",
+      "claims_n": 0,
+      "citations_n": 0,
+      "answer_state": "ABSTAINED"
+    },
+    {
+      "order": 11,
+      "task_id": "rt-H02",
+      "answer_hash": "bed188f9af8238b1f65ac8af8fc65c04569de93367829cc3aec098a5ef69226c",
+      "packet_view_hash": "3a90c89d4bc5ebbe33f1352e36abf3aac8b32de0550f3b4770a81f709eb9ddfd",
+      "claims_n": 6,
+      "citations_n": 11,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 12,
+      "task_id": "rt-I03",
+      "answer_hash": "1f02f9953f6ce3c5616743dce4c247593f4cb97a6e4c6454eebd5dd297a7ab8f",
+      "packet_view_hash": "90fbd716ecae4fa102d5aff61f27a7f94412d88a0e726fded2c8ebf523b26718",
+      "claims_n": 5,
+      "citations_n": 19,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    },
+    {
+      "order": 13,
+      "task_id": "rt-J01",
+      "answer_hash": "28a65346366ff60f97886feddfe8524bc0396ead0c81c5f73fc8284349ed75c7",
+      "packet_view_hash": "dac082513a8eeffda388e018a8f75202f18082e9b9c962bff063845b4cf87ee7",
+      "claims_n": 4,
+      "citations_n": 12,
+      "answer_state": "ABSTAINED"
+    },
+    {
+      "order": 14,
+      "task_id": "rt-G01",
+      "answer_hash": "ca93988aa684d40477eb9a90202dabb3b89637aff98f132eed3778f0947145ab",
+      "packet_view_hash": "141de77192fa9c216131c6dc7a3227d65e519013a276556f3260ef59cff08b89",
+      "claims_n": 3,
+      "citations_n": 6,
+      "answer_state": "VALIDATED_WITH_QUALIFICATIONS"
+    }
+  ],
+  "citation_resolution": {
+    "cited_passages": 76,
+    "resolved": 76,
+    "unresolved": []
+  },
+  "packet_view_transforms_detail": {
+    "rt-A01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 4,
+        "reason": "按盲评规则移除的内部工程记录行"
+      }
+    ],
+    "rt-D01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      }
+    ],
+    "rt-B01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 3,
+        "reason": "按盲评规则移除的内部工程记录行"
+      }
+    ],
+    "rt-E01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      }
+    ],
+    "rt-I02": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 1,
+        "reason": "按盲评规则移除的内部工程记录行"
+      }
+    ],
+    "rt-C03": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      }
+    ],
+    "rt-F01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 8,
+        "reason": "按盲评规则移除的内部工程记录行"
+      }
+    ],
+    "rt-G02": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 3,
+        "reason": "按盲评规则移除的内部工程记录行"
+      }
+    ],
+    "rt-J02": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 1,
+        "reason": "按盲评规则移除的内部工程记录行"
+      },
+      {
+        "field": "answer.abstention",
+        "action": "curated_view",
+        "dropped_keys": [
+          "required"
+        ],
+        "reason": "机器自检/内部字段，按盲评规则不入 packet"
+      },
+      {
+        "field": "answer.sections",
+        "action": "internal_vocab_neutralized",
+        "replaced_n": 1,
+        "reason": "按盲评规则把内部状态词/工具名/字段路径换成中性学术表述"
+      }
+    ],
+    "rt-J03": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.abstention",
+        "action": "curated_view",
+        "dropped_keys": [
+          "forbidden_outputs_observed"
+        ],
+        "reason": "机器自检/内部字段，按盲评规则不入 packet"
+      },
+      {
+        "field": "answer.sections",
+        "action": "internal_vocab_neutralized",
+        "replaced_n": 25,
+        "reason": "按盲评规则把内部状态词/工具名/字段路径换成中性学术表述"
+      }
+    ],
+    "rt-H02": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      }
+    ],
+    "rt-I03": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 1,
+        "reason": "按盲评规则移除的内部工程记录行"
+      },
+      {
+        "field": "answer.sections",
+        "action": "internal_vocab_neutralized",
+        "replaced_n": 1,
+        "reason": "按盲评规则把内部状态词/工具名/字段路径换成中性学术表述"
+      },
+      {
+        "field": "validated_claims[].claim_text",
+        "action": "internal_vocab_neutralized",
+        "replaced_n": 1,
+        "reason": "按盲评规则把内部状态词/工具名/字段路径换成中性学术表述"
+      }
+    ],
+    "rt-J01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 4,
+        "reason": "按盲评规则移除的内部工程记录行"
+      },
+      {
+        "field": "answer.abstention",
+        "action": "curated_view",
+        "dropped_keys": [
+          "qualified_reasons"
+        ],
+        "reason": "机器自检/内部字段，按盲评规则不入 packet"
+      },
+      {
+        "field": "answer.sections",
+        "action": "internal_vocab_neutralized",
+        "replaced_n": 2,
+        "reason": "按盲评规则把内部状态词/工具名/字段路径换成中性学术表述"
+      },
+      {
+        "field": "validated_claims[].claim_text",
+        "action": "internal_vocab_neutralized",
+        "replaced_n": 2,
+        "reason": "按盲评规则把内部状态词/工具名/字段路径换成中性学术表述"
+      }
+    ],
+    "rt-G01": [
+      {
+        "field": "answer.sections[brief_answer]",
+        "action": "removed",
+        "removed_n": 1,
+        "reason": "内部计数统计句，非学术内容"
+      },
+      {
+        "field": "answer.sections[].text",
+        "action": "filtered_lines",
+        "removed_n": 2,
+        "reason": "按盲评规则移除的内部工程记录行"
+      }
+    ]
+  },
+  "verification": [
+    {
+      "check": "pointer.mode",
+      "ok": true,
+      "detail": "llm"
+    },
+    {
+      "check": "pointer.marker",
+      "ok": true,
+      "detail": "REAL_LLM_DIAGNOSTIC"
+    },
+    {
+      "check": "file:run_manifest.json",
+      "ok": true,
+      "detail": "<REPO>/_data/eval/runs/4c1d2_llm_20260924T190203Z_50de1609/run_manifest.json"
+    },
+    {
+      "check": "file:results.json",
+      "ok": true,
+      "detail": "<REPO>/_data/eval/runs/4c1d2_llm_20260924T190203Z_50de1609/results.json"
+    },
+    {
+      "check": "file:metrics.json",
+      "ok": true,
+      "detail": "<REPO>/_data/eval/runs/4c1d2_llm_20260924T190203Z_50de1609/metrics.json"
+    },
+    {
+      "check": "file:seal.json",
+      "ok": true,
+      "detail": "<REPO>/_data/eval/runs/4c1d2_llm_20260924T190203Z_50de1609/seal.json"
+    },
+    {
+      "check": "seal.sealed",
+      "ok": true,
+      "detail": true
+    },
+    {
+      "check": "seal.human_validated_false",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "seal.provider_success",
+      "ok": true,
+      "detail": "14/14"
+    },
+    {
+      "check": "seal.gate21_violations",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "check": "seal.validator_version",
+      "ok": true,
+      "detail": "entailment-validator/1"
+    },
+    {
+      "check": "seal.manifest_hash",
+      "ok": true,
+      "detail": "6f45d95ca2242418"
+    },
+    {
+      "check": "seal.metrics_hash",
+      "ok": true,
+      "detail": "0d3d4fc3908b9103"
+    },
+    {
+      "check": "seal.results_hash",
+      "ok": true,
+      "detail": "908cb6e2f92a4a41"
+    },
+    {
+      "check": "results.rows_14",
+      "ok": true,
+      "detail": 14
+    },
+    {
+      "check": "results.task_ids_unique",
+      "ok": true,
+      "detail": 14
+    },
+    {
+      "check": "results.marker",
+      "ok": true,
+      "detail": "REAL_LLM_DIAGNOSTIC"
+    },
+    {
+      "check": "results.gate21_empty",
+      "ok": true,
+      "detail": 0
+    },
+    {
+      "check": "results.human_validated_false",
+      "ok": true,
+      "detail": false
+    },
+    {
+      "check": "results.all_answers_present",
+      "ok": true,
+      "detail": 14
+    },
+    {
+      "check": "engine_hashes_no_drift",
+      "ok": true,
+      "detail": "10 个模块一致"
+    },
+    {
+      "check": "engine_hash_count",
+      "ok": true,
+      "detail": 10
+    },
+    {
+      "check": "prompt.synthesis",
+      "ok": true,
+      "detail": "cc7170f8bbd21f5d"
+    },
+    {
+      "check": "prompt.judge",
+      "ok": true,
+      "detail": "3708ccb8e02459dc"
+    },
+    {
+      "check": "round1.records_sha",
+      "ok": true,
+      "detail": "a14ea5316ccaaf90"
+    }
+  ]
+}

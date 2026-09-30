@@ -1,0 +1,363 @@
+{
+ "schema_version": "help-claims/v1",
+ "note": "Help 文档里每一条**功能性**断言都在这里登记，并有机器可核的检验方式（§11：禁止 documentation fiction）。kind=element 的条目由真实浏览器套件 test_p5d005_help_browser.py 在真实 DOM 上执行；其余由 _scripts/_tools/build_help.py 静态/接口核验。",
+ "claims": [
+  {
+   "id": "C01",
+   "help_page": "/help/getting-started",
+   "kind": "ui_key",
+   "ui_key": "research.submit",
+   "claim": "Research 提交按钮在 Help 里被引用的名字与产品词典一致"
+  },
+  {
+   "id": "C02",
+   "help_page": "/help/getting-started",
+   "kind": "ui_key",
+   "ui_key": "research.cancel",
+   "claim": "Stop waiting 控件真实存在且 Help 引用其真实名称"
+  },
+  {
+   "id": "C03",
+   "help_page": "/help/research",
+   "kind": "ui_key",
+   "ui_key": "research.fresh",
+   "claim": "Ignore cache (recompute) 控件真实存在"
+  },
+  {
+   "id": "C04",
+   "help_page": "/help/getting-started",
+   "kind": "element",
+   "url": "/research",
+   "js": "!!(document.getElementById('question-input') && document.getElementById('ask-btn') && document.getElementById('mode-select') && document.getElementById('provider-select'))",
+   "claim": "Research 视图提供问题输入、提交按钮、Mode 与 Provider 控件"
+  },
+  {
+   "id": "C05",
+   "help_page": "/help/getting-started",
+   "kind": "element",
+   "url": "/research",
+   "js": "!!document.getElementById('fresh-toggle')",
+   "claim": "Research 视图提供 Ignore cache (recompute) 开关"
+  },
+  {
+   "id": "C06",
+   "help_page": "/help/research",
+   "kind": "element",
+   "url": "/research",
+   "js": "!!(document.getElementById('provider-panel') && document.getElementById('provider-model') && document.getElementById('provider-base-url') && document.getElementById('provider-save') && document.getElementById('provider-test'))",
+   "claim": "Model provider settings 面板提供 Model / Base URL / Save settings / Test connection"
+  },
+  {
+   "id": "C07",
+   "help_page": "/help/languages",
+   "kind": "element",
+   "url": "/research",
+   "js": "(function(){const s=document.getElementById('ui-locale-select'); return !!s && s.options.length===2 && s.options[0].value==='en' && s.options[1].value==='zh';})()",
+   "claim": "界面语言控件只有 English 与 中文 两个值"
+  },
+  {
+   "id": "C08",
+   "help_page": "/help/languages",
+   "kind": "element",
+   "url": "/research",
+   "js": "(function(){const a=document.getElementById('ui-locale-select'), b=document.getElementById('language-select'); return !!a && !!b && a!==b && Array.from(b.options).map(o=>o.value).join(',')==='any,zh,fr,en';})()",
+   "claim": "研究语言是与界面语言分开的另一个控件（any/zh/fr/en）"
+  },
+  {
+   "id": "C09",
+   "help_page": "/help/languages",
+   "kind": "element",
+   "url": "/research",
+   "js": "!!document.getElementById('language-status')",
+   "claim": "研究语言有可见状态行（说明它随请求发送、不翻译界面）"
+  },
+  {
+   "id": "C10",
+   "help_page": "/help/statuses",
+   "kind": "ui_key",
+   "ui_key": "provider.llm",
+   "claim": "状态速查引用的 provider 选项名与产品一致"
+  },
+  {
+   "id": "C11",
+   "help_page": "/help/statuses",
+   "kind": "api",
+   "path": "/api/status",
+   "json_path": [
+    "layers",
+    "provider"
+   ],
+   "in": [
+    "READY",
+    "DEGRADED",
+    "UNAVAILABLE",
+    "UNKNOWN"
+   ],
+   "claim": "provider 是独立的系统层，且其取值属于状态速查收录的集合"
+  },
+  {
+   "id": "C12",
+   "help_page": "/help/statuses",
+   "kind": "api",
+   "path": "/api/status",
+   "json_path": [
+    "layers"
+   ],
+   "keys": [
+    "core",
+    "mcp",
+    "corpus",
+    "workspace",
+    "explorer",
+    "obsidian",
+    "bibliography",
+    "provider"
+   ],
+   "claim": "系统状态确实有 8 层（Help 里说的分层就是产品实际的分层）"
+  },
+  {
+   "id": "C13",
+   "help_page": "/help/projects",
+   "kind": "element",
+   "url": "/projects",
+   "js": "!!(document.getElementById('project-create-form') && document.getElementById('project-title') && document.getElementById('project-desc') && document.getElementById('project-tags') && document.getElementById('create-project-btn'))",
+   "claim": "Projects 有真实的创建表单（标题/描述/标签 + Create Project）"
+  },
+  {
+   "id": "C14",
+   "help_page": "/help/projects",
+   "kind": "element",
+   "url": "/projects",
+   "js": "!!(document.getElementById('project-list') || document.getElementById('project-detail'))",
+   "claim": "Projects 视图渲染出列表或详情容器"
+  },
+  {
+   "id": "C15",
+   "help_page": "/help/bibliography",
+   "kind": "source",
+   "file": "workspace_ui/static/src/bibliography.js",
+   "contains": "citation-availability",
+   "claim": "书目详情确实逐样式显示引用可用性"
+  },
+  {
+   "id": "C16",
+   "help_page": "/help/bibliography",
+   "kind": "source",
+   "file": "workspace_ui/static/src/bibliography.js",
+   "contains": "needs-review-not-citable",
+   "claim": "candidate 会被显式标为 NEEDS REVIEW · NOT CITABLE"
+  },
+  {
+   "id": "C17",
+   "help_page": "/help/bibliography",
+   "kind": "element",
+   "url": "/bibliography",
+   "js": "(function(){const s=document.getElementById('bib-status'); return !!s && Array.from(s.options).map(o=>o.value).join(',')===',reviewed,needs_review';})()",
+   "claim": "Bibliography 提供 reviewed / needs_review 复核状态过滤"
+  },
+  {
+   "id": "C18",
+   "help_page": "/help/zotero",
+   "kind": "element",
+   "url": "/bibliography",
+   "js": "!!(document.getElementById('bib-import-panel') && document.getElementById('bib-import-file') && document.getElementById('bib-import-preview') && document.getElementById('bib-import-commit'))",
+   "claim": "Zotero/CSL JSON 导入面板有 Select File / Preview / Import as candidate"
+  },
+  {
+   "id": "C19",
+   "help_page": "/help/zotero",
+   "kind": "api",
+   "path": "/api/bibliography/import",
+   "method": "POST",
+   "body": {
+    "text": "[]",
+    "mode": "preview"
+   },
+   "status_in": [
+    200,
+    400
+   ],
+   "claim": "导入预览/提交是真实产品接口：/api/bibliography/import 以 mode=preview 预览、mode=commit 提交为 candidate（Help 描述的四步流程背后有真实接口）"
+  },
+  {
+   "id": "C20",
+   "help_page": "/help/evidence",
+   "kind": "element",
+   "url": "/research?q=Seminar%20XI%20%E4%B8%AD%20gaze%20%E4%B8%8E%20objet%20a%20%E6%98%AF%E4%BB%80%E4%B9%88%E5%85%B3%E7%B3%BB%EF%BC%9F&provider=mock&autorun=1",
+   "js": "!!document.querySelector('[data-passage]')",
+   "claim": "真实答案里存在 citation chip（带真实 passage id），所以 Help 说『点引文可以看证据』不是空话"
+  },
+  {
+   "id": "C21",
+   "help_page": "/help/evidence",
+   "kind": "element",
+   "url": "/research?inspect=passage.S11.unknown.P2253",
+   "js": "!!document.getElementById('inspector-body')",
+   "claim": "Evidence Inspector 可以由深链打开并渲染证据正文"
+  },
+  {
+   "id": "C22",
+   "help_page": "/help/evidence",
+   "kind": "element",
+   "url": "/explore",
+   "js": "!!document.getElementById('explore-list')",
+   "claim": "Explore 首页提供 Concepts / Passages / Seminars / Terminology / Persons / Cases 入口"
+  },
+  {
+   "id": "C23",
+   "help_page": "/help/persons-cases",
+   "kind": "element",
+   "url": "/persons",
+   "js": "!!document.getElementById('entity-items')",
+   "claim": "Persons 登记表作为独立注册表渲染"
+  },
+  {
+   "id": "C24",
+   "help_page": "/help/persons-cases",
+   "kind": "element",
+   "url": "/cases",
+   "js": "!!document.getElementById('entity-items')",
+   "claim": "Cases 登记表作为独立注册表渲染"
+  },
+  {
+   "id": "C25",
+   "help_page": "/help/obsidian",
+   "kind": "api",
+   "path": "/api/obsidian/status",
+   "json_keys_any": [
+    "vault",
+    "vault_uri",
+    "obsidian_uri",
+    "workspace_root",
+    "root"
+   ],
+   "claim": "Obsidian 集成状态是真实接口（Help 里说的打开方式背后有真实状态）"
+  },
+  {
+   "id": "C26",
+   "help_page": "/help/research",
+   "kind": "element",
+   "url": "/research?inspect=passage.S11.unknown.P2253",
+   "js": "!!document.getElementById('save-passage-btn')",
+   "claim": "Evidence Inspector 底部确实有 Save Passage 按钮"
+  },
+  {
+   "id": "C27",
+   "help_page": "/help/obsidian",
+   "kind": "ui_key",
+   "ui_key": "research.save-to-obsidian",
+   "claim": "Save to Obsidian 是与产品一致的控件名"
+  },
+  {
+   "id": "C28",
+   "help_page": "/help/projects",
+   "kind": "ui_key",
+   "ui_key": "explore.add-to-project",
+   "claim": "Add to Project 是与产品一致的控件名"
+  },
+  {
+   "id": "C29",
+   "help_page": "/help",
+   "kind": "pages_all",
+   "claim": "Help Center 的每一页都能编译并被真实 URL 服务（HTTP 200）"
+  },
+  {
+   "id": "C30",
+   "help_page": "/help",
+   "kind": "links_all",
+   "claim": "Help 里的每一条内部链接都能解析（0 broken），每个 anchor 都存在于目标页"
+  },
+  {
+   "id": "C31",
+   "help_page": "/help",
+   "kind": "ui_refs_all",
+   "claim": "Help 正文里引用的每个产品 UI key 都存在于 i18n 词典（不虚构按钮名）"
+  },
+  {
+   "id": "C32",
+   "help_page": "/help/bibliography",
+   "kind": "styles_subset",
+   "claim": "Help 里提到的引用样式都真实存在（不描述系统没有的引用能力）"
+  },
+  {
+   "id": "C33",
+   "help_page": "/help/troubleshooting",
+   "kind": "element",
+   "url": "/help",
+   "js": "(function(){const p=document.getElementById('contextual-help'); return !!p && p.getAttribute('href')==='/help';})()",
+   "claim": "Help 视图本身也有一致的模块帮助入口"
+  },
+  {
+   "id": "C34",
+   "help_page": "/help",
+   "kind": "element",
+   "url": "/",
+   "js": "(function(){const a=Array.from(document.querySelectorAll('#home-view a[href]')); return a.length>=8;})()",
+   "claim": "首页任务是**真实链接**（≥8 个 a[href]），不是只有视觉卡片"
+  },
+  {
+   "id": "C35",
+   "help_page": "/help/getting-started",
+   "kind": "element",
+   "url": "/",
+   "js": "!!document.querySelector('#home-view a[href=\"/help/getting-started\"]')",
+   "claim": "Getting Started 从首页 ≤1 click 可达"
+  },
+  {
+   "id": "C36",
+   "help_page": "/help/getting-started",
+   "kind": "element",
+   "url": "/",
+   "js": "!!document.querySelector('#home-view a[href^=\"/research\"]')",
+   "claim": "Research 从首页 ≤2 click 可达（首页就有直达链接）"
+  },
+  {
+   "id": "C37",
+   "help_page": "/help",
+   "kind": "element",
+   "url": "/explore",
+   "js": "(function(){const a=document.getElementById('contextual-help'); return !!a && /^\\/help\\/.+/.test(a.getAttribute('href')||'');})()",
+   "claim": "模块内 contextual help 指向**模块专属**帮助页（不是笼统的 /help）"
+  },
+  {
+   "id": "C38",
+   "help_page": "/help",
+   "kind": "element",
+   "url": "/bibliography",
+   "js": "(function(){const a=document.getElementById('contextual-help'); return !!a && a.getAttribute('href')==='/help/bibliography';})()",
+   "claim": "Bibliography 的 contextual help 指向 /help/bibliography"
+  },
+  {
+   "id": "C39",
+   "help_page": "/help",
+   "kind": "element",
+   "url": "/help/zotero",
+   "js": "(function(){const t=(document.querySelector('.help-body')||{}).textContent||'';return t.indexOf('CSL JSON')>=0 && t.indexOf('Better BibTeX JSON')>=0;})()",
+   "claim": "Zotero 帮助页只声称系统真正支持的两种格式"
+  },
+  {
+   "id": "C40",
+   "help_page": "/help/getting-started",
+   "kind": "element",
+   "url": "/help",
+   "js": "!!document.querySelector('.help-side')",
+   "claim": "Help Center 有左侧目录（sidebar），不是一页 README 渲染"
+  },
+  {
+   "id": "C41",
+   "help_page": "/help/explore",
+   "kind": "element",
+   "url": "/help/explore",
+   "js": "(function(){const t=(document.querySelector('.help-body')||{}).textContent||'';return t.indexOf('no scholarly conclusion')>=0||t.indexOf('read-only browsing')>=0;})()",
+   "claim": "Explore 帮助页如实说明它是只读浏览、不产出学术结论（与产品行为一致）"
+  },
+  {
+   "id": "C42",
+   "help_page": "/help/research-vs-explore",
+   "kind": "element",
+   "url": "/help/research-vs-explore",
+   "js": "(function(){const t=(document.querySelector('.help-body')||{}).textContent||'';const a=Array.from(document.querySelectorAll('.help-body a[href]'));return t.indexOf('starts from a question')>=0 && a.some(function(x){return x.getAttribute('href')==='/explore';});})()",
+   "claim": "Research vs Explore 帮助页说明三者区别，并给出可点的真实模块链接"
+  }
+ ]
+}

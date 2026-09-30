@@ -1,0 +1,422 @@
+[
+ {
+  "key": "a11y.skipToResearch",
+  "en": "Skip to research input",
+  "zh": "跳到研究输入框",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "brand.name",
+  "en": "Lacan Knowledge OS",
+  "zh": "Lacan Knowledge OS",
+  "surface": "Static/index.html",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "brand.sub",
+  "en": "Research Workspace",
+  "zh": "研究工作区",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.mode",
+  "en": "Mode",
+  "zh": "模式",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.modeAria",
+  "en": "Research mode",
+  "zh": "研究模式",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.scholarly",
+  "en": "Scholarly",
+  "zh": "学术",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.quick",
+  "en": "Quick",
+  "zh": "快速",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.auto",
+  "en": "Auto",
+  "zh": "自动",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.advancedGroup",
+  "en": "Advanced",
+  "zh": "高级",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.concept_definition",
+  "en": "Concept",
+  "zh": "概念",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.concept_relation",
+  "en": "Relation",
+  "zh": "关系",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.comparison",
+  "en": "Comparison",
+  "zh": "比较",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.diachronic",
+  "en": "Diachronic",
+  "zh": "历时",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.seminar_specific",
+  "en": "Seminar-specific",
+  "zh": "指定研讨班",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.translation_terminology",
+  "en": "Translation",
+  "zh": "翻译",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.topology_matheme",
+  "en": "Formalism",
+  "zh": "形式化",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "mode.case_research",
+  "en": "Case",
+  "zh": "个案",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.provider",
+  "en": "Provider",
+  "zh": "提供方",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.providerAria",
+  "en": "Research provider",
+  "zh": "研究用模型提供方",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.mock",
+  "en": "Offline / Mock",
+  "zh": "离线 / 模拟",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.llm",
+  "en": "Real LLM (explicit)",
+  "zh": "真实大模型（需显式选择）",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.language",
+  "en": "Language",
+  "zh": "界面语言",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.languageAria",
+  "en": "Interface language",
+  "zh": "界面语言（切换界面文案，不翻译语料）",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.researchLanguage",
+  "en": "Research language",
+  "zh": "研究语言",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "topbar.researchLanguageAria",
+  "en": "Research language (sent with research requests)",
+  "zh": "研究语言（随研究请求发送）",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "lang.auto",
+  "en": "Auto",
+  "zh": "自动",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.home",
+  "en": "Home",
+  "zh": "首页",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.research",
+  "en": "Research",
+  "zh": "研究",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.explore",
+  "en": "Explore",
+  "zh": "探索",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.projects",
+  "en": "Projects",
+  "zh": "项目",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.bibliography",
+  "en": "Bibliography",
+  "zh": "文献",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.obsidian",
+  "en": "Obsidian",
+  "zh": "Obsidian",
+  "surface": "Static/index.html",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "nav.history",
+  "en": "History",
+  "zh": "历史",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.saved",
+  "en": "Saved",
+  "zh": "已保存",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.exports",
+  "en": "Exports",
+  "zh": "导出",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.exploreGroup",
+  "en": "Explore",
+  "zh": "探索",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.historyGroup",
+  "en": "History",
+  "zh": "历史",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "history.refresh",
+  "en": "refresh",
+  "zh": "刷新",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.advancedGroup",
+  "en": "Advanced",
+  "zh": "高级",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.passageSearch",
+  "en": "Research passage search",
+  "zh": "研究段落检索",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.statusDetail",
+  "en": "Status detail",
+  "zh": "状态详情",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "nav.exploreNote",
+  "en": "Corpus-driven browsing. Browse ≠ research: nothing here is a scholarly conclusion, and a zero result is not an abstention.",
+  "zh": "基于语料的浏览。浏览 ≠ 研究：这里没有任何学术结论，零结果也不等于弃权。",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "history.note",
+  "en": "Saved in the product workspace. History is not evidence — every conclusion must be re-supported by the corpus.",
+  "zh": "保存在产品工作区。历史不是证据——每个结论都必须重新由语料支持。",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "research.askTitle",
+  "en": "Ask the frozen scholarly core",
+  "zh": "向冻结的学术内核提问",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "research.askSub",
+  "en": "Claim-level evidence and provenance from the local corpus. The core does not answer from model knowledge: if the corpus cannot support the question, it abstains — and that abstention is shown as-is.",
+  "zh": "来自本地语料的 claim 级证据与溯源。内核不凭模型知识作答：语料无法支持的问题它会弃权，弃权按原样展示。",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "research.submit",
+  "en": "Research corpus",
+  "zh": "检索语料",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "research.cancel",
+  "en": "Stop waiting",
+  "zh": "停止等待",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "inspector.title",
+  "en": "Evidence Inspector",
+  "zh": "证据检查器",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "inspector.close",
+  "en": "Close evidence inspector",
+  "zh": "关闭证据检查器",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "inspector.closeGlyph",
+  "en": "✕",
+  "zh": "✕",
+  "surface": "Static/index.html",
+  "status": "intentional_source_text"
+ },
+ {
+  "key": "status.connecting",
+  "en": "Connecting…",
+  "zh": "连接中…",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "status.freeze",
+  "en": "freeze: —",
+  "zh": "冻结: —",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "status.provider",
+  "en": "provider: —",
+  "zh": "提供方: —",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "research.languageStatus",
+  "en": "Research language: {label} ({code}) — sent as the question language with research requests; the interface copy is not translated.",
+  "zh": "研究语言：{label}（{code}）—— 作为 question language 随研究请求发送；它不会翻译界面文案。",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "research.fresh",
+  "en": "Ignore cache (recompute)",
+  "zh": "忽略缓存（重算）",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.summary",
+  "en": "Model provider settings",
+  "zh": "模型提供方设置",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.model",
+  "en": "Model",
+  "zh": "模型",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.baseUrl",
+  "en": "Base URL",
+  "zh": "接口地址",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.save",
+  "en": "Save settings",
+  "zh": "保存设置",
+  "surface": "Static/index.html",
+  "status": "translated"
+ },
+ {
+  "key": "provider.test",
+  "en": "Test connection",
+  "zh": "测试连通性",
+  "surface": "Static/index.html",
+  "status": "translated"
+ }
+]

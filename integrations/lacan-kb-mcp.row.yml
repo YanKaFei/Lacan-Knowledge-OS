@@ -1,0 +1,23 @@
+# lacan-kb MCP row — paste into your own profile patch (`cordis.patch.yml`).
+#
+# NEVER edit a shipped preset: this row belongs to YOUR profile / agent preset layer.
+# It contributes tools to a session; `dsh-mcp-client` provides no service, so no
+# isolate realm is needed (see docs/MCP_DSH_INTEGRATION.md §2.1).
+#
+# Replace <REPO> with the absolute path of your clone, OR (preferred) run:
+#     python3 tools/install-dsh-row.py --profile web
+#
+# Tools then appear as mcp__lacan-kb__search_passages, mcp__lacan-kb__get_passage, …
+
+- insert:
+    - id: mcp-lacan-kb
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: lacan-kb            # → tool names mcp__lacan-kb__<tool>
+        transport: stdio
+        command: python3
+        args:
+          - <REPO>/_scripts/_tools/lacan-kb-mcp
+        cwd: <REPO>
+        toolCallTimeoutMs: 120000       # default is 60000; cold full-corpus search is slower
+        failOnStartupError: true        # fail loudly instead of "the tool silently disappeared"

@@ -1,0 +1,210 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "dsh://lacan-kos/research-contract.schema.json",
+ "title": "ResearchContract",
+ "description": "Phase 4C.1-B：把结构化 Research Plan 编译成**可执行、可检查、可失败**的契约。由 task_type / 问题语义 / 已解析实体 / 约束 / 语料事实推导；不含任何 task_id 分支，也不含模型推理。",
+ "type": "object",
+ "required": [
+  "schema_version", "task_id", "task_type", "contract_type",
+  "required_operations", "completed_operations", "missing_operations",
+  "required_lanes", "completed_lanes", "missing_lanes",
+  "required_constraints", "satisfied_constraints", "failed_constraints",
+  "required_source_layers", "available_source_layers", "missing_source_layers",
+  "relation_evidence_required", "relation_evidence_n",
+  "evidence_usability", "no_hidden_reasoning"
+ ],
+ "additionalProperties": true,
+ "properties": {
+  "schema_version": {"const": "research-contract/v1"},
+  "task_id": {"type": "string"},
+  "task_type": {
+   "enum": ["concept_definition", "concept_relation", "diachronic_development",
+            "seminar_specific", "case_research", "freud_to_lacan",
+            "philosophy_to_lacan", "topology_matheme", "translation_terminology",
+            "insufficient_unanswerable"]
+  },
+  "contract_type": {
+   "enum": ["DefinitionResearchContract", "ComparisonResearchContract",
+            "DiachronicResearchContract", "SeminarSpecificContract",
+            "CaseResearchContract", "FreudToLacanResearchContract",
+            "PhilosophyToLacanResearchContract", "TopologyMathemeResearchContract",
+            "TranslationTerminologyResearchContract", "AbstentionResearchContract",
+            "BaseContract"]
+  },
+  "question": {"type": "string"},
+  "required_entities": {"type": "array", "items": {"type": "string"}},
+  "optional_entities": {"type": "array", "items": {"type": "string"}},
+
+  "required_operations": {"type": "array", "items": {"type": "string"}},
+  "operation_basis": {
+   "type": "object",
+   "description": "每个必需操作**为什么**必需：CONTRACT_TYPE / CAPABILITY:<name> / PLAN",
+   "additionalProperties": {"type": "string"}
+  },
+  "completed_operations": {"type": "array", "items": {"type": "string"}},
+  "missing_operations": {"type": "array", "items": {"type": "string"},
+   "description": "非空 → 禁止 SUPPORTED（硬规则 B1）"},
+  "optional_operations": {"type": "array", "items": {"type": "string"}},
+  "optional_missing_operations": {"type": "array", "items": {"type": "string"},
+   "description": "手段型操作（search_passages / get_context / trace_source）缺失，不降级"},
+
+  "required_lanes": {"type": "array", "items": {"type": "string"}},
+  "lanes": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": ["lane", "needles"],
+    "properties": {
+     "lane": {"type": "string"},
+     "entity_id": {"type": ["string", "null"]},
+     "needles": {"type": "array", "items": {"type": "string"}},
+     "language": {"type": ["string", "null"]},
+     "seminar": {"type": ["string", "null"]},
+     "expectation": {"enum": ["EXPECTED_POSITIVE", "EXPECTED_ZERO",
+                              "UNKNOWN_EXPECTATION"]}
+    }
+   }
+  },
+  "completed_lanes": {"type": "array", "items": {"type": "string"}},
+  "missing_lanes": {"type": "array", "items": {"type": "string"},
+   "description": "非空 → 禁止 SUPPORTED（硬规则 B2）"},
+  "expected_zero_lanes": {
+   "type": "array",
+   "description": "预期 0 命中的 lane（0 命中 = PASS，不是失败；含 corpus_scan 证据）",
+   "items": {
+    "type": "object",
+    "required": ["lane", "expectation", "observed_hits", "result"],
+    "properties": {
+     "lane": {"type": "string"},
+     "term": {"type": "string"},
+     "expectation": {"const": "EXPECTED_ZERO"},
+     "observed_hits": {"type": "integer"},
+     "hit_state": {"enum": ["ATTESTED", "ZERO_ATTESTATION", "UNKNOWN"]},
+     "result": {"enum": ["PASS", "FAIL", "REVIEW"]},
+     "corpus_scan": {
+      "type": "object",
+      "properties": {
+       "executed": {"type": "boolean"},
+       "needle": {"type": "string"},
+       "scope": {"type": "string"},
+       "hits": {"type": "integer"},
+       "method": {"type": "string"}
+      }
+     }
+    }
+   }
+  },
+
+  "required_constraints": {
+   "type": "array",
+   "items": {"type": "object", "required": ["kind", "value"],
+             "properties": {"kind": {"enum": ["seminar", "period", "language",
+                                              "source_layer"]},
+                            "value": {"type": "string"}}}
+  },
+  "satisfied_constraints": {"type": "array"},
+  "failed_constraints": {"type": "array",
+   "description": "非空 → 禁止 SUPPORTED（seminar/period 约束未真正下推）"},
+
+  "required_source_layers": {"type": "array", "items": {"type": "string"}},
+  "available_source_layers": {"type": "array", "items": {"type": "string"}},
+  "missing_source_layers": {"type": "array", "items": {"type": "string"},
+   "description": "非空 → 禁止 SUPPORTED（硬规则 B5）"},
+  "missing_source_layers_absent_in_corpus": {"type": "array",
+   "items": {"type": "string"},
+   "description": "语料层就完全不存在该层 → SOURCE_GAP，而不是检索遗漏"},
+  "source_layer_corpus": {
+   "type": "object",
+   "additionalProperties": {"type": "boolean"}
+  },
+
+  "relation_evidence_required": {"type": "boolean"},
+  "relation_evidence_found": {"type": "boolean"},
+  "relation_evidence_n": {"type": "integer"},
+  "relation_evidence_ids": {"type": "array", "items": {"type": "string"}},
+  "relation_kinds": {
+   "type": "object",
+   "description": "CO_OCCURRENCE / DIRECT_RELATION_STATEMENT / CROSS_REFERENCE / REINTERPRETATION / CONTRAST / FORMAL_LINK",
+   "additionalProperties": {"type": "integer"}
+  },
+
+  "formalism": {
+   "type": "object",
+   "properties": {
+    "formalism_required": {"type": "boolean"},
+    "formalism_evidence_found": {"type": "boolean"},
+    "formalism_state": {"enum": ["NOT_REQUIRED", "FORMALISM_FOUND",
+                                 "RETRIEVED_FORMALISM_MISSING",
+                                 "CORPUS_FORMALISM_MISSING"]},
+    "symbols": {"type": "array", "items": {"type": "string"}},
+    "corpus_symbol_counts": {"type": "object",
+                             "additionalProperties": {"type": "integer"}},
+    "corpus_scan": {
+     "type": "object",
+     "properties": {"executed": {"type": "boolean"},
+                    "scope": {"const": "whole_corpus"},
+                    "n_passages": {"type": "integer"}}
+    }
+   }
+  },
+
+  "metadata": {
+   "type": "object",
+   "properties": {
+    "metadata_required": {"type": "array", "items": {"type": "string"}},
+    "metadata_available": {"type": "boolean"},
+    "metadata_missing_fields": {"type": "array", "items": {"type": "string"}},
+    "metadata_state": {"enum": ["NOT_REQUIRED", "METADATA_AVAILABLE",
+                                "METADATA_UNAVAILABLE"]}
+   }
+  },
+
+  "evidence_usability": {
+   "type": "object",
+   "required": ["counts", "substantive_n"],
+   "properties": {
+    "counts": {
+     "type": "object",
+     "additionalProperties": {"type": "integer"},
+     "description": "SUBSTANTIVE_TEXT / EDITORIAL_METADATA / BIBLIOGRAPHY_ONLY / MEDIA_ONLY / FRAGMENT_ONLY"
+    },
+    "substantive_n": {"type": "integer"},
+    "non_substantive_ids": {"type": "array", "items": {"type": "string"}},
+    "per_passage": {"type": "array"}
+   }
+  },
+
+  "required_endpoints": {"type": "array", "items": {"type": "string"}},
+  "endpoint_evidence": {"type": "object",
+                        "additionalProperties": {"type": "array",
+                                                 "items": {"type": "string"}}},
+  "diachronic_relation_required": {"type": "boolean"},
+
+  "terminology": {
+   "type": "object",
+   "properties": {
+    "explicit_terms": {"type": "array", "items": {"type": "string"}},
+    "term_corpus_hits": {"type": "object",
+                         "additionalProperties": {"type": "integer"}},
+    "status_vocabulary": {"type": "array", "items": {"type": "string"},
+                          "description": "KNOWN_TRANSLATION / CORPUS_ATTESTED / CONTEXT_VALIDATED"},
+    "rule": {"type": "string"}
+   }
+  },
+
+  "abstention": {
+   "type": "object",
+   "required": ["why_unanswerable", "missing_evidence_type",
+                "structural_or_retrieval", "next_required_source"],
+   "properties": {
+    "why_unanswerable": {"type": "string"},
+    "missing_evidence_type": {"type": "string"},
+    "structural_or_retrieval": {"enum": ["STRUCTURAL", "RETRIEVAL"]},
+    "next_required_source": {"type": "string"}
+   }
+  },
+
+  "no_hidden_reasoning": {"const": true},
+  "note": {"type": "string"}
+ }
+}

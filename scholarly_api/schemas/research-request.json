@@ -1,0 +1,75 @@
+{
+  "$id": "research-request/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 1/15：研究请求（产品层输入）",
+  "properties": {
+    "constraints": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "language": {
+      "description": "zh / fr / en / any；null = 核心自行判定",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "question": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "request_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requested_output_depth": {
+      "enum": [
+        "brief",
+        "standard",
+        "deep",
+        null
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "requested_source_layers": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "research_mode": {
+      "description": "mode 只是**task routing 提示**，不能绕过 core contract",
+      "enum": [
+        "quick",
+        "scholarly",
+        "concept_definition",
+        "concept_relation",
+        "comparison",
+        "diachronic",
+        "seminar_specific",
+        "case_research",
+        "freud_to_lacan",
+        "philosophy_to_lacan",
+        "topology_matheme",
+        "translation_terminology"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "question"
+  ],
+  "title": "ResearchRequest",
+  "type": "object"
+}

@@ -1,0 +1,276 @@
+{
+  "$defs": {
+    "AbstentionResult": {
+      "$id": "abstention-result/v1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Phase 4D.0 稳定对象 9/15：弃权结果（含扫描凭据引用）",
+      "properties": {
+        "available_partial_information": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "categories": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "category": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "corpus_scan_reference": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "metadata_scan_reference": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "missing_information": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "required_sources": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "title": "AbstentionResult",
+      "type": "object"
+    },
+    "CitationBinding": {
+      "$id": "citation-binding/v1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Phase 4D.0 稳定对象 7/15：claim → passage 引用绑定",
+      "properties": {
+        "citation_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "claim_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "passage_id": {
+          "type": "string"
+        },
+        "provenance_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quoted_span": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_layer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "passage_id"
+      ],
+      "title": "CitationBinding",
+      "type": "object"
+    },
+    "ValidatedClaim": {
+      "$id": "validated-claim/v1",
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "description": "Phase 4D.0 稳定对象 6/15：通过验证的断言",
+      "properties": {
+        "claim_id": {
+          "type": "string"
+        },
+        "claim_text": {
+          "type": "string"
+        },
+        "claim_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "entailment_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "epistemic_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_ids": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "source_role_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "claim_id",
+        "claim_text"
+      ],
+      "title": "ValidatedClaim",
+      "type": "object"
+    }
+  },
+  "$id": "final-scholarly-answer/v1.1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 8/15：最终学术回答（产品层唯一答案形态）；Phase 5A 起为 v1.1（新增 audit_diagnostics，学术语义不变）",
+  "properties": {
+    "abstention": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/AbstentionResult"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "answer_permission": {
+      "type": "string"
+    },
+    "answer_state": {
+      "type": "string"
+    },
+    "api_version": {
+      "type": "string"
+    },
+    "audit_diagnostics": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "citations": {
+      "items": {
+        "$ref": "#/$defs/CitationBinding"
+      },
+      "type": "array"
+    },
+    "provenance": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "sections": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "source_limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "validated_claims": {
+      "items": {
+        "$ref": "#/$defs/ValidatedClaim"
+      },
+      "type": "array"
+    },
+    "warnings": {
+      "items": {
+        "type": [
+          "string",
+          "object"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "api_version",
+    "question",
+    "answer_state",
+    "answer_permission"
+  ],
+  "title": "FinalScholarlyAnswer",
+  "type": "object"
+}

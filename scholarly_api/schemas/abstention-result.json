@@ -1,0 +1,64 @@
+{
+  "$id": "abstention-result/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 9/15：弃权结果（含扫描凭据引用）",
+  "properties": {
+    "available_partial_information": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "categories": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "category": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "corpus_scan_reference": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "metadata_scan_reference": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "missing_information": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "required_sources": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "title": "AbstentionResult",
+  "type": "object"
+}

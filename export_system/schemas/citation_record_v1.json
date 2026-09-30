@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "citation_record_v1",
+  "title": "CitationRecord v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "passage_id",
+    "internal_short",
+    "internal_full",
+    "provenance",
+    "capabilities",
+    "missing_fields"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "passage_id": {
+      "type": "string"
+    },
+    "internal_short": {
+      "type": "string"
+    },
+    "internal_full": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "string"
+    },
+    "quoted_span": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seminar": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_layer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_layer_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "witness": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "provenance_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "internal_scholarly",
+        "external_bibliographic"
+      ]
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "missing_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "bibliographic": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "claim_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "citation_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,2092 @@
+{
+ "schema_version": "p5d004-ui-translations/v1",
+ "locale": "zh-CN",
+ "translations": {
+  "  unavailable — ${s.reason || 'BIBLIOGRAPHIC_METADATA_INCOMPLETE'}": {
+   "zh": "  不可用 — ${s.reason || 'BIBLIOGRAPHIC_METADATA_INCOMPLETE'}",
+   "skip": false,
+   "note": ""
+  },
+  "  user-supplied · not from the registry": {
+   "zh": "  用户自填 · 非来自登记表",
+   "skip": false,
+   "note": ""
+  },
+  " ${x.subject} → ${x.object}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...} and an arrow)"
+  },
+  " Lexical retrieval active.": {
+   "zh": " 词法检索已启用。",
+   "skip": false,
+   "note": ""
+  },
+  " from ${q.run_id}": {
+   "zh": " 来自 ${q.run_id}",
+   "skip": false,
+   "note": ""
+  },
+  " — ": {
+   "zh": "",
+   "skip": true,
+   "note": "symbol / separator only"
+  },
+  "${(d.items || []).length} manifests": {
+   "zh": "${(d.items || []).length} 个清单",
+   "skip": false,
+   "note": ""
+  },
+  "${(p.passage_id || '').split('.')[1]} · ${(p.passage_id || '').split('.').pop()}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...} and ' · ')"
+  },
+  "${a.label} · ${a.mode}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...} and ' · ')"
+  },
+  "${a.mode}. ${a.warning}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...})"
+  },
+  "${c.notes} notes · ${c.hypotheses} hypotheses · ": {
+   "zh": "${c.notes} 条笔记 · ${c.hypotheses} 条假设 · ",
+   "skip": false,
+   "note": ""
+  },
+  "${c.open_questions} open questions": {
+   "zh": "${c.open_questions} 个待解问题",
+   "skip": false,
+   "note": ""
+  },
+  "${c.research_runs} research runs": {
+   "zh": "${c.research_runs} 次研究",
+   "skip": false,
+   "note": ""
+  },
+  "${c.saved_concepts} concepts · ${c.saved_seminars} seminars · ": {
+   "zh": "${c.saved_concepts} 个概念 · ${c.saved_seminars} 个研讨班 · ",
+   "skip": false,
+   "note": ""
+  },
+  "${c.saved_passages} saved passages": {
+   "zh": "${c.saved_passages} 段已保存段落",
+   "skip": false,
+   "note": ""
+  },
+  "${d.entities.length} matching entities": {
+   "zh": "${d.entities.length} 个匹配实体",
+   "skip": false,
+   "note": ""
+  },
+  "${data.total} concepts": {
+   "zh": "${data.total} 个概念",
+   "skip": false,
+   "note": ""
+  },
+  "${data.total} forms": {
+   "zh": "${data.total} 个形式",
+   "skip": false,
+   "note": ""
+  },
+  "${data.total} projects": {
+   "zh": "${data.total} 个项目",
+   "skip": false,
+   "note": ""
+  },
+  "${data.total} seminars": {
+   "zh": "${data.total} 个研讨班",
+   "skip": false,
+   "note": ""
+  },
+  "${e.from} → ${e.to}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...} and an arrow)"
+  },
+  "${f.label} export ready": {
+   "zh": "${f.label} 导出就绪",
+   "skip": false,
+   "note": ""
+  },
+  "${it.relations_n} relations": {
+   "zh": "${it.relations_n} 条关系",
+   "skip": false,
+   "note": ""
+  },
+  "${it.research_id} · ${it.answer_state || ''} · ": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...} and ' · ')"
+  },
+  "${it.reviewed_relations_n} reviewed": {
+   "zh": "${it.reviewed_relations_n} 条已复核",
+   "skip": false,
+   "note": ""
+  },
+  "${it.seminars_n} seminars": {
+   "zh": "${it.seminars_n} 个研讨班",
+   "skip": false,
+   "note": ""
+  },
+  "${it.seminar} · ${it.session} · lesson ${it.lesson === null ? '—' : it.lesson}": {
+   "zh": "${it.seminar} · ${it.session} · 讲次 ${it.lesson === null ? '—' : it.lesson}",
+   "skip": false,
+   "note": ""
+  },
+  "${it.state_label || ''} · ${it.citations_n || 0} citations · ${(it.saved_at || '').slice(0, 16)}": {
+   "zh": "${it.state_label || ''} · ${it.citations_n || 0} 条引用 · ${(it.saved_at || '').slice(0, 16)}",
+   "skip": false,
+   "note": ""
+  },
+  "${label} (${rows.length})": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...})"
+  },
+  "${p.counts.open_questions} open Q": {
+   "zh": "${p.counts.open_questions} 个待解问题",
+   "skip": false,
+   "note": ""
+  },
+  "${p.counts.research_runs} runs": {
+   "zh": "${p.counts.research_runs} 次研究",
+   "skip": false,
+   "note": ""
+  },
+  "${p.counts.saved_passages} passages": {
+   "zh": "${p.counts.saved_passages} 段",
+   "skip": false,
+   "note": ""
+  },
+  "${p.returned || 0} shown${p.total !== undefined ? ' / ' + p.total + ' total' : ''}": {
+   "zh": "已显示 ${p.returned || 0}${p.total !== undefined ? ' / ' + p.total + ' total' : ''}",
+   "skip": false,
+   "note": ""
+  },
+  "${p.title} (rev ${p.revision})": {
+   "zh": "${p.title}（修订 ${p.revision}）",
+   "skip": false,
+   "note": ""
+  },
+  "${r.citation_ids.length} citations · ${r.claim_count} claims · ": {
+   "zh": "${r.citation_ids.length} 条引用 · ${r.claim_count} 条主张 · ",
+   "skip": false,
+   "note": ""
+  },
+  "${r.claim_id || ''} ": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...})"
+  },
+  "${r.original_claim_id} → ${r.repaired_claim_id}（attempts=${r.attempts}）": {
+   "zh": "${r.original_claim_id} → ${r.repaired_claim_id}（尝试次数=${r.attempts}）",
+   "skip": false,
+   "note": ""
+  },
+  "${s.lesson === null ? '—' : 'L' + String(s.lesson).padStart(2, '0')} · ${s.session_id}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...} and ' · ')"
+  },
+  "${s.passage_count || 0} passages": {
+   "zh": "${s.passage_count || 0} 段",
+   "skip": false,
+   "note": ""
+  },
+  "${s.period || '—'} · ${s.period_label || ''} ${s.definition ? '— ' + String(s.definition).slice(0, 160) : ''}": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...})"
+  },
+  "${title} (${rows.length})": {
+   "zh": "",
+   "skip": true,
+   "note": "template with no prose (only ${...})"
+  },
+  "${x.ontology_evidence_in_seminar_n} ontology-recorded": {
+   "zh": "${x.ontology_evidence_in_seminar_n} 条本体记录",
+   "skip": false,
+   "note": ""
+  },
+  "${x.passages} passages": {
+   "zh": "${x.passages} 段",
+   "skip": false,
+   "note": ""
+  },
+  "A BibliographyRef is a user reference-management object, NOT a CorpusSource. ": {
+   "zh": "BibliographyRef 是用户侧参考文献管理对象，而不是 CorpusSource。 ",
+   "skip": false,
+   "note": ""
+  },
+  "A project is a USER_WORKSPACE object: it organizes references, questions and runs. ": {
+   "zh": "项目是 USER_WORKSPACE 对象：它组织参考文献、问题与研究记录。 ",
+   "skip": false,
+   "note": ""
+  },
+  "ACTIVE": {
+   "zh": "",
+   "skip": true,
+   "note": "machine token / enum (project status value rendered as a badge)"
+  },
+  "ARCHIVED": {
+   "zh": "",
+   "skip": true,
+   "note": "machine token / enum (project status value rendered as a badge)"
+  },
+  "Abstention": {
+   "zh": "弃权",
+   "skip": false,
+   "note": ""
+  },
+  "Abstention block missing in payload": {
+   "zh": "返回内容缺少弃权块",
+   "skip": false,
+   "note": ""
+  },
+  "Activity": {
+   "zh": "动态",
+   "skip": false,
+   "note": ""
+  },
+  "Add": {
+   "zh": "添加",
+   "skip": false,
+   "note": ""
+  },
+  "Add history snapshot to Project": {
+   "zh": "将历史快照加入项目",
+   "skip": false,
+   "note": ""
+  },
+  "Add hypothesis": {
+   "zh": "添加假设",
+   "skip": false,
+   "note": ""
+  },
+  "Add note": {
+   "zh": "添加笔记",
+   "skip": false,
+   "note": ""
+  },
+  "Add open question": {
+   "zh": "添加待解问题",
+   "skip": false,
+   "note": ""
+  },
+  "Add question": {
+   "zh": "添加问题",
+   "skip": false,
+   "note": ""
+  },
+  "Add second run to compare": {
+   "zh": "添加第二次研究以对比",
+   "skip": false,
+   "note": ""
+  },
+  "Add this item to a project from the Projects view (reviewed items only).": {
+   "zh": "请在「项目」视图中把该条目加入项目（仅限已复核条目）。",
+   "skip": false,
+   "note": ""
+  },
+  "Add this stored snapshot to a project (no LLM call)": {
+   "zh": "把该已存快照加入项目（不调用 LLM）",
+   "skip": false,
+   "note": ""
+  },
+  "Add to Project": {
+   "zh": "加入项目",
+   "skip": false,
+   "note": ""
+  },
+  "Add your own reference": {
+   "zh": "添加自填参考文献",
+   "skip": false,
+   "note": ""
+  },
+  "Advanced / Audit": {
+   "zh": "高级 / 审计",
+   "skip": false,
+   "note": ""
+  },
+  "An open question is a research question with a recorded origin. It asserts no ": {
+   "zh": "待解问题是带有来源记录的研究问题。它不主张任何 ",
+   "skip": false,
+   "note": ""
+  },
+  "Archive project": {
+   "zh": "归档项目",
+   "skip": false,
+   "note": ""
+  },
+  "Ask about this Seminar": {
+   "zh": "就此研讨班提问",
+   "skip": false,
+   "note": ""
+  },
+  "Attestation": {
+   "zh": "佐证",
+   "skip": false,
+   "note": ""
+  },
+  "Audit Bundle": {
+   "zh": "审计包",
+   "skip": false,
+   "note": ""
+  },
+  "Audit Bundle ready": {
+   "zh": "审计包已就绪",
+   "skip": false,
+   "note": ""
+  },
+  "Audit — validator diagnostics": {
+   "zh": "审计 — 校验器诊断",
+   "skip": false,
+   "note": ""
+  },
+  "Author": {
+   "zh": "作者",
+   "skip": false,
+   "note": ""
+  },
+  "Better BibTeX JSON": {
+   "zh": "",
+   "skip": true,
+   "note": "canonical scholarly token (Better BibTeX JSON)"
+  },
+  "Bibliography": {
+   "zh": "文献",
+   "skip": false,
+   "note": ""
+  },
+  "Bibliography → Inspect Metadata → ": {
+   "zh": "书目 → 查看元数据 → ",
+   "skip": false,
+   "note": ""
+  },
+  "Broken reference": {
+   "zh": "失效引用",
+   "skip": false,
+   "note": ""
+  },
+  "Broken reference (${d.broken_references.length})": {
+   "zh": "失效引用（${d.broken_references.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Browse Passages": {
+   "zh": "浏览段落",
+   "skip": false,
+   "note": ""
+  },
+  "Browse all passages": {
+   "zh": "浏览全部段落",
+   "skip": false,
+   "note": ""
+  },
+  "Browse corpus": {
+   "zh": "浏览语料",
+   "skip": false,
+   "note": ""
+  },
+  "CSL JSON": {
+   "zh": "",
+   "skip": true,
+   "note": "canonical scholarly token (CSL JSON)"
+  },
+  "Candidate edges (${g.candidate_edges_n}) — explainable, not drawn": {
+   "zh": "候选边（${g.candidate_edges_n}）— 可解释，但未绘制",
+   "skip": false,
+   "note": ""
+  },
+  "Canonical Reference": {
+   "zh": "规范参考",
+   "skip": false,
+   "note": ""
+  },
+  "Cases / persons": {
+   "zh": "个案 / 人物",
+   "skip": false,
+   "note": ""
+  },
+  "Citation Availability": {
+   "zh": "引用可用性",
+   "skip": false,
+   "note": ""
+  },
+  "Citation · ${passageId}": {
+   "zh": "引用 · ${passageId}",
+   "skip": false,
+   "note": ""
+  },
+  "Concept graph (1-hop)": {
+   "zh": "概念图（1 跳）",
+   "skip": false,
+   "note": ""
+  },
+  "Concept records come from two layers (canonical ontology + term catalog). ": {
+   "zh": "概念记录来自两层（canonical 本体 + 术语目录）。 ",
+   "skip": false,
+   "note": ""
+  },
+  "Concepts": {
+   "zh": "概念",
+   "skip": false,
+   "note": ""
+  },
+  "Confirm link": {
+   "zh": "确认关联",
+   "skip": false,
+   "note": ""
+  },
+  "Conflict": {
+   "zh": "冲突",
+   "skip": false,
+   "note": ""
+  },
+  "Context": {
+   "zh": "上下文",
+   "skip": false,
+   "note": ""
+  },
+  "Context (±${ctx.before || 0}/${ctx.after || 0})": {
+   "zh": "上下文（±${ctx.before || 0}/${ctx.after || 0}）",
+   "skip": false,
+   "note": ""
+  },
+  "Context · ${passageId}": {
+   "zh": "上下文 · ${passageId}",
+   "skip": false,
+   "note": ""
+  },
+  "Continuous reading in corpus order. Save Passage / Copy Citation / Open Context ": {
+   "zh": "按语料顺序连续阅读。保存段落 / 复制引用 / 打开上下文 ",
+   "skip": false,
+   "note": ""
+  },
+  "Copy": {
+   "zh": "复制",
+   "skip": false,
+   "note": ""
+  },
+  "Copy ": {
+   "zh": "复制 ",
+   "skip": false,
+   "note": ""
+  },
+  "Copy Citation": {
+   "zh": "复制引用",
+   "skip": false,
+   "note": ""
+  },
+  "Copy citation": {
+   "zh": "复制引用",
+   "skip": false,
+   "note": ""
+  },
+  "Copy full provenance": {
+   "zh": "复制完整出处",
+   "skip": false,
+   "note": ""
+  },
+  "Copy passage id": {
+   "zh": "复制段落 id",
+   "skip": false,
+   "note": ""
+  },
+  "Copy short": {
+   "zh": "复制短引",
+   "skip": false,
+   "note": ""
+  },
+  "Corpus attestation": {
+   "zh": "语料佐证",
+   "skip": false,
+   "note": ""
+  },
+  "Corpus occurrence": {
+   "zh": "语料中出现",
+   "skip": false,
+   "note": ""
+  },
+  "Corpus-grounded Scholarly Research Workspace": {
+   "zh": "以语料为依据的学术研究工作台",
+   "skip": false,
+   "note": ""
+  },
+  "Could not reach the workspace API.": {
+   "zh": "无法连接工作台 API。",
+   "skip": false,
+   "note": ""
+  },
+  "Create Project": {
+   "zh": "创建项目",
+   "skip": false,
+   "note": ""
+  },
+  "Create one above. Nothing is forced into a project: research can ": {
+   "zh": "在上方创建一个。研究不一定非要归入项目：研究可以 ",
+   "skip": false,
+   "note": ""
+  },
+  "Create open question from missing information": {
+   "zh": "根据缺失信息创建待解问题",
+   "skip": false,
+   "note": ""
+  },
+  "Defer": {
+   "zh": "暂缓",
+   "skip": false,
+   "note": ""
+  },
+  "Dense semantic retrieval unavailable.": {
+   "zh": "稠密语义检索不可用。",
+   "skip": false,
+   "note": ""
+  },
+  "Detected by deterministic pattern match over real ": {
+   "zh": "由确定性模式匹配在真实 ",
+   "skip": false,
+   "note": ""
+  },
+  "Diachronic view": {
+   "zh": "历时视图",
+   "skip": false,
+   "note": ""
+  },
+  "Distinctions recorded in the ontology": {
+   "zh": "本体中记录的区分",
+   "skip": false,
+   "note": ""
+  },
+  "Duplicate": {
+   "zh": "重复",
+   "skip": false,
+   "note": ""
+  },
+  "Editions": {
+   "zh": "版次",
+   "skip": false,
+   "note": ""
+  },
+  "Empty response": {
+   "zh": "空响应",
+   "skip": false,
+   "note": ""
+  },
+  "Entities": {
+   "zh": "实体",
+   "skip": false,
+   "note": ""
+  },
+  "Entities — ": {
+   "zh": "实体 — ",
+   "skip": false,
+   "note": ""
+  },
+  "Every run is an immutable snapshot of the FinalScholarlyAnswer exactly as the ": {
+   "zh": "每次研究都是 FinalScholarlyAnswer 的不可变快照，与 ",
+   "skip": false,
+   "note": ""
+  },
+  "Evidence": {
+   "zh": "证据",
+   "skip": false,
+   "note": ""
+  },
+  "Evidence (${view.citations.length})": {
+   "zh": "证据（${view.citations.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Evidence references": {
+   "zh": "证据引用",
+   "skip": false,
+   "note": ""
+  },
+  "Explore": {
+   "zh": "探索",
+   "skip": false,
+   "note": ""
+  },
+  "Explore → Research → Inspect Evidence → ": {
+   "zh": "探索 → 研究 → 查看证据 → ",
+   "skip": false,
+   "note": ""
+  },
+  "Explorer request failed": {
+   "zh": "浏览请求失败",
+   "skip": false,
+   "note": ""
+  },
+  "Export preview (${res.format}) · ${res.document.answer_state}": {
+   "zh": "导出预览（${res.format}）· ${res.document.answer_state}",
+   "skip": false,
+   "note": ""
+  },
+  "Export project manifest JSON": {
+   "zh": "导出项目清单 JSON",
+   "skip": false,
+   "note": ""
+  },
+  "Export:": {
+   "zh": "导出：",
+   "skip": false,
+   "note": ""
+  },
+  "Exports": {
+   "zh": "导出",
+   "skip": false,
+   "note": ""
+  },
+  "Exports (${data.total})": {
+   "zh": "导出（${data.total}）",
+   "skip": false,
+   "note": ""
+  },
+  "First page": {
+   "zh": "第一页",
+   "skip": false,
+   "note": ""
+  },
+  "Formal bibliographic citations (Chicago/APA/MLA/BibTeX) are offered ": {
+   "zh": "正式书目引用（Chicago/APA/MLA/BibTeX）只有在 ",
+   "skip": false,
+   "note": ""
+  },
+  "Formalism index": {
+   "zh": "形式化索引",
+   "skip": false,
+   "note": ""
+  },
+  "Format": {
+   "zh": "格式",
+   "skip": false,
+   "note": ""
+  },
+  "Free text. Notes never enter the scholarly evidence pipeline.": {
+   "zh": "自由文本。笔记永不进入学术证据流水线。",
+   "skip": false,
+   "note": ""
+  },
+  "How to work here": {
+   "zh": "使用方式",
+   "skip": false,
+   "note": ""
+  },
+  "Hypotheses are USER_WORKSPACE objects. They are never mixed into ": {
+   "zh": "假设是 USER_WORKSPACE 对象。它们绝不混入 ",
+   "skip": false,
+   "note": ""
+  },
+  "Identifier": {
+   "zh": "标识符",
+   "skip": false,
+   "note": ""
+  },
+  "Import (Zotero / CSL JSON)": {
+   "zh": "导入（Zotero / CSL JSON）",
+   "skip": false,
+   "note": ""
+  },
+  "Import as candidate": {
+   "zh": "作为候选导入",
+   "skip": false,
+   "note": ""
+  },
+  "Include validator diagnostics (rejected claims / validation trace) as audit/ files": {
+   "zh": "把校验器诊断（被拒主张 / 校验轨迹）作为 audit/ 文件一并包含",
+   "skip": false,
+   "note": ""
+  },
+  "Interpretation": {
+   "zh": "解释",
+   "skip": false,
+   "note": ""
+  },
+  "Lacan Knowledge OS": {
+   "zh": "",
+   "skip": true,
+   "note": "brand name (Lacan Knowledge OS)"
+  },
+  "Language / translation": {
+   "zh": "语言 / 翻译",
+   "skip": false,
+   "note": ""
+  },
+  "Layers": {
+   "zh": "层次",
+   "skip": false,
+   "note": ""
+  },
+  "Limitations (${r.limitations.length})": {
+   "zh": "局限（${r.limitations.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Limitations (${view.limitations.length})": {
+   "zh": "局限（${view.limitations.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Link reference ": {
+   "zh": "关联参考文献 ",
+   "skip": false,
+   "note": ""
+  },
+  "Link to Bibliographic Item": {
+   "zh": "关联到书目条目",
+   "skip": false,
+   "note": ""
+  },
+  "Loading context…": {
+   "zh": "正在加载上下文…",
+   "skip": false,
+   "note": ""
+  },
+  "Loading evidence…": {
+   "zh": "正在加载证据…",
+   "skip": false,
+   "note": ""
+  },
+  "Loading…": {
+   "zh": "正在加载…",
+   "skip": false,
+   "note": ""
+  },
+  "Malformed response": {
+   "zh": "响应格式错误",
+   "skip": false,
+   "note": ""
+  },
+  "Mapping": {
+   "zh": "映射",
+   "skip": false,
+   "note": ""
+  },
+  "Mention sample": {
+   "zh": "提及样本",
+   "skip": false,
+   "note": ""
+  },
+  "Metadata Completeness": {
+   "zh": "元数据完整度",
+   "skip": false,
+   "note": ""
+  },
+  "Misreadings (canonical)": {
+   "zh": "误读（canonical）",
+   "skip": false,
+   "note": ""
+  },
+  "Missing layers (shown as-is, never filled in): ": {
+   "zh": "缺失层次（按原样显示，绝不补全）： ",
+   "skip": false,
+   "note": ""
+  },
+  "NEEDS REVIEW · NOT CITABLE": {
+   "zh": "需复核 · 不可引用",
+   "skip": false,
+   "note": ""
+  },
+  "New project": {
+   "zh": "新建项目",
+   "skip": false,
+   "note": ""
+  },
+  "Next": {
+   "zh": "下一页",
+   "skip": false,
+   "note": ""
+  },
+  "Next page": {
+   "zh": "下一页",
+   "skip": false,
+   "note": ""
+  },
+  "Next: ${view.resolution}": {
+   "zh": "下一步：${view.resolution}",
+   "skip": false,
+   "note": ""
+  },
+  "No citation style is offered for this record. It has not been promoted to ": {
+   "zh": "该记录不提供任何引用样式。它尚未被提升为 ",
+   "skip": false,
+   "note": ""
+  },
+  "No context window.": {
+   "zh": "无上下文窗口。",
+   "skip": false,
+   "note": ""
+  },
+  "No projects yet": {
+   "zh": "还没有项目",
+   "skip": false,
+   "note": ""
+  },
+  "No projects yet.": {
+   "zh": "还没有项目。",
+   "skip": false,
+   "note": ""
+  },
+  "No provenance fields available.": {
+   "zh": "无可用出处字段。",
+   "skip": false,
+   "note": ""
+  },
+  "No questions yet.": {
+   "zh": "还没有问题。",
+   "skip": false,
+   "note": ""
+  },
+  "No registry item linked yet. Use “Link to Bibliographic Item” below.": {
+   "zh": "尚未关联登记表条目。请使用下方的「关联到书目条目」。",
+   "skip": false,
+   "note": ""
+  },
+  "No research yet.": {
+   "zh": "还没有研究记录。",
+   "skip": false,
+   "note": ""
+  },
+  "No reviewed entities.": {
+   "zh": "没有已复核实体。",
+   "skip": false,
+   "note": ""
+  },
+  "No saved research yet.": {
+   "zh": "还没有已保存的研究。",
+   "skip": false,
+   "note": ""
+  },
+  "None.": {
+   "zh": "无。",
+   "skip": false,
+   "note": ""
+  },
+  "Not linked (0 passages from this witness)": {
+   "zh": "未链接（该见证本 0 段）",
+   "skip": false,
+   "note": ""
+  },
+  "Not offered (no linked PassageRealization): ": {
+   "zh": "未提供（无已链接的 PassageRealization）： ",
+   "skip": false,
+   "note": ""
+  },
+  "Not offered as link targets, because they are candidates awaiting review: ": {
+   "zh": "不作为关联目标提供，因为它们还是待复核的候选条目： ",
+   "skip": false,
+   "note": ""
+  },
+  "Notes (${(p.notes || []).length})": {
+   "zh": "笔记（${(p.notes || []).length}）",
+   "skip": false,
+   "note": ""
+  },
+  "OPEN / RESEARCHED / DEFERRED are project-management states, not scholarly ": {
+   "zh": "OPEN / RESEARCHED / DEFERRED 是项目管理状态，而不是学术 ",
+   "skip": false,
+   "note": ""
+  },
+  "Obsidian": {
+   "zh": "",
+   "skip": true,
+   "note": "brand name (Obsidian)"
+  },
+  "Only stable ids are stored. The passage/concept text is always re-read from the ": {
+   "zh": "只存稳定 id。段落/概念文本始终从 ",
+   "skip": false,
+   "note": ""
+  },
+  "Open Context": {
+   "zh": "打开上下文",
+   "skip": false,
+   "note": ""
+  },
+  "Open Obsidian": {
+   "zh": "打开 Obsidian",
+   "skip": false,
+   "note": ""
+  },
+  "Open Questions (${(p.open_questions || []).length})": {
+   "zh": "待解问题（${(p.open_questions || []).length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Open in Obsidian": {
+   "zh": "在 Obsidian 中打开",
+   "skip": false,
+   "note": ""
+  },
+  "Open session": {
+   "zh": "打开讲次",
+   "skip": false,
+   "note": ""
+  },
+  "Original passage": {
+   "zh": "原段落",
+   "skip": false,
+   "note": ""
+  },
+  "Other witnesses in the corpus (${w.unlinked_witnesses.length}) — not linked to this passage": {
+   "zh": "语料中的其他见证本（${w.unlinked_witnesses.length}）— 未链接到该段落",
+   "skip": false,
+   "note": ""
+  },
+  "Overview": {
+   "zh": "概览",
+   "skip": false,
+   "note": ""
+  },
+  "Passage Realizations: ": {
+   "zh": "段落实现数： ",
+   "skip": false,
+   "note": "P5D-004：产品状态文案（canonical 实体名 PassageRealization 不出现于此）"
+  },
+  "Passages": {
+   "zh": "段落",
+   "skip": false,
+   "note": ""
+  },
+  "Passages (first ${d.passages.length})": {
+   "zh": "段落（前 ${d.passages.length} 条）",
+   "skip": false,
+   "note": ""
+  },
+  "Period states": {
+   "zh": "时期状态",
+   "skip": false,
+   "note": ""
+  },
+  "Please enter a question (at least 4 characters).": {
+   "zh": "请输入问题（至少 4 个字符）。",
+   "skip": false,
+   "note": ""
+  },
+  "Preview": {
+   "zh": "预览",
+   "skip": false,
+   "note": ""
+  },
+  "Preview renders the ExportDocument itself — no extra summary is generated.": {
+   "zh": "预览渲染 ExportDocument 本身 — 不额外生成摘要。",
+   "skip": false,
+   "note": ""
+  },
+  "Previous": {
+   "zh": "上一页",
+   "skip": false,
+   "note": ""
+  },
+  "Project Bibliography": {
+   "zh": "项目书目",
+   "skip": false,
+   "note": ""
+  },
+  "Project description (optional)": {
+   "zh": "项目描述（可选）",
+   "skip": false,
+   "note": ""
+  },
+  "Project request failed": {
+   "zh": "项目请求失败",
+   "skip": false,
+   "note": ""
+  },
+  "Project tags, comma separated": {
+   "zh": "项目标签，以逗号分隔",
+   "skip": false,
+   "note": ""
+  },
+  "Project title": {
+   "zh": "项目标题",
+   "skip": false,
+   "note": ""
+  },
+  "Projects": {
+   "zh": "项目",
+   "skip": false,
+   "note": ""
+  },
+  "Projects organize references; they are never evidence. The canonical object is ": {
+   "zh": "项目组织参考文献；它们永远不是证据。规范对象是 ",
+   "skip": false,
+   "note": ""
+  },
+  "Provenance": {
+   "zh": "出处",
+   "skip": false,
+   "note": ""
+  },
+  "Qualified answer": {
+   "zh": "附条件答案",
+   "skip": false,
+   "note": ""
+  },
+  "Qualified scholarly answer": {
+   "zh": "附条件的学术答案",
+   "skip": false,
+   "note": ""
+  },
+  "Quoted span": {
+   "zh": "引用片段",
+   "skip": false,
+   "note": ""
+  },
+  "Read from the Workspace / Obsidian manifests written by Phase 4D.3. Saved research ": {
+   "zh": "读取 Phase 4D.3 写入的 Workspace / Obsidian 清单。已保存的研究 ",
+   "skip": false,
+   "note": ""
+  },
+  "Read-only adapter for free-text references created ": {
+   "zh": "自由文本参考文献的只读适配，创建于 ",
+   "skip": false,
+   "note": ""
+  },
+  "Read-only browse over the local corpus and registries.": {
+   "zh": "对本地语料与登记表的只读浏览。",
+   "skip": false,
+   "note": ""
+  },
+  "Reading mode · ${params.id}": {
+   "zh": "阅读模式 · ${params.id}",
+   "skip": false,
+   "note": ""
+  },
+  "Recent": {
+   "zh": "最近",
+   "skip": false,
+   "note": ""
+  },
+  "Referenced by id; the registry stays the source of ": {
+   "zh": "按 id 引用；登记表仍是 ",
+   "skip": false,
+   "note": ""
+  },
+  "Refresh": {
+   "zh": "刷新",
+   "skip": false,
+   "note": ""
+  },
+  "Rejected claims (${audit.rejected.length})": {
+   "zh": "被拒主张（${audit.rejected.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Relations": {
+   "zh": "关系",
+   "skip": false,
+   "note": ""
+  },
+  "Reopen": {
+   "zh": "重新打开",
+   "skip": false,
+   "note": ""
+  },
+  "Repaired claims (${audit.repaired.length})": {
+   "zh": "已修复主张（${audit.repaired.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Request failed": {
+   "zh": "请求失败",
+   "skip": false,
+   "note": ""
+  },
+  "Research": {
+   "zh": "研究",
+   "skip": false,
+   "note": ""
+  },
+  "Research Projects": {
+   "zh": "研究项目",
+   "skip": false,
+   "note": ""
+  },
+  "Research Questions": {
+   "zh": "研究问题",
+   "skip": false,
+   "note": ""
+  },
+  "Research diachronically": {
+   "zh": "按历时研究",
+   "skip": false,
+   "note": ""
+  },
+  "Research disabled (fail closed)": {
+   "zh": "研究已禁用（fail closed）",
+   "skip": false,
+   "note": ""
+  },
+  "Research from this concept": {
+   "zh": "从该概念发起研究",
+   "skip": false,
+   "note": ""
+  },
+  "Research runs (${d.runs.length})": {
+   "zh": "研究记录（${d.runs.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Research this passage": {
+   "zh": "研究该段落",
+   "skip": false,
+   "note": ""
+  },
+  "Restore to ACTIVE": {
+   "zh": "恢复为 ACTIVE",
+   "skip": false,
+   "note": ""
+  },
+  "Review Status": {
+   "zh": "复核状态",
+   "skip": false,
+   "note": ""
+  },
+  "Reviewed does NOT mean bibliographically complete.": {
+   "zh": "已复核不等于书目信息完整。",
+   "skip": false,
+   "note": ""
+  },
+  "Reviewed references (${reviewed.length})": {
+   "zh": "已复核参考文献（${reviewed.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Root: ${data.path}（USER_WORKSPACE）": {
+   "zh": "根目录：${data.path}（USER_WORKSPACE）",
+   "skip": false,
+   "note": ""
+  },
+  "Réel / réalité control": {
+   "zh": "",
+   "skip": true,
+   "note": "canonical term-pair label (Réel / réalité)"
+  },
+  "SOURCE_TRACE_INCOMPLETE — this text is available for corpus research, but ": {
+   "zh": "SOURCE_TRACE_INCOMPLETE — 该文本可用于语料研究，但其 ",
+   "skip": false,
+   "note": ""
+  },
+  "Save Passage": {
+   "zh": "保存段落",
+   "skip": false,
+   "note": ""
+  },
+  "Save Passage to Obsidian": {
+   "zh": "保存段落到 Obsidian",
+   "skip": false,
+   "note": ""
+  },
+  "Save to Obsidian": {
+   "zh": "保存到 Obsidian",
+   "skip": false,
+   "note": ""
+  },
+  "Saved research": {
+   "zh": "已保存的研究",
+   "skip": false,
+   "note": ""
+  },
+  "Saved research (${saved.total})": {
+   "zh": "已保存的研究（${saved.total}）",
+   "skip": false,
+   "note": ""
+  },
+  "Saves the stable id into a USER_WORKSPACE project. No canonical content is copied.": {
+   "zh": "把稳定 id 存入 USER_WORKSPACE 项目。不复制任何 canonical 内容。",
+   "skip": false,
+   "note": ""
+  },
+  "Search": {
+   "zh": "搜索",
+   "skip": false,
+   "note": ""
+  },
+  "Search concepts by label, alias or id": {
+   "zh": "按标签、别名或 id 搜索概念",
+   "skip": false,
+   "note": ""
+  },
+  "Search: ${q} (dense_available=${res.dense_available})": {
+   "zh": "搜索：${q}（dense_available=${res.dense_available}）",
+   "skip": false,
+   "note": ""
+  },
+  "Section verbatim — ${s.label}${s.internal ? ' (internal)' : ''}": {
+   "zh": "章节原文 — ${s.label}${s.internal ? ' (internal)' : ''}",
+   "skip": false,
+   "note": ""
+  },
+  "Select a reviewed bibliographic item…": {
+   "zh": "选择一条已复核书目条目…",
+   "skip": false,
+   "note": ""
+  },
+  "Select file": {
+   "zh": "选择文件",
+   "skip": false,
+   "note": ""
+  },
+  "Seminar ID ≠ published edition; no seminar link recorded for this item.": {
+   "zh": "研讨班 ID ≠ 已出版版次；该条目没有记录研讨班关联。",
+   "skip": false,
+   "note": ""
+  },
+  "Seminar distribution": {
+   "zh": "研讨班分布",
+   "skip": false,
+   "note": ""
+  },
+  "Seminars": {
+   "zh": "研讨班",
+   "skip": false,
+   "note": ""
+  },
+  "Session ${ctx.session || '—'} · ${ctx.session_total || 0} passages · reading in ": {
+   "zh": "讲次 ${ctx.session || '—'} · 共 ${ctx.session_total || 0} 段 · 阅读顺序 ",
+   "skip": false,
+   "note": ""
+  },
+  "Sessions (${d.sessions.length})": {
+   "zh": "讲次（${d.sessions.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Sessions read in lesson order; a session without a ": {
+   "zh": "讲次按课次顺序阅读；没有 ",
+   "skip": false,
+   "note": ""
+  },
+  "Snapshot verification: ${d.verify.overall}": {
+   "zh": "快照校验：${d.verify.overall}",
+   "skip": false,
+   "note": ""
+  },
+  "Source chain": {
+   "zh": "来源链",
+   "skip": false,
+   "note": ""
+  },
+  "Source trace incomplete": {
+   "zh": "来源轨迹不完整",
+   "skip": false,
+   "note": ""
+  },
+  "Source: ": {
+   "zh": "来源： ",
+   "skip": false,
+   "note": ""
+  },
+  "Submission is disabled until the core integrity check passes again.": {
+   "zh": "在核心完整性校验再次通过之前，提交处于禁用状态。",
+   "skip": false,
+   "note": ""
+  },
+  "Supported: CSL JSON, Better BibTeX JSON. Imported items are always candidates — ": {
+   "zh": "支持：CSL JSON、Better BibTeX JSON。导入的条目始终是候选条目 — ",
+   "skip": false,
+   "note": ""
+  },
+  "Sync Obsidian Project Hub": {
+   "zh": "同步 Obsidian 项目枢纽",
+   "skip": false,
+   "note": ""
+  },
+  "System Status": {
+   "zh": "系统状态",
+   "skip": false,
+   "note": ""
+  },
+  "Terminology": {
+   "zh": "术语",
+   "skip": false,
+   "note": ""
+  },
+  "Test with corpus": {
+   "zh": "用语料检验",
+   "skip": false,
+   "note": ""
+  },
+  "The core abstained but returned no abstention block. Nothing was filled in.": {
+   "zh": "核心选择了弃权，但没有返回弃权块。系统没有补填任何内容。",
+   "skip": false,
+   "note": ""
+  },
+  "These are workspace counts — there is no research-quality score, completeness ": {
+   "zh": "这些是工作区计数 — 没有研究质量分，也没有完整度 ",
+   "skip": false,
+   "note": ""
+  },
+  "These buttons only pre-fill a research request. Execution always goes through ": {
+   "zh": "这些按钮只预填研究请求。执行始终经过 ",
+   "skip": false,
+   "note": ""
+  },
+  "These ids are kept and shown as broken. Nothing is deleted silently. ": {
+   "zh": "这些 id 会被保留并显示为失效。不会静默删除任何内容。 ",
+   "skip": false,
+   "note": ""
+  },
+  "This is an RC1.1 snapshot: diagnostics are derived at render time; ": {
+   "zh": "这是 RC1.1 快照：诊断信息在渲染时推导； ",
+   "skip": false,
+   "note": ""
+  },
+  "This record has not been promoted to reviewed ": {
+   "zh": "该记录尚未被提升为已复核 ",
+   "skip": false,
+   "note": ""
+  },
+  "This run abstained. It is stored as ABSTAINED — never as \"answered\".": {
+   "zh": "本次研究选择了弃权。它按 ABSTAINED 存储 — 绝不会记为「已回答」。",
+   "skip": false,
+   "note": ""
+  },
+  "This witness is known to the system, but the canonical passage store has ": {
+   "zh": "系统知道该见证本，但 canonical 段落库 ",
+   "skip": false,
+   "note": ""
+  },
+  "Title": {
+   "zh": "标题",
+   "skip": false,
+   "note": ""
+  },
+  "Trace source": {
+   "zh": "追踪来源",
+   "skip": false,
+   "note": ""
+  },
+  "Translation": {
+   "zh": "翻译",
+   "skip": false,
+   "note": ""
+  },
+  "Unknown Explorer view": {
+   "zh": "未知的浏览视图",
+   "skip": false,
+   "note": ""
+  },
+  "Unlinked legacy references (${legacy.length})": {
+   "zh": "未关联的历史参考文献（${legacy.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Usage note (canonical)": {
+   "zh": "用法说明（canonical）",
+   "skip": false,
+   "note": ""
+  },
+  "User hypotheses (${(p.hypotheses || []).length})": {
+   "zh": "用户假设（${(p.hypotheses || []).length}）",
+   "skip": false,
+   "note": ""
+  },
+  "User hypothesis — not validated by the Scholarly Core": {
+   "zh": "用户假设 — 未经学术核心验证",
+   "skip": false,
+   "note": ""
+  },
+  "User-supplied references (${userSupplied.length})": {
+   "zh": "用户自填参考文献（${userSupplied.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Validated claims (${view.claims.length})": {
+   "zh": "已验证主张（${view.claims.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Validator record (scholarly process, not an error). ": {
+   "zh": "校验器记录（学术流程，不是错误）。 ",
+   "skip": false,
+   "note": ""
+  },
+  "View raw response (read-only)": {
+   "zh": "查看原始响应（只读）",
+   "skip": false,
+   "note": ""
+  },
+  "View stored answer": {
+   "zh": "查看已存答案",
+   "skip": false,
+   "note": ""
+  },
+  "Warnings (${items.length})": {
+   "zh": "警告（${items.length}）",
+   "skip": false,
+   "note": ""
+  },
+  "Witnesses": {
+   "zh": "见证本",
+   "skip": false,
+   "note": ""
+  },
+  "Year": {
+   "zh": "年份",
+   "skip": false,
+   "note": ""
+  },
+  "all": {
+   "zh": "全部",
+   "skip": false,
+   "note": ""
+  },
+  "any": {
+   "zh": "任意",
+   "skip": false,
+   "note": ""
+  },
+  "author (optional)": {
+   "zh": "作者（可选）",
+   "skip": false,
+   "note": ""
+  },
+  "bibliographic_id = null, user_supplied = true — stored ": {
+   "zh": "bibliographic_id = null、user_supplied = true — 按原样存储 ",
+   "skip": false,
+   "note": ""
+  },
+  "break": {
+   "zh": "断裂",
+   "skip": false,
+   "note": ""
+  },
+  "candidates=": {
+   "zh": "候选=",
+   "skip": false,
+   "note": ""
+  },
+  "co-alias forms (same entity)": {
+   "zh": "共用别名形式（同一实体）",
+   "skip": false,
+   "note": ""
+  },
+  "collapsed — investigate": {
+   "zh": "已折叠 — 需排查",
+   "skip": false,
+   "note": ""
+  },
+  "contains audit/rejected_claims.json + ": {
+   "zh": "包含 audit/rejected_claims.json + ",
+   "skip": false,
+   "note": ""
+  },
+  "description (optional)": {
+   "zh": "描述（可选）",
+   "skip": false,
+   "note": ""
+  },
+  "detail failed": {
+   "zh": "详情加载失败",
+   "skip": false,
+   "note": ""
+  },
+  "detected by": {
+   "zh": "检测方式",
+   "skip": false,
+   "note": ""
+  },
+  "edge": {
+   "zh": "边",
+   "skip": false,
+   "note": ""
+  },
+  "edition": {
+   "zh": "版次",
+   "skip": false,
+   "note": ""
+  },
+  "entity": {
+   "zh": "实体",
+   "skip": false,
+   "note": ""
+  },
+  "evidence": {
+   "zh": "证据",
+   "skip": false,
+   "note": ""
+  },
+  "expected revision ${res.expected_revision} · actual ${res.actual_revision}": {
+   "zh": "期望修订 ${res.expected_revision} · 实际 ${res.actual_revision}",
+   "skip": false,
+   "note": ""
+  },
+  "form": {
+   "zh": "形式",
+   "skip": false,
+   "note": ""
+  },
+  "graph": {
+   "zh": "图",
+   "skip": false,
+   "note": ""
+  },
+  "kind": {
+   "zh": "类型",
+   "skip": false,
+   "note": ""
+  },
+  "language": {
+   "zh": "语言",
+   "skip": false,
+   "note": ""
+  },
+  "languages": {
+   "zh": "语言",
+   "skip": false,
+   "note": ""
+  },
+  "layer": {
+   "zh": "层次",
+   "skip": false,
+   "note": ""
+  },
+  "link role": {
+   "zh": "链接角色",
+   "skip": false,
+   "note": ""
+  },
+  "link state": {
+   "zh": "链接状态",
+   "skip": false,
+   "note": ""
+  },
+  "linked: ": {
+   "zh": "已链接： ",
+   "skip": false,
+   "note": ""
+  },
+  "load failed": {
+   "zh": "加载失败",
+   "skip": false,
+   "note": ""
+  },
+  "load failed: ": {
+   "zh": "加载失败： ",
+   "skip": false,
+   "note": ""
+  },
+  "loading…": {
+   "zh": "正在加载…",
+   "skip": false,
+   "note": ""
+  },
+  "mapping": {
+   "zh": "映射",
+   "skip": false,
+   "note": ""
+  },
+  "mapping record": {
+   "zh": "映射记录",
+   "skip": false,
+   "note": ""
+  },
+  "needs_review": {
+   "zh": "需复核",
+   "skip": false,
+   "note": ""
+  },
+  "new hypothesis (user object)": {
+   "zh": "新建假设（用户对象）",
+   "skip": false,
+   "note": ""
+  },
+  "new open question": {
+   "zh": "新建待解问题",
+   "skip": false,
+   "note": ""
+  },
+  "new research question": {
+   "zh": "新建研究问题",
+   "skip": false,
+   "note": ""
+  },
+  "no canonical title": {
+   "zh": "无规范标题",
+   "skip": false,
+   "note": ""
+  },
+  "no file selected": {
+   "zh": "未选择文件",
+   "skip": false,
+   "note": ""
+  },
+  "no lesson number": {
+   "zh": "无课次编号",
+   "skip": false,
+   "note": ""
+  },
+  "not drawn": {
+   "zh": "未绘制",
+   "skip": false,
+   "note": ""
+  },
+  "not generated": {
+   "zh": "未生成",
+   "skip": false,
+   "note": ""
+  },
+  "not validated": {
+   "zh": "未验证",
+   "skip": false,
+   "note": ""
+  },
+  "note": {
+   "zh": "笔记",
+   "skip": false,
+   "note": ""
+  },
+  "note text (Markdown allowed)": {
+   "zh": "笔记正文（允许 Markdown）",
+   "skip": false,
+   "note": ""
+  },
+  "note title (optional)": {
+   "zh": "笔记标题（可选）",
+   "skip": false,
+   "note": ""
+  },
+  "offset=": {
+   "zh": "偏移=",
+   "skip": false,
+   "note": ""
+  },
+  "order: ${p.order}": {
+   "zh": "顺序：${p.order}",
+   "skip": false,
+   "note": ""
+  },
+  "page of ${d.page.total} passages": {
+   "zh": "共 ${d.page.total} 段",
+   "skip": false,
+   "note": ""
+  },
+  "passage_id": {
+   "zh": "",
+   "skip": true,
+   "note": "identifier / field name (passage_id)"
+  },
+  "passages": {
+   "zh": "段落",
+   "skip": false,
+   "note": ""
+  },
+  "pattern": {
+   "zh": "模式",
+   "skip": false,
+   "note": ""
+  },
+  "payload hash ${res.export_payload_hash}": {
+   "zh": "载荷哈希 ${res.export_payload_hash}",
+   "skip": false,
+   "note": ""
+  },
+  "person.schreber ≠ case.schreber — distinct entities; the case links to its ": {
+   "zh": "person.schreber ≠ case.schreber — 两个不同实体；个案链接到它的 ",
+   "skip": false,
+   "note": ""
+  },
+  "predicate": {
+   "zh": "谓词",
+   "skip": false,
+   "note": ""
+  },
+  "project title (e.g. 拉康欲望理论研究)": {
+   "zh": "项目标题（例如：拉康欲望理论研究）",
+   "skip": false,
+   "note": ""
+  },
+  "provenance": {
+   "zh": "出处",
+   "skip": false,
+   "note": ""
+  },
+  "query": {
+   "zh": "查询",
+   "skip": false,
+   "note": ""
+  },
+  "query (exact substring over the corpus)": {
+   "zh": "查询（在语料中精确匹配子串）",
+   "skip": false,
+   "note": ""
+  },
+  "question language: ${opts.requestLanguage}": {
+   "zh": "问题语言：${opts.requestLanguage}",
+   "skip": false,
+   "note": ""
+  },
+  "reason: ${r.reason}": {
+   "zh": "原因：${r.reason}",
+   "skip": false,
+   "note": ""
+  },
+  "rejected: ": {
+   "zh": "被拒： ",
+   "skip": false,
+   "note": ""
+  },
+  "remove": {
+   "zh": "移除",
+   "skip": false,
+   "note": ""
+  },
+  "research": {
+   "zh": "研究",
+   "skip": false,
+   "note": ""
+  },
+  "rev ${p.revision}": {
+   "zh": "修订 ${p.revision}",
+   "skip": false,
+   "note": ""
+  },
+  "review": {
+   "zh": "复核",
+   "skip": false,
+   "note": ""
+  },
+  "reviewed": {
+   "zh": "已复核",
+   "skip": false,
+   "note": ""
+  },
+  "saved at": {
+   "zh": "保存于",
+   "skip": false,
+   "note": ""
+  },
+  "search label / alias / id": {
+   "zh": "搜索标签 / 别名 / id",
+   "skip": false,
+   "note": ""
+  },
+  "seminar": {
+   "zh": "研讨班",
+   "skip": false,
+   "note": ""
+  },
+  "session": {
+   "zh": "讲次",
+   "skip": false,
+   "note": ""
+  },
+  "sessions": {
+   "zh": "讲次",
+   "skip": false,
+   "note": ""
+  },
+  "source": {
+   "zh": "来源",
+   "skip": false,
+   "note": ""
+  },
+  "state": {
+   "zh": "状态",
+   "skip": false,
+   "note": ""
+  },
+  "status": {
+   "zh": "状态",
+   "skip": false,
+   "note": ""
+  },
+  "status unavailable": {
+   "zh": "状态不可用",
+   "skip": false,
+   "note": ""
+  },
+  "tags (comma separated)": {
+   "zh": "标签（以逗号分隔）",
+   "skip": false,
+   "note": ""
+  },
+  "term (fr / zh / en)": {
+   "zh": "术语（fr / zh / en）",
+   "skip": false,
+   "note": ""
+  },
+  "title": {
+   "zh": "标题",
+   "skip": false,
+   "note": ""
+  },
+  "trace incomplete": {
+   "zh": "轨迹不完整",
+   "skip": false,
+   "note": ""
+  },
+  "trace status: ${tr.trace_status || '—'}${tr.complete ? '' : ' · incomplete'}": {
+   "zh": "轨迹状态：${tr.trace_status || '—'}${tr.complete ? '' : ' · incomplete'}",
+   "skip": false,
+   "note": ""
+  },
+  "two distinct entities": {
+   "zh": "两个不同实体",
+   "skip": false,
+   "note": ""
+  },
+  "verify": {
+   "zh": "校验",
+   "skip": false,
+   "note": ""
+  },
+  "witness": {
+   "zh": "见证本",
+   "skip": false,
+   "note": ""
+  },
+  "written form": {
+   "zh": "书写形式",
+   "skip": false,
+   "note": ""
+  },
+  "year": {
+   "zh": "年份",
+   "skip": false,
+   "note": ""
+  },
+  "year (optional)": {
+   "zh": "年份（可选）",
+   "skip": false,
+   "note": ""
+  },
+  "years": {
+   "zh": "年份",
+   "skip": false,
+   "note": ""
+  },
+  "zip: ${res.zip}": {
+   "zh": "zip：${res.zip}",
+   "skip": false,
+   "note": ""
+  },
+  "±${b === 0 ? 0 : b}": {
+   "zh": "",
+   "skip": true,
+   "note": "symbol + template only"
+  },
+  "±${n}": {
+   "zh": "",
+   "skip": true,
+   "note": "symbol + template only"
+  },
+  "Lacan Knowledge OS — Research Workspace": {
+   "zh": "Lacan Knowledge OS — 研究工作台",
+   "skip": false,
+   "note": ""
+  },
+  "Skip to research input": {
+   "zh": "跳到研究输入框",
+   "skip": false,
+   "note": ""
+  },
+  "Research Workspace": {
+   "zh": "研究工作台",
+   "skip": false,
+   "note": ""
+  },
+  "Mode": {
+   "zh": "模式",
+   "skip": false,
+   "note": ""
+  },
+  "Scholarly": {
+   "zh": "学术",
+   "skip": false,
+   "note": ""
+  },
+  "Quick": {
+   "zh": "快速",
+   "skip": false,
+   "note": ""
+  },
+  "Auto": {
+   "zh": "自动",
+   "skip": false,
+   "note": ""
+  },
+  "Concept": {
+   "zh": "概念",
+   "skip": false,
+   "note": ""
+  },
+  "Relation": {
+   "zh": "关系",
+   "skip": false,
+   "note": ""
+  },
+  "Comparison": {
+   "zh": "对比",
+   "skip": false,
+   "note": ""
+  },
+  "Diachronic": {
+   "zh": "历时",
+   "skip": false,
+   "note": ""
+  },
+  "Seminar-specific": {
+   "zh": "限定研讨班",
+   "skip": false,
+   "note": ""
+  },
+  "Formalism": {
+   "zh": "形式化",
+   "skip": false,
+   "note": ""
+  },
+  "Case": {
+   "zh": "个案",
+   "skip": false,
+   "note": ""
+  },
+  "Provider": {
+   "zh": "提供方",
+   "skip": false,
+   "note": ""
+  },
+  "Offline / Mock": {
+   "zh": "离线 / Mock",
+   "skip": false,
+   "note": ""
+  },
+  "Real LLM (explicit)": {
+   "zh": "真实 LLM（需显式选择）",
+   "skip": false,
+   "note": ""
+  },
+  "Research language": {
+   "zh": "研究语言",
+   "skip": false,
+   "note": ""
+  },
+  "中文": {
+   "zh": "",
+   "skip": true,
+   "note": "already Simplified Chinese"
+  },
+  "Français": {
+   "zh": "",
+   "skip": true,
+   "note": "language endonym (kept per product convention)"
+  },
+  "English": {
+   "zh": "",
+   "skip": true,
+   "note": "language endonym (kept per product convention)"
+  },
+  "Home": {
+   "zh": "首页",
+   "skip": false,
+   "note": ""
+  },
+  "History": {
+   "zh": "历史",
+   "skip": false,
+   "note": ""
+  },
+  "Saved": {
+   "zh": "已保存",
+   "skip": false,
+   "note": ""
+  },
+  "refresh": {
+   "zh": "刷新",
+   "skip": false,
+   "note": ""
+  },
+  "Advanced": {
+   "zh": "高级",
+   "skip": false,
+   "note": ""
+  },
+  "Research passage search": {
+   "zh": "研究段落检索",
+   "skip": false,
+   "note": ""
+  },
+  "Status detail": {
+   "zh": "状态详情",
+   "skip": false,
+   "note": ""
+  },
+  "Ask the frozen scholarly core": {
+   "zh": "向冻结的学术核心提问",
+   "skip": false,
+   "note": ""
+  },
+  "Research corpus": {
+   "zh": "检索语料",
+   "skip": false,
+   "note": ""
+  },
+  "Stop waiting": {
+   "zh": "停止等待",
+   "skip": false,
+   "note": ""
+  },
+  "gaze / objet a（Seminar XI）": {
+   "zh": "",
+   "skip": true,
+   "note": "example question made of canonical terms / proper names"
+  },
+  "Réel / réalité": {
+   "zh": "",
+   "skip": true,
+   "note": "canonical terms (Réel / réalité)"
+  },
+  "$ ◊ a 公式": {
+   "zh": "",
+   "skip": true,
+   "note": "already Simplified Chinese (symbols + 公式)"
+  },
+  "jouissance S7→S20（历时限制）": {
+   "zh": "",
+   "skip": true,
+   "note": "canonical term (jouissance) + already Simplified Chinese"
+  },
+  "fMRI（弃权）": {
+   "zh": "",
+   "skip": true,
+   "note": "already Simplified Chinese (acronym + 弃权)"
+  },
+  "1953-11-18 报告（元数据弃权）": {
+   "zh": "",
+   "skip": true,
+   "note": "already Simplified Chinese"
+  },
+  "Evidence Inspector": {
+   "zh": "证据检查器",
+   "skip": false,
+   "note": ""
+  },
+  "Connecting…": {
+   "zh": "正在连接…",
+   "skip": false,
+   "note": ""
+  },
+  "freeze: —": {
+   "zh": "冻结: —",
+   "skip": false,
+   "note": ""
+  },
+  "provider: —": {
+   "zh": "提供方: —",
+   "skip": false,
+   "note": ""
+  }
+ },
+ "review_notes": {
+  "ACTIVE_ARCHIVED": "保持英文 token（intentional_source_text）：它们是项目状态词表，同时作为 API/查询取值与动态 tag 渲染（p.status），只翻显示会造成中英混排，且该词表另有 frozen 测试（4E project state vocabulary）。",
+  "passage_realizations": "改为中文产品文案；canonical 实体名 PassageRealization 不在此串中。",
+  "bibliography_term": "统一为「文献」，与导航 nav.bibliography 一致（一个概念一种译法）。",
+  "language_endonyms": "Français / English / 中文 保持 endonym，且与 app.js 的 LANG_LABEL、研究语言状态行一致。"
+ }
+}

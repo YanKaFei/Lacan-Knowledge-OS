@@ -1,0 +1,7 @@
+# Codex：~/.codex/config.toml
+# 字段名随 Codex 版本可能变化，以本机 codex --help / 该版本文档为准。
+[mcp_servers.lacan-kb]
+command = "python3"
+args = ["<REPO>/_scripts/_tools/lacan-kb-mcp"]
+cwd = "<REPO>"
+startup_timeout_sec = 20

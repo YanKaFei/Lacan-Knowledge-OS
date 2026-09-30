@@ -1,0 +1,378 @@
+{
+ "schema_version": "help-ui-keys/v1",
+ "note": "P5D-005 新增的产品文案（首页任务型 IA + Help Center chrome）。由 _scripts/_tools/build_help.py 同步进既有 i18n 词典（manual_keys.json），**不建第二套 locale**。",
+ "keys": [
+  {
+   "key": "home.hero.lede",
+   "surface": "Home",
+   "en": "Start from a question, retrieve the original text, check the evidence, organise the concepts, build a research project — and carry the work on into Obsidian.",
+   "zh": "从问题出发，检索原文、检查证据、组织概念、建立研究项目，并将研究继续带入 Obsidian。"
+  },
+  {
+   "key": "home.hero.cta-research",
+   "surface": "Home",
+   "en": "Start a research run",
+   "zh": "开始一次研究"
+  },
+  {
+   "key": "home.hero.cta-first-time",
+   "surface": "Home",
+   "en": "First time here?",
+   "zh": "第一次使用？"
+  },
+  {
+   "key": "home.tasks.title",
+   "surface": "Home",
+   "en": "What do you want to do?",
+   "zh": "你想做什么？"
+  },
+  {
+   "key": "home.card.research.title",
+   "surface": "Home",
+   "en": "Ask a Lacanian question",
+   "zh": "问一个拉康问题"
+  },
+  {
+   "key": "home.card.research.desc",
+   "surface": "Home",
+   "en": "Let the core retrieve evidence from the existing corpus and produce a sourced research answer.",
+   "zh": "让系统根据现有语料检索证据，再生成有出处的研究回答。"
+  },
+  {
+   "key": "home.card.research.cta",
+   "surface": "Home",
+   "en": "Start Research",
+   "zh": "开始 Research"
+  },
+  {
+   "key": "home.card.explore.title",
+   "surface": "Home",
+   "en": "Find text and sources",
+   "zh": "寻找原文与出处"
+  },
+  {
+   "key": "home.card.explore.desc",
+   "surface": "Home",
+   "en": "Search passages, seminars, sessions and terms, and read the original context.",
+   "zh": "直接搜索 passage、Seminar、Session、术语以及原始上下文。"
+  },
+  {
+   "key": "home.card.explore.cta",
+   "surface": "Home",
+   "en": "Open Explore",
+   "zh": "打开 Explore"
+  },
+  {
+   "key": "home.card.concepts.title",
+   "surface": "Home",
+   "en": "Study a concept",
+   "zh": "研究一个概念"
+  },
+  {
+   "key": "home.card.concepts.desc",
+   "surface": "Home",
+   "en": "See concepts, terms and related passages, and how a term is used across periods.",
+   "zh": "查看概念、术语、相关 passage，并观察它在不同阶段的使用。"
+  },
+  {
+   "key": "home.card.concepts.cta",
+   "surface": "Home",
+   "en": "Browse Concepts",
+   "zh": "浏览概念"
+  },
+  {
+   "key": "home.card.entities.title",
+   "surface": "Home",
+   "en": "Study persons and cases",
+   "zh": "研究人物与个案"
+  },
+  {
+   "key": "home.card.entities.desc",
+   "surface": "Home",
+   "en": "Browse persons such as Freud, Hegel and Schreber, and cases such as Dora, Aimée and the Wolf Man.",
+   "zh": "浏览 Freud、Hegel、Schreber 等人物，以及 Dora、Aimée、狼人等个案。"
+  },
+  {
+   "key": "home.card.entities.cta",
+   "surface": "Home",
+   "en": "Person / Case Explorer",
+   "zh": "人物 / 个案浏览"
+  },
+  {
+   "key": "home.card.projects.title",
+   "surface": "Home",
+   "en": "Build a long-term project",
+   "zh": "建立长期研究项目"
+  },
+  {
+   "key": "home.card.projects.desc",
+   "surface": "Home",
+   "en": "Keep questions, hypotheses, passages, persons, cases and bibliography together and move a topic forward.",
+   "zh": "保存问题、假设、passages、人物、个案和书目，持续推进一个课题。"
+  },
+  {
+   "key": "home.card.projects.cta",
+   "surface": "Home",
+   "en": "Open Projects",
+   "zh": "打开 Projects"
+  },
+  {
+   "key": "home.card.bibliography.title",
+   "surface": "Home",
+   "en": "Manage sources and citations",
+   "zh": "管理文献与引用"
+  },
+  {
+   "key": "home.card.bibliography.desc",
+   "surface": "Home",
+   "en": "Review sources, metadata completeness and citation availability, and import Zotero data.",
+   "zh": "查看书目来源、metadata 完整性、引用能力并导入 Zotero 数据。"
+  },
+  {
+   "key": "home.card.bibliography.cta",
+   "surface": "Home",
+   "en": "Open Bibliography",
+   "zh": "打开 Bibliography"
+  },
+  {
+   "key": "home.flow.title",
+   "surface": "Home",
+   "en": "How one research task goes",
+   "zh": "一次完整研究如何进行"
+  },
+  {
+   "key": "home.flow.1",
+   "surface": "Home",
+   "en": "Ask the question",
+   "zh": "提出问题"
+  },
+  {
+   "key": "home.flow.2",
+   "surface": "Home",
+   "en": "Check the supporting evidence",
+   "zh": "查看支持证据"
+  },
+  {
+   "key": "home.flow.3",
+   "surface": "Home",
+   "en": "Go deeper into the original text",
+   "zh": "深入原文"
+  },
+  {
+   "key": "home.flow.4",
+   "surface": "Home",
+   "en": "Save the research material",
+   "zh": "保存研究材料"
+  },
+  {
+   "key": "home.flow.5",
+   "surface": "Home",
+   "en": "Sort out the sources",
+   "zh": "整理来源"
+  },
+  {
+   "key": "home.flow.6",
+   "surface": "Home",
+   "en": "Form your own knowledge",
+   "zh": "形成自己的知识"
+  },
+  {
+   "key": "home.flow.note",
+   "surface": "Home",
+   "en": "An AI answer is not the end of research: the evidence and the original text are the verification entry point.",
+   "zh": "AI 回答不是研究终点：证据与原文才是验证入口。"
+  },
+  {
+   "key": "home.quick.title",
+   "surface": "Home",
+   "en": "First time? Finish your first research run in 5 minutes",
+   "zh": "第一次使用？5 分钟完成第一次研究"
+  },
+  {
+   "key": "home.quick.1",
+   "surface": "Home",
+   "en": "Type a question in Research",
+   "zh": "在 Research 输入一个问题"
+  },
+  {
+   "key": "home.quick.2",
+   "surface": "Home",
+   "en": "Read the answer",
+   "zh": "阅读回答"
+  },
+  {
+   "key": "home.quick.3",
+   "surface": "Home",
+   "en": "Open the evidence",
+   "zh": "打开 Evidence"
+  },
+  {
+   "key": "home.quick.4",
+   "surface": "Home",
+   "en": "Click a passage to read the original text",
+   "zh": "点击某一 passage 查看原文"
+  },
+  {
+   "key": "home.quick.5",
+   "surface": "Home",
+   "en": "Save it into a Project",
+   "zh": "保存到 Project"
+  },
+  {
+   "key": "home.quick.6",
+   "surface": "Home",
+   "en": "Continue with your own notes in Obsidian",
+   "zh": "在 Obsidian 中继续做自己的笔记"
+  },
+  {
+   "key": "home.quick.cta",
+   "surface": "Home",
+   "en": "View the full tutorial",
+   "zh": "查看完整教程"
+  },
+  {
+   "key": "home.obsidian-no-uri",
+   "surface": "Home",
+   "en": "No obsidian:// URI configured. Open this vault folder directly:",
+   "zh": "未配置 obsidian:// URI。请直接打开这个 vault 文件夹："
+  },
+  {
+   "key": "help.button",
+   "surface": "Help",
+   "en": "Help",
+   "zh": "帮助"
+  },
+  {
+   "key": "help.topics",
+   "surface": "Help",
+   "en": "Topics",
+   "zh": "目录"
+  },
+  {
+   "key": "help.search",
+   "surface": "Help",
+   "en": "Search topics",
+   "zh": "搜索主题"
+  },
+  {
+   "key": "help.searchAria",
+   "surface": "Help",
+   "en": "Search Help topics",
+   "zh": "搜索帮助主题"
+  },
+  {
+   "key": "help.no-topics",
+   "surface": "Help",
+   "en": "No topic matches that word.",
+   "zh": "没有匹配这个词的主题。"
+  },
+  {
+   "key": "help.back-to-help",
+   "surface": "Help",
+   "en": "Back to Help",
+   "zh": "返回帮助中心"
+  },
+  {
+   "key": "help.back-to-module",
+   "surface": "Help",
+   "en": "Back to the module",
+   "zh": "回到对应模块"
+  },
+  {
+   "key": "help.load-failed",
+   "surface": "Help",
+   "en": "The Help content could not be loaded.",
+   "zh": "帮助内容加载失败。"
+  },
+  {
+   "key": "help.topic-not-found",
+   "surface": "Help",
+   "en": "No such Help topic",
+   "zh": "没有这个帮助主题"
+  },
+  {
+   "key": "help.topic-not-found-body",
+   "surface": "Help",
+   "en": "That address does not match any Help page. Pick a topic from the list, or start with the quick start.",
+   "zh": "该地址不对应任何帮助页。请从左侧目录选一个主题，或从快速开始读起。"
+  },
+  {
+   "key": "research.questionLabel",
+   "surface": "Research",
+   "en": "Research question",
+   "zh": "研究问题"
+  },
+  {
+   "key": "projects.empty-help",
+   "surface": "Projects",
+   "en": "What is a Project?",
+   "zh": "Project 是什么？"
+  },
+  {
+   "key": "help.currentModuleAria",
+   "surface": "Help",
+   "en": "Help for the current module",
+   "zh": "当前模块的帮助"
+  },
+  {
+   "key": "projects.empty.body",
+   "surface": "Empty states",
+   "en": "A Project keeps repeated Research runs, passages, persons, cases and bibliography together as one long-term topic. Project content is not corpus evidence.",
+   "zh": "Project 用于把多次 Research、Passage、人物、个案和书目组织成长期课题。Project 里的内容不是 corpus evidence。"
+  },
+  {
+   "key": "projects.empty.create",
+   "surface": "Empty states",
+   "en": "Create your first Project",
+   "zh": "创建第一个 Project"
+  },
+  {
+   "key": "projects.empty.learn",
+   "surface": "Empty states",
+   "en": "Learn about Projects",
+   "zh": "了解 Projects"
+  },
+  {
+   "key": "search.empty.title",
+   "surface": "Empty states",
+   "en": "No passage matches that query",
+   "zh": "没有匹配的段落"
+  },
+  {
+   "key": "search.empty.body",
+   "surface": "Empty states",
+   "en": "Browsing is not research, and a zero result here is not an abstention — the corpus simply has no indexed match for this query. Try another term, or read how Explore works.",
+   "zh": "浏览不是研究，这里的零结果也不是弃权 —— 只是语料里没有与这个查询匹配的已索引内容。换一个词试试，或先了解 Explore 怎么用。"
+  },
+  {
+   "key": "search.empty.how",
+   "surface": "Empty states",
+   "en": "How Explore works",
+   "zh": "Explore 怎么用"
+  },
+  {
+   "key": "history.empty.title",
+   "surface": "Empty states",
+   "en": "No saved research yet",
+   "zh": "还没有保存的研究"
+  },
+  {
+   "key": "history.empty.body",
+   "surface": "Empty states",
+   "en": "Saved items live in the product workspace. History is not evidence: every conclusion must still be re-supported by the corpus.",
+   "zh": "保存的内容放在产品工作区里。历史不是证据：每个结论仍然必须由语料重新支持。"
+  },
+  {
+   "key": "history.empty.start",
+   "surface": "Empty states",
+   "en": "Run your first research",
+   "zh": "开始第一次研究"
+  },
+  {
+   "key": "search.empty.try-research",
+   "surface": "Empty states",
+   "en": "Ask it as a research question instead",
+   "zh": "改成研究问题来问"
+  }
+ ]
+}

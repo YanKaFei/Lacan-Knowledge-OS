@@ -1,0 +1,125 @@
+{
+ "$schema": "http://json-schema.org/draft-07/schema#",
+ "$id": "dsh://lacan-kos/evaluation-run-manifest.schema.json",
+ "title": "EvaluationRunManifest",
+ "description": "每一次 evaluation / research run 的版本绑定清单（Phase 4C.1-A §A3）。回答『这个结果由哪一版代码、ontology、corpus、Gold、task set 生成』。历史 trace 不写本清单；新 run 必须写。",
+ "type": "object",
+ "required": [
+  "schema_version",
+  "run_id",
+  "generated_at",
+  "git_commit",
+  "engine_version",
+  "engine_hashes",
+  "engine_hash",
+  "ontology_version",
+  "passage_store_version",
+  "gold_version",
+  "task_set_version",
+  "schema_versions"
+ ],
+ "additionalProperties": true,
+ "properties": {
+  "schema_version": {
+   "const": "evaluation-run-manifest/v1"
+  },
+  "run_id": {
+   "type": "string",
+   "pattern": "^run-[0-9]{8}T[0-9]{6}Z-[0-9a-f]{7,40}$",
+   "description": "确定性可读 run 标识：run-<UTC 时间戳>-<commit 短哈希>"
+  },
+  "generated_at": {
+   "type": "string",
+   "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$"
+  },
+  "git_commit": {
+   "type": "string",
+   "minLength": 7,
+   "description": "git rev-parse HEAD；若工作区非干净，另见 git_dirty"
+  },
+  "git_dirty": {
+   "type": "boolean"
+  },
+  "engine_version": {
+   "type": "string",
+   "minLength": 1,
+   "description": "引擎版本号（人类可读），与 engine_hash 一起构成版本绑定"
+  },
+  "engine_hashes": {
+   "type": "object",
+   "description": "逐文件 sha256（文件名 → {path, sha256, size}）",
+   "additionalProperties": {
+    "type": "object",
+    "required": ["path"],
+    "properties": {
+     "path": {"type": "string"},
+     "sha256": {"type": ["string", "null"]},
+     "size": {"type": ["integer", "null"]},
+     "missing": {"type": "boolean"}
+    }
+   }
+  },
+  "engine_hash": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$",
+   "description": "engine_hashes 的确定性合并摘要"
+  },
+  "data_hashes": {
+   "type": "object",
+   "description": "gold / task set / 人工基线 / ontology 等数据文件 sha256"
+  },
+  "ontology_version": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$",
+   "description": "ontology 数据集（entities / term_mappings 等）的合并摘要"
+  },
+  "passage_store_version": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$",
+   "description": "canonical passage store 的合并摘要（含 passages.jsonl 行数）"
+  },
+  "passage_store": {
+   "type": "object",
+   "properties": {
+    "passages": {
+     "type": "object",
+     "properties": {
+      "path": {"type": "string"},
+      "sha256": {"type": ["string", "null"]},
+      "size": {"type": ["integer", "null"]},
+      "n_lines": {"type": ["integer", "null"]}
+     }
+    }
+   }
+  },
+  "gold_version": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$",
+   "description": "research_tasks_v1.jsonl（含 gold）+ gold_derivation 的合并摘要"
+  },
+  "task_set_version": {
+   "type": "string",
+   "pattern": "^[0-9a-f]{64}$",
+   "description": "公开任务集视图的合并摘要"
+  },
+  "schema_versions": {
+   "type": "object",
+   "required": ["research_trace"],
+   "properties": {
+    "research_trace": {"type": "string"},
+    "research_answer": {"type": ["string", "null"]},
+    "evidence_pack": {"type": ["string", "null"]},
+    "gold_lane_audit": {"type": ["string", "null"]},
+    "scholarly_regression": {"type": ["string", "null"]}
+   }
+  },
+  "artifacts": {
+   "type": "object",
+   "description": "本次 run 产出的结果文件路径（不覆盖历史：路径必须带版本后缀）",
+   "additionalProperties": {"type": "string"}
+  },
+  "notes": {
+   "type": "string"
+  }
+ }
+}

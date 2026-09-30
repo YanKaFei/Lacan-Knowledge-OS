@@ -1,0 +1,26 @@
+{
+  "concepts_with_passages": 10,
+  "concepts_without_passages": 43,
+  "content_hash": "077877667fd755aaa92c62bfd7afa27e8977a3dbcaa868e900caa7ab2c27a9c6",
+  "counts": {
+    "alignments": 4,
+    "claims": 2,
+    "concept_states": 53,
+    "concepts": 53
+  },
+  "generated_at": "2033-06-24T06:08:23+00:00",
+  "gold_set": {
+    "actual_total": 53,
+    "expected_total": 53,
+    "source": ".lacan-build/ terms_catalog / terms_catalog_b / terms_catalog_c / terms_catalog_fr / clinical_catalog / cases_catalog"
+  },
+  "rules": {
+    "ai_claims_default": "candidate",
+    "claim_without_passages_cannot_be_canonical": true,
+    "heuristic_alignment_default": "candidate",
+    "recovered_translation_canonical": false
+  },
+  "schema": "concept-set/v1",
+  "stamp_mode": "deterministic",
+  "unresolved_segments": []
+}

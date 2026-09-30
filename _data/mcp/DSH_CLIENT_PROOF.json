@@ -1,0 +1,113 @@
+{
+ "schema_version": "mcp-dsh-client-proof/v1",
+ "server": {
+  "name": "lacan-kb",
+  "command": "python3",
+  "args": [
+   "_scripts/_tools/lacan-kb-mcp"
+  ],
+  "transport": "stdio"
+ },
+ "dsh_sdk": {
+  "path": "<HOME>",
+  "version": "1.30.0",
+  "latest_protocol_version": "2025-11-25",
+  "supported_protocol_versions": [
+   "2025-11-25",
+   "2025-06-18",
+   "2025-03-26",
+   "2024-11-05",
+   "2024-10-07"
+  ]
+ },
+ "server_declared_protocol_version": "2025-11-25",
+ "checks": [
+  {
+   "id": 1,
+   "name": "MCP SDK 版本与 DSH 一致",
+   "passed": true,
+   "detail": "sdk@1.30.0"
+  },
+  {
+   "id": 2,
+   "name": "stdio 握手成功",
+   "passed": true,
+   "detail": "serverInfo={\"name\":\"lacan-kb\",\"version\":\"0.1.0\"}"
+  },
+  {
+   "id": 3,
+   "name": "server 声明的协议版本被 DSH 的 SDK 支持",
+   "passed": true,
+   "detail": "lacan-kb 声明 2025-11-25；DSH 支持 [\"2025-11-25\",\"2025-06-18\",\"2025-03-26\",\"2024-11-05\",\"2024-10-07\"]；SDK LATEST=2025-11-25"
+  },
+  {
+   "id": 4,
+   "name": "capabilities 只含 tools",
+   "passed": true,
+   "detail": "{\"tools\":{\"listChanged\":false}}"
+  },
+  {
+   "id": 5,
+   "name": "tools/list 返回 10 个 tool",
+   "passed": true,
+   "detail": "search_passages,get_passage,get_context,resolve_entity,get_concept,find_concept_evidence,trace_concept,compare_concepts,trace_source,terminology_lookup"
+  },
+  {
+   "id": 6,
+   "name": "tool 名与契约一致",
+   "passed": true,
+   "detail": "search_passages,get_passage,get_context,resolve_entity,get_concept,find_concept_evidence,trace_concept,compare_concepts,trace_source,terminology_lookup"
+  },
+  {
+   "id": 7,
+   "name": "每个 tool 都带 inputSchema",
+   "passed": true,
+   "detail": "10/10"
+  },
+  {
+   "id": 8,
+   "name": "DSH 侧命名形状 mcp__lacan-kb__<tool> 可用",
+   "passed": true,
+   "detail": "mcp__lacan-kb__search_passages"
+  },
+  {
+   "id": 9,
+   "name": "tools/call 返回 8 段结构化证据",
+   "passed": true,
+   "detail": "request,resolution,retrieval,evidence,coverage,provenance,warnings,evidence_state"
+  },
+  {
+   "id": 10,
+   "name": "structuredContent 里带 content 文本兜底",
+   "passed": true,
+   "detail": "1 block"
+  },
+  {
+   "id": 11,
+   "name": "evidence_state 结构合法（无 cosine 阈值）",
+   "passed": true,
+   "detail": "SUPPORTED"
+  },
+  {
+   "id": 12,
+   "name": "返回的 passage_id 全部真实存在（独立复核）",
+   "passed": true,
+   "detail": "3 条，store 内 249105 条"
+  },
+  {
+   "id": 13,
+   "name": "第二个 tool 也可调用（resolve_entity）",
+   "passed": true,
+   "detail": "[\"concept.le-symbolique\"]"
+  },
+  {
+   "id": 14,
+   "name": "未知 tool → 协议错误（不崩、不静默）",
+   "passed": true,
+   "detail": "MCP error -32602: unknown tool: 'write_canonical_truth'"
+  }
+ ],
+ "passed": 14,
+ "total": 14,
+ "generated_by": "_scripts/_tools/mcp_client_proof.mjs"
+}

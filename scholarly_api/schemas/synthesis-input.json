@@ -1,0 +1,84 @@
+{
+  "$id": "synthesis-input/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 5/15：SynthesisInput 的稳定表示",
+  "properties": {
+    "abstention_requirements": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "answer_permission": {
+      "type": "string"
+    },
+    "answer_permissions": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "citation_policy": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "claim_permissions": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "evidence_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "task_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "usable_evidence_ids": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "warnings": {
+      "items": {
+        "type": [
+          "string",
+          "object"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "answer_permission"
+  ],
+  "title": "SynthesisInput",
+  "type": "object"
+}

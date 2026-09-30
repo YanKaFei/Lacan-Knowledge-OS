@@ -1,0 +1,34 @@
+# dsh-lacan-knowledge-os — bundle patch (DeepSeek Harness)
+#
+# What this does: inserts ONE row that mounts the shipped MCP client plugin against
+# this repository's own MCP server, exposing the Lacan Knowledge OS tool surface
+# (10 tools) to the profile:
+#
+#     mcp__lacan-kb__search_passages        mcp__lacan-kb__get_passage
+#     mcp__lacan-kb__get_context            mcp__lacan-kb__resolve_entity
+#     mcp__lacan-kb__list_concepts          mcp__lacan-kb__search_terminology
+#     mcp__lacan-kb__compare_concepts       mcp__lacan-kb__find_relation
+#     mcp__lacan-kb__list_seminars          mcp__lacan-kb__get_sources
+#
+# Plane: the row belongs to the AGENT PRESET plane — it contributes tools to a
+# session. It needs NO isolate realm, because `dsh-mcp-client` provides no service;
+# it only calls `ctx.tools.register`. (See docs/MCP_DSH_INTEGRATION.md §2.1.)
+#
+# Paths: `cwd: .` resolves against the workspace root DSH was launched from, and the
+# server path is relative to it. That is deliberate — it keeps the published bundle
+# free of anyone's absolute paths. Launch DSH from the cloned repository, or run
+# `python3 tools/install-dsh-row.py --profile <name>` to write a row with this
+# clone's absolute path instead.
+
+- insert:
+    - id: mcp-lacan-kb
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: lacan-kb
+        transport: stdio
+        command: python3
+        args:
+          - _scripts/_tools/lacan-kb-mcp
+        cwd: .
+        toolCallTimeoutMs: 120000
+        failOnStartupError: true

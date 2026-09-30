@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "research_bundle_manifest_v1",
+  "title": "ResearchBundleManifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "export_id", "created_at", "exporter_version",
+               "source_type", "source_id", "file_count", "files",
+               "hash_algorithm", "citation_count", "passage_count"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "export_id": {"type": "string"},
+    "created_at": {"type": "string"},
+    "exporter_version": {"type": "string"},
+    "source_type": {"type": "string"},
+    "source_id": {"type": "string"},
+    "source_snapshot_hash": {"type": ["string", "null"]},
+    "source_answer_hash": {"type": ["string", "null"]},
+    "export_payload_hash": {"type": ["string", "null"]},
+    "content_hash": {"type": ["string", "null"]},
+    "core_freeze_version": {"type": ["string", "null"]},
+    "product_interface_version": {"type": ["string", "null"]},
+    "snapshot_integrity": {"type": ["string", "null"]},
+    "export_options": {"type": "object", "additionalProperties": true},
+    "file_count": {"type": "integer"},
+    "files": {"type": "array", "items": {"type": "object", "additionalProperties": true}},
+    "hash_algorithm": {"type": "string"},
+    "citation_count": {"type": "integer"},
+    "passage_count": {"type": "integer"},
+    "bundle_hash": {"type": ["string", "null"]},
+    "zip": {"type": ["string", "null"]}
+  }
+}

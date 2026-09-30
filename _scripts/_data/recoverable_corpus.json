@@ -1,0 +1,171 @@
+{
+  "schema": "recoverable-corpus/v1",
+  "generated_at": "2026-09-19T18:03:19+00:00",
+  "source_root": "<HOME>",
+  "read_only": true,
+  "layers": {
+    "zh_translation": {
+      "file": "atlas/segments.jsonl",
+      "records": 82578,
+      "seminars": 28,
+      "per_seminar": {
+        "s1": 4102,
+        "s10": 4105,
+        "s11": 2055,
+        "s12": 4662,
+        "s13": 4346,
+        "s14": 3692,
+        "s15": 2533,
+        "s16": 3830,
+        "s17": 584,
+        "s18": 2746,
+        "s19": 2749,
+        "s19b": 97,
+        "s2": 4700,
+        "s20": 3610,
+        "s21": 3710,
+        "s22": 2681,
+        "s23": 2704,
+        "s24": 1908,
+        "s25": 1306,
+        "s26": 895,
+        "s27": 551,
+        "s3": 3509,
+        "s4": 3054,
+        "s5": 4905,
+        "s6": 5595,
+        "s7": 3211,
+        "s8": 2077,
+        "s9": 2661
+      },
+      "fields": [
+        "file",
+        "id",
+        "lesson",
+        "roman",
+        "seminar",
+        "slug",
+        "text"
+      ],
+      "sample": {
+        "id": "s1-01-0001",
+        "seminar": "s1",
+        "slug": "s1-les-ecrits-techniques-de-freud",
+        "roman": "I",
+        "lesson": 1,
+        "file": "translation/Leçon-01.md",
+        "text": "[1953 年 11 月与 12 月的各次课程没有可用的速记稿]"
+      },
+      "malformed_lines": 0,
+      "size_bytes": 33333585,
+      "is_sole_copy": true,
+      "upstream_status": "上游源目录「研讨班中译/」已从 <HOME> 消失"
+    },
+    "fr_transcription": {
+      "file": "atlas/french_staferla.jsonl",
+      "records": 166527,
+      "seminars": 28,
+      "fields": [
+        "clean",
+        "fr",
+        "id",
+        "index",
+        "provenance",
+        "roman",
+        "seminar",
+        "source"
+      ],
+      "sample": {
+        "id": "s1-t0001",
+        "seminar": "s1",
+        "roman": "I",
+        "source": "staferla",
+        "provenance": "Document de travail (transcription STAFERLA) — texte non établi ; les ajouts entre crochets ne sont pas de Jacques Lacan",
+        "index": 1,
+        "fr": "S. FREUD : Metapsychologische Ergänzung zur Traumlehre",
+        "clean": true
+      },
+      "malformed_lines": 0,
+      "size_bytes": 65964787,
+      "provenance_note": "Document de travail (transcription STAFERLA) — texte non établi；引用必须标注「工作转录，非瑟伊版定本」"
+    },
+    "seminar_metadata": {
+      "file": "atlas/seminars.json",
+      "seminars": 28,
+      "has_lesson_numbers": true,
+      "years_from": [
+        1953,
+        1954,
+        1955
+      ]
+    },
+    "other_atlas_assets": {
+      "french.jsonl": 8740557,
+      "lacancom.json": 186745,
+      "term_vocab.json": 4011,
+      "term_neighbours.json": 19048,
+      "term_postings.json": 2476524,
+      "staferla_manifest.json": 4040
+    },
+    "staferla_raw": {
+      "docx": 28,
+      "txt": 28,
+      "manifest_paragraphs": 188772,
+      "role": "french_staferla.jsonl 的第二道保险（原始下载）"
+    }
+  },
+  "integrity": {},
+  "totals": {
+    "zh_segments": 82578,
+    "fr_segments": 166527,
+    "combined": 249105
+  },
+  "checks": [
+    {
+      "check": "中译在 28 期（S1–S27 + s19b）",
+      "ok": true,
+      "detail": "seminars=28"
+    },
+    {
+      "check": "法语转录覆盖 28 期",
+      "ok": true,
+      "detail": "seminars=28"
+    },
+    {
+      "check": "中译段数与历史记录一致（82,578）",
+      "ok": true,
+      "detail": "records=82578"
+    },
+    {
+      "check": "法语转录段数与历史记录一致（166,527）",
+      "ok": true,
+      "detail": "records=166527"
+    },
+    {
+      "check": "中译每段都带 seminar（可按期归位）",
+      "ok": true,
+      "detail": "fields=['file', 'id', 'lesson', 'roman', 'seminar', 'slug', 'text']"
+    },
+    {
+      "check": "中译带 lesson 课次（Passage 映射的前提）",
+      "ok": true,
+      "detail": "fields=['file', 'id', 'lesson', 'roman', 'seminar', 'slug', 'text']"
+    },
+    {
+      "check": "28 期元数据含 lesson_numbers",
+      "ok": true,
+      "detail": "{'file': 'atlas/seminars.json', 'seminars': 28, 'has_lesson_numbers': True, 'years_from': [1953, 1954, 1955]}"
+    },
+    {
+      "check": "staferla 原始下载存在（第二道保险）",
+      "ok": true,
+      "detail": "{'docx': 28, 'txt': 28, 'manifest_paragraphs': 188772, 'role': 'french_staferla.jsonl 的第二道保险（原始下载）'}"
+    },
+    {
+      "check": "无坏行",
+      "ok": true,
+      "detail": "zh_bad=0 fr_bad=0"
+    }
+  ],
+  "all_checks_pass": true
+}

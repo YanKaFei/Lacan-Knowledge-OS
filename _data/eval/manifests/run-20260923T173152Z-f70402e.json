@@ -1,0 +1,321 @@
+{
+ "schema_version": "evaluation-run-manifest/v1",
+ "run_id": "run-20260923T173152Z-f70402e",
+ "generated_at": "2026-09-23T17:31:52Z",
+ "git_commit": "f70402e5b852923028283c93f81dbfb12f1911f4",
+ "git_dirty": true,
+ "engine_version": "phase4c.1-d/claim-evidence-entailment-1",
+ "engine_hashes": {
+  "research_answer": {
+   "path": "_scripts/_tools/research_answer.py",
+   "sha256": "eedfa81d000109fd2c6d60a774398e78784d12b8ce85fb9057e0a015f66d8a0f",
+   "size": 70654
+  },
+  "research_agent": {
+   "path": "_scripts/_tools/lacan_mcp/research_agent.py",
+   "sha256": "3781c0def990b1013f8fc5a16a284cd241ca3e51ad20f2c35854781fe55827d5",
+   "size": 29778
+  },
+  "evidence_sufficiency_v2": {
+   "path": "_scripts/_tools/lacan_mcp/evidence_sufficiency_v2.py",
+   "sha256": "16124cd3c36e9a8bbfcd43c51992bf81abd3ad12db2e0d81888e2dc693ee592a",
+   "size": 24344
+  },
+  "evidence_sufficiency_v1": {
+   "path": "_scripts/_tools/lacan_mcp/evidence_sufficiency.py",
+   "sha256": "81773e72779da5d2572b38611cd9e6d243d29a138b9d9658db819223549b1487",
+   "size": 14934
+  },
+  "knowledge_api": {
+   "path": "_scripts/_tools/lacan_mcp/knowledge_api.py",
+   "sha256": "3d9af69902f8b4c7c3652a177fdeeeb732fd5801b6a9eaaaf7faa7e512e7671d",
+   "size": 83446
+  },
+  "ontology_gaps": {
+   "path": "_scripts/_tools/lacan_mcp/ontology_gaps.py",
+   "sha256": "efbef07052d32993f8b4468b263491cd0fd7dcfa77176114794c69b559cf2ed3",
+   "size": 16510
+  },
+  "citations": {
+   "path": "_scripts/_tools/lacan_mcp/citations.py",
+   "sha256": "4c7f5d5b2b220c1cbe7cf0e090e2776b0d04ab365c327579d27285589ba09966",
+   "size": 8331
+  },
+  "gold_normalization": {
+   "path": "_scripts/_tools/gold_normalization.py",
+   "sha256": "c9a19200c38ba1c3486df10a474682fbc188f1e3fe50dbe70f51ed912606bc46",
+   "size": 15019
+  },
+  "eval_integrity": {
+   "path": "_scripts/_tools/eval_integrity.py",
+   "sha256": "69dbea71f53d7fde8d73a57c77d3fa9a112922f083d449e1666c87aa2223b0c7",
+   "size": 61982
+  },
+  "research_contract": {
+   "path": "_scripts/_tools/research_contract.py",
+   "sha256": "a2c7510b28ac6eb7bcbc942f0d00c9d0cba4f3b3b831eff59b602244e58c201b",
+   "size": 90622
+  },
+  "evidence_sufficiency_v21": {
+   "path": "_scripts/_tools/evidence_sufficiency_v21.py",
+   "sha256": "18d52a0548d558c20ec04856ed5118644e1ef2cdae534e36cded6a73caf495f9",
+   "size": 8459
+  },
+  "run_diagnostic_4c1b": {
+   "path": "_scripts/_tools/run_diagnostic_4c1b.py",
+   "sha256": "fa63272c9481e9a167a04e0cb9771c0a7c82c050bb313dfe14145e54f860b133",
+   "size": 6491
+  },
+  "build_gold_v2": {
+   "path": "_scripts/_tools/build_gold_v2.py",
+   "sha256": "3a4315a2dda9631a786187fea17813b5fb554a6966dd4e728ebfba833fd9d966",
+   "size": 17784
+  },
+  "research_execution": {
+   "path": "_scripts/_tools/research_execution.py",
+   "sha256": "89062bf7324ec2b823182490459973e51631ca213dd9ec7d07c5c57a82dc5d07",
+   "size": 80187
+  },
+  "run_diagnostic_4c1b2": {
+   "path": "_scripts/_tools/run_diagnostic_4c1b2.py",
+   "sha256": "4427085f4f715f59e2530e7b6059b48309aca5aca7a62848ca4ec45950ac67cb",
+   "size": 12375
+  },
+  "run_diagnostic_4c1b3": {
+   "path": "_scripts/_tools/run_diagnostic_4c1b3.py",
+   "sha256": "6dd39aff8763c9b2935248a26ccde344232282e3d73ddcddb91c730c02380edb",
+   "size": 19451
+  },
+  "synthesis_contract": {
+   "path": "_scripts/_tools/synthesis_contract.py",
+   "sha256": "11cd37d77ece043c188295dc86dbc35e73bc28af65462dacab8ef6c64e2b5584",
+   "size": 35215
+  },
+  "synthesis_claims": {
+   "path": "_scripts/_tools/synthesis_claims.py",
+   "sha256": "d498506c8cca3b7fb57b2893d4f2fcf6d56a1a2e475adfcb00c0c6bd7ee8c294",
+   "size": 10521
+  },
+  "synthesis_render": {
+   "path": "_scripts/_tools/synthesis_render.py",
+   "sha256": "b0caac57c4745bba69cc716dda552177d11da66220ed97711f750c86b7140605",
+   "size": 13418
+  },
+  "synthesis_adapters": {
+   "path": "_scripts/_tools/synthesis_adapters.py",
+   "sha256": "251704dc43270930d00d4a9035f265c86ba54ade7d15232d58e94d892aaf4688",
+   "size": 37251
+  },
+  "run_synthesis_4c1c": {
+   "path": "_scripts/_tools/run_synthesis_4c1c.py",
+   "sha256": "5c3d1c79edebd9df6e7230dfdc1e136db6d976b317ca05e555488ee29dfb8935",
+   "size": 17837
+  },
+  "synthesis_entailment": {
+   "path": "_scripts/_tools/synthesis_entailment.py",
+   "sha256": "271514b28e20fbf8c23af04f3212cd114612a0bdc2b2dfa5e96c562213ef892b",
+   "size": 32379
+  },
+  "synthesis_validation": {
+   "path": "_scripts/_tools/synthesis_validation.py",
+   "sha256": "40ee0d45f747e5ff1fc9f9ab4591fc4a8cfd1baf5acb262202f12fbc30b112ed",
+   "size": 18114
+  },
+  "synthesis_adversarial": {
+   "path": "_scripts/_tools/synthesis_adversarial.py",
+   "sha256": "eccb7a3e7b9ef48e43e0d3ff0fba61d6a228248f483095f0fd9aa1d4d6e232bf",
+   "size": 12313
+  },
+  "run_synthesis_4c1d": {
+   "path": "_scripts/_tools/run_synthesis_4c1d.py",
+   "sha256": "c06fe8185c71b5b4513b37a41ba3010185626df39061b3e3d0faec9f2f39d104",
+   "size": 23239
+  },
+  "build_entailment_calibration": {
+   "path": "_scripts/_tools/build_entailment_calibration.py",
+   "sha256": "53108abbb012c7f61e8fb70fa73d613bc213ce5194801a91356b4246857f3b9d",
+   "size": 13037
+  }
+ },
+ "engine_hash": "9a154d29886e67b1aefdda039a6441ab64389901c80d38746bdb83c0cfb45879",
+ "data_hashes": {
+  "research_tasks_v1": {
+   "path": "_data/eval/research_tasks_v1.jsonl",
+   "sha256": "de27eb12326c81d7b925f79109cd0475412de264bf042bfa6e0a1aab9ca769df",
+   "size": 393844
+  },
+  "gold_derivation_v1": {
+   "path": "_data/eval/research_tasks_v1.gold_derivation.json",
+   "sha256": "3dd8a476f19e5d23283411f643978f7da7faa9a8ebb21a214a3ca93d7151b08a",
+   "size": 38585
+  },
+  "research_eval_results_v4c": {
+   "path": "_data/eval/research_eval_results.v4c.json",
+   "sha256": "b07d08cca04a18c951813a7d22cf4ade1fe16d780a8362840dcd60a855c51a8a",
+   "size": 121812
+  },
+  "human_review_records": {
+   "path": "_data/eval/research_human_review.jsonl",
+   "sha256": "a14ea5316ccaaf90f95e197f9674bca9620848fcc726a1bd5d4c9694fe4bfb3d",
+   "size": 176445
+  },
+  "human_adjudication_queue": {
+   "path": "_data/eval/human_adjudication_queue.jsonl",
+   "sha256": "acf69693a6cdc3adbec1da8c2131618f15b47aa3dec10815becef76c0f6b4dcb",
+   "size": 9155
+  },
+  "human_review_results_v1": {
+   "path": "_data/eval/human_review_results_v1.json",
+   "sha256": "43a3438bebb8961169e12f97d0cad4b7da24c07a35823f4073463617c1fa6168",
+   "size": 17053
+  },
+  "seminars": {
+   "path": "_data/passage_store/seminars.jsonl",
+   "sha256": "0459cd6b8e718a443c0e25923d4fbde44e7cc9eb8cf07c2b1e32aa1d5f29638a",
+   "size": 14431
+  },
+  "ontology_entities_v4a1": {
+   "path": "_data/ontology/v4a1/entities.jsonl",
+   "sha256": "fbf998e2d68b62ccfe040ea0378bb33f15a87cdb93396e69f452f8d926eb6d57",
+   "size": 18041
+  },
+  "ontology_term_mappings_v4a1": {
+   "path": "_data/ontology/v4a1/term_mappings.jsonl",
+   "sha256": "7594c9f2dc37d3e6a4ba7fe61878c2181631c3b35f2e39f3c62d51dedda8f043",
+   "size": 3970
+  },
+  "alias_index": {
+   "path": "_data/index/alias_index.jsonl",
+   "sha256": "4965510204eca049d3e0adc8263ae16eb7bf845453cf4686f71bc394dc337ab7",
+   "size": 196967
+  },
+  "terminology_bridge": {
+   "path": "_data/terminology_bridge.jsonl",
+   "sha256": "6e7646d9d064938cd0cf4db63af4cdd129daf49989af7235f2107d0ad0308c99",
+   "size": 1361647
+  },
+  "gold_v2_tasks": {
+   "path": "_data/eval/gold_v2/research_tasks_v2.jsonl",
+   "sha256": "80465fb42aa9d8b401e475dd018fcc37aa810177a50201a99294f5e6c28544f2",
+   "size": 144049
+  },
+  "gold_v2_overrides": {
+   "path": "_data/eval/gold_v2/lane_overrides_v1.json",
+   "sha256": "7b1e48668d83851c8abfccae1ca28492033331b3a40bdb27bee94598f9dd9dcc",
+   "size": 4026
+  },
+  "scholarly_regression": {
+   "path": "_data/eval/scholarly_regression_v1.jsonl",
+   "sha256": "21a44ae328503a831134e21cb1568248d291c5820fda04ab4407940cabd55723",
+   "size": 48449
+  },
+  "gold_lane_audit": {
+   "path": "_data/eval/gold_lane_audit_v1.jsonl",
+   "sha256": "5505cc2db717dff51c1023a83105b919e80c803c43be0207b54a24a6048e6085",
+   "size": 59413
+  },
+  "research_contract_schema": {
+   "path": "_data/eval/research_contract.schema.json",
+   "sha256": "6510cc86c7bb566daba55aaec34d6c855dd20fba61c3fec67a3c1b6ba1af5fb5",
+   "size": 8694
+  },
+  "evaluation_run_manifest_schema": {
+   "path": "_data/eval/evaluation_run_manifest.schema.json",
+   "sha256": "9f250de2fc5050ba1c3a072224e67b382d6d3962c2c1c5490bcba40e7bdbffe4",
+   "size": 3677
+  },
+  "b2_metrics_snapshot": {
+   "path": "_data/eval/research_eval_results.4c1b2.metrics_snapshot.json",
+   "sha256": "b9d08c7d9e9a416ff1675e4e6dcbcbda7e42d0e09f677cc6eea16319b4a1dc58",
+   "size": 5258
+  },
+  "entailment_calibration": {
+   "path": "_data/eval/claim_entailment_calibration_v1.jsonl",
+   "sha256": "553fc5933ee0e328b04572e82f0f86771a25c9115d154fd05a5c5e13a5d9d7f3",
+   "size": 78797
+  }
+ },
+ "derived_hashes": {
+  "manual_review_lanes": {
+   "path": "_data/eval/gold_v2/manual_review_lanes_v1.json",
+   "sha256": "a9b826c920c860f8b48313255274f19cb6922d814d4409378eb605ed6b565fa4",
+   "size": 22261
+  },
+  "trace_integrity_baseline": {
+   "path": "_data/eval/trace_integrity_baseline_v1.json",
+   "sha256": "d38f1eb8a11f4feabd6947987ec505b7f6c1869a17be417a302b4ad71493b50d",
+   "size": 10630
+  },
+  "diagnostic_results_4c1b": {
+   "path": "_data/eval/research_eval_results.4c1b.json",
+   "sha256": "4b66eb15107f1c063bc570c3c9aed96d762ac4f34a55b96fa974e8e235f037d7",
+   "size": 154490
+  },
+  "diagnostic_results_4c1b2": {
+   "path": "_data/eval/research_eval_results.4c1b2.json",
+   "sha256": "91c9fa6cb2bb2228ce6f699de49dd156f5967c31bbaeea235c6aa3b1444b8105",
+   "size": 32402
+  },
+  "research_traces_4c1b2": {
+   "path": "_data/eval/research_traces_4c1b2",
+   "sha256": "d76f365759ed44d75dfac25a5c3fce3746b86263c5e5492a3de69527492cd2b4",
+   "kind": "dir",
+   "n_files": 28
+  },
+  "diagnostic_results_4c1b3": {
+   "path": "_data/eval/research_eval_results.4c1b3.json",
+   "sha256": "69e6820a6e341c766473f6b70b68ef1472f850882c844edb15fed10702de2d3b",
+   "size": 268659
+  },
+  "research_traces_4c1b3": {
+   "path": "_data/eval/research_traces_4c1b3",
+   "sha256": "b47e481b295547578897bb230e59d41e706c2b20b572ae11de28ef14debe719d",
+   "kind": "dir",
+   "n_files": 27
+  },
+  "research_synthesis_results_4c1c": {
+   "path": "_data/eval/research_synthesis_results.4c1c.json",
+   "sha256": "9ab4cf18ac60200a9be62bba49d5b36b44be341b6efd00bd8b716756b2ad46ee",
+   "size": 23486
+  },
+  "synthesis_runs_dir": {
+   "path": "_data/eval/runs",
+   "sha256": "fbb0c31cf48971bac70cd4a2bb36ac75bb01ed06eca8857d180695990961e0b2",
+   "kind": "dir",
+   "n_files": 20
+  }
+ },
+ "ontology_version": "24eae522ebad7932a622c31379593d425b9307bcbec4e2a25cfd92720a424ebf",
+ "passage_store_version": "b1576db33280a3d83e46e2d854457c7ab071e0e9c4068b8022ea1f0b2a417b70",
+ "passage_store": {
+  "passage_store": {
+   "path": "_data/passage_store/passages.jsonl",
+   "sha256": "889dd5f9afec6053befd91e1ae6eccbd0035be3ea7d2b77f1a5a242694fd0a01",
+   "size": 433758357,
+   "n_lines": 249105
+  }
+ },
+ "gold_version": "04638a4ec01845fa13f2f4aa80f062a7eb12c14beeeab2dc3a9112ddfdee0bd3",
+ "task_set_version": "05cc994f670ebc7e26d7cb270248a29a95d33c1b72877d634cbc696b8dc9157c",
+ "schema_versions": {
+  "research_trace": "research-trace/v2（4C.1-B 起；历史 trace 为 research-trace-4b/v1）",
+  "research_contract": "research-contract/v1",
+  "gold": "research-task/v2（gold_v2；v1 为 research-task/v1，只读保留）",
+  "research_answer": "research-answer-4b/v1",
+  "evidence_pack": "evidence-pack/v1",
+  "gold_lane_audit": "gold-lane-audit/v1",
+  "scholarly_regression": "scholarly-regression/v1",
+  "evaluation_run_manifest": "evaluation-run-manifest/v1"
+ },
+ "artifacts": {
+  "gold_lane_audit": "_data/eval/gold_lane_audit_v1.jsonl",
+  "scholarly_regression": "_data/eval/scholarly_regression_v1.jsonl",
+  "adjudicated_truth": "_data/eval/evaluation_truth_adjudicated_v1.json",
+  "lane_semantics": "_data/eval/lane_semantics_v1.json",
+  "failure_class_mapping": "_data/eval/failure_class_mapping_v1.json",
+  "trace_integrity_baseline": "_data/eval/trace_integrity_baseline_v1.json",
+  "evaluation_integrity_audit": "_data/eval/evaluation_integrity_audit.json",
+  "frozen_phase4c_results": "_data/eval/research_eval_results.v4c.json"
+ },
+ "notes": "历史 frozen trace（_data/eval/research_traces_4b/）**没有**本清单，因此不可从任何 commit 完整重现 —— 这正是 Phase 4C 审计的结论；新 run 必须声明 research-trace/v2 并写出本清单。"
+}

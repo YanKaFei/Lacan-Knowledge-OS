@@ -1,0 +1,28 @@
+# requirements.txt — Lacanian Knowledge OS 脚手架依赖
+#
+# 环境：本机 Python 3.9.6（macOS，/usr/bin/python3，CommandLineTools 自带）
+# 说明：本仓库的脚手架脚本（_scripts/、_scripts/_tools/）只依赖标准库 +
+#      下面这些第三方包。版本按本机实测可用版本固定（==），避免升级导致
+#      corpus 盘点 / 校验结果漂移。
+#
+# 安装：
+#   python3 -m pip install -r _scripts/requirements.txt
+#
+# 注意（Python 3.9）：
+#   * 不要升级到要求 Python >= 3.10 的新版本（本机是 3.9.6）；
+#   * jsonschema 4.25.x 是最后一个对 3.9 友好的分支系列；
+#   * 若 pip 在系统 Python 上报“externally-managed-environment”，
+#     用 python3 -m venv .venv 建虚拟环境后再装。
+#
+# 最小可用集：PyYAML + jsonschema（脚手架层校验必需）
+# 语料盘点（inventory_corpus.py）按需降级：缺哪个包只影响对应格式的抽取，
+# 不会中断整体扫描。
+
+pypdf==6.17.0
+python-docx==1.2.0
+PyYAML==6.0.3
+jsonschema==4.25.1
+ebooklib==0.20
+Pillow==11.3.0
+langdetect==1.0.9
+beautifulsoup4==4.15.0

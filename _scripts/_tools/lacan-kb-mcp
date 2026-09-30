@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+lacan-kb-mcp — Phase 4A §3 Knowledge Access Layer 的 **stdio MCP server** 入口
+
+用法
+────
+    lacan-kb-mcp                 # 以 stdio 提供 MCP（给 DSH / Codex / Claude Desktop）
+    lacan-kb-mcp --selftest      # 34 项确定性契约自检
+    lacan-kb-mcp --list-tools    # 打印 10 个 tool 的 JSON 契约
+
+约定
+────
+* **stdout 只走 JSON-RPC**（newline-delimited JSON，MCP stdio framing）；
+  任何日志一律走 stderr —— 往 stdout 打一行日志就会破坏协议。
+* 只读：不写 canonical store、不改索引（§2/§21）。
+* 10 个 tool，全部读；唯一会落盘的是 `_data/ontology_gap_queue.jsonl`
+  这类**派生发现记录**（candidate，不是 canonical）。
+"""
+
+from __future__ import annotations
+
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "lacan_mcp"))
+
+import server  # noqa: E402
+
+if __name__ == "__main__":
+    raise SystemExit(server.main(sys.argv[1:]))

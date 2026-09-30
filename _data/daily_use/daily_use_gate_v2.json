@@ -1,0 +1,110 @@
+{
+ "added_after": "P5D-004 discovered after Daily Use Gate v1：Gate v1 缺少语言切换的**行为**覆盖（只有结构/存在性断言）",
+ "all_blocking": true,
+ "frozen_at": "2026-09-28T15:42:02Z",
+ "gate_hash": "68a69fea3ddf1f57deaf9b413097615464d894a1164ff2623c69a35c003d1338",
+ "gate_id": "final-daily-use-gate-v2",
+ "items": [
+  {
+   "blocking": true,
+   "id": "F1",
+   "title": "one-click start PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F2",
+   "title": "one-click stop PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F3",
+   "title": "double-start safe"
+  },
+  {
+   "blocking": true,
+   "id": "F4",
+   "title": "stale PID recovery PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F5",
+   "title": "browser auto-open PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F6",
+   "title": "homepage navigation PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F7",
+   "title": "bibliography UI PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F8",
+   "title": "candidate never citable"
+  },
+  {
+   "blocking": true,
+   "id": "F9",
+   "title": "incomplete metadata never rendered as full citation"
+  },
+  {
+   "blocking": true,
+   "id": "F10",
+   "title": "Zotero import always candidate"
+  },
+  {
+   "blocking": true,
+   "id": "F11",
+   "title": "metadata conflict not silently resolved"
+  },
+  {
+   "blocking": true,
+   "id": "F12",
+   "title": "Obsidian user content preserved"
+  },
+  {
+   "blocking": true,
+   "id": "F13",
+   "title": "provider unavailable does not block local use"
+  },
+  {
+   "blocking": true,
+   "id": "F14",
+   "title": "secrets leakage = 0"
+  },
+  {
+   "blocking": true,
+   "id": "F15",
+   "title": "scholarly semantic drift = 0"
+  },
+  {
+   "blocking": true,
+   "id": "F16",
+   "title": "full regression clean"
+  },
+  {
+   "blocking": true,
+   "id": "F17",
+   "title": "core freeze PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F18",
+   "title": "freeze lineage PASS"
+  },
+  {
+   "blocking": true,
+   "id": "F19",
+   "title": "LANGUAGE_SWITCH_FUNCTIONAL（真实浏览器：双向切换/无刷新/持久化/路由保持/html lang/无 JS 错误/学术文本不变）"
+  }
+ ],
+ "items_n": 19,
+ "phase": "Final Daily Use & Bibliography UX Hardening",
+ "rule": "全部 blocking：任一 F 项 FAIL 则本阶段不成立。",
+ "schema_version": "final-daily-use-gate/v2",
+ "source_clause": "§11（P5D-004，2026-09-28 追加）",
+ "supersedes": "final-daily-use-gate-v1"
+}

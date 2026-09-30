@@ -1,0 +1,1667 @@
+{
+ "schema_version": "help-content/v1",
+ "index": {
+  "en": "Help Center",
+  "zh": "帮助中心",
+  "intro_en": "Short, verifiable pages for the things you actually do here: ask a question, check the evidence, browse the corpus, keep a project, manage sources, and continue in Obsidian. Every control name in this Help is rendered from the real product interface, so it cannot drift from what you see on screen.",
+  "intro_zh": "这里只写你真正会做的事：提问、查证据、读语料、做长期项目、管理来源、在 Obsidian 继续。本 Help 里出现的每个控件名都是从真实产品界面取的，不可能和屏幕上的对不上。"
+ },
+ "sections": [
+  {
+   "id": "start",
+   "en": "Start here",
+   "zh": "从这里开始",
+   "pages": [
+    "getting-started",
+    "research-vs-explore"
+   ]
+  },
+  {
+   "id": "modules",
+   "en": "Modules",
+   "zh": "模块",
+   "pages": [
+    "research",
+    "evidence",
+    "explore",
+    "projects",
+    "bibliography",
+    "zotero",
+    "persons-cases",
+    "obsidian"
+   ]
+  },
+  {
+   "id": "reference",
+   "en": "Reference",
+   "zh": "速查",
+   "pages": [
+    "languages",
+    "statuses"
+   ]
+  },
+  {
+   "id": "trouble",
+   "en": "Troubleshooting",
+   "zh": "故障排查",
+   "pages": [
+    "troubleshooting"
+   ]
+  }
+ ],
+ "pages": [
+  {
+   "slug": "getting-started",
+   "section": "start",
+   "module": "research",
+   "title": {
+    "en": "5-minute quick start",
+    "zh": "5 分钟快速开始"
+   },
+   "summary": {
+    "en": "One real question, walked all the way to a saved research item.",
+    "zh": "用一个真实问题，走完直到把材料存下来的全程。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "what",
+     "en": "What this system is",
+     "zh": "这个系统是什么"
+    },
+    {
+     "kind": "p",
+     "en": "Lacan Knowledge OS is a local-corpus research environment. It sends a question to a frozen scholarly core, which retrieves evidence only from the local corpus (the Staferla French seminar transcripts and the Chinese translation project) and then produces an answer that carries citations. When the corpus cannot support the question, the core abstains instead of answering from model knowledge. Offline / Mock mode needs no credentials at all.",
+     "zh": "Lacan Knowledge OS 是一个本地语料驱动的研究环境。它把问题交给冻结的学术内核，内核只在本地语料（Staferla 法文研讨班文本与中文翻译项目）里检索证据，然后产出带引用的答案。语料撑不住这个问题时，内核**弃权**，而不是用模型知识补一个答案。离线 / 模拟（Offline / Mock）模式完全不需要任何凭据。"
+    },
+    {
+     "kind": "p",
+     "en": "Three ways in, and they answer different needs: {{ui:nav.research}} starts from a question, {{ui:nav.explore}} starts from the material, {{ui:nav.projects}} turns repeated research into a long-term topic.",
+     "zh": "三个入口，对应的需要不同：{{ui:nav.research}} 从**问题**出发，{{ui:nav.explore}} 从**材料**出发，{{ui:nav.projects}} 把一次次研究变成**长期课题**。"
+    },
+    {
+     "kind": "callout",
+     "tone": "info",
+     "en": "For your first run, leave Provider on Offline / Mock. It is deterministic, takes seconds, and spends nothing.",
+     "zh": "第一次试，Provider 保持「离线 / 模拟」。它是确定性的、几秒出结果、不花任何额度。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "example",
+     "en": "The example question",
+     "zh": "示例问题"
+    },
+    {
+     "kind": "p",
+     "en": "The question below is one the corpus can actually support — Seminar XI distinguishes the eye from the gaze:",
+     "zh": "下面这个问题是真实语料能支持的 —— Seminar XI 里 eye 与 gaze 的区分："
+    },
+    {
+     "kind": "source",
+     "text": "拉康在 Seminar XI 中如何区分 eye 与 gaze？"
+    },
+    {
+     "kind": "link",
+     "href": "/research",
+     "query": {
+      "q": "拉康在 Seminar XI 中如何区分 eye 与 gaze？"
+     },
+     "en": "Open Research with this question prefilled",
+     "zh": "带着这个问题打开 Research"
+    },
+    {
+     "kind": "h2",
+     "anchor": "steps",
+     "en": "Walk it through",
+     "zh": "一步一步走完"
+    },
+    {
+     "kind": "ol",
+     "en": [
+      "Open {{ui:nav.research}} (or use the link above) and put the question in the research question box.",
+      "Check Mode = {{ui:mode.scholarly}} and Provider = {{ui:provider.mock}}.",
+      "Press {{ui:research.submit}}. The page shows the real elapsed time while it works. A long run can be released with {{ui:research.cancel}} — that stops waiting, it does not cancel the backend job.",
+      "Read the answer: check the state label first (see the Status reference), then the claims and their citations. The model's wording is never the evidence.",
+      "Click any citation chip (for example a passage.S11.… chip). The Evidence Inspector opens on the right with Original passage, Quoted span, Context and Source chain.",
+      "To keep reading around it, open the same passage in Explore (see the Evidence page).",
+      "On the action bar under the answer, press {{ui:explore.add-to-project}} to file it into a project, or {{ui:research.save-to-obsidian}} to write it into Obsidian."
+     ],
+     "zh": [
+      "打开 {{ui:nav.research}}（或点上面的链接），把问题填进研究问题输入框。",
+      "确认 Mode = {{ui:mode.scholarly}}、Provider = {{ui:provider.mock}}。",
+      "按 {{ui:research.submit}}。工作期间页面显示**真实已耗时**。长请求可以按 {{ui:research.cancel}} 释放等待 —— 它只停止等待，不会取消后端作业。",
+      "读答案：先看状态标签（见「状态速查」），再看 claims 与它们的引文。**模型的措辞永远不是证据。**",
+      "点任意引文 chip（例如 passage.S11.… 开头的那个）。右侧 Evidence Inspector 打开，显示 Original passage、Quoted span、Context 与 Source chain。",
+      "想继续读上下文，就在 Explore 里打开同一个 passage（见「证据」一页）。",
+      "答案下方的动作条：按 {{ui:explore.add-to-project}} 存进项目，或按 {{ui:research.save-to-obsidian}} 写进 Obsidian。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "done",
+     "en": "What finished looks like",
+     "zh": "怎样算走完一次"
+    },
+    {
+     "kind": "p",
+     "en": "You have an answer with citations, you have opened at least one passage in the original text, and you have saved it into a project or into Obsidian. Anything less than that is a draft, not a research item.",
+     "zh": "你拿到了带引用的答案、至少打开过一个 passage 的原文、并且把它存进了 Project 或 Obsidian。少任何一步，它都还只是草稿，不是一条研究材料。"
+    },
+    {
+     "kind": "callout",
+     "tone": "warn",
+     "en": "If you see PROVIDER_UNAVAILABLE after pressing {{ui:research.submit}}: you selected {{ui:provider.llm}} without credentials. Offline research still works completely; nothing is broken and nothing needs fixing.",
+     "zh": "如果按下 {{ui:research.submit}} 后看到 PROVIDER_UNAVAILABLE：说明你选了 {{ui:provider.llm}} 但没有凭据。离线研究仍然完全可用，没有坏任何东西，也不需要修。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/evidence",
+     "en": "Next: how evidence and provenance work",
+     "zh": "下一步：证据与溯源是怎么组织的"
+    }
+   ]
+  },
+  {
+   "slug": "research",
+   "section": "modules",
+   "module": "research",
+   "title": {
+    "en": "Research",
+    "zh": "Research（研究提问）"
+   },
+   "summary": {
+    "en": "From a question to a citation-carrying answer.",
+    "zh": "从一个问题，到一个带引用的答案。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "what",
+     "en": "What Research is for",
+     "zh": "Research 用来做什么"
+    },
+    {
+     "kind": "p",
+     "en": "Research starts from a question. The core retrieves passages from the local corpus, builds an evidence contract, and only then synthesises an answer whose claims must survive citation and entailment validation. Nothing is answered from the model's own knowledge.",
+     "zh": "Research 从**问题**出发。内核先在本地语料里检索段落、构建证据契约，然后才生成答案；答案里的每条 claim 都必须通过引用与蕴含校验。**没有**任何内容来自模型自己的知识。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "ask",
+     "en": "How to ask",
+     "zh": "怎么问"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "One question per run. Two questions in one box produce one muddled answer.",
+      "Ask about what the corpus contains: a concept, a distinction, a seminar, a passage, a case, a term.",
+      "Questions about external facts (dates, attendees, publication history) will abstain — the corpus does not carry that metadata.",
+      "Questions are limited to 2000 characters and are never silently truncated: an over-long question is rejected instead.",
+      "Ask again later rather than editing a submitted question: each run is stored as its own item."
+     ],
+     "zh": [
+      "一次只问一个问题。一个框里塞两个问题，只会得到一个含混的答案。",
+      "问语料里**真的有**的东西：一个概念、一组区分、某次研讨班、某段文本、某个个案、某个术语。",
+      "问外部事实（日期、在场者、出版史）会弃权 —— 语料不携带那类元数据。",
+      "问题上限 2000 字符，且**不会**被静默截断：过长的问题会被直接拒绝。",
+      "想改问题就重新问一次；每次运行本身都会作为独立条目保存下来。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "controls",
+     "en": "The controls",
+     "zh": "控件"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "{{ui:topbar.mode}}",
+       "term_zh": "{{ui:topbar.mode}}",
+       "desc_en": "How the question is read: {{ui:mode.scholarly}} is the default research mode; the Advanced group narrows the task (concept, relation, comparison, diachronic, seminar-specific, translation, formalism, case).",
+       "desc_zh": "问题按哪种方式理解：{{ui:mode.scholarly}} 是默认研究模式；Advanced 组收窄任务类型（概念、关系、比较、历时、特定研讨班、翻译、形式化、个案）。"
+      },
+      {
+       "term_en": "{{ui:topbar.provider}}",
+       "term_zh": "{{ui:topbar.provider}}",
+       "desc_en": "{{ui:provider.mock}} never calls a model; {{ui:provider.llm}} sends the synthesis step to a real endpoint and must be chosen explicitly.",
+       "desc_zh": "{{ui:provider.mock}} 不调用任何模型；{{ui:provider.llm}} 会把合成步骤发给真实端点，必须由你显式选择。"
+      },
+      {
+       "term_en": "{{ui:topbar.researchLanguage}}",
+       "term_zh": "{{ui:topbar.researchLanguage}}",
+       "desc_en": "The question language sent with the request. It does not translate the interface and does not filter retrieval.",
+       "desc_zh": "随请求发送的 question language。它不翻译界面，也不过滤检索。"
+      },
+      {
+       "term_en": "{{ui:research.fresh}}",
+       "term_zh": "{{ui:research.fresh}}",
+       "desc_en": "Skip the product cache and recompute this question. Without it, an identical repeat may be served from cache — the answer header says which happened.",
+       "desc_zh": "跳过产品缓存、真重算一次。不勾时，完全相同的问题可能直接命中缓存 —— 答案头部会写清是哪一种。"
+      }
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "states",
+     "en": "Answer states",
+     "zh": "答案状态"
+    },
+    {
+     "kind": "p",
+     "en": "Every answer carries a state. Read it literally: VALIDATED, VALIDATED_WITH_QUALIFICATIONS, PARTIALLY_SUPPORTED, VALIDATION_FAILED, INSUFFICIENT_EVIDENCE, ABSTAINED (plus STRUCTURALLY_UNAVAILABLE and UNKNOWN). The full glossary, including what to do about each, is on the Status reference page.",
+     "zh": "每个答案都带一个状态，请按字面读：VALIDATED、VALIDATED_WITH_QUALIFICATIONS、PARTIALLY_SUPPORTED、VALIDATION_FAILED、INSUFFICIENT_EVIDENCE、ABSTAINED（另有 STRUCTURALLY_UNAVAILABLE 与 UNKNOWN）。每个状态「为什么出现、你该做什么」的完整词典在「状态速查」页。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/statuses",
+     "en": "Open the status reference",
+     "zh": "打开状态速查"
+    },
+    {
+     "kind": "h2",
+     "anchor": "abstention",
+     "en": "Abstention is a result, not an error",
+     "zh": "弃权是结果，不是错误"
+    },
+    {
+     "kind": "p",
+     "en": "ABSTAINED means the corpus cannot support a reliable answer. That is the correct behaviour, and the answer card explains why in its abstention block. An abstention never contains invented claims, so do not go looking for one.",
+     "zh": "ABSTAINED 表示语料撑不起一个可靠答案。这是**正确行为**，答案卡会在 abstention 块里说明原因。弃权里不会有编造的 claim，所以不要去找。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "evidence",
+     "en": "Where the evidence is",
+     "zh": "证据在哪"
+    },
+    {
+     "kind": "p",
+     "en": "Every claim carries citation chips. Click one and the Evidence Inspector opens with the passage, its context window and its source chain. The answer shows what the core concluded; the inspector shows what the corpus actually says.",
+     "zh": "每条 claim 都带引文 chip。点开一个，Evidence Inspector 会给出该段落、它的上下文窗口与来源链。答案是内核的结论，Inspector 才是语料真正说的话。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/evidence",
+     "en": "How evidence works",
+     "zh": "证据是怎么组织的"
+    },
+    {
+     "kind": "h2",
+     "anchor": "provider",
+     "en": "When the provider is unavailable",
+     "zh": "当 provider 不可用"
+    },
+    {
+     "kind": "p",
+     "en": "Provider is its own layer of system status. If it is DEGRADED or unavailable, {{ui:provider.mock}} research continues to work. The system never falls back to model knowledge to fill the gap.",
+     "zh": "Provider 是**独立的一层**系统状态。它 DEGRADED 或不可用时，{{ui:provider.mock}} 研究照常可用。系统**不会**用模型知识去补这个缺口。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/troubleshooting",
+     "en": "Open troubleshooting",
+     "zh": "打开故障排查"
+    }
+   ]
+  },
+  {
+   "slug": "explore",
+   "section": "modules",
+   "module": "explore",
+   "title": {
+    "en": "Explore",
+    "zh": "Explore（读原文）"
+   },
+   "summary": {
+    "en": "Go straight into the corpus and the structured scholarly objects — without asking the AI anything.",
+    "zh": "直接进入语料与结构化学术对象 —— 完全不问 AI。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "what",
+     "en": "What Explore is",
+     "zh": "Explore 是什么"
+    },
+    {
+     "kind": "p",
+     "en": "Explore is read-only browsing over the corpus and the registries. It produces no scholarly conclusion: browsing is not research, and a zero result here is not an abstention.",
+     "zh": "Explore 是对语料与登记表的只读浏览。它不产出任何学术结论：浏览不是研究，这里的零结果也不是弃权。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "what-you-can-browse",
+     "en": "What you can browse",
+     "zh": "可以浏览什么"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "Concepts",
+       "term_zh": "概念",
+       "desc_en": "Canonical concepts with their term mappings and corpus attestation counts.",
+       "desc_zh": "canonical 概念，连同它的术语映射与语料证据计数。"
+      },
+      {
+       "term_en": "Passages",
+       "term_zh": "段落",
+       "desc_en": "The passage store itself: filter by seminar, session, lesson, language, source layer, provenance. Continuous reading in corpus order.",
+       "desc_zh": "段落库本体：按研讨班、session、课次、语言、来源层、溯源过滤。按语料顺序连续阅读。"
+      },
+      {
+       "term_en": "Seminars / Sessions",
+       "term_zh": "研讨班 / Session",
+       "desc_en": "Seminar level and session level views; a session without a lesson number is listed last and never re-numbered.",
+       "desc_zh": "研讨班级与会话级视图；没有课次号的 session 排在最后，且永远不会被重新编号。"
+      },
+      {
+       "term_en": "Terminology",
+       "term_zh": "术语",
+       "desc_en": "Terms and their control pairs (for example the Réel / réalité distinction).",
+       "desc_zh": "术语及其对照对（例如 Réel / réalité 的区分）。"
+      },
+      {
+       "term_en": "{{ui:nav.persons}} / {{ui:nav.cases}}",
+       "term_zh": "{{ui:nav.persons}} / {{ui:nav.cases}}",
+       "desc_en": "The person and case registries — see the Persons and Cases page for what the difference is.",
+       "desc_zh": "人物与个案登记表 —— 两者的区别见「人物与个案」页。"
+      }
+     ]
+    },
+    {
+     "kind": "link",
+     "href": "/explore",
+     "en": "Open Explore",
+     "zh": "打开 Explore"
+    },
+    {
+     "kind": "h2",
+     "anchor": "when",
+     "en": "When to use Explore instead of Research",
+     "zh": "什么时候该用 Explore 而不是 Research"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "You want the source text, not a conclusion about it.",
+      "You already know the seminar, session or term you want.",
+      "You want to check a citation you just got from Research.",
+      "You want to see whether a term appears at all, and how many times.",
+      "You do not want any AI involvement in the step."
+     ],
+     "zh": [
+      "你要的是**原文**，不是关于原文的结论。",
+      "你已经知道要找哪次研讨班、哪个 session、哪个术语。",
+      "你想核对刚从 Research 拿到的某条引文。",
+      "你想看某个词到底出现过没有、出现多少次。",
+      "这一步你不想让 AI 参与。"
+     ]
+    },
+    {
+     "kind": "callout",
+     "tone": "info",
+     "en": "Explore never answers. If you want a supported conclusion with citations, that is Research. If you want to understand the difference, read Research vs Explore.",
+     "zh": "Explore 从不出答案。你要带引用的、被支持的结论，那是 Research。想彻底弄清两者区别，读「Research vs Explore」。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/research-vs-explore",
+     "en": "Research vs Explore",
+     "zh": "Research vs Explore"
+    }
+   ]
+  },
+  {
+   "slug": "research-vs-explore",
+   "section": "start",
+   "module": "research",
+   "title": {
+    "en": "Research vs Explore vs Projects",
+    "zh": "Research、Explore、Projects 有什么区别"
+   },
+   "summary": {
+    "en": "The single most useful distinction in this system.",
+    "zh": "这个系统里最值得先弄清的一组区分。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "three",
+     "en": "Three different starting points",
+     "zh": "三个不同的起点"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "Research — starts from a question",
+       "term_zh": "Research —— 从「问题」出发",
+       "desc_en": "You do not know yet what the corpus says. You get an evidence-backed answer with citations, and a state that tells you how well supported it is.",
+       "desc_zh": "你还不知道语料里有什么。你得到一个有证据支撑、带引用的答案，以及一个说明它被支持到什么程度的状态。"
+      },
+      {
+       "term_en": "Explore — starts from the material",
+       "term_zh": "Explore —— 从「材料」出发",
+       "desc_en": "You know what you want to read or look up. You get passages, sessions, concepts, terms, persons, cases — and no conclusion.",
+       "desc_zh": "你已经知道要读什么、查什么。你得到段落、session、概念、术语、人物、个案 —— 以及**没有**结论。"
+      },
+      {
+       "term_en": "Projects — turns runs into a topic",
+       "term_zh": "Projects —— 把一次次的运行变成课题",
+       "desc_en": "You get a workspace object that holds questions, hypotheses, runs, passages, persons, cases and bibliography over months. Project content is not corpus evidence.",
+       "desc_zh": "你得到一个工作区对象，用来跨月保存问题、假设、运行、段落、人物、个案与书目。**Project 里的内容不是 corpus evidence。**"
+      }
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "examples",
+     "en": "Three real examples",
+     "zh": "三个真实例子"
+    },
+    {
+     "kind": "ol",
+     "en": [
+      "\"How does Seminar XI distinguish the eye from the gaze?\" — a question about the corpus → Research.",
+      "\"Show me Seminar XI, session 5, in the French original.\" — you already know the material → Explore.",
+      "\"I will work on objet petit a for three months.\" — a long-term topic → a Project, which then collects the Research runs and the passages you picked."
+     ],
+     "zh": [
+      "「Seminar XI 里 eye 和 gaze 怎么区分？」—— 关于语料的问题 → Research。",
+      "「把 Seminar XI 第 5 次课的法文原文给我看。」—— 你已经知道材料在哪 → Explore。",
+      "「objet petit a 我要做三个月。」—— 长期课题 → 建一个 Project，再把 Research 运行与挑出来的段落收进去。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "rule",
+     "en": "The rule of thumb",
+     "zh": "一句话判断"
+    },
+    {
+     "kind": "p",
+     "en": "If you would phrase it as a question, use Research. If you would phrase it as \"show me\", use Explore. If you would phrase it as \"I will keep working on this\", use a Project.",
+     "zh": "你能把它说成**一个问题**，用 Research。你能把它说成「**给我看**」，用 Explore。你能把它说成「**我会一直做下去**」，用 Project。"
+    },
+    {
+     "kind": "callout",
+     "tone": "warn",
+     "en": "An AI answer is not the end of research. The evidence and the original text are the verification entry point: open the citation before you believe the claim.",
+     "zh": "AI 回答不是研究的终点。**证据与原文才是验证入口**：在看到 claim 之后就打开它的引文。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/evidence",
+     "en": "How to verify: evidence chain",
+     "zh": "怎么验证：证据链"
+    },
+    {
+     "kind": "link",
+     "href": "/explore",
+     "en": "Open Explore and browse the material yourself",
+     "zh": "打开 Explore，自己读材料"
+    }
+   ]
+  },
+  {
+   "slug": "projects",
+   "section": "modules",
+   "module": "projects",
+   "title": {
+    "en": "Projects",
+    "zh": "Projects（长期课题）"
+   },
+   "summary": {
+    "en": "A workspace object that holds a topic over time. Not evidence.",
+    "zh": "一个跨时间保存课题的工作区对象。它不是证据。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "what",
+     "en": "What a Project is",
+     "zh": "Project 是什么"
+    },
+    {
+     "kind": "p",
+     "en": "A Project is a USER_WORKSPACE object: it organises references, questions and runs. It is never evidence, and it can never promote a note into a canonical claim. Research can stay project-less — nothing is forced into a project.",
+     "zh": "Project 是一个 USER_WORKSPACE 对象：它组织引用、问题与运行记录。它**永远不是证据**，也不可能把一条笔记提升为 canonical claim。研究完全可以不挂项目 —— 没有东西会被强制塞进项目。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "fits",
+     "en": "What belongs in a Project",
+     "zh": "什么该放进 Project"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Research questions, with the runs that answered them",
+      "Hypotheses you are testing (they are never mixed into validated claims)",
+      "Passages you picked while reading",
+      "Persons and cases you keep coming back to",
+      "Bibliography items you are working from",
+      "Open questions, notes and status",
+      "Documents saved from runs into Obsidian"
+     ],
+     "zh": [
+      "研究问题，以及回答过它们的那几次运行",
+      "你在验证的假设（它们**不会**混进 validated claims）",
+      "阅读时挑出来的段落",
+      "你反复回到的人物与个案",
+      "你在用的书目条目",
+      "悬而未决的问题、笔记与状态",
+      "从运行保存进 Obsidian 的文档"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "create",
+     "en": "Create one",
+     "zh": "建一个"
+    },
+    {
+     "kind": "ol",
+     "en": [
+      "Open {{ui:nav.projects}}.",
+      "In {{ui:projects.new-project}}, fill {{ui:projects.project-title}} (required), optionally {{ui:projects.project-description-optional}} and {{ui:projects.project-tags-comma-separated}}.",
+      "Press {{ui:projects.create-project}}. The new project opens immediately."
+     ],
+     "zh": [
+      "打开 {{ui:nav.projects}}。",
+      "在 {{ui:projects.new-project}} 里填 {{ui:projects.project-title}}（必填），可选填 {{ui:projects.project-description-optional}} 与 {{ui:projects.project-tags-comma-separated}}。",
+      "按 {{ui:projects.create-project}}。新项目会立刻打开。"
+     ]
+    },
+    {
+     "kind": "link",
+     "href": "/projects",
+     "en": "Open Projects",
+     "zh": "打开 Projects"
+    },
+    {
+     "kind": "h2",
+     "anchor": "add",
+     "en": "Put research into a Project",
+     "zh": "把研究放进 Project"
+    },
+    {
+     "kind": "p",
+     "en": "On any answer, use {{ui:explore.add-to-project}} on the action bar. Each run is stored as an immutable snapshot of the answer exactly as the core returned it — re-researching the same question creates a new item, it does not overwrite the old one.",
+     "zh": "在任何答案上，用动作条里的 {{ui:explore.add-to-project}}。每次运行都按内核返回的原样、作为不可变快照保存 —— 同一个问题重新研究会**新增**一条，不会覆盖旧的。"
+    },
+    {
+     "kind": "callout",
+     "tone": "warn",
+     "en": "Only stable ids are stored. The passage or concept text is always re-read from the canonical store, so a project never keeps its own copy of the corpus.",
+     "zh": "只存稳定 id。段落与概念的文本每次都从 canonical 存储重读，所以项目永远不保存语料自己的副本。"
+    }
+   ]
+  },
+  {
+   "slug": "evidence",
+   "section": "modules",
+   "module": "research",
+   "title": {
+    "en": "Evidence and provenance",
+    "zh": "证据与溯源"
+   },
+   "summary": {
+    "en": "Answer → Claim → Passage → Session → Seminar/Document → Witness/Source. Why \"the AI said so\" is not \"Lacan's text proves it\".",
+    "zh": "答案 → claim → 段落 → session → 研讨班/文档 → 见证本/来源。为什么「AI 说了」不等于「拉康原文证明了」。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "chain",
+     "en": "The chain you are following",
+     "zh": "你要顺着走的链"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "Answer",
+       "term_zh": "答案",
+       "desc_en": "A final scholarly answer with a state, claims and citations. It is the core's conclusion, not the source.",
+       "desc_zh": "一份带状态、claims 与引文的最终学术答案。它是内核的**结论**，不是来源本身。"
+      },
+      {
+       "term_en": "Claim",
+       "term_zh": "Claim（主张）",
+       "desc_en": "One atomic statement. Each claim must survive citation and entailment validation, or it is dropped.",
+       "desc_zh": "一条原子陈述。每条 claim 都必须通过引用与蕴含校验，否则会被剔除。"
+      },
+      {
+       "term_en": "Passage",
+       "term_zh": "Passage（段落）",
+       "desc_en": "The unit of evidence: a real passage id such as passage.S11.unknown.P2253, with its own text and locator.",
+       "desc_zh": "证据的单位：一个真实 passage id（例如 passage.S11.unknown.P2253），带自己的文本与定位。"
+      },
+      {
+       "term_en": "Session → Seminar / Document",
+       "term_zh": "Session → 研讨班 / 文档",
+       "desc_en": "Where that passage sits: a session of a seminar, or another corpus document.",
+       "desc_zh": "该段落所在的位置：某次研讨班的某次课，或另一份语料文档。"
+      },
+      {
+       "term_en": "Witness / Source",
+       "term_zh": "见证本 / 来源",
+       "desc_en": "Which witness the text came from (for example a French transcript witness or the Chinese translation project), and what its trace status is.",
+       "desc_zh": "文本来自哪个见证本（例如某法文转录见证本，或中文翻译项目），以及它的溯源状态。"
+      }
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "inspector",
+     "en": "The Evidence Inspector",
+     "zh": "Evidence Inspector"
+    },
+    {
+     "kind": "p",
+     "en": "Click a citation chip under a claim and the inspector opens on the right. It shows: Original passage, Quoted span (the exact sentence used), Context (with ± controls), Source chain, and Translation when one exists. At the bottom there is {{ui:evidence-inspector.save-passage}}.",
+     "zh": "点 claim 下面的引文 chip，检查器会在右侧打开。它显示：Original passage、Quoted span（实际被引用的那一句）、Context（带 ± 调节）、Source chain，以及存在时的 Translation。底部有 {{ui:evidence-inspector.save-passage}}。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "why",
+     "en": "Why this matters",
+     "zh": "为什么这件事重要"
+    },
+    {
+     "kind": "p",
+     "en": "A validated claim means the corpus supports the statement under the core's rules — it does not mean the passage says everything the sentence suggests. Read the quoted span in its context before you rely on it. \"What the AI said\" and \"what Lacan's text proves\" are two different things, and only the second one belongs in your argument.",
+     "zh": "一条 validated claim 的意思是：在内核的规则下，语料**支持**这条陈述 —— 它**不**意味着那段原文说了这句话暗示的全部内容。在你依赖它之前，先把它引用的那句放回上下文里读。「AI 说了什么」和「拉康原文证明了什么」是两件事，能进你论证的只有后者。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "incomplete",
+     "en": "When the trace is incomplete",
+     "zh": "当溯源不完整"
+    },
+    {
+     "kind": "p",
+     "en": "Some witnesses are available for corpus research while their upstream publication or edition trace is incomplete. Those passages are marked SOURCE_TRACE_INCOMPLETE. This is a scholarly limitation of the source, not an operational error and not a UI bug: the text is still usable, it just cannot carry a full bibliographic citation.",
+     "zh": "有些见证本可以用于语料研究，但它们的上游出版/版本溯源不完整。这些段落会被标 SOURCE_TRACE_INCOMPLETE。这是来源的**学术限制**，不是运行错误，也不是界面 bug：文本仍可用，只是扛不起一条完整的书目引用。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/statuses",
+     "en": "Status reference",
+     "zh": "状态速查"
+    },
+    {
+     "kind": "link",
+     "href": "/help/bibliography",
+     "en": "Why a citation may be unavailable",
+     "zh": "为什么某条引用不可用"
+    }
+   ]
+  },
+  {
+   "slug": "persons-cases",
+   "section": "modules",
+   "module": "entities",
+   "title": {
+    "en": "Persons and Cases",
+    "zh": "人物与个案"
+   },
+   "summary": {
+    "en": "Two different registries that must never be collapsed into each other.",
+    "zh": "两张不同的登记表，绝不能被合并成一张。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "difference",
+     "en": "Person ≠ Case",
+     "zh": "Person ≠ Case"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "Person",
+       "term_zh": "人物",
+       "desc_en": "A person who appears in the corpus as a reference point: Freud, Hegel, Descartes, Saussure, Kojève, Lévi-Strauss, Schreber.",
+       "desc_zh": "在语料中作为参照点出现的人物：Freud、Hegel、Descartes、Saussure、Kojève、Lévi-Strauss、Schreber。"
+      },
+      {
+       "term_en": "Case",
+       "term_zh": "个案",
+       "desc_en": "A clinical case as a case: Aimée, Dora, Little Hans, Schreber, the Wolf Man.",
+       "desc_zh": "作为个案存在的临床个案：Aimée、Dora、Little Hans、Schreber、狼人。"
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "tone": "warn",
+     "en": "person.schreber ≠ case.schreber. They are distinct entities: the case links to its subject person, it does not collapse into it. Searching one will not silently return the other.",
+     "zh": "person.schreber ≠ case.schreber。它们是两个不同实体：个案会链到它所对应的人物，但不会并入人物。查其中一个，不会悄悄返回另一个。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "how",
+     "en": "How the registries are built",
+     "zh": "登记表是怎么建的"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Matching is deterministic alias matching over real corpus text — there is no automatic named-entity recognition promoting anything into canonical data.",
+      "An entry appears with its attestation count; a term needs enough real mentions before it is listed.",
+      "The registry is read-only browsing: nothing you do in the UI promotes an entity.",
+      "Candidates that are not yet canonical stay candidates."
+     ],
+     "zh": [
+      "匹配是对真实语料文本做**确定性别名匹配** —— 没有自动 NER 把任何东西提升为 canonical 数据。",
+      "每个条目带语料证据计数；一个词要有足够真实提及才会被列出。",
+      "登记表是只读浏览：界面上的操作不会提升任何实体。",
+      "还没成为 canonical 的候选，就仍然是候选。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "no-inference",
+     "en": "Why there is no influence inference",
+     "zh": "为什么没有「影响推断」"
+    },
+    {
+     "kind": "p",
+     "en": "The system does not infer that one person influenced another, or that a case \"is\" a concept. Those are scholarly judgements, and the corpus records mentions — not causality. Use Explore to see the mentions, then make the argument yourself, with citations.",
+     "zh": "系统**不**推断谁影响了谁，也不推断某个个案「就是」某个概念。那些是学术判断，而语料记录的是**提及**，不是因果。用 Explore 看提及，然后由你自己、带着引文去论证。"
+    },
+    {
+     "kind": "link",
+     "href": "/persons",
+     "en": "Open Persons",
+     "zh": "打开人物"
+    },
+    {
+     "kind": "link",
+     "href": "/cases",
+     "en": "Open Cases",
+     "zh": "打开个案"
+    }
+   ]
+  },
+  {
+   "slug": "bibliography",
+   "section": "modules",
+   "module": "bibliography",
+   "title": {
+    "en": "Bibliography and citations",
+    "zh": "文献与引用"
+   },
+   "summary": {
+    "en": "reviewed ≠ metadata complete, and candidate ≠ citable.",
+    "zh": "reviewed ≠ 元数据完整，candidate ≠ 可引用。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "two-kinds",
+     "en": "Two kinds of record",
+     "zh": "两种记录"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "reviewed",
+       "term_zh": "reviewed（已复核）",
+       "desc_en": "The record went through the registry review. It can take part in internal citations. It is still not necessarily bibliographically complete.",
+       "desc_zh": "该记录走过了登记表复核。它可以参与内部引用。但它**仍然不一定**在书目意义上完整。"
+      },
+      {
+       "term_en": "candidate ({{ui:bibliography.needs-review}})",
+       "term_zh": "candidate（{{ui:bibliography.needs-review}}）",
+       "desc_en": "Imported or newly added. Always marked NEEDS REVIEW · NOT CITABLE: no citation can be produced from it, in any style.",
+       "desc_zh": "导入或新增的条目。一律标 NEEDS REVIEW · NOT CITABLE：无论哪种样式，都不能从它生成引用。"
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "tone": "warn",
+     "en": "Reviewed does NOT mean bibliographically complete. A record can be reviewed and still lack a publisher, a year or an ISBN — the interface says so explicitly instead of filling the gap with something plausible.",
+     "zh": "Reviewed **不等于**书目完整。一条记录可以通过复核，却仍然没有出版社、年份或 ISBN —— 界面会**明说**这件事，而不是拿一个看起来合理的东西把空填上。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "internal-vs-formal",
+     "en": "Internal citation vs bibliographic citation",
+     "zh": "内部引用 vs 书目引用"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Internal citation points at a passage in this corpus (passage id, witness, provenance). It is available whenever the passage exists.",
+      "Bibliographic citation is a formal style output (Chicago / APA / MLA / BibTeX). It is offered only when verified publication metadata exists.",
+      "The interface shows citation availability per style, and gives the reason when a style is unavailable — for example BIBLIOGRAPHIC_METADATA_INCOMPLETE.",
+      "Nothing is invented to make a style succeed: no guessed publisher, year, ISBN or page numbers."
+     ],
+     "zh": [
+      "内部引用指向本语料中的段落（passage id、见证本、溯源）。只要段落存在就可提供。",
+      "书目引用是正式样式输出（Chicago / APA / MLA / BibTeX），只有在存在**经过核验的出版元数据**时才提供。",
+      "界面逐样式显示引用可用性，并在某样式不可用时给出原因（例如 BIBLIOGRAPHIC_METADATA_INCOMPLETE）。",
+      "为了让某个样式成功而**编造**任何东西都是禁止的：不猜出版社、年份、ISBN 或页码。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "objects",
+     "en": "The objects you will see",
+     "zh": "你会看到的对象"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "Witness",
+       "term_zh": "见证本",
+       "desc_en": "A concrete carrier of the text (a transcript witness, a print witness, a translation project). One work can have several witnesses.",
+       "desc_zh": "文本的具体载体（转录见证本、印刷见证本、翻译项目）。同一部作品可以有多个见证本。"
+      },
+      {
+       "term_en": "Edition",
+       "term_zh": "版本",
+       "desc_en": "A published edition of a work, when one is known.",
+       "desc_zh": "某部作品的一个已出版版本（当已知时）。"
+      },
+      {
+       "term_en": "Bibliographic Item",
+       "term_zh": "书目条目",
+       "desc_en": "A bibliographic record with its own review status and metadata completeness.",
+       "desc_zh": "带自己的复核状态与元数据完整度的书目记录。"
+      },
+      {
+       "term_en": "page_locator",
+       "term_zh": "page_locator",
+       "desc_en": "Where a witness carries page positions, passages can be located by page. A witness can exist with 0 passages produced from it — then the internal passage citation is unavailable, while the witness record still exists.",
+       "desc_zh": "当见证本带页码位置时，段落可按页定位。一个见证本可能**存在但产出 0 个段落** —— 此时无法给出内部段落引用，但见证本记录仍然存在。"
+      }
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "how-to-read",
+     "en": "How to read the bibliography view",
+     "zh": "怎么看 Bibliography 界面"
+    },
+    {
+     "kind": "ol",
+     "en": [
+      "Filter with {{ui:bibliography.search}} and the review-status filter ({{ui:bibliography.reviewed}} / {{ui:bibliography.needs-review}}).",
+      "Open a record: you get its metadata, its {{ui:bibliography.citation-availability}} per style, and the reason for anything unavailable.",
+      "Only a reviewed record with complete metadata yields a formal citation; otherwise you get internal citation only.",
+      "Use {{ui:explore.add-to-project}} to attach a record to a project — the registry stays the source of truth."
+     ],
+     "zh": [
+      "用 {{ui:bibliography.search}} 与复核状态过滤（{{ui:bibliography.reviewed}} / {{ui:bibliography.needs-review}}）。",
+      "打开一条记录：可看到它的元数据、逐样式的 {{ui:bibliography.citation-availability}}，以及每项不可用的原因。",
+      "只有**已复核且元数据完整**的记录才给出正式引用；否则你只有内部引用。",
+      "用 {{ui:explore.add-to-project}} 把记录挂到项目上 —— 真源始终是登记表。"
+     ]
+    },
+    {
+     "kind": "link",
+     "href": "/bibliography",
+     "en": "Open Bibliography",
+     "zh": "打开 Bibliography"
+    },
+    {
+     "kind": "link",
+     "href": "/help/zotero",
+     "en": "Importing from Zotero",
+     "zh": "从 Zotero 导入"
+    }
+   ]
+  },
+  {
+   "slug": "zotero",
+   "section": "modules",
+   "module": "zotero",
+   "title": {
+    "en": "Zotero import",
+    "zh": "Zotero 导入"
+   },
+   "summary": {
+    "en": "Two supported file formats, one result: candidates.",
+    "zh": "只支持两种文件格式，结果只有一个：candidate。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "formats",
+     "en": "What can be imported",
+     "zh": "能导入什么"
+    },
+    {
+     "kind": "p",
+     "en": "Supported: CSL JSON and Better BibTeX JSON. Export one of those from Zotero and import the file here. Nothing else is parsed.",
+     "zh": "支持：CSL JSON 与 Better BibTeX JSON。从 Zotero 导出其中之一，再把文件导入这里。其他格式不会被解析。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "flow",
+     "en": "The real flow",
+     "zh": "真实流程"
+    },
+    {
+     "kind": "ol",
+     "en": [
+      "Open {{ui:nav.bibliography}} and expand {{ui:bibliography.import-zotero-csl-json}}.",
+      "Select the file. The system parses it.",
+      "Read {{ui:bibliography.preview}}: you see exactly what would be imported, and what would be flagged.",
+      "Duplicates and conflicts are shown. A {{ui:bibliography.conflict}} is reported, not adjudicated.",
+      "Press {{ui:bibliography.import-as-candidate}}. Everything arrives as a candidate."
+     ],
+     "zh": [
+      "打开 {{ui:nav.bibliography}}，展开 {{ui:bibliography.import-zotero-csl-json}}。",
+      "选择文件。系统解析它。",
+      "读 {{ui:bibliography.preview}}：你会看到到底会导入什么、什么会被标出来。",
+      "重复项与冲突会被显示。{{ui:bibliography.conflict}} 只**报告**，不裁决。",
+      "按 {{ui:bibliography.import-as-candidate}}。所有东西都以 candidate 身份进来。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "why-candidate",
+     "en": "Why everything is still a candidate afterwards",
+     "zh": "为什么导入之后还是 candidate"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Imported items are always candidates. There is no \"approve all\" step and no automatic canonicalization.",
+      "Nothing is automatically merged into an existing record.",
+      "A conflict never silently overwrites either side: it stays visible so a human can decide.",
+      "The candidate keeps saying NEEDS REVIEW · NOT CITABLE, because that is still true — no citation can be produced from it yet."
+     ],
+     "zh": [
+      "导入的东西**永远是** candidate。没有「全部批准」这一步，也没有自动 canonicalization。",
+      "不会自动并进已有记录。",
+      "冲突**不会**静默覆盖任何一边：它留在那里，等人来判断。",
+      "candidate 会继续标 NEEDS REVIEW · NOT CITABLE，因为它确实还是这样 —— 目前还不能从它生成引用。"
+     ]
+    },
+    {
+     "kind": "callout",
+     "tone": "info",
+     "en": "There is no conflict-resolution editor in this version. Conflicts are recorded and displayed for you to act on; the product does not pretend to resolve them.",
+     "zh": "当前版本**没有**冲突解决编辑器。冲突会被记录并显示，由你来处理；产品不会假装替你裁决。"
+    },
+    {
+     "kind": "link",
+     "href": "/zotero",
+     "en": "Open the import section",
+     "zh": "打开导入区"
+    },
+    {
+     "kind": "link",
+     "href": "/help/bibliography",
+     "en": "How review status and citation work",
+     "zh": "复核状态与引用是怎么回事"
+    }
+   ]
+  },
+  {
+   "slug": "obsidian",
+   "section": "modules",
+   "module": "obsidian",
+   "title": {
+    "en": "Obsidian",
+    "zh": "Obsidian"
+   },
+   "summary": {
+    "en": "Where your own understanding lives. Not the database.",
+    "zh": "你自己的理解待的地方。它不是数据库。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "split",
+     "en": "Who does what",
+     "zh": "谁负责什么"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "Lacan Knowledge OS",
+       "term_zh": "Lacan Knowledge OS",
+       "desc_en": "Evidence, retrieval, sources, validation, bibliography and citation integrity.",
+       "desc_zh": "证据、检索、来源、校验、书目与引用完整性。"
+      },
+      {
+       "term_en": "Obsidian",
+       "term_zh": "Obsidian",
+       "desc_en": "Your understanding, long-term notes, writing and your concept network.",
+       "desc_zh": "你的理解、长期笔记、写作，以及你自己的概念网络。"
+      }
+     ]
+    },
+    {
+     "kind": "callout",
+     "tone": "warn",
+     "en": "Obsidian is not the underlying database. Corpus, ontology and validation live in this system; Obsidian holds notes, and a note never becomes canonical evidence by being written there.",
+     "zh": "Obsidian **不是**底层数据库。语料、本体与校验都在本系统；Obsidian 保存的是笔记，而一条笔记不会因为写在那里就变成 canonical 证据。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "open",
+     "en": "How to open it",
+     "zh": "怎么打开"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Use {{ui:home.open-obsidian}} on the home page, or {{ui:nav.obsidian}} in the navigation.",
+      "Both use the configured vault. The default vault root is _workspace/obsidian_vault inside this project.",
+      "If no obsidian:// URI is configured, the page tells you the folder to open directly instead of failing silently."
+     ],
+     "zh": [
+      "用首页的 {{ui:home.open-obsidian}}，或导航里的 {{ui:nav.obsidian}}。",
+      "两者都用已配置的 vault。默认 vault 根目录是本项目内的 _workspace/obsidian_vault。",
+      "如果没有配置 obsidian:// URI，页面会告诉你要直接打开哪个文件夹，而不是静默失败。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "save",
+     "en": "What gets saved",
+     "zh": "会保存什么"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "From an answer: {{ui:research.save-to-obsidian}} writes the run as a document.",
+      "From the inspector: {{ui:evidence-inspector.save-passage}} writes a single passage with its provenance.",
+      "Saved research is not evidence by itself — every conclusion still has to be supported by the corpus, and the saved note keeps the ids so you can re-check.",
+      "Your own notes inside the vault are never overwritten by these products."
+     ],
+     "zh": [
+      "从答案：{{ui:research.save-to-obsidian}} 把这次运行写成一个文档。",
+      "从检查器：{{ui:evidence-inspector.save-passage}} 把单个段落连同溯源写下来。",
+      "保存下来的研究本身**不是**证据 —— 每个结论仍然必须由语料支持；笔记里保留了 id，方便你回查。",
+      "vault 里你自己的笔记，永远不会被这些产物覆盖。"
+     ]
+    },
+    {
+     "kind": "link",
+     "href": "/help/evidence",
+     "en": "Evidence and provenance",
+     "zh": "证据与溯源"
+    }
+   ]
+  },
+  {
+   "slug": "languages",
+   "section": "reference",
+   "module": "research",
+   "title": {
+    "en": "Interface language vs Research language",
+    "zh": "界面语言 vs 研究语言"
+   },
+   "summary": {
+    "en": "Two independent settings. Interface Chinese + Research French is perfectly valid.",
+    "zh": "两个彼此独立的设置。界面中文 + 研究语言法文完全合法。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "two",
+     "en": "They are not the same thing",
+     "zh": "它们不是一回事"
+    },
+    {
+     "kind": "dl",
+     "items": [
+      {
+       "term_en": "{{ui:topbar.language}} (interface)",
+       "term_zh": "{{ui:topbar.language}}（界面语言）",
+       "desc_en": "Changes the product interface: navigation, buttons, labels, statuses, empty states, errors, and this Help. It never changes corpus text.",
+       "desc_zh": "改变产品界面：导航、按钮、标签、状态、空状态、错误提示，以及本 Help。它**从不**改动语料文本。"
+      },
+      {
+       "term_en": "{{ui:topbar.researchLanguage}}",
+       "term_zh": "{{ui:topbar.researchLanguage}}（研究语言）",
+       "desc_en": "Is sent with the research request as the question language. It does not translate the interface, and it does not filter or restrict retrieval.",
+       "desc_zh": "作为 question language 随研究请求发送。它**不**翻译界面，也**不**过滤或限制检索。"
+      }
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "example",
+     "en": "A valid combination",
+     "zh": "一个合法的组合"
+    },
+    {
+     "kind": "p",
+     "en": "Interface = 中文, Research language = Français. You read the product in Chinese while telling the core that your question is phrased in French. Both settings are remembered in your browser, and each is independent of the other.",
+     "zh": "界面 = 中文，研究语言 = Français。你用中文读产品，同时告诉内核你的问题是用法文写的。两个设置都记在你的浏览器里，彼此独立。"
+    },
+    {
+     "kind": "h2",
+     "anchor": "not-translated",
+     "en": "What the interface language never touches",
+     "zh": "界面语言永远不碰的东西"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Lacan's original text and any quoted passage",
+      "Source titles and witness names",
+      "Bibliographic metadata",
+      "Your own notes",
+      "Machine tokens such as passage ids, review statuses and state codes"
+     ],
+     "zh": [
+      "拉康原文与被引用的段落文本",
+      "来源标题与见证本名称",
+      "书目元数据",
+      "你自己的笔记",
+      "机器 token，例如 passage id、复核状态与状态码"
+     ]
+    },
+    {
+     "kind": "callout",
+     "tone": "info",
+     "en": "Switching the interface language does not reload the page and does not touch any scholarly content: compare a passage id and its text before and after and they are identical.",
+     "zh": "切换界面语言不会刷新页面，也不会改动任何学术内容：切换前后对比同一个 passage 的 id 与文本，逐字节相同。"
+    },
+    {
+     "kind": "link",
+     "href": "/help/troubleshooting",
+     "en": "Language did not switch?",
+     "zh": "语言没切换？"
+    }
+   ]
+  },
+  {
+   "slug": "statuses",
+   "section": "reference",
+   "module": "research",
+   "title": {
+    "en": "Status reference",
+    "zh": "状态速查"
+   },
+   "summary": {
+    "en": "Every status you will meet: what it means, why it appears, what to do, and whether it is an error.",
+    "zh": "你会遇到的每个状态：什么意思、为什么出现、你该做什么、算不算错误。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "system",
+     "en": "System and layer statuses",
+     "zh": "系统与分层状态"
+    },
+    {
+     "kind": "h3",
+     "anchor": "ready",
+     "en": "READY",
+     "zh": "READY"
+    },
+    {
+     "kind": "p",
+     "en": "That layer is working normally.",
+     "zh": "该层工作正常。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: the layer answered its health check.",
+      "What to do: nothing.",
+      "Error? No."
+     ],
+     "zh": [
+      "为什么：该层通过了健康检查。",
+      "你该做什么：什么都不用做。",
+      "算错误吗：不算。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "degraded",
+     "en": "DEGRADED",
+     "zh": "DEGRADED"
+    },
+    {
+     "kind": "p",
+     "en": "The layer runs with reduced ability — typically the provider layer with no credentials configured.",
+     "zh": "该层以受限能力运行 —— 通常是 provider 层没有配置凭据。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: an optional capability is missing, not a failure.",
+      "What to do: keep working offline; configure credentials only if you want real-LLM synthesis.",
+      "Error? No — it is a configuration state."
+     ],
+     "zh": [
+      "为什么：缺的是一个可选能力，不是故障。",
+      "你该做什么：继续离线工作；只有想用真实大模型合成时才需要配置凭据。",
+      "算错误吗：不算 —— 这是配置状态。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "provider-unavailable",
+     "en": "PROVIDER_UNAVAILABLE",
+     "zh": "PROVIDER_UNAVAILABLE"
+    },
+    {
+     "kind": "p",
+     "en": "You asked for {{ui:provider.llm}} but no usable provider/credential was available, so the synthesis step could not run.",
+     "zh": "你选了 {{ui:provider.llm}}，但没有可用的 provider/凭据，合成步骤跑不起来。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: credentials missing or the endpoint refused/failed. The system never substitutes model knowledge to cover this.",
+      "What to do: switch to {{ui:provider.mock}}, or open Model provider settings and press {{ui:provider.test}} to check the endpoint.",
+      "Error? It is a real error, but a local one — offline research is unaffected."
+     ],
+     "zh": [
+      "为什么：凭据缺失，或端点拒绝/失败。系统**不会**拿模型知识来填这个洞。",
+      "你该做什么：切回 {{ui:provider.mock}}，或打开 Model provider settings，按 {{ui:provider.test}} 检查端点。",
+      "算错误吗：是真错误，但只影响这一条路径 —— 离线研究不受影响。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "answer",
+     "en": "Answer states",
+     "zh": "答案状态"
+    },
+    {
+     "kind": "h3",
+     "anchor": "abstained",
+     "en": "ABSTAINED",
+     "zh": "ABSTAINED"
+    },
+    {
+     "kind": "p",
+     "en": "The corpus cannot support a reliable answer, so the core declined to answer. The abstention block says what is missing.",
+     "zh": "语料撑不起一个可靠答案，于是内核拒绝作答。abstention 块会说明缺什么。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: the evidence sufficiency stage judged the contract insufficient.",
+      "What to do: narrow the question, or go to Explore and read the material yourself.",
+      "Error? No — abstention is a correct output."
+     ],
+     "zh": [
+      "为什么：证据充分性阶段判定契约不足。",
+      "你该做什么：把问题收窄，或直接去 Explore 自己读材料。",
+      "算错误吗：不算 —— 弃权是正确输出。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "insufficient",
+     "en": "INSUFFICIENT_EVIDENCE",
+     "zh": "INSUFFICIENT_EVIDENCE"
+    },
+    {
+     "kind": "p",
+     "en": "There is some material, but not enough to support the answer.",
+     "zh": "有材料，但不足以支撑这个答案。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: retrieval returned too little usable evidence for the claim shape you asked for.",
+      "What to do: ask a narrower question, or check the term in Explore to see real attestations.",
+      "Error? No."
+     ],
+     "zh": [
+      "为什么：检索到的可用证据相对于你要的 claim 形态太少。",
+      "你该做什么：问得更窄一些，或在 Explore 里查这个词的真实出现情况。",
+      "算错误吗：不算。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "validation-failed",
+     "en": "VALIDATION_FAILED",
+     "zh": "VALIDATION_FAILED"
+    },
+    {
+     "kind": "p",
+     "en": "Something was produced but it did not survive citation/entailment validation, so it is not presented as a supported answer.",
+     "zh": "有产出，但没通过引用/蕴含校验，因此不作为被支持的答案呈现。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: generated claims failed the validators and were rejected.",
+      "What to do: read the Advanced / Audit panel to see generated/validated/rejected counts, then rephrase the question.",
+      "Error? No — the validation worked; the answer just was not supportable."
+     ],
+     "zh": [
+      "为什么：生成的 claim 没通过校验器，被剔除了。",
+      "你该做什么：读 Advanced / Audit 面板看 generated/validated/rejected 计数，然后换个问法。",
+      "算错误吗：不算 —— 校验正常工作了，只是这个答案立不住。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "bibliography",
+     "en": "Source and citation statuses",
+     "zh": "来源与引用状态"
+    },
+    {
+     "kind": "h3",
+     "anchor": "source-trace",
+     "en": "SOURCE_TRACE_INCOMPLETE",
+     "zh": "SOURCE_TRACE_INCOMPLETE"
+    },
+    {
+     "kind": "p",
+     "en": "The text is available for corpus research, but its upstream publication/edition trace is incomplete.",
+     "zh": "该文本可用于语料研究，但它的上游出版/版本溯源不完整。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: the witness is known and usable, but the publication chain is not fully documented.",
+      "What to do: use the text and cite it internally; do not expect a formal bibliographic style for it.",
+      "Error? No — it is a scholarly limitation of the source, not a system bug."
+     ],
+     "zh": [
+      "为什么：见证本是已知且可用的，但出版链没有被完整记录。",
+      "你该做什么：照常使用并对它做内部引用；不要期待它给出正式书目样式。",
+      "算错误吗：不算 —— 这是来源自身的学术限制，不是系统 bug。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "not-citable",
+     "en": "NEEDS REVIEW · NOT CITABLE",
+     "zh": "NEEDS REVIEW · NOT CITABLE"
+    },
+    {
+     "kind": "p",
+     "en": "This record is a candidate: no citation of any style can be produced from it.",
+     "zh": "该记录是 candidate：无论哪种样式都不能从它生成引用。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: it was imported or added, and has not been promoted to reviewed metadata.",
+      "What to do: use it as a working reference and keep it in a project; produce citations from reviewed records.",
+      "Error? No."
+     ],
+     "zh": [
+      "为什么：它是导入或新增的，还没有被提升为已复核元数据。",
+      "你该做什么：把它当工作引用用、挂进项目；要出引用就用已复核的记录。",
+      "算错误吗：不算。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "metadata-incomplete",
+     "en": "BIBLIOGRAPHIC_METADATA_INCOMPLETE",
+     "zh": "BIBLIOGRAPHIC_METADATA_INCOMPLETE"
+    },
+    {
+     "kind": "p",
+     "en": "The record exists and may be reviewed, but it lacks the fields a formal citation style requires.",
+     "zh": "记录存在、甚至已复核，但缺少正式引用样式所必需的字段。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: publisher, year, ISBN or page data were never verified for it.",
+      "What to do: read citation availability per style; the reason is listed. Internal citation still works.",
+      "Error? No."
+     ],
+     "zh": [
+      "为什么：它的出版社、年份、ISBN 或页码从未被核验过。",
+      "你该做什么：看逐样式的引用可用性，原因会列出来。内部引用照常可用。",
+      "算错误吗：不算。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "conflict",
+     "en": "METADATA_CONFLICT / {{ui:bibliography.conflict}}",
+     "zh": "METADATA_CONFLICT / {{ui:bibliography.conflict}}"
+    },
+    {
+     "kind": "p",
+     "en": "Two records disagree about the same work (for example different years). Nothing is overwritten.",
+     "zh": "两条记录对同一部作品的描述不一致（例如年份不同）。没有任何一边被覆盖。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: import or manual entry produced conflicting metadata.",
+      "What to do: look at both sides and decide. There is no automatic resolution in this version.",
+      "Error? No — it is a deliberate stop for human judgement."
+     ],
+     "zh": [
+      "为什么：导入或手工录入产生了互相冲突的元数据。",
+      "你该做什么：两边都看，由你判断。当前版本没有自动裁决。",
+      "算错误吗：不算 —— 这是刻意停下来交给人判断。"
+     ]
+    },
+    {
+     "kind": "h3",
+     "anchor": "unresolved",
+     "en": "UNRESOLVED",
+     "zh": "UNRESOLVED"
+    },
+    {
+     "kind": "p",
+     "en": "A question or entry is explicitly left open rather than guessed at.",
+     "zh": "某个问题或条目被**明确地**留作未决，而不是被猜一个答案。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Why: the system refuses to fill a gap it cannot support.",
+      "What to do: keep it in a project as an open question, or find the source that would close it.",
+      "Error? No."
+     ],
+     "zh": [
+      "为什么：系统拒绝去填一个它撑不住的洞。",
+      "你该做什么：把它当开放问题留在项目里，或去找能真正关掉它的来源。",
+      "算错误吗：不算。"
+     ]
+    },
+    {
+     "kind": "link",
+     "href": "/help/troubleshooting",
+     "en": "Troubleshooting",
+     "zh": "故障排查"
+    }
+   ]
+  },
+  {
+   "slug": "troubleshooting",
+   "section": "trouble",
+   "module": "research",
+   "title": {
+    "en": "Troubleshooting",
+    "zh": "故障排查"
+   },
+   "summary": {
+    "en": "The six things that actually go wrong, and what each one means.",
+    "zh": "真正会出问题的六件事，以及它们各自的含义。"
+   },
+   "blocks": [
+    {
+     "kind": "h2",
+     "anchor": "research-dead",
+     "en": "Research does not work, but Explore does",
+     "zh": "Research 用不了，但 Explore 能用"
+    },
+    {
+     "kind": "p",
+     "en": "That combination is the provider layer, not the system. Explore reads the corpus directly; Research additionally needs a synthesis step.",
+     "zh": "这个组合说明问题在 provider 层，不在系统本身。Explore 直接读语料；Research 额外需要一步合成。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "If Provider shows DEGRADED and you selected {{ui:provider.llm}}: switch to {{ui:provider.mock}}, or configure credentials and press {{ui:provider.test}}.",
+      "If you see PROVIDER_UNAVAILABLE: the endpoint refused or no credential was found. Offline research is still fully available.",
+      "If research is disabled for a core-integrity reason, the page says so explicitly — do not try to work around it; run the Check launcher instead."
+     ],
+     "zh": [
+      "如果 Provider 显示 DEGRADED 而你选了 {{ui:provider.llm}}：切回 {{ui:provider.mock}}，或配置凭据后按 {{ui:provider.test}}。",
+      "如果看到 PROVIDER_UNAVAILABLE：端点拒绝或没找到凭据。离线研究仍然完全可用。",
+      "如果是核心完整性原因导致研究被禁用，页面会明说 —— 不要绕过它，改用 Check 启动器。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "concept-missing",
+     "en": "A concept cannot be found",
+     "zh": "找不到某个概念"
+    },
+    {
+     "kind": "p",
+     "en": "Explore and Research only see what the local corpus contains. A missing concept is usually a corpus limitation, not a search bug.",
+     "zh": "Explore 与 Research 只看得到本地语料里有的东西。找不到某个概念，通常是**语料限制**，不是搜索 bug。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Try the term in its French form, and try known variants or aliases.",
+      "Check the attestation count: a term with zero attestation genuinely does not appear in the indexed text.",
+      "Terminology matching is deterministic alias matching — it will not guess a related concept for you.",
+      "If you believe the term should be there, that is a corpus question: record it rather than forcing a match."
+     ],
+     "zh": [
+      "试试它的法文写法，以及已知的变体或别名。",
+      "看语料证据计数：计数为 0 的词，确实没有出现在已索引文本里。",
+      "术语匹配是确定性别名匹配 —— 它不会替你猜一个相关概念。",
+      "如果你认为这个词本该在语料里，那是一个**语料问题**：记下来，而不是硬凑一个匹配。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "citation-unavailable",
+     "en": "Citation unavailable",
+     "zh": "引用不可用"
+    },
+    {
+     "kind": "p",
+     "en": "Formal styles (Chicago / APA / MLA / BibTeX) are offered only when verified publication metadata exists. When it does not, the interface lists the reason instead of producing a plausible-looking citation.",
+     "zh": "正式样式（Chicago / APA / MLA / BibTeX）只在存在**已核验出版元数据**时提供。没有的时候，界面会列出原因，而不是生成一条看起来像样的引用。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Read the per-style availability row: it names the missing requirement.",
+      "A reviewed record can still be metadata-incomplete — reviewed ≠ complete.",
+      "Internal citation (passage id, witness, provenance) is available independently of the formal styles.",
+      "Never hand-build a citation from a record marked NOT CITABLE."
+     ],
+     "zh": [
+      "看逐样式可用性那一行：它写明了缺什么。",
+      "一条已复核的记录仍然可能元数据不完整 —— reviewed ≠ 完整。",
+      "内部引用（passage id、见证本、溯源）与正式样式无关，照常可用。",
+      "**不要**用标着 NOT CITABLE 的记录手工拼一条引用出来。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "cn-source-trace",
+     "en": "Chinese material shows SOURCE_TRACE_INCOMPLETE",
+     "zh": "中文材料显示 SOURCE_TRACE_INCOMPLETE"
+    },
+    {
+     "kind": "p",
+     "en": "That is expected for a translation witness whose upstream publication chain is not fully documented. It is a scholarly limitation of the source — not a UI bug, and not a sign that the text is unusable.",
+     "zh": "对一个上游出版链没有被完整记录的翻译见证本来说，这是**预期行为**。它属于来源的学术限制 —— 不是界面 bug，也不代表文本不可用。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "The passage is still retrievable, quotable internally, and usable as evidence.",
+      "What you lose is the formal bibliographic citation for that witness.",
+      "The marker stays visible on purpose; hiding it would misrepresent the source."
+     ],
+     "zh": [
+      "该段落仍然可检索、可内部引用、可作为证据使用。",
+      "你失去的只是那个见证本的正式书目引用。",
+      "这个标记是**故意**保持可见的；把它藏起来等于误述来源。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "zotero-conflict",
+     "en": "Zotero import shows a conflict",
+     "zh": "Zotero 导入出现冲突"
+    },
+    {
+     "kind": "p",
+     "en": "A conflict means the imported record and an existing one disagree on the same work. The system reports it and stops there — it does not pick a winner, and it does not overwrite either side.",
+     "zh": "冲突意味着导入的记录与已有记录对同一部作品说法不一致。系统报告它，然后停在那里 —— 它不挑赢家，也不覆盖任何一边。"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Both records remain visible; read them side by side.",
+      "There is no conflict-resolution editor in this version, and no automatic merge.",
+      "Imported items stay candidates: NEEDS REVIEW · NOT CITABLE until a human promotes them.",
+      "If you need a decision recorded, do it deliberately rather than expecting the import to settle it."
+     ],
+     "zh": [
+      "两条记录都还在，并排读。",
+      "当前版本没有冲突解决编辑器，也没有自动合并。",
+      "导入的东西保持 candidate：NEEDS REVIEW · NOT CITABLE，直到有人把它提升。",
+      "如果你需要留下一个决定，请显式地做，别指望导入替你裁决。"
+     ]
+    },
+    {
+     "kind": "h2",
+     "anchor": "language",
+     "en": "The interface language did not switch",
+     "zh": "界面语言没有切换"
+    },
+    {
+     "kind": "ul",
+     "en": [
+      "Check {{ui:topbar.language}} in the top bar: it has exactly two values, English and 中文, and it switches immediately without reloading the page.",
+      "Interface language and {{ui:topbar.researchLanguage}} are different controls; changing one never changes the other.",
+      "The chosen interface language is remembered in this browser, so a deep link can override it for one page (a ?uiLocale= parameter in the address).",
+      "If the interface is still in the old language after a switch, that is a defect worth recording — not something to work around."
+     ],
+     "zh": [
+      "看顶栏的 {{ui:topbar.language}}：它只有 English 与 中文 两个值，切换**立即**生效，不刷新页面。",
+      "界面语言与 {{ui:topbar.researchLanguage}} 是两个不同控件；改一个永远不会改另一个。",
+      "选择的界面语言记在这个浏览器里，所以深链可以覆盖它一页（地址里的 ?uiLocale= 参数）。",
+      "如果切换后界面还是旧语言，那是一个应当被登记的缺陷 —— 不是需要你绕开的东西。"
+     ]
+    },
+    {
+     "kind": "link",
+     "href": "/help/statuses",
+     "en": "Status reference",
+     "zh": "状态速查"
+    },
+    {
+     "kind": "link",
+     "href": "/help/languages",
+     "en": "Interface vs research language",
+     "zh": "界面语言 vs 研究语言"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,66 @@
+{
+ "schema_version": "lacan-corpus-reference/v1",
+ "engine_repo": "https://github.com/YanKaFei/Lacan-Knowledge-OS",
+ "note": "The engine ships no source text. Research needs a corpus. This file tells agents and users exactly where the reference corpus lives, how to install it, and what to do if it is unavailable.",
+ "reference_corpus": {
+  "repo": "https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus",
+  "visibility": "public",
+  "why_private": "Contains third-party copyrighted texts: French working transcriptions (Staferla), a text extraction from the Seuil print edition (S1-S5), and a community Chinese translation project. Publicly readable for research access; NOT licensed for commercial use or redistribution — see RIGHTS.md.",
+  "release_tag": "corpus-v1",
+  "asset_name": "corpus-pack-v1.tar.gz",
+  "manifest_path": "corpus-pack-v1.manifest.json",
+  "size_bytes": 226206000,
+  "files": 2078,
+  "sha256_manifest_field": "pack.sha256",
+  "requires_token": false,
+  "scopes_needed": [
+   "none — the repository is public; the pack downloads without a token"
+  ],
+  "download": {
+   "asset_url": "https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/download/corpus-v1/corpus-pack-v1.tar.gz",
+   "manifest_raw_url": "https://raw.githubusercontent.com/YanKaFei/Lacan-Knowledge-OS-corpus/main/corpus-pack-v1.manifest.json",
+   "note": "Plain download works (public repository). Verify with tools/fetch-corpus.py."
+  },
+  "install": [
+   "python3 tools/ensure_corpus.py --status",
+   "python3 tools/ensure_corpus.py --install --pack corpus-pack-v1.tar.gz --manifest corpus-pack-v1.manifest.json",
+   "python3 _scripts/_tools/core_freeze.py --verify",
+   "python3 -m workspace_ui.server.cli --port 3090"
+  ],
+  "public_note": "Public repository: the pack downloads without a token. Use the plain release URL; the API asset endpoint is only needed for private forks.",
+  "usage_limit": "Research and study only. No commercial use, no redistribution, no re-serving, no training a publicly distributed model. The determination is the user's."
+ },
+ "public_demo_corpus": {
+  "status": "stage-1-public-domain",
+  "sources": "demo-corpus/sources/*.txt — Falret 1890, Binet 1892, Janet 1909 (public domain, redistributable)",
+  "build": [
+   "python3 tools/build_demo_corpus.py .",
+   "python3 _scripts/_tools/build_lexical_index.py"
+  ],
+  "known_limit": "No ontology layer yet, so questions abstain with reason ONTOLOGY_GAP. Stage 2 is described in docs/DEMO_CORPUS.md.",
+  "docs": "docs/DEMO_CORPUS.md"
+ },
+ "bring_your_own": {
+  "docs": "CORPUS.md",
+  "pipeline": [
+   "python3 _scripts/inventory_corpus.py --help",
+   "python3 _scripts/build.py --help"
+  ],
+  "rule": "The vault is the source of truth; indexes are regenerable. A different corpus requires rebuilding its own freeze (core_freeze.py --build) — never edit a frozen hash by hand."
+ },
+ "agent_contract": {
+  "check_first": "python3 tools/ensure_corpus.py --status",
+  "exit_codes": {
+   "0": "corpus ready (research can run)",
+   "3": "corpus missing or incomplete — ask the user",
+   "4": "pack present but failed verification"
+  },
+  "if_missing": "Tell the user, in their language, that research needs a corpus and offer the two paths: (a) install the private reference pack if they have access to the corpus repository, or (b) build a corpus from text they are entitled to use. Do not invent passages, do not fabricate citations, and do not silently substitute model knowledge.",
+  "never": [
+   "never fabricate a passage id, citation, or bibliographic field",
+   "never mirror, re-package or re-serve the corpus, or present it as licensed for reuse",
+   "never commit corpus text into this repository",
+   "never edit a frozen core hash to make a check pass"
+  ]
+ }
+}

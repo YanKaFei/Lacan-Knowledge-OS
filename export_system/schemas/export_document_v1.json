@@ -1,0 +1,243 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "export_document_v1",
+  "title": "ExportDocument v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "export_type",
+    "source_type",
+    "source_id",
+    "created_at",
+    "title",
+    "sections",
+    "claims",
+    "citations",
+    "limitations",
+    "provenance",
+    "exporter_version",
+    "evidence_role"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "export_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "export_type": {
+      "type": "string"
+    },
+    "source_type": {
+      "type": "string",
+      "enum": [
+        "research_run",
+        "research_note",
+        "research_project",
+        "saved_passage",
+        "final_scholarly_answer"
+      ]
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "question": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "answer_state": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "VALIDATED",
+        "VALIDATED_WITH_QUALIFICATIONS",
+        "PARTIALLY_SUPPORTED",
+        "VALIDATION_FAILED",
+        "INSUFFICIENT_EVIDENCE",
+        "ABSTAINED",
+        null
+      ]
+    },
+    "answer_state_label": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "abstention": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "bibliographic_metadata": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "source_answer_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_snapshot_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "snapshot_integrity": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "VERIFIED",
+        "MODIFIED",
+        "BROKEN_REFERENCE",
+        "MISSING_SNAPSHOT",
+        null
+      ]
+    },
+    "core_freeze_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "product_interface_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exporter_version": {
+      "type": "string"
+    },
+    "export_options": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "user_blocks": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "evidence_role": {
+      "type": "string",
+      "enum": [
+        "SCHOLARLY_CORE_OUTPUT",
+        "WORKSPACE_DOCUMENT",
+        "USER_EDITED_DOCUMENT"
+      ]
+    },
+    "export_payload_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "content_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task_type_advanced": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "source_kind": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": [
+          "object",
+          "string"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "claim_bindings": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "passage": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    },
+    "project": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": true
+    }
+  }
+}

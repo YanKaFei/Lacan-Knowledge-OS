@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img"
+     aria-label="Lacan Knowledge OS architecture: agent entry via MCP, product layer, frozen scholarly core, and a corpus you supply.">
+  <defs>
+    <style>
+      .bg{fill:#f7f6f3} .ink{fill:#1c1b19} .ink2{fill:#43403b} .ink3{fill:#6f6a62}
+      .line{stroke:#ded9d1;stroke-width:1} .strong{stroke:#c9c3b8;stroke-width:1.2}
+      .panel{fill:#ffffff;stroke:#ded9d1;stroke-width:1;rx:8}
+      .accent{stroke:#6b4c2f;stroke-width:1.6;fill:#f0e7dc}
+      .frozen{fill:#ffffff;stroke:#43403b;stroke-width:1.6}
+      .t{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",sans-serif}
+      .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+      .h{font-size:15px;font-weight:600} .s{font-size:12.5px} .xs{font-size:11px}
+    </style>
+  </defs>
+  <rect class="bg" width="960" height="520"/>
+
+  <!-- agent plane -->
+  <rect class="panel" x="24" y="30" width="232" height="112"/>
+  <text class="t h ink" x="42" y="58">Agents &amp; editors</text>
+  <text class="t s ink3" x="42" y="80">DSH · Claude Desktop · Cursor</text>
+  <text class="t mono xs ink2" x="42" y="104">MCP · stdio · 2025-11-25</text>
+  <text class="t mono xs ink2" x="42" y="122">10 tools · mcp__lacan-kb__*</text>
+  <path class="strong" d="M256 86 H 330" fill="none" marker-end="url(#a)"/>
+
+  <!-- entry -->
+  <rect class="panel" x="330" y="30" width="212" height="112"/>
+  <text class="t h ink" x="348" y="58">Entry surfaces</text>
+  <text class="t s ink3" x="348" y="80">mcp_server/</text>
+  <text class="t s ink3" x="348" y="100">workspace_ui/ (web)</text>
+  <text class="t s ink3" x="348" y="120">browse_api/ · project_api/</text>
+  <path class="strong" d="M436 142 V 190" fill="none" marker-end="url(#a)"/>
+
+  <!-- product layer -->
+  <rect class="panel" x="24" y="190" width="912" height="104"/>
+  <text class="t h ink" x="44" y="218">Product layer — may evolve freely</text>
+  <text class="t s ink3" x="44" y="242">research UI · Evidence Inspector · Explore · Projects · Bibliography · Export · Obsidian bridge</text>
+  <text class="t mono xs ink2" x="44" y="266">workspace_ui/ · browse_api/ · project_api/ · export_system/ · bibliography/ · obsidian_adapter/</text>
+  <text class="t xs ink3" x="700" y="266">no bundler · ES modules · stdlib Python</text>
+
+  <!-- boundary -->
+  <path class="accent" d="M24 306 H 936" stroke-dasharray="6 5" fill="none"/>
+  <text class="t mono xs" x="44" y="325" fill="#6b4c2f">scholarly_api v1 — product boundary (3 hash-pinned components)</text>
+
+  <!-- frozen core -->
+  <rect class="frozen" x="24" y="338" width="912" height="86"/>
+  <text class="t h ink" x="44" y="366">Frozen scholarly core — 39 hash-pinned components, cannot drift</text>
+  <text class="t s ink2" x="44" y="390">retrieval semantics · evidence contract · sufficiency · synthesis boundary · citation integrity · entailment · abstention policy</text>
+  <text class="t mono xs ink3" x="44" y="410">core_freeze.py --verify → SCHOLARLY_CORE_READY · freeze_lineage.py --verify → semantic=0</text>
+
+  <path class="strong" d="M480 424 V 452" fill="none" marker-end="url(#a)"/>
+
+  <!-- corpus -->
+  <rect class="panel" x="24" y="452" width="912" height="52" stroke-dasharray="5 4"/>
+  <text class="t h ink" x="44" y="476">Corpus — you supply it</text>
+  <text class="t s ink3" x="200" y="476">passage store · witnesses · ontology · indexes … NOT distributed in this repository (CORPUS.md)</text>
+  <text class="t mono xs" x="44" y="494" fill="#8a6d1f">3rd-party copyrighted text stays private · public-domain demo corpus in demo-corpus/ · corpus pack via tools/pack-corpus.py</text>
+
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c9c3b8"/>
+    </marker>
+  </defs>
+</svg>

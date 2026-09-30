@@ -1,0 +1,33 @@
+{
+  "$id": "api-error/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "产品层错误信封（含明确 resolution，绝不回退到模型自身知识）",
+  "properties": {
+    "detail": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "error_code": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "ok": {
+      "const": false
+    },
+    "resolution": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "ok",
+    "error_code",
+    "message"
+  ],
+  "title": "ApiError",
+  "type": "object"
+}

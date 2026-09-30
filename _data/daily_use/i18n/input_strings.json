@@ -1,0 +1,3811 @@
+[
+ {
+  "string": "  unavailable — ${s.reason || 'BIBLIOGRAPHIC_METADATA_INCOMPLETE'}",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "  user-supplied · not from the registry",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": " ${x.subject} → ${x.object}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": " Lexical retrieval active.",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": " from ${q.run_id}",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": " — ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${(d.items || []).length} manifests",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${(p.passage_id || '').split('.')[1]} · ${(p.passage_id || '').split('.').pop()}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${a.label} · ${a.mode}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${a.mode}. ${a.warning}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${c.notes} notes · ${c.hypotheses} hypotheses · ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${c.open_questions} open questions",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${c.research_runs} research runs",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${c.saved_concepts} concepts · ${c.saved_seminars} seminars · ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${c.saved_passages} saved passages",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${d.entities.length} matching entities",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${data.total} concepts",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${data.total} forms",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${data.total} projects",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${data.total} seminars",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${e.from} → ${e.to}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${f.label} export ready",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "${it.relations_n} relations",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${it.research_id} · ${it.answer_state || ''} · ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${it.reviewed_relations_n} reviewed",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${it.seminars_n} seminars",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${it.seminar} · ${it.session} · lesson ${it.lesson === null ? '—' : it.lesson}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${it.state_label || ''} · ${it.citations_n || 0} citations · ${(it.saved_at || '').slice(0, 16)}",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "${label} (${rows.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${p.counts.open_questions} open Q",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${p.counts.research_runs} runs",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${p.counts.saved_passages} passages",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${p.returned || 0} shown${p.total !== undefined ? ' / ' + p.total + ' total' : ''}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${p.title} (rev ${p.revision})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${r.citation_ids.length} citations · ${r.claim_count} claims · ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "${r.claim_id || ''} ",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "${r.original_claim_id} → ${r.repaired_claim_id}（attempts=${r.attempts}）",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "${s.lesson === null ? '—' : 'L' + String(s.lesson).padStart(2, '0')} · ${s.session_id}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${s.passage_count || 0} passages",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${s.period || '—'} · ${s.period_label || ''} ${s.definition ? '— ' + String(s.definition).slice(0, 160) : ''}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${title} (${rows.length})",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${x.ontology_evidence_in_seminar_n} ontology-recorded",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "${x.passages} passages",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "A BibliographyRef is a user reference-management object, NOT a CorpusSource. ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "A project is a USER_WORKSPACE object: it organizes references, questions and runs. ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "ACTIVE",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "ARCHIVED",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Abstention",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Abstention block missing in payload",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Activity",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add history snapshot to Project",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Add hypothesis",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add note",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add open question",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add question",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add second run to compare",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Add this item to a project from the Projects view (reviewed items only).",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Add this stored snapshot to a project (no LLM call)",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Add to Project",
+  "surfaces": [
+   "Explore",
+   "Projects",
+   "Research"
+  ],
+  "files": [
+   "app.js",
+   "explorer.js",
+   "project.js",
+   "render.js"
+  ]
+ },
+ {
+  "string": "Add your own reference",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Advanced / Audit",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "An open question is a research question with a recorded origin. It asserts no ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Archive project",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Ask about this Seminar",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Attestation",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Audit Bundle",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Audit Bundle ready",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Audit — validator diagnostics",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Author",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Better BibTeX JSON",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Bibliography",
+  "surfaces": [
+   "Bibliography",
+   "Home"
+  ],
+  "files": [
+   "bibliography.js",
+   "home.js"
+  ]
+ },
+ {
+  "string": "Bibliography → Inspect Metadata → ",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Broken reference",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Broken reference (${d.broken_references.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Browse Passages",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Browse all passages",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Browse corpus",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "CSL JSON",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Candidate edges (${g.candidate_edges_n}) — explainable, not drawn",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Canonical Reference",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Cases / persons",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Citation Availability",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Citation · ${passageId}",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Concept graph (1-hop)",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Concept records come from two layers (canonical ontology + term catalog). ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Concepts",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Confirm link",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Conflict",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Context",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Context (±${ctx.before || 0}/${ctx.after || 0})",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Context · ${passageId}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Continuous reading in corpus order. Save Passage / Copy Citation / Open Context ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Copy",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Copy ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Copy Citation",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Copy citation",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Copy full provenance",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Copy passage id",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Copy short",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Corpus attestation",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Corpus occurrence",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Corpus-grounded Scholarly Research Workspace",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Could not reach the workspace API.",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Create Project",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Create one above. Nothing is forced into a project: research can ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Create open question from missing information",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Defer",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Dense semantic retrieval unavailable.",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Detected by deterministic pattern match over real ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Diachronic view",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Distinctions recorded in the ontology",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Duplicate",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Editions",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Empty response",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Entities",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Entities — ",
+  "surfaces": [
+   "Persons/Cases"
+  ],
+  "files": [
+   "entities.js"
+  ]
+ },
+ {
+  "string": "Every run is an immutable snapshot of the FinalScholarlyAnswer exactly as the ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Evidence",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Evidence (${view.citations.length})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Evidence references",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Explore",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Explore → Research → Inspect Evidence → ",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Explorer request failed",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Export preview (${res.format}) · ${res.document.answer_state}",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Export project manifest JSON",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Export:",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Exports",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Exports (${data.total})",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "First page",
+  "surfaces": [
+   "Persons/Cases"
+  ],
+  "files": [
+   "entities.js"
+  ]
+ },
+ {
+  "string": "Formal bibliographic citations (Chicago/APA/MLA/BibTeX) are offered ",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Formalism index",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Format",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Free text. Notes never enter the scholarly evidence pipeline.",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "How to work here",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Hypotheses are USER_WORKSPACE objects. They are never mixed into ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Identifier",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Import (Zotero / CSL JSON)",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Import as candidate",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Include validator diagnostics (rejected claims / validation trace) as audit/ files",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Interpretation",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Lacan Knowledge OS",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Language / translation",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Layers",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Limitations (${r.limitations.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Limitations (${view.limitations.length})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Link reference ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Link to Bibliographic Item",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Loading context…",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Loading evidence…",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Loading…",
+  "surfaces": [
+   "Explore",
+   "Projects"
+  ],
+  "files": [
+   "explorer.js",
+   "project.js"
+  ]
+ },
+ {
+  "string": "Malformed response",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "api.js"
+  ]
+ },
+ {
+  "string": "Mapping",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Mention sample",
+  "surfaces": [
+   "Persons/Cases"
+  ],
+  "files": [
+   "entities.js"
+  ]
+ },
+ {
+  "string": "Metadata Completeness",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Misreadings (canonical)",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Missing layers (shown as-is, never filled in): ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "NEEDS REVIEW · NOT CITABLE",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "New project",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Next",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Next page",
+  "surfaces": [
+   "Bibliography",
+   "Explore",
+   "Persons/Cases"
+  ],
+  "files": [
+   "bibliography.js",
+   "entities.js",
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Next: ${view.resolution}",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "No citation style is offered for this record. It has not been promoted to ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "No context window.",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "No projects yet",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "No projects yet.",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "No provenance fields available.",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "No questions yet.",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "No registry item linked yet. Use “Link to Bibliographic Item” below.",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "No research yet.",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "No reviewed entities.",
+  "surfaces": [
+   "Persons/Cases"
+  ],
+  "files": [
+   "entities.js"
+  ]
+ },
+ {
+  "string": "No saved research yet.",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "None.",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Not linked (0 passages from this witness)",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Not offered (no linked PassageRealization): ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Not offered as link targets, because they are candidates awaiting review: ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Notes (${(p.notes || []).length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "OPEN / RESEARCHED / DEFERRED are project-management states, not scholarly ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Obsidian",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Only stable ids are stored. The passage/concept text is always re-read from the ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Open Context",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Open Obsidian",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Open Questions (${(p.open_questions || []).length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Open in Obsidian",
+  "surfaces": [
+   "Explore",
+   "Research"
+  ],
+  "files": [
+   "explorer.js",
+   "render.js"
+  ]
+ },
+ {
+  "string": "Open session",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Original passage",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Other witnesses in the corpus (${w.unlinked_witnesses.length}) — not linked to this passage",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Overview",
+  "surfaces": [
+   "Bibliography",
+   "Projects"
+  ],
+  "files": [
+   "bibliography.js",
+   "project.js"
+  ]
+ },
+ {
+  "string": "Passage Realizations: ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Passages",
+  "surfaces": [
+   "Bibliography",
+   "Explore"
+  ],
+  "files": [
+   "bibliography.js",
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Passages (first ${d.passages.length})",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Period states",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Please enter a question (at least 4 characters).",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Preview",
+  "surfaces": [
+   "Bibliography",
+   "Export"
+  ],
+  "files": [
+   "bibliography.js",
+   "export.js"
+  ]
+ },
+ {
+  "string": "Preview renders the ExportDocument itself — no extra summary is generated.",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Previous",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Project Bibliography",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Project description (optional)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Project request failed",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Project tags, comma separated",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Project title",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Projects",
+  "surfaces": [
+   "Bibliography",
+   "Home"
+  ],
+  "files": [
+   "bibliography.js",
+   "home.js"
+  ]
+ },
+ {
+  "string": "Projects organize references; they are never evidence. The canonical object is ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Provenance",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Qualified answer",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Qualified scholarly answer",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Quoted span",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Read from the Workspace / Obsidian manifests written by Phase 4D.3. Saved research ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Read-only adapter for free-text references created ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Read-only browse over the local corpus and registries.",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Reading mode · ${params.id}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Recent",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Referenced by id; the registry stays the source of ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Refresh",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Rejected claims (${audit.rejected.length})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Relations",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Reopen",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Repaired claims (${audit.repaired.length})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Request failed",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "api.js"
+  ]
+ },
+ {
+  "string": "Research",
+  "surfaces": [
+   "Home",
+   "Projects"
+  ],
+  "files": [
+   "home.js",
+   "project.js"
+  ]
+ },
+ {
+  "string": "Research Projects",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Research Questions",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Research diachronically",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Research disabled (fail closed)",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Research from this concept",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Research runs (${d.runs.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Research this passage",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Restore to ACTIVE",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Review Status",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Reviewed does NOT mean bibliographically complete.",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Reviewed references (${reviewed.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Root: ${data.path}（USER_WORKSPACE）",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "Réel / réalité control",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "SOURCE_TRACE_INCOMPLETE — this text is available for corpus research, but ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Save Passage",
+  "surfaces": [
+   "Evidence Inspector",
+   "Explore"
+  ],
+  "files": [
+   "explorer.js",
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Save Passage to Obsidian",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Save to Obsidian",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Saved research",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Saved research (${saved.total})",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Saves the stable id into a USER_WORKSPACE project. No canonical content is copied.",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Search",
+  "surfaces": [
+   "Bibliography",
+   "Explore"
+  ],
+  "files": [
+   "bibliography.js",
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Search concepts by label, alias or id",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Search: ${q} (dense_available=${res.dense_available})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "app.js"
+  ]
+ },
+ {
+  "string": "Section verbatim — ${s.label}${s.internal ? ' (internal)' : ''}",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Select a reviewed bibliographic item…",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Select file",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Seminar ID ≠ published edition; no seminar link recorded for this item.",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Seminar distribution",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Seminars",
+  "surfaces": [
+   "Bibliography",
+   "Explore"
+  ],
+  "files": [
+   "bibliography.js",
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Session ${ctx.session || '—'} · ${ctx.session_total || 0} passages · reading in ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Sessions (${d.sessions.length})",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Sessions read in lesson order; a session without a ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Snapshot verification: ${d.verify.overall}",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Source chain",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Source trace incomplete",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Source: ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Submission is disabled until the core integrity check passes again.",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Supported: CSL JSON, Better BibTeX JSON. Imported items are always candidates — ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Sync Obsidian Project Hub",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "System Status",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "Terminology",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Test with corpus",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "The core abstained but returned no abstention block. Nothing was filled in.",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "These are workspace counts — there is no research-quality score, completeness ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "These buttons only pre-fill a research request. Execution always goes through ",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "These ids are kept and shown as broken. Nothing is deleted silently. ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "This is an RC1.1 snapshot: diagnostics are derived at render time; ",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "This record has not been promoted to reviewed ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "This run abstained. It is stored as ABSTAINED — never as \"answered\".",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "This witness is known to the system, but the canonical passage store has ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Title",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "Trace source",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Translation",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "Unknown Explorer view",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Unlinked legacy references (${legacy.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Usage note (canonical)",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "User hypotheses (${(p.hypotheses || []).length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "User hypothesis — not validated by the Scholarly Core",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "User-supplied references (${userSupplied.length})",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Validated claims (${view.claims.length})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Validator record (scholarly process, not an error). ",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "View raw response (read-only)",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "View stored answer",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "Warnings (${items.length})",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "Witnesses",
+  "surfaces": [
+   "Bibliography",
+   "Explore"
+  ],
+  "files": [
+   "bibliography.js",
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Year",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "all",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "any",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "author (optional)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "bibliographic_id = null, user_supplied = true — stored ",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "break",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "candidates=",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "co-alias forms (same entity)",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "collapsed — investigate",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "contains audit/rejected_claims.json + ",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "description (optional)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "detail failed",
+  "surfaces": [
+   "Bibliography",
+   "Persons/Cases"
+  ],
+  "files": [
+   "bibliography.js",
+   "entities.js"
+  ]
+ },
+ {
+  "string": "detected by",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "edge",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "edition",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "entity",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "evidence",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "expected revision ${res.expected_revision} · actual ${res.actual_revision}",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "form",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "graph",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "kind",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "language",
+  "surfaces": [
+   "Evidence Inspector",
+   "Explore"
+  ],
+  "files": [
+   "explorer.js",
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "languages",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "layer",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "link role",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "link state",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "linked: ",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "load failed",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "load failed: ",
+  "surfaces": [
+   "Persons/Cases"
+  ],
+  "files": [
+   "entities.js"
+  ]
+ },
+ {
+  "string": "loading…",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "mapping",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "mapping record",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "needs_review",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "new hypothesis (user object)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "new open question",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "new research question",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "no canonical title",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "no file selected",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "no lesson number",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "not drawn",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "not generated",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "not validated",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "note",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "note text (Markdown allowed)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "note title (optional)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "offset=",
+  "surfaces": [
+   "Bibliography",
+   "Persons/Cases"
+  ],
+  "files": [
+   "bibliography.js",
+   "entities.js"
+  ]
+ },
+ {
+  "string": "order: ${p.order}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "page of ${d.page.total} passages",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "passage_id",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "passages",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "pattern",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "payload hash ${res.export_payload_hash}",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "person.schreber ≠ case.schreber — distinct entities; the case links to its ",
+  "surfaces": [
+   "Persons/Cases"
+  ],
+  "files": [
+   "entities.js"
+  ]
+ },
+ {
+  "string": "predicate",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "project title (e.g. 拉康欲望理论研究)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "provenance",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "query",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "query (exact substring over the corpus)",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "question language: ${opts.requestLanguage}",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "reason: ${r.reason}",
+  "surfaces": [
+   "Research"
+  ],
+  "files": [
+   "render.js"
+  ]
+ },
+ {
+  "string": "rejected: ",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "remove",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "research",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "rev ${p.revision}",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "review",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "reviewed",
+  "surfaces": [
+   "Bibliography"
+  ],
+  "files": [
+   "bibliography.js"
+  ]
+ },
+ {
+  "string": "saved at",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "search label / alias / id",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "seminar",
+  "surfaces": [
+   "Evidence Inspector",
+   "Explore"
+  ],
+  "files": [
+   "explorer.js",
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "session",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "sessions",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "source",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "state",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "status",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "status unavailable",
+  "surfaces": [
+   "Home"
+  ],
+  "files": [
+   "home.js"
+  ]
+ },
+ {
+  "string": "tags (comma separated)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "term (fr / zh / en)",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "title",
+  "surfaces": [
+   "Explore",
+   "Projects"
+  ],
+  "files": [
+   "explorer.js",
+   "project.js"
+  ]
+ },
+ {
+  "string": "trace incomplete",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "trace status: ${tr.trace_status || '—'}${tr.complete ? '' : ' · incomplete'}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "two distinct entities",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "verify",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "witness",
+  "surfaces": [
+   "Evidence Inspector",
+   "Explore"
+  ],
+  "files": [
+   "explorer.js",
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "written form",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "year",
+  "surfaces": [
+   "Evidence Inspector",
+   "Explore"
+  ],
+  "files": [
+   "explorer.js",
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "year (optional)",
+  "surfaces": [
+   "Projects"
+  ],
+  "files": [
+   "project.js"
+  ]
+ },
+ {
+  "string": "years",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "zip: ${res.zip}",
+  "surfaces": [
+   "Export"
+  ],
+  "files": [
+   "export.js"
+  ]
+ },
+ {
+  "string": "±${b === 0 ? 0 : b}",
+  "surfaces": [
+   "Evidence Inspector"
+  ],
+  "files": [
+   "inspector.js"
+  ]
+ },
+ {
+  "string": "±${n}",
+  "surfaces": [
+   "Explore"
+  ],
+  "files": [
+   "explorer.js"
+  ]
+ },
+ {
+  "string": "Lacan Knowledge OS — Research Workspace",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Skip to research input",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Research Workspace",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Mode",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Scholarly",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Quick",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Auto",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Concept",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Relation",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Comparison",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Diachronic",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Seminar-specific",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Formalism",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Case",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Provider",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Offline / Mock",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Real LLM (explicit)",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Research language",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Auto",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "中文",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Français",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "English",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Home",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "History",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Saved",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "History",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "refresh",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Advanced",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Research passage search",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Status detail",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Ask the frozen scholarly core",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Research corpus",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Stop waiting",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "gaze / objet a（Seminar XI）",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Réel / réalité",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "$ ◊ a 公式",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "jouissance S7→S20（历时限制）",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "fMRI（弃权）",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "1953-11-18 报告（元数据弃权）",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Evidence Inspector",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "Connecting…",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "freeze: —",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ },
+ {
+  "string": "provider: —",
+  "surfaces": [
+   "index.html"
+  ],
+  "files": [
+   "index.html"
+  ]
+ }
+]

@@ -1,0 +1,94 @@
+{
+  "$id": "evidence-packet/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 4/15：证据包（可回溯到 passage/witness）",
+  "properties": {
+    "citation_eligibility": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "context": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "evidence_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "formalism_metadata": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "passage_id": {
+      "type": "string"
+    },
+    "provenance_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "relation_level": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seminar": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_layer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "terminology_metadata": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "witness": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "passage_id"
+  ],
+  "title": "EvidencePacket",
+  "type": "object"
+}

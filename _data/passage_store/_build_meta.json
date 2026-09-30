@@ -1,0 +1,42 @@
+{
+  "content_hash": "1dd3e0704402b09c61cf8cb9b7d84a422f71b5e9cd019c353d7d998b96940990",
+  "counts": {
+    "by_language": {
+      "fr": 166527,
+      "zh": 82578
+    },
+    "corpus_sources": 3,
+    "passage_realizations": 249105,
+    "passage_witness_links": 249105,
+    "passages": 249105,
+    "seminars": 28,
+    "sessions": 559,
+    "translations": 2,
+    "witnesses": 3
+  },
+  "generated_at": "2021-04-09T12:09:38+00:00",
+  "id_scheme": {
+    "deterministic": true,
+    "notes": "ID 不依赖时间/读取顺序/UUID/dict 迭代顺序；日期不可证时保留 unknown",
+    "passage": "passage.S<NN>.<date>[\\.L<NN>].P<nnnn>",
+    "seminar": "seminar.S<NN>",
+    "session": "session.S<NN>.<YYYY-MM-DD|YYYY-unknown|unknown>[.L<NN>]"
+  },
+  "not_canonical": {
+    "note": "恢复来的中译 status=recovered；升级为 canonical 需 source linking + 人工审核",
+    "zh_translation_canonical": false
+  },
+  "schema": "passage-store/v1",
+  "source_files": {
+    "french_staferla.jsonl": {
+      "records": 166527,
+      "sha256": "2712d6da07952b5c390b375a70b065cdddab6fbf9c073142be771df6224b33f5"
+    },
+    "segments.jsonl": {
+      "records": 82578,
+      "sha256": "8a109068af21a96e3a591838d2ffa78d8cb581d1f2efd6749c6fa95bb024a96c"
+    }
+  },
+  "source_root": "<HOME>",
+  "stamp_mode": "deterministic"
+}

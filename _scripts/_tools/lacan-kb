@@ -1,0 +1,372 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+lacan-kb — CLI（Phase 3 §14 + Phase 4A §26）
+
+子命令
+──────
+    lacan-kb search   "<query>" [--mode lexical|alias|graph|hybrid] [--explain]
+    lacan-kb evidence "<query>" [--top-k N] [--explain] [--json]
+    lacan-kb eval     [--baseline lexical] [--json]
+    lacan-kb index    --verify            # 用 manifest + canonical corpus 校验索引
+
+Phase 4A 新增（§26 CLI debug harness）
+──────────────────────────────────────
+    lacan-kb research "<query>" [--json] [--save-trace DIR] [--no-gaps]
+    lacan-kb mcp-selftest [--json]
+    lacan-kb mcp-tools                    # 打印 10 个 tool 的契约摘要
+    lacan-kb mcp-serve                    # stdio MCP server（等价于 lacan-kb-mcp）
+
+示例（任务书给的）
+    lacan-kb search "objet petit a" --mode lexical
+    lacan-kb search "凝视与小客体a" --mode hybrid
+    lacan-kb evidence "拉康如何重新理解凝视"
+
+设计约束
+────────
+* 只读：不写 canonical store。
+* 不编造：所有 passage_id 都来自 canonical store；bundle 生成后自带
+  `validate_bundle` 校验（fabricated = 0 才输出）。
+* `--explain` 打印每个组件（alias / lexical / graph / vector）的名次与
+  融合与去重过程 —— §7 要求所有 component rank 必须保留在 debug output。
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+VAULT = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, HERE)
+
+MODES = ("lexical", "alias", "graph", "hybrid")
+
+
+def _print_hits(hits, show_text=False):
+    if not hits:
+        print("  （无命中）")
+        return
+    for h in hits:
+        pid = h.get("passage_id") or h.get("entity_id")
+        extra = []
+        if h.get("seminar_id"):
+            extra.append(str(h["seminar_id"]).replace("seminar.", ""))
+        if h.get("language"):
+            extra.append(h["language"])
+        if h.get("authority_level"):
+            extra.append(h["authority_level"])
+        if h.get("trace_status"):
+            extra.append(h["trace_status"])
+        print("  %-42s %s" % (pid, " · ".join(extra)))
+        if h.get("why_retrieved"):
+            print("      why: %s" % h["why_retrieved"])
+        if h.get("graph_reason"):
+            print("      graph: %s (depth %s)" % (h["graph_reason"],
+                                                  h.get("graph_depth")))
+        if show_text and h.get("text"):
+            t = str(h["text"]).replace("\n", " ")
+            print("      %s" % (t[:160] + ("…" if len(t) > 160 else "")))
+
+
+def cmd_search(args):
+    import query_router
+    import hybrid_retrieve as H
+
+    plan = query_router.route(args.query)
+    if args.explain:
+        print(query_router.explain(plan))
+        print()
+
+    if args.mode == "alias":
+        hits = H.alias_component(plan)
+    elif args.mode == "lexical":
+        hits = H.lexical_component(plan, limit=args.limit)
+    elif args.mode == "graph":
+        hits = H.graph_component(plan, max_depth=args.max_depth)
+    else:
+        bundle = H.retrieve(args.query, top_k=args.limit,
+                            explain=args.explain, max_depth=args.max_depth)
+        hits = bundle["evidence"]
+        if args.json:
+            print(json.dumps(bundle, ensure_ascii=False, indent=2))
+            return 0
+        if args.explain:
+            # §7/§14 要求 --explain 展示每个组件（含**缺哪个组件**）
+            ex = bundle.get("explain") or {}
+            print("components: %s" % json.dumps(bundle["components"],
+                                               ensure_ascii=False))
+            print("vector_status: %s" % json.dumps(ex.get("vector_status"),
+                                                   ensure_ascii=False))
+            print("graph_expansion: %s" % json.dumps(ex.get("graph_expansion"),
+                                                     ensure_ascii=False))
+            print("fusion(k=%s, 只用名次): 前 8 名" % bundle["fusion"]["k"])
+            for row in (ex.get("fusion_order_before_diversity") or [])[:8]:
+                print("   %-40s rrf=%.6f ranks=%s" % (
+                    row["passage_id"], row["rrf"],
+                    json.dumps(row["ranks"], ensure_ascii=False)))
+            print("after_diversity: %s" % json.dumps(
+                ex.get("after_diversity"), ensure_ascii=False))
+            print("dropped_by_diversity: %s" % json.dumps(
+                ex.get("dropped_by_diversity"), ensure_ascii=False))
+            print()
+    print("mode=%s  hits=%d" % (args.mode, len(hits)))
+    _print_hits(hits, show_text=args.show_text)
+    return 0
+
+
+def cmd_evidence(args):
+    import hybrid_retrieve as H
+
+    bundle = H.retrieve(args.query, top_k=args.top_k, explain=args.explain,
+                        max_depth=args.max_depth)
+    problems = H.validate_bundle(bundle)
+    if problems:
+        # 硬门禁：出现编造 ID 等严重问题就**不输出 bundle**
+        print("[FATAL] Evidence Bundle 未通过校验，拒绝输出：", file=sys.stderr)
+        for p in problems[:10]:
+            print("  ✗ %s" % p, file=sys.stderr)
+        return 1
+    if args.json:
+        print(json.dumps(bundle, ensure_ascii=False, indent=2))
+        return 0
+
+    print("=" * 70)
+    print("Evidence Bundle")
+    print("=" * 70)
+    print("query    : %s" % bundle["query"])
+    print("intent   : %s" % bundle["intent"])
+    print("entities : %s" % ", ".join(e["entity_id"] for e in bundle["entities"]))
+    if bundle["ambiguous_entities"]:
+        print("⚠ ambiguous:")
+        for e in bundle["ambiguous_entities"]:
+            print("    %s ← %s" % (e["matched_alias"],
+                                   e.get("ambiguity_reason") or e.get("case_variant_of")))
+    print("filters  : %s" % json.dumps(bundle["filters"], ensure_ascii=False))
+    print("components: %s" % json.dumps(bundle["components"], ensure_ascii=False))
+    print("fusion   : %s" % json.dumps(bundle["fusion"], ensure_ascii=False))
+    print()
+    print("--- evidence (%d) ---" % len(bundle["evidence"]))
+    for i, e in enumerate(bundle["evidence"], 1):
+        print("%2d. %s" % (i, e["passage_id"]))
+        print("    seminar=%s session=%s lang=%s" % (
+            e["seminar_id"], e["session_id"], e["language"]))
+        # §1：四维分开显示，不压成一个 authority
+        print("    source_authority=%s  text_role=%s  canonical=%s  provenance=%s" % (
+            e["source_authority"], e["text_role"], e["canonical_status"],
+            e["provenance_status"]))
+        print("    ranks: lexical=%s graph=%s vector=%s fusion=%s" % (
+            e["lexical_rank"], e["graph_rank"], e["vector_rank"], e["fusion_rank"]))
+        print("    why: %s" % e["why_retrieved"])
+        if e.get("graph_reason"):
+            print("    graph: %s" % e["graph_reason"])
+        t = str(e.get("text") or "").replace("\n", " ")
+        print("    %s" % (t[:200] + ("…" if len(t) > 200 else "")))
+        print()
+    print("--- coverage ---")
+    print(json.dumps(bundle["coverage"], ensure_ascii=False, indent=2))
+    print("--- diversity ---")
+    print("kept=%d dropped=%d (session_limit=%d)" % (
+        bundle["diversity"]["kept"], len(bundle["diversity"]["dropped"]),
+        bundle["diversity"]["session_limit"]))
+    if bundle["warnings"]:
+        print("--- warnings ---")
+        for w in bundle["warnings"]:
+            print("  ⚠ %s" % w)
+    if args.explain and "explain" in bundle:
+        print()
+        print("--- explain ---")
+        print(json.dumps(bundle["explain"], ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_eval(args):
+    import eval_retrieval
+    res = eval_retrieval.evaluate(mode=args.baseline, limit=args.limit)
+    if args.json:
+        print(json.dumps(res, ensure_ascii=False, indent=2))
+        return 0
+    eval_retrieval.print_report(res)
+    return 0
+
+
+def cmd_index(args):
+    p = os.path.join(VAULT, "_data", "index", "INDEX_MANIFEST.json")
+    if not os.path.isfile(p):
+        print("[fatal] 缺 INDEX_MANIFEST.json —— 先跑 build_lexical_index.py",
+              file=sys.stderr)
+        return 2
+    with open(p, encoding="utf-8") as f:
+        man = json.load(f)
+    if args.verify:
+        import hashlib
+        bad = []
+        pp = os.path.join(VAULT, "_data", "passage_store", "passages.jsonl")
+        h = hashlib.sha256()
+        with open(pp, "rb") as fh:
+            while True:
+                b = fh.read(1 << 20)
+                if not b:
+                    break
+                h.update(b)
+        # manifest 结构是 {corpus:{corpus_hash:...}, indices:[...]}
+        want = (man.get("corpus") or {}).get("corpus_hash")
+        if not want:
+            bad.append("manifest 缺 corpus.corpus_hash")
+        elif h.hexdigest() != want:
+            bad.append("corpus_hash 不匹配：索引与 canonical corpus 不同步")
+        for a in man.get("artifacts") or []:
+            if not os.path.exists(os.path.join(VAULT, a)):
+                bad.append("缺产物：%s" % a)
+        for art in man.get("indices") or []:
+            for a in art.get("artifacts") or []:
+                if not os.path.exists(os.path.join(VAULT, a)):
+                    bad.append("缺产物：%s" % a)
+        if bad:
+            print("索引校验失败：")
+            for b in bad:
+                print("  ✗ %s" % b)
+            return 1
+        print("索引校验通过：corpus_hash 与 canonical corpus 一致，产物齐全")
+        return 0
+    print(json.dumps(man, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_research(args):
+    """§26：`lacan-kb research "<query>"` —— 跑一次只读研究并打印证据包 + trace。"""
+    sys.path.insert(0, os.path.join(HERE, "lacan_mcp"))
+    import research_agent as ra
+    budget = json.loads(args.budget) if args.budget else None
+    out = ra.research(args.query, budget=budget,
+                      record_gaps=not args.no_gaps,
+                      save_trace_dir=args.save_trace)
+    if args.json:
+        print(json.dumps(out, ensure_ascii=False, indent=1))
+        return 0
+    p = out["evidence_pack"]
+    st = p["evidence_state"]
+    print("query        : %s" % p["query"])
+    print("query_type   : %s   route: %s   seminar_hint: %s"
+          % (p["query_type"], p["retrieval_route"], p["seminar_hint"]))
+    print("terms        : %s" % p["terms"])
+    print("entities     : %s   unresolved: %s"
+          % (p["resolved_entities"], p["unresolved_terms"]))
+    print("evidence     : %d 条  （lang %s / seminar %s）"
+          % (p["evidence_n"], p["by_language"], p["by_seminar"]))
+    print("state        : %s" % st["state"])
+    for r in st.get("reasons") or []:
+        print("   reason    : %s" % r)
+    for nt in st.get("notes") or []:
+        print("   note      : %s" % nt)
+    print("families     : %s" % st["signals"]["independent_families_executed"])
+    print("citable      : %s" % (p["citable_passages"][:8] or "（无）"))
+    print("warnings     : %s" % [w["code"] for w in p.get("warnings") or []])
+    print("gaps         : %s" % [g.get("code") for g in
+                                 (p.get("resolution") or {}).get("ontology_gaps") or []])
+    print("limitations  :")
+    for l in p["limitations"] or ["（无）"]:
+        print("   - %s" % l)
+    print("trace steps  : %s" % [s["tool"] for s in out["research_trace"]["steps"]])
+    print("budget       : %s" % out["budget"]["used"])
+    if p["evidence_n"]:
+        print("top evidence :")
+        for e in p["evidence"][:5]:
+            print("   %-42s %-3s %-3s %-24s %s" % (
+                e["passage_id"], e.get("language"), e.get("authority_level"),
+                ",".join(e.get("why_retrieved") or []),
+                (e.get("text") or "")[:44].replace("\n", " ")))
+    if out.get("trace_path"):
+        print("trace saved  : %s" % out["trace_path"])
+    return 0
+
+
+def cmd_mcp_selftest(args):
+    """§26：`lacan-kb mcp-selftest` —— 34 项确定性契约自检。"""
+    sys.path.insert(0, os.path.join(HERE, "lacan_mcp"))
+    import selftest as st
+    return st.run(json_out=args.json)
+
+
+def cmd_mcp_tools(args):
+    sys.path.insert(0, os.path.join(HERE, "lacan_mcp"))
+    import schemas
+    for t in schemas.TOOLS:
+        print("%-22s %s" % (t["name"], t["title"]))
+        print("      purpose : %s" % t["purpose"])
+        print("      not_for : %s" % t["not_for"])
+        print("      input   : %s" % json.dumps(t["inputSchema"].get("properties", {}),
+                                                ensure_ascii=False)[:180])
+    print("\n共 %d 个 tool；共享输出段：%s"
+          % (len(schemas.TOOLS), " / ".join(schemas.OUTPUT_SECTIONS)))
+    return 0
+
+
+def cmd_mcp_serve(args):
+    sys.path.insert(0, os.path.join(HERE, "lacan_mcp"))
+    import server
+    return server.main([])
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(prog="lacan-kb",
+                                 description="Lacanian Knowledge OS 检索 CLI（Phase 3）")
+    sub = ap.add_subparsers(dest="cmd", required=True)
+
+    sp = sub.add_parser("search", help="检索证据")
+    sp.add_argument("query")
+    sp.add_argument("--mode", choices=MODES, default="hybrid")
+    sp.add_argument("--limit", type=int, default=20)
+    sp.add_argument("--max-depth", type=int, default=2)
+    sp.add_argument("--explain", action="store_true")
+    sp.add_argument("--show-text", action="store_true")
+    sp.add_argument("--json", action="store_true")
+    sp.set_defaults(func=cmd_search)
+
+    ep = sub.add_parser("evidence", help="生成 Evidence Bundle")
+    ep.add_argument("query")
+    ep.add_argument("--top-k", type=int, default=10)
+    ep.add_argument("--max-depth", type=int, default=2)
+    ep.add_argument("--explain", action="store_true")
+    ep.add_argument("--json", action="store_true")
+    ep.set_defaults(func=cmd_evidence)
+
+    vp = sub.add_parser("eval", help="跑评测")
+    vp.add_argument("--baseline", default="lexical",
+                    choices=("lexical", "alias", "hybrid"))
+    vp.add_argument("--limit", type=int, default=0, help="只跑前 N 条（0=全部）")
+    vp.add_argument("--json", action="store_true")
+    vp.set_defaults(func=cmd_eval)
+
+    ip = sub.add_parser("index", help="索引校验")
+    ip.add_argument("--verify", action="store_true")
+    ip.set_defaults(func=cmd_index)
+
+    # ── Phase 4A §26
+    rp2 = sub.add_parser("research", help="只读 Research Agent（证据包 + trace）")
+    rp2.add_argument("query")
+    rp2.add_argument("--json", action="store_true")
+    rp2.add_argument("--budget", default=None, help='JSON，如 {"max_tool_calls":8}')
+    rp2.add_argument("--save-trace", default=None, metavar="DIR")
+    rp2.add_argument("--no-gaps", action="store_true",
+                     help="不把发现的缺口写进 ontology_gap_queue（只读模式）")
+    rp2.set_defaults(func=cmd_research)
+
+    mp = sub.add_parser("mcp-selftest", help="MCP 契约自检（确定性）")
+    mp.add_argument("--json", action="store_true")
+    mp.set_defaults(func=cmd_mcp_selftest)
+
+    mt = sub.add_parser("mcp-tools", help="列出 10 个 tool 的契约摘要")
+    mt.set_defaults(func=cmd_mcp_tools)
+
+    ms = sub.add_parser("mcp-serve", help="以 stdio 启动 MCP server")
+    ms.set_defaults(func=cmd_mcp_serve)
+
+    args = ap.parse_args(argv)
+    return args.func(args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

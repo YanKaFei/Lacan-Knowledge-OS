@@ -1,0 +1,69 @@
+{
+  "name": "dsh-lacan-knowledge-os",
+  "version": "1.0.0",
+  "description": "Corpus-grounded research environment for Lacanian psychoanalysis, packaged as a DeepSeek Harness plugin bundle (MCP tool surface, 10 tools).",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "dsh/index.js",
+  "exports": {
+    ".": "./dsh/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dsh/index.js",
+    "cordis.patch.yml",
+    "integrations/",
+    "tools/",
+    "docs/",
+    "contributions/",
+    "demo-corpus/",
+    "README.md",
+    "README.zh.md",
+    "README.fr.md",
+    "README.ja.md",
+    "README.de.md",
+    "README.it.md",
+    "LICENSE",
+    "NOTICE",
+    "CORPUS.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2"
+  },
+  "keywords": [
+    "dsh-plugin",
+    "dsh-bundle",
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "lacan",
+    "psychoanalysis",
+    "knowledge-os",
+    "corpus",
+    "research-tool",
+    "obsidian",
+    "evidence"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YanKaFei/Lacan-Knowledge-OS.git"
+  },
+  "homepage": "https://github.com/YanKaFei/Lacan-Knowledge-OS#readme",
+  "bugs": {
+    "url": "https://github.com/YanKaFei/Lacan-Knowledge-OS/issues"
+  }
+}

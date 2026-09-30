@@ -1,0 +1,6 @@
+url: https://github.com/YanKaFei/Lacan-Knowledge-OS
+name: YanKaFei/Lacan-Knowledge-OS
+category: tools
+description:
+  en: MCP surface for a local Lacanian psychoanalysis corpus — 10 tools for passage search, context windows, concepts, terminology, relations and source provenance, backed by a frozen scholarly core that abstains instead of answering from model knowledge.
+  zh: 面向本地拉康精神分析语料的 MCP 工具面 —— 10 个工具覆盖段落检索、上下文窗口、概念、术语、关系与来源溯源；背后是冻结的学术内核，语料不足时弃权，而不是用模型知识作答。

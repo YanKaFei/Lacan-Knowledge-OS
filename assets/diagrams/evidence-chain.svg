@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 470" width="960" height="470" role="img"
+     aria-label="Evidence chain: an answer carries claims; each claim points to a passage; a passage sits in a session, a session in a seminar or document, carried by a witness or source.">
+  <defs>
+    <style>
+      .bg{fill:#f7f6f3} .ink{fill:#1c1b19} .ink2{fill:#43403b} .ink3{fill:#6f6a62}
+      .panel{fill:#ffffff;stroke:#ded9d1;stroke-width:1}
+      .warm{fill:#ffffff;stroke:#6b4c2f;stroke-width:1.6}
+      .t{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",sans-serif}
+      .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+      .h{font-size:14.5px;font-weight:600} .s{font-size:11.5px} .xs{font-size:10.5px}
+      .arrow{stroke:#c9c3b8;stroke-width:1.4;fill:none}
+    </style>
+    <marker id="b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c9c3b8"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="960" height="470"/>
+
+  <text class="t h ink" x="30" y="40">The chain you follow — every claim must land on a passage number</text>
+
+  <!-- boxes -->
+  <rect class="warm" x="30" y="70" width="176" height="78" rx="7"/>
+  <text class="t h ink" x="48" y="98">Answer</text>
+  <text class="t s ink3" x="48" y="118">state + claims + citations</text>
+  <text class="t mono xs ink3" x="48" y="136">what the core concluded</text>
+
+  <rect class="panel" x="240" y="70" width="176" height="78" rx="7"/>
+  <text class="t h ink" x="258" y="98">Claim</text>
+  <text class="t s ink3" x="258" y="118">one atomic statement</text>
+  <text class="t mono xs ink3" x="258" y="136">must survive validation</text>
+
+  <rect class="warm" x="450" y="70" width="196" height="78" rx="7"/>
+  <text class="t h ink" x="468" y="98">Passage</text>
+  <text class="t mono xs ink2" x="468" y="118">passage.S11.unknown.P2253</text>
+  <text class="t s ink3" x="468" y="136">the unit of evidence</text>
+
+  <rect class="panel" x="680" y="70" width="250" height="78" rx="7"/>
+  <text class="t h ink" x="698" y="98">Session → Seminar / Document</text>
+  <text class="t s ink3" x="698" y="118">where that passage sits</text>
+  <text class="t mono xs ink3" x="698" y="136">session.S11.unknown.L05</text>
+
+  <path class="arrow" d="M206 109 H 240" marker-end="url(#b)"/>
+  <path class="arrow" d="M416 109 H 450" marker-end="url(#b)"/>
+  <path class="arrow" d="M646 109 H 680" marker-end="url(#b)"/>
+
+  <!-- witness row -->
+  <path class="arrow" d="M805 148 V 196" marker-end="url(#b)"/>
+  <rect class="panel" x="500" y="196" width="430" height="96" rx="7"/>
+  <text class="t h ink" x="518" y="224">Witness / Source</text>
+  <text class="t s ink3" x="518" y="244">which carrier the text came from, and its trace status</text>
+  <text class="t mono xs ink2" x="518" y="264">witness.fr.staferla · witness.zh.translation-project · witness.fr.seuil-print</text>
+  <text class="t xs" x="518" y="282" fill="#8a6d1f">SOURCE_TRACE_INCOMPLETE → still usable, cannot carry a formal bibliographic citation</text>
+
+  <!-- principle panel -->
+  <rect class="panel" x="30" y="196" width="430" height="96" rx="7"/>
+  <text class="t h ink" x="48" y="224">Two different statements</text>
+  <text class="t s ink2" x="48" y="246">“the AI said so”</text>
+  <text class="t s ink2" x="48" y="266">“Lacan's text proves it”</text>
+  <text class="t s ink3" x="48" y="286">only the second one belongs in your argument — open the citation first</text>
+
+  <!-- inspector -->
+  <rect class="panel" x="30" y="312" width="900" height="128" rx="7"/>
+  <text class="t h ink" x="48" y="340">Evidence Inspector — what you actually verify with</text>
+  <text class="t s ink3" x="48" y="362">Original passage · Quoted span (the exact sentence used) · Context (± window) · Source chain · Translation when one exists</text>
+  <text class="t mono xs ink2" x="48" y="384">GET /api/passage?id=passage.S11.unknown.P2253&amp;before=2&amp;after=2</text>
+  <text class="t xs ink3" x="48" y="406">A validated claim means the corpus supports the statement under the core's rules — not that the passage says everything the sentence suggests.</text>
+  <text class="t xs" x="48" y="426" fill="#3f6b4a">Nothing here is generated: passages, spans and provenance are read from the canonical store.</text>
+</svg>

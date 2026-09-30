@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="960" height="300" role="img"
+     aria-label="One research task: ask, check evidence, read the original, save the material, sort sources, form your own knowledge — with abstention as a first-class outcome.">
+  <defs>
+    <style>
+      .bg{fill:#f7f6f3} .ink{fill:#1c1b19} .ink2{fill:#43403b} .ink3{fill:#6f6a62}
+      .step{fill:#ffffff;stroke:#ded9d1;stroke-width:1}
+      .warm{fill:#ffffff;stroke:#6b4c2f;stroke-width:1.5}
+      .t{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB",sans-serif}
+      .mono{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+      .h{font-size:13.5px;font-weight:600} .s{font-size:10.5px} .n{font-size:11px}
+      .arrow{stroke:#c9c3b8;stroke-width:1.4;fill:none}
+    </style>
+    <marker id="c" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#c9c3b8"/>
+    </marker>
+  </defs>
+  <rect class="bg" width="960" height="300"/>
+  <text class="t h ink" x="30" y="38">One research task, end to end</text>
+
+  <g>
+    <rect class="warm" x="26" y="60" width="140" height="86" rx="7"/>
+    <text class="t mono n" x="40" y="82" fill="#6b4c2f">01</text>
+    <text class="t h ink" x="40" y="104">Ask</text>
+    <text class="t s ink3" x="40" y="124">one question</text>
+    <text class="t mono s ink2" x="40" y="140">/research</text>
+  </g>
+  <path class="arrow" d="M166 103 H 196" marker-end="url(#c)"/>
+  <g>
+    <rect class="step" x="196" y="60" width="140" height="86" rx="7"/>
+    <text class="t mono n" x="210" y="82" fill="#6f6a62">02</text>
+    <text class="t h ink" x="210" y="104">Check evidence</text>
+    <text class="t s ink3" x="210" y="124">claims + citations</text>
+    <text class="t mono s ink2" x="210" y="140">/help/evidence</text>
+  </g>
+  <path class="arrow" d="M336 103 H 366" marker-end="url(#c)"/>
+  <g>
+    <rect class="step" x="366" y="60" width="140" height="86" rx="7"/>
+    <text class="t mono n" x="380" y="82" fill="#6f6a62">03</text>
+    <text class="t h ink" x="380" y="104">Read the original</text>
+    <text class="t s ink3" x="380" y="124">passage in context</text>
+    <text class="t mono s ink2" x="380" y="140">/explore</text>
+  </g>
+  <path class="arrow" d="M506 103 H 536" marker-end="url(#c)"/>
+  <g>
+    <rect class="step" x="536" y="60" width="140" height="86" rx="7"/>
+    <text class="t mono n" x="550" y="82" fill="#6f6a62">04</text>
+    <text class="t h ink" x="550" y="104">Save the material</text>
+    <text class="t s ink3" x="550" y="124">run into a topic</text>
+    <text class="t mono s ink2" x="550" y="140">/projects</text>
+  </g>
+  <path class="arrow" d="M676 103 H 706" marker-end="url(#c)"/>
+  <g>
+    <rect class="step" x="706" y="60" width="118" height="86" rx="7"/>
+    <text class="t mono n" x="720" y="82" fill="#6f6a62">05</text>
+    <text class="t h ink" x="720" y="104">Sort sources</text>
+    <text class="t s ink3" x="720" y="124">review · metadata</text>
+    <text class="t mono s ink2" x="720" y="140">/bibliography</text>
+  </g>
+  <path class="arrow" d="M824 103 H 854" marker-end="url(#c)"/>
+  <g>
+    <rect class="step" x="854" y="60" width="82" height="86" rx="7"/>
+    <text class="t mono n" x="866" y="82" fill="#6f6a62">06</text>
+    <text class="t h ink" x="866" y="104">Your</text>
+    <text class="t h ink" x="866" y="120">knowledge</text>
+    <text class="t s ink3" x="866" y="138">Obsidian</text>
+  </g>
+
+  <!-- outcomes -->
+  <rect class="step" x="26" y="176" width="440" height="96" rx="7"/>
+  <text class="t h ink" x="44" y="202">Supported outcomes</text>
+  <text class="t s ink2" x="44" y="224">VALIDATED · VALIDATED_WITH_QUALIFICATIONS · PARTIALLY_SUPPORTED</text>
+  <text class="t s ink3" x="44" y="244">state is shown literally; qualifications are never hidden</text>
+
+  <rect class="step" x="486" y="176" width="450" height="96" rx="7" stroke="#8a6d1f"/>
+  <text class="t h ink" x="504" y="202">Honest non-answers — not errors</text>
+  <text class="t s ink2" x="504" y="224">ABSTAINED · INSUFFICIENT_EVIDENCE · VALIDATION_FAILED</text>
+  <text class="t s ink3" x="504" y="244">the corpus could not support it; the system says so instead of inventing an answer</text>
+</svg>

@@ -1,0 +1,52 @@
+{
+  "$id": "research-execution-result/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 3/15：研究执行结果",
+  "properties": {
+    "completed_lanes": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "completed_operations": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "constraints_applied": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "execution_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "limitations": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "execution_state"
+  ],
+  "title": "ResearchExecutionResult",
+  "type": "object"
+}

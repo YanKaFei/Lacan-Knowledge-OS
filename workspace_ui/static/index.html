@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lacan Knowledge OS — Research Workspace</title>
+<link rel="stylesheet" href="/static/styles/main.css">
+</head>
+<body>
+<a class="skip-link" href="#question-input" data-i18n="a11y.skipToResearch">Skip to research input</a>
+
+<header class="topbar" role="banner">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">◊</span>
+    <span class="brand-name" data-i18n="brand.name">Lacan Knowledge OS</span>
+    <span class="brand-sub" data-i18n="brand.sub">Research Workspace</span>
+  </div>
+  <div class="topbar-controls">
+    <label class="ctl"><span data-i18n="topbar.mode">Mode</span>
+      <select id="mode-select" aria-label="Research mode" data-i18n-attr="aria-label" data-i18n="topbar.modeAria">
+        <option value="scholarly" selected data-i18n="mode.scholarly">Scholarly</option>
+        <option value="quick" data-i18n="mode.quick">Quick</option>
+        <option value="auto" data-i18n="mode.auto">Auto</option>
+        <optgroup label="Advanced" data-i18n-attr="label" data-i18n="mode.advancedGroup">
+          <option value="concept_definition" data-i18n="mode.concept_definition">Concept</option>
+          <option value="concept_relation" data-i18n="mode.concept_relation">Relation</option>
+          <option value="comparison" data-i18n="mode.comparison">Comparison</option>
+          <option value="diachronic" data-i18n="mode.diachronic">Diachronic</option>
+          <option value="seminar_specific" data-i18n="mode.seminar_specific">Seminar-specific</option>
+          <option value="translation_terminology" data-i18n="mode.translation_terminology">Translation</option>
+          <option value="topology_matheme" data-i18n="mode.topology_matheme">Formalism</option>
+          <option value="case_research" data-i18n="mode.case_research">Case</option>
+        </optgroup>
+      </select>
+    </label>
+    <label class="ctl"><span data-i18n="topbar.provider">Provider</span>
+      <select id="provider-select" aria-label="Research provider" data-i18n-attr="aria-label" data-i18n="topbar.providerAria">
+        <option value="mock" selected data-i18n="provider.mock">Offline / Mock</option>
+        <option value="llm" data-i18n="provider.llm">Real LLM (explicit)</option>
+      </select>
+    </label>
+    <!-- P5D-004：**界面语言切换**（真实 i18n；点击后不刷新页面，可翻译 UI 立即变化） -->
+    <label class="ctl"><span data-i18n="topbar.language">Language</span>
+      <select id="ui-locale-select" aria-label="Interface language" data-i18n-attr="aria-label" data-i18n="topbar.languageAria">
+        <option value="en" selected>English</option>
+        <option value="zh">中文</option>
+      </select>
+    </label>
+    <!-- Research language：研究请求里的 question language（与界面语言是两个概念，保留原语义） -->
+    <label class="ctl"><span data-i18n="topbar.researchLanguage">Research language</span>
+      <select id="language-select" aria-label="Research language (sent with research requests)" data-i18n-attr="aria-label" data-i18n="topbar.researchLanguageAria">
+        <option value="any" selected data-i18n="lang.auto">Auto</option>
+        <option value="zh">中文</option>
+        <option value="fr">Français</option>
+        <option value="en">English</option>
+      </select>
+    </label>
+    <span class="ctl-note" id="language-status" role="status" aria-live="polite"></span>
+    <!-- P5D-005 §9：模块内 contextual help（href 随当前模块更新；默认指向 Help Center） -->
+    <a class="help-btn" id="contextual-help" href="/help"
+       aria-label="Help for the current module" data-i18n-attr="aria-label"
+       data-i18n="help.currentModuleAria">? <span data-i18n="help.button">Help</span></a>
+  </div>
+</header>
+
+<div class="layout" id="layout">
+  <!-- 左栏 -->
+  <nav class="col col-nav" aria-label="Navigation">
+    <div class="nav-group">
+      <a class="nav-item" id="nav-home" data-view="home" href="/home" data-i18n="nav.home">Home</a>
+      <a class="nav-item is-active" id="nav-research" href="/research" data-i18n="nav.research">Research</a>
+      <a class="nav-item" id="nav-explore" data-view="explore" href="/explore" data-i18n="nav.explore">Explore</a>
+      <a class="nav-item" id="nav-projects" data-view="projects" href="/projects" data-i18n="nav.projects">Projects</a>
+      <a class="nav-item" id="nav-bibliography" data-view="bibliography" href="/bibliography" data-i18n="nav.bibliography">Bibliography</a>
+      <button class="nav-item" id="nav-obsidian" data-i18n="nav.obsidian">Obsidian</button>
+      <button class="nav-item" id="nav-history" data-i18n="nav.history">History</button>
+      <a class="nav-item" id="nav-saved" data-view="saved" href="/explore?view=saved" data-i18n="nav.saved">Saved</a>
+      <button class="nav-item" id="nav-exports" data-i18n="nav.exports">Exports</button>
+    </div>
+    <p class="muted nav-note" id="obsidian-status" hidden></p>
+    <div class="nav-section">
+      <div class="nav-section-head"><span data-i18n="nav.exploreGroup">Explore</span></div>
+      <p class="muted nav-note" data-i18n="nav.exploreNote">
+        Corpus-driven browsing. Browse ≠ research: nothing here is a scholarly
+        conclusion, and a zero result is not an abstention.
+      </p>
+    </div>
+    <div class="nav-section" id="history-panel" hidden>
+      <div class="nav-section-head">
+        <span data-i18n="nav.historyGroup">History</span>
+        <button class="link-btn" id="history-refresh" data-i18n="history.refresh">refresh</button>
+      </div>
+      <ul class="history-list" id="history-list"></ul>
+      <p class="muted" id="history-note" data-i18n="history.note">
+        Saved in the product workspace. History is not evidence — every conclusion
+        must be re-supported by the corpus.
+      </p>
+    </div>
+    <div class="nav-section">
+      <div class="nav-section-head"><span data-i18n="nav.advancedGroup">Advanced</span></div>
+      <button class="nav-item nav-item-sm" id="nav-search" data-i18n="nav.passageSearch">Research passage search</button>
+      <button class="nav-item nav-item-sm" id="nav-status" data-i18n="nav.statusDetail">Status detail</button>
+    </div>
+  </nav>
+
+  <!-- 中栏 -->
+  <main class="col col-main" id="main" role="main" aria-live="polite">
+    <section id="home-view" class="home" hidden></section>
+    <section id="explore-view" class="explore-home" hidden></section>
+
+    <section class="ask" id="ask-view">
+      <h1 class="ask-title" data-i18n="research.askTitle">Ask the frozen scholarly core</h1>
+      <p class="ask-sub" data-i18n="research.askSub">
+        Claim-level evidence and provenance from the local corpus.
+        The core does not answer from model knowledge: if the corpus cannot support
+        the question, it abstains — and that abstention is shown as-is.
+      </p>
+      <textarea id="question-input" rows="3" aria-label="Research question"
+        data-i18n-attr="aria-label" data-i18n="research.questionLabel"
+        placeholder="Seminar XI 中 gaze 与 objet a 是什么关系？"></textarea>
+      <div class="ask-actions">
+        <button class="btn btn-primary" id="ask-btn" data-i18n="research.submit">Research corpus</button>
+        <button class="btn btn-ghost" id="cancel-btn" hidden data-i18n="research.cancel">Stop waiting</button>
+        <label class="ask-opt"><input type="checkbox" id="fresh-toggle"
+          aria-label="Ignore cache (recompute)" data-i18n-attr="aria-label"
+          data-i18n="research.fresh">
+          <span data-i18n="research.fresh">Ignore cache (recompute)</span></label>
+        <span class="ask-note muted" id="ask-note"></span>
+      </div>
+      <!-- ★ 真实 provider 设置：模型/端点可改，密钥不经产品 API；调用上限只读展示 -->
+      <details class="provider-panel" id="provider-panel">
+        <summary data-i18n="provider.summary">Model provider settings</summary>
+        <div class="provider-grid">
+          <label class="provider-field"><span data-i18n="provider.model">Model</span>
+            <input id="provider-model" type="text" autocomplete="off" spellcheck="false"
+              aria-label="Model" data-i18n-attr="aria-label" data-i18n="provider.model"></label>
+          <label class="provider-field"><span data-i18n="provider.baseUrl">Base URL</span>
+            <input id="provider-base-url" type="text" autocomplete="off" spellcheck="false"
+              aria-label="Base URL" data-i18n-attr="aria-label"
+              data-i18n="provider.baseUrl"></label>
+          <p class="muted" id="provider-cred-state"></p>
+          <p class="muted" id="provider-call-cap"></p>
+          <div class="ask-actions">
+            <button class="btn" id="provider-save" type="button" data-i18n="provider.save">Save settings</button>
+            <button class="btn btn-ghost" id="provider-test" type="button" data-i18n="provider.test">Test connection</button>
+            <span class="ask-note muted" id="provider-test-out"></span>
+          </div>
+        </div>
+      </details>
+      <div class="examples" id="examples">
+        <button class="chip-btn" data-q="Seminar XI 中 gaze 与 objet a 是什么关系？">gaze / objet a（Seminar XI）</button>
+        <button class="chip-btn" data-q="Réel 与 réalité 为什么要区分？">Réel / réalité</button>
+        <button class="chip-btn" data-q="$ ◊ a 在幻想公式中表示什么？">$ ◊ a 公式</button>
+        <button class="chip-btn" data-q="jouissance 在 S7 到 S20 如何变化？">jouissance S7→S20（历时限制）</button>
+        <button class="chip-btn" data-q="拉康如何看待 fMRI 等当代神经科学影像研究？">fMRI（弃权）</button>
+        <button class="chip-btn" data-q="拉康 1953 年 11 月 18 日那场报告的确切时间、地点与在场者是谁？">1953-11-18 报告（元数据弃权）</button>
+      </div>
+    </section>
+
+    <section id="help-view" class="help" hidden></section>
+    <section id="result" class="result" hidden></section>
+    <section id="advanced-panel" class="advanced" hidden></section>
+
+    <!-- Explorer（只读浏览；?view=... 深链可达） -->
+    <section id="explorer" class="explorer" hidden></section>
+  </main>
+
+  <!-- 右栏 -->
+  <aside class="col col-side" id="inspector" aria-label="Evidence inspector" hidden>
+    <div class="side-head">
+      <span class="side-title" data-i18n="inspector.title">Evidence Inspector</span>
+      <button class="icon-btn" id="inspector-close" aria-label="Close evidence inspector" data-i18n-attr="aria-label" data-i18n="inspector.close"><span data-i18n="inspector.closeGlyph">✕</span></button>
+    </div>
+    <div id="inspector-body" class="side-body"></div>
+  </aside>
+</div>
+
+<footer class="statusbar" role="status">
+  <span class="status-dot" id="status-dot" aria-hidden="true"></span>
+  <span id="status-text" data-i18n="status.connecting">Connecting…</span>
+  <span class="status-sep">·</span>
+  <span id="freeze-text" class="muted" data-i18n="status.freeze">freeze: —</span>
+  <span class="status-sep">·</span>
+  <span id="provider-text" class="muted" data-state="UNKNOWN" data-i18n="status.provider">provider: —</span>
+  <span class="status-right muted" id="version-text"></span>
+</footer>
+
+<script type="module" src="/static/src/app.js"></script>
+</body>
+</html>

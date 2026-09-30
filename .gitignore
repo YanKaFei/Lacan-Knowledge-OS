@@ -1,0 +1,40 @@
+# ── Python
+__pycache__/
+*.py[cod]
+.venv/
+.venv-embedding/
+
+# ── Local research workspace & derived artifacts (never commit these)
+_workspace/
+_index/
+_index/*.sqlite*
+_data/passage_store/*.jsonl
+_data/passage_store/*.sqlite*
+_data/index/*.sqlite*
+_data/index/vector/*
+! _data/index/*MANIFEST*.json
+_data/render_normalization.jsonl
+_data/terminology_bridge.jsonl
+_data/ontology/**/*.jsonl
+_data/eval/**/*.jsonl
+_data/bibliography/registry.jsonl
+_data/*.sqlite*
+wheelhouse/
+
+# ── Obsidian local state
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.obsidian/plugins/*/data.json
+.trash/
+
+# ── Editors / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ── DSH / tooling
+.dsh/
+node_modules/
+*.log

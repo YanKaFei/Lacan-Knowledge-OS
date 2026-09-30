@@ -1,0 +1,46 @@
+{
+  "$id": "citation-binding/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 7/15：claim → passage 引用绑定",
+  "properties": {
+    "citation_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "claim_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "passage_id": {
+      "type": "string"
+    },
+    "provenance_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "quoted_span": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_layer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "passage_id"
+  ],
+  "title": "CitationBinding",
+  "type": "object"
+}

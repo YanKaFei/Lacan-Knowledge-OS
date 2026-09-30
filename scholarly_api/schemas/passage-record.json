@@ -1,0 +1,90 @@
+{
+  "$id": "passage-record/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 11/15：单段记录",
+  "properties": {
+    "authority_level": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "passage_id": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "seminar": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_layer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "text_role": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "trace_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "witness": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "year_from": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ]
+    },
+    "year_to": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "passage_id"
+  ],
+  "title": "PassageRecord",
+  "type": "object"
+}

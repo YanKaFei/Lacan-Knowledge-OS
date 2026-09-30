@@ -1,0 +1,137 @@
+{
+  "schema": "backup-manifest/v1",
+  "backup_created_at": "2026-09-20T00:51:54+00:00",
+  "source_root": "<HOME>",
+  "source_read_only": true,
+  "source_untouched": true,
+  "source_frozen_mtimes": {
+    "french.jsonl": 1789796736.8428147,
+    "french_manifest.json": 1789796736.8430474,
+    "french_staferla.jsonl": 1789796740.3739944,
+    "lacancom.json": 1789790214.8822024,
+    "link_enrichment.json": 1789755709.574749,
+    "segments.jsonl": 1789796665.191046,
+    "seminars.json": 1789796665.1918483,
+    "staferla_manifest.json": 1789796740.3744245,
+    "term_neighbours.json": 1789749652.1122208,
+    "term_postings.json": 1789749659.790224,
+    "term_vocab.json": 1789749649.4020972
+  },
+  "backup_copies": [
+    {
+      "path": "<HOME>",
+      "kind": "directory",
+      "independent": true,
+      "sha256_verified": true
+    }
+  ],
+  "archive": {
+    "path": "<HOME>",
+    "kind": "tar.gz",
+    "sha256": "43e451f224edff50cec606c6bdcdf614fa243e833c08ca3853ba789572138710",
+    "size": 22297725
+  },
+  "files": [
+    {
+      "path": "french.jsonl",
+      "sha256": "8d221f18c14614da6332d9a7e4274d3d25dfab7ece1942c6ae0260e4e07e5d6e",
+      "size": 8740557,
+      "mtime": 1789796736.8428147,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "french_manifest.json",
+      "sha256": "78ac0f5cd806f1cf04ff1176112cc3ac4acea6176bfebc92b6b42ee74ec768ba",
+      "size": 1019,
+      "mtime": 1789796736.8430474,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "french_staferla.jsonl",
+      "sha256": "2712d6da07952b5c390b375a70b065cdddab6fbf9c073142be771df6224b33f5",
+      "size": 65964787,
+      "mtime": 1789796740.3739944,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "lacancom.json",
+      "sha256": "e6571d4345277747084325e2333501216deebd84326970d84bca3558989a8ccc",
+      "size": 186745,
+      "mtime": 1789790214.8822024,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "link_enrichment.json",
+      "sha256": "787f81fb3d25fd7dc6795895ac6a516e5edb3caebf9ca0b6e2dc132153c1260b",
+      "size": 3722,
+      "mtime": 1789755709.574749,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "segments.jsonl",
+      "sha256": "8a109068af21a96e3a591838d2ffa78d8cb581d1f2efd6749c6fa95bb024a96c",
+      "size": 33333585,
+      "mtime": 1789796665.191046,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "seminars.json",
+      "sha256": "68157acd21b96259792cdc9b06c44aa84d6eddcfe224b14e6e0078238a81d2db",
+      "size": 13782,
+      "mtime": 1789796665.1918483,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "staferla_manifest.json",
+      "sha256": "8aea8474a33d690a47c31ea4f06b470c306e04de525a1da97c91be8567fca46d",
+      "size": 4040,
+      "mtime": 1789796740.3744245,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "term_neighbours.json",
+      "sha256": "cc140d24589fa1d8664a825bca47a7780b37a8a102354dbab3e707f5b301abd6",
+      "size": 19048,
+      "mtime": 1789749652.1122208,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "term_postings.json",
+      "sha256": "da247852a402a76dbb2b114b3fe59c82838ac345b2c30ab142dab4ce7e85d436",
+      "size": 2476524,
+      "mtime": 1789749659.790224,
+      "copy_sha256_matches": true
+    },
+    {
+      "path": "term_vocab.json",
+      "sha256": "17a4cbb99292fb68744486f0d3a9d7da74226698c2b40bea584f4ae043d1b45d",
+      "size": 4011,
+      "mtime": 1789749649.4020972,
+      "copy_sha256_matches": true
+    }
+  ],
+  "totals": {
+    "file_count": 11,
+    "bytes": 110747820,
+    "segment_count": {
+      "zh": 82578,
+      "fr": 166527,
+      "total": 249105
+    },
+    "language_count": {
+      "zh": 82578,
+      "fr": 166527,
+      "languages": 2
+    },
+    "malformed_lines": {
+      "zh": 0,
+      "fr": 0
+    }
+  },
+  "baseline": {
+    "zh": 82578,
+    "fr": 166527,
+    "total": 249105,
+    "matches": true
+  }
+}

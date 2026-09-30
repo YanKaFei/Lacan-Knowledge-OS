@@ -1,0 +1,50 @@
+Lacan Knowledge OS
+Copyright 2026 SaltCoffee (YanKaFei) and contributors
+
+This product includes software developed as part of the Lacan Knowledge OS
+project (https://github.com/YanKaFei/Lacan-Knowledge-OS).
+
+--------------------------------------------------------------------------
+SOURCE TEXTS ARE NOT DISTRIBUTED WITH THIS REPOSITORY
+--------------------------------------------------------------------------
+
+The Apache-2.0 license above applies to the **software** in this repository:
+the scholarly API, the MCP server, the workspace UI, the export / bibliography
+/ project / Obsidian adapters, the build and verification tooling, the tests,
+the schemas and the documentation.
+
+It does NOT apply to any source text, transcription, translation, edition or
+bibliographic record of third-party works. Specifically, this repository
+contains **no**:
+
+  * full text of Lacan's seminars or écrits (French or Chinese),
+  * passage store or witness realizations derived from such texts,
+  * retrieval indexes built from such texts.
+
+Those materials remain the property of their respective rights holders and are
+deliberately excluded from the public edition.
+
+Where a reference corpus is made available separately (the private companion
+repository `YanKaFei/Lacan-Knowledge-OS-corpus`), it is provided **for private,
+non-commercial research and study only**. Access is not a licence: it does not
+permit commercial use, redistribution, mirroring, republication, serving the
+text to third parties, or use as training data for a publicly distributed
+model. See RIGHTS.md for the full statement.
+
+Users are responsible for supplying, and for judging their own right to use,
+any corpus. See CORPUS.md and RIGHTS.md.
+
+--------------------------------------------------------------------------
+THIRD-PARTY NOTICES
+--------------------------------------------------------------------------
+
+Apache License 2.0 text: https://www.apache.org/licenses/LICENSE-2.0
+
+This project is developed on and integrates with the DeepSeek Harness (DSH)
+plugin architecture. "DeepSeek", "DeepSeek Harness" and "DSH" are names of the
+respective project; this repository is an independent plugin target and is not
+an official DeepSeek product.
+
+If you build a corpus from a third-party edition, add that edition's own notice
+here (title, rights holder, license, and the permissions you obtained), and keep
+it out of any public repository unless that licence permits redistribution.

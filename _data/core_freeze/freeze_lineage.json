@@ -1,0 +1,373 @@
+{
+  "all_segments_semantic_changes_zero": true,
+  "all_segments_status_pass": true,
+  "component_classes": {
+    "abstention_policy_hash": "scholarly_semantic",
+    "citation_policy_hash": "scholarly_semantic",
+    "claim_atom_hash": "scholarly_semantic",
+    "claim_sanitize_hash": "scholarly_semantic",
+    "corpus_inventory_hash": "data_version",
+    "entailment_claim_hash": "scholarly_semantic",
+    "entailment_validator_hash": "scholarly_semantic",
+    "evidence_sufficiency_hash": "scholarly_semantic",
+    "execution_engine_hash": "scholarly_semantic",
+    "frozen_identity_hash": "scholarly_semantic",
+    "gate13_baseline_hash": "scholarly_semantic",
+    "gate13_hash": "scholarly_semantic",
+    "gate14_adjudication_hash": "scholarly_semantic",
+    "gate19_hash": "scholarly_semantic",
+    "gate20_hash": "scholarly_semantic",
+    "gate21_hash": "scholarly_semantic",
+    "gold_v2_lane_overrides_hash": "scholarly_semantic",
+    "gold_v2_tasks_hash": "scholarly_semantic",
+    "human_adjudication_hash": "scholarly_semantic",
+    "human_review_round1_hash": "scholarly_semantic",
+    "human_review_round2_hash": "scholarly_semantic",
+    "judge_prompt_hash": "scholarly_semantic",
+    "ontology_version": "data_version",
+    "passage_store_passages_sha256": "data_version",
+    "passage_store_version": "data_version",
+    "repair_rules_hash": "scholarly_semantic",
+    "research_answer_hash": "scholarly_semantic",
+    "research_contract_hash": "scholarly_semantic",
+    "retrieval_index_lexical": "data_version",
+    "retrieval_index_vector": "data_version",
+    "round2_review_schema_hash": "scholarly_semantic",
+    "round2_taxonomy_hash": "scholarly_semantic",
+    "scholarly_api_core_hash": "product_boundary",
+    "scholarly_api_objects_hash": "product_boundary",
+    "scholarly_api_policy_hash": "product_boundary",
+    "scholarly_readiness_gate_hash": "scholarly_semantic",
+    "source_role_policy_hash": "scholarly_semantic",
+    "synthesis_boundary_hash": "scholarly_semantic",
+    "synthesis_prompt_hash": "scholarly_semantic"
+  },
+  "data_version_changes_total": 1,
+  "data_version_keys": [
+    "passage_store_version",
+    "passage_store_passages_sha256",
+    "retrieval_index_lexical",
+    "retrieval_index_vector",
+    "ontology_version",
+    "corpus_inventory_hash"
+  ],
+  "failure_codes": [],
+  "generated_at": "2026-09-26T19:32:44+00:00",
+  "history_policy": "历史 manifest 以**真实字节**保存在 history/ 下；若字节不可得则标记 unavailable 并只保留 hash，**不伪造**文件。",
+  "live_freeze_version": "scholarly_core_freeze_v1",
+  "live_manifest": "scholarly_core_freeze_v1.json",
+  "live_manifest_hash": "e73153b760904830fb8851a17827554d721867df6d26d9930b50b62f111eddd5",
+  "live_matches_last_segment": true,
+  "live_scholarly_status": "SCHOLARLY_CORE_READY",
+  "product_boundary_keys": [
+    "scholarly_api_core_hash",
+    "scholarly_api_objects_hash",
+    "scholarly_api_policy_hash"
+  ],
+  "product_runtime_changes_total": 6,
+  "rule": "任何一段的 scholarly_semantic 变化必须为 0（产品阶段不得改核心语义）；product_boundary 变化记为 product_runtime_changes（不失败）；data_version 变化必须逐条**声明且与依赖构件状态一致**，否则 UNDECLARED_DATA_DRIFT / DATA_VERSION_INCONSISTENT。",
+  "schema_version": "scholarly-core-freeze-lineage/v1",
+  "segments": [
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": null,
+      "changed_components": [],
+      "changed_product_boundary": [],
+      "component_classes_n": {
+        "data_version": 0,
+        "product_boundary": 0,
+        "scholarly_semantic": 0
+      },
+      "components_n": 39,
+      "data_version_changes": [],
+      "data_version_changes_n": 0,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.4d0-final.json",
+      "manifest_hash": "9a84ef35049ad0ed27e17635e0b4ce4393ea0108bc11572f40898c00228b83a0",
+      "parent_manifest": null,
+      "parent_manifest_hash": null,
+      "phase": "4D.0",
+      "problems": [],
+      "product_runtime_changes": [],
+      "product_runtime_changes_n": 0,
+      "remediation": null,
+      "runtime_wiring_changed": false,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    },
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": null,
+      "changed_components": [
+        "scholarly_api_policy_hash"
+      ],
+      "changed_product_boundary": [
+        "scholarly_api_policy_hash"
+      ],
+      "component_classes_n": {
+        "data_version": 0,
+        "product_boundary": 0,
+        "scholarly_semantic": 0
+      },
+      "components_n": 39,
+      "data_version_changes": [],
+      "data_version_changes_n": 0,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.4d1-policy-registered.json",
+      "manifest_hash": "72d0010d010c98df58bb488f9772d5073114267e5a564aaff17839db41ad8bbe",
+      "parent_manifest": "history/scholarly_core_freeze_v1.4d0-final.json",
+      "parent_manifest_hash": "9a84ef35049ad0ed27e17635e0b4ce4393ea0108bc11572f40898c00228b83a0",
+      "phase": "4D.1",
+      "problems": [],
+      "product_runtime_changes": [
+        "scholarly_api_policy_hash"
+      ],
+      "product_runtime_changes_n": 1,
+      "remediation": null,
+      "runtime_wiring_changed": true,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    },
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": null,
+      "changed_components": [
+        "scholarly_api_core_hash"
+      ],
+      "changed_product_boundary": [
+        "scholarly_api_core_hash"
+      ],
+      "component_classes_n": {
+        "data_version": 0,
+        "product_boundary": 0,
+        "scholarly_semantic": 0
+      },
+      "components_n": 39,
+      "data_version_changes": [],
+      "data_version_changes_n": 0,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.4d1-final.json",
+      "manifest_hash": "8594398c481cd1e1b83a383bd717faa2e3d35c8a95a2cc0d0d7bda08f9a52a3b",
+      "parent_manifest": "history/scholarly_core_freeze_v1.4d1-policy-registered.json",
+      "parent_manifest_hash": "72d0010d010c98df58bb488f9772d5073114267e5a564aaff17839db41ad8bbe",
+      "phase": "4D.1",
+      "problems": [],
+      "product_runtime_changes": [
+        "scholarly_api_core_hash"
+      ],
+      "product_runtime_changes_n": 1,
+      "remediation": null,
+      "runtime_wiring_changed": true,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    },
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": null,
+      "changed_components": [
+        "scholarly_api_policy_hash"
+      ],
+      "changed_product_boundary": [
+        "scholarly_api_policy_hash"
+      ],
+      "component_classes_n": {
+        "data_version": 0,
+        "product_boundary": 0,
+        "scholarly_semantic": 0
+      },
+      "components_n": 39,
+      "data_version_changes": [],
+      "data_version_changes_n": 0,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.4d2-workspace-registered.json",
+      "manifest_hash": "496aa6a3d68a047ba1134ce0b85618c525bba79c8f10bbe81971f768b991e3f8",
+      "parent_manifest": "history/scholarly_core_freeze_v1.4d1-final.json",
+      "parent_manifest_hash": "8594398c481cd1e1b83a383bd717faa2e3d35c8a95a2cc0d0d7bda08f9a52a3b",
+      "phase": "4D.2",
+      "problems": [],
+      "product_runtime_changes": [
+        "scholarly_api_policy_hash"
+      ],
+      "product_runtime_changes_n": 1,
+      "remediation": null,
+      "runtime_wiring_changed": true,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    },
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": "CCR-0001",
+      "changed_components": [
+        "scholarly_api_core_hash"
+      ],
+      "changed_product_boundary": [
+        "scholarly_api_core_hash"
+      ],
+      "component_classes_n": {
+        "data_version": 0,
+        "product_boundary": 0,
+        "scholarly_semantic": 0
+      },
+      "components_n": 39,
+      "data_version_changes": [],
+      "data_version_changes_n": 0,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.4e-ccr0001-remediation.json",
+      "manifest_hash": "70debf19f579349e984a0f2b4028dae796cc57c8f52d2ecaa165592af5ec8148",
+      "parent_manifest": "history/scholarly_core_freeze_v1.4d2-workspace-registered.json",
+      "parent_manifest_hash": "496aa6a3d68a047ba1134ce0b85618c525bba79c8f10bbe81971f768b991e3f8",
+      "phase": "4E",
+      "problems": [],
+      "product_runtime_changes": [
+        "scholarly_api_core_hash"
+      ],
+      "product_runtime_changes_n": 1,
+      "remediation": null,
+      "runtime_wiring_changed": true,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    },
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": "PDR-0001",
+      "changed_components": [
+        "scholarly_api_core_hash",
+        "scholarly_api_objects_hash"
+      ],
+      "changed_product_boundary": [
+        "scholarly_api_core_hash",
+        "scholarly_api_objects_hash"
+      ],
+      "component_classes_n": {
+        "data_version": 0,
+        "product_boundary": 0,
+        "scholarly_semantic": 0
+      },
+      "components_n": 39,
+      "data_version_changes": [],
+      "data_version_changes_n": 0,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.5a-presentation-hardening.json",
+      "manifest_hash": "69545d797f1ce328ed8f70af1d1ff8193e7fde8961523e0387bd98b98d2dae62",
+      "parent_manifest": "history/scholarly_core_freeze_v1.4e-ccr0001-remediation.json",
+      "parent_manifest_hash": "70debf19f579349e984a0f2b4028dae796cc57c8f52d2ecaa165592af5ec8148",
+      "phase": "5A",
+      "problems": [],
+      "product_runtime_changes": [
+        "scholarly_api_core_hash",
+        "scholarly_api_objects_hash"
+      ],
+      "product_runtime_changes_n": 2,
+      "remediation": null,
+      "runtime_wiring_changed": true,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    },
+    {
+      "all_data_version_changes_declared_and_consistent": true,
+      "ccr": "PDR-0001",
+      "changed_components": [
+        "corpus_inventory_hash"
+      ],
+      "changed_product_boundary": [],
+      "component_classes_n": {
+        "data_version": 6,
+        "product_boundary": 3,
+        "scholarly_semantic": 30
+      },
+      "components_n": 39,
+      "data_version_changes": [
+        {
+          "after_hash": "b40342369ad3014eb0f4dd626b025bdb72aeaa1040952350335640ecfb5dc5c1",
+          "before_hash": "7b9da9736e630427ec92490456622f43b314bea05f492b78e3913bacd2932456",
+          "canonical_passage_store_changed": false,
+          "component": "corpus_inventory_hash",
+          "consistent": true,
+          "declared": true,
+          "dependent_artifacts": {
+            "corpus_inventory": "CHANGED",
+            "graph_cache": "UNCHANGED_BY_DESIGN",
+            "lexical_index": "UNCHANGED_BY_DESIGN",
+            "passage_store": "UNCHANGED_BY_DESIGN",
+            "vector_index": "UNCHANGED_BY_DESIGN"
+          },
+          "ingestion_status": "SOURCE_INVENTORY_ONLY",
+          "reason": "外部语料目录新增 1 个文件（source inventory 143 → 144）；**学术语义组件全部未变**。canonical passage store 的上游是 .lacan-build/atlas（segments.jsonl / french_staferla.jsonl / french.jsonl），与原始语料目录是两条链，因此本次变化**不改变可研究语料**。",
+          "source_diff": {
+            "added": 1,
+            "added_entries": [
+              {
+                "rel_path": "卡特尔小组会议文档/0926 卡特尔 下.docx",
+                "sha256": "903bc0da32fb61fb85557e8f2f781e4224ccba4f05dc6d8a6e9735aa1a83ea81",
+                "size": 61086
+              }
+            ],
+            "audit_artifact": "_data/phase5a/corpus_diff_audit.json",
+            "baseline_inventory_sha256": "7b9da9736e630427ec92490456622f43b314bea05f492b78e3913bacd2932456",
+            "baseline_source": "git HEAD:_data/corpus_inventory.json",
+            "bytes_after": 1286896687,
+            "bytes_before": 1286835601,
+            "files_after": 144,
+            "files_before": 143,
+            "live_inventory_sha256": "b40342369ad3014eb0f4dd626b025bdb72aeaa1040952350335640ecfb5dc5c1",
+            "modified": 0,
+            "removed": 0,
+            "unchanged": 143,
+            "verdict": "EXACTLY_ONE_ADDED_NO_OTHER_CHANGE"
+          },
+          "verified_at": "2026-09-26T19:31:50+00:00"
+        }
+      ],
+      "data_version_changes_n": 1,
+      "failure_codes": [],
+      "freeze_version": "scholarly_core_freeze_v1",
+      "historical_artifact": "present",
+      "manifest": "history/scholarly_core_freeze_v1.5a-p6-data-version-separation.json",
+      "manifest_hash": "e73153b760904830fb8851a17827554d721867df6d26d9930b50b62f111eddd5",
+      "parent_manifest": "history/scholarly_core_freeze_v1.5a-presentation-hardening.json",
+      "parent_manifest_hash": "69545d797f1ce328ed8f70af1d1ff8193e7fde8961523e0387bd98b98d2dae62",
+      "phase": "5A",
+      "problems": [],
+      "product_runtime_changes": [],
+      "product_runtime_changes_n": 0,
+      "remediation": "P5A-006",
+      "runtime_wiring_changed": false,
+      "scholarly_semantic_change_keys": [],
+      "scholarly_semantic_changes": 0,
+      "scholarly_status": "SCHOLARLY_CORE_READY",
+      "status": "PASS",
+      "unclassified_changes": []
+    }
+  ],
+  "semantic_changes_total": 0
+}

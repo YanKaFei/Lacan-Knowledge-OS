@@ -1,0 +1,92 @@
+{
+  "$id": "research-contract/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 2/15：研究契约（产品层只读）",
+  "properties": {
+    "answer_permission": {
+      "type": "string"
+    },
+    "evidence_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "execution_state": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "permission_reasons": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "research_contract_summary": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "source_layers": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "READY",
+        "NOT_READY"
+      ],
+      "type": "string"
+    },
+    "synthesis_template": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "task_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "warnings": {
+      "items": {
+        "type": [
+          "string",
+          "object"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "answer_permission"
+  ],
+  "title": "ResearchContract",
+  "type": "object"
+}

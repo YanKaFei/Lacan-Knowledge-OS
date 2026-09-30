@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "lacan-kb": {
+      "command": "python3",
+      "args": ["<REPO>/_scripts/_tools/lacan-kb-mcp"],
+      "cwd": "<REPO>"
+    }
+  }
+}

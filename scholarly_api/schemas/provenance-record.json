@@ -1,0 +1,91 @@
+{
+  "$id": "provenance-record/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 10/15：溯源记录（可回答『这句话来自哪里』）",
+  "properties": {
+    "chain": {
+      "items": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "corpus_source": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "document": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "edition": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "passage_id": {
+      "type": "string"
+    },
+    "passage_realization": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seminar": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "session": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_layer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "trace_missing": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "trace_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "witness": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "passage_id"
+  ],
+  "title": "ProvenanceRecord",
+  "type": "object"
+}

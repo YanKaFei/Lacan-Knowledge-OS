@@ -1,0 +1,69 @@
+{
+  "$id": "seminar-record/v1",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Phase 4D.0 稳定对象 15/15：研讨班记录",
+  "properties": {
+    "concepts": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "passage_count": {
+      "type": "integer"
+    },
+    "seminar_id": {
+      "type": "string"
+    },
+    "sessions": {
+      "items": {
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "source_layers": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "title": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "year_from": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ]
+    },
+    "year_to": {
+      "type": [
+        "string",
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "seminar_id"
+  ],
+  "title": "SeminarRecord",
+  "type": "object"
+}
