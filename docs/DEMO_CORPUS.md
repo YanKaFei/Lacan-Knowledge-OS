@@ -119,7 +119,9 @@ demo build, packs it, installs it into a *clean* clone, checks `ensure_corpus` /
 / `freeze_lineage` / the ontology validator / the index manifest, runs the example question
 through the MCP tool and asserts `VALIDATED*` with real citations — and asserts the honesty
 boundaries (no reference acceptance files in the pack, profile `unreviewed-corpus`, status
-`CORPUS_HUMAN_REVIEW_NOT_AVAILABLE`). Report: `_data/daily_use/demo_corpus_acceptance.json`.
+`CORPUS_HUMAN_REVIEW_NOT_AVAILABLE`). It writes its report to
+`_data/daily_use/demo_corpus_acceptance.json` (a generated evidence file — it is not shipped in
+this repository, the script produces it on your machine), and exits non-zero on any failed step.
 
 ## 7. Why this is the honest answer to "download and it's useless"
 
