@@ -53,6 +53,8 @@ FREEZE_DIR = os.path.join(VAULT, "_data", "core_freeze")
 LIVE = os.path.join(FREEZE_DIR, "scholarly_core_freeze_v1.json")
 HISTORY_DIR = os.path.join(FREEZE_DIR, "history")
 LINEAGE = os.path.join(FREEZE_DIR, "freeze_lineage.json")
+# 非参考语料可追加自己的谱系段（可选文件；没有它时行为与历史完全一致）
+EXTRA_SEGMENTS = os.path.join(FREEZE_DIR, "segments.json")
 
 # 产品边界组件（仓库既有名称：产品边界 / product boundary）。
 # 兼容旧字段 `changed_product_boundary` / `runtime_wiring_changed`。
@@ -190,13 +192,24 @@ def classify_segment(prev, man):
     """纯函数：`prev` → `man` 的三类变化分类与判定（**不做任何文件 I/O**）。
 
     §14 的单元测试直接喂合成 manifest 到这里。
+
+    P5D-006（demo 语料）：增加**声明缺席**这一条 —— 当新 manifest 的
+    `corpus_profile == unreviewed-corpus` 且某个人工验收组件写进了
+    `absent_components`（core_freeze 已逐条核验过：只能人工验收类、且必须真的缺席），
+    它就不是「学术语义漂移」，而是「这份语料没有人工验收证据」这一**已声明事实**。
+    参考语料（reference 档案）行为不变：语义组件变化仍然是 SEMANTIC_DRIFT 硬失败。
     """
     changed = _diff(prev, man) if prev else []
-    semantic, data_keys, runtime, unclassified = [], [], [], []
+    profile = man.get("corpus_profile") or CF.PROFILE_REFERENCE
+    absent_live = set(man.get("absent_components") or [])
+    semantic, data_keys, runtime, unclassified, absent_declared = [], [], [], [], []
     for k in changed:
         cls = _class_of(k, man, prev or {})
         if cls is None:
             unclassified.append(k)
+        elif (cls == CF.CLASS_SCHOLARLY and profile == CF.PROFILE_UNREVIEWED
+                and k in absent_live and k in CF.HUMAN_ACCEPTANCE_KEYS):
+            absent_declared.append(k)
         elif cls == CF.CLASS_SCHOLARLY:
             semantic.append(k)
         elif cls == CF.CLASS_DATA:
@@ -257,6 +270,9 @@ def classify_segment(prev, man):
         # ── 三类变化（§2）
         "scholarly_semantic_changes": len(semantic),
         "scholarly_semantic_change_keys": semantic,
+        "corpus_profile": profile,
+        "absent_by_declaration": sorted(absent_declared),
+        "absent_by_declaration_n": len(absent_declared),
         "data_version_changes": data_changes,
         "data_version_changes_n": len(data_changes),
         "product_runtime_changes": runtime,
@@ -298,12 +314,35 @@ def _parent_hash(entries):
     return None
 
 
+def extra_segments():
+    """额外的谱系段（可选，供**非参考语料**追加自己的基线段）。
+
+    文件：`_data/core_freeze/segments.json` → `[{"phase": "...", "manifest": "history/..."}]`
+    参考 vault 没有这个文件 → 段清单与历史行为**完全一致**。
+    为什么需要：参考谱系写死了 4D/5A 各段（真实字节快照）。demo / 自建语料要与它对齐
+    只能**追加**自己的段，而不是改参考历史。
+    """
+    if not os.path.isfile(EXTRA_SEGMENTS):
+        return []
+    try:
+        doc = _load(EXTRA_SEGMENTS)
+    except Exception:                                                      # noqa: BLE001
+        return []
+    rows = doc.get("segments") if isinstance(doc, dict) else doc
+    out = []
+    for r in rows or []:
+        if isinstance(r, dict) and r.get("manifest"):
+            out.append((str(r.get("phase") or "extra"), str(r["manifest"])))
+    return out
+
+
 def build():
     os.makedirs(HISTORY_DIR, exist_ok=True)
     entries = []
     prev = None
-    rels = [r for _, r in SEGMENTS]
-    for phase, rel in SEGMENTS:
+    all_segments = list(SEGMENTS) + extra_segments()
+    rels = [r for _, r in all_segments]
+    for phase, rel in all_segments:
         p = os.path.join(FREEZE_DIR, rel)
         if not os.path.isfile(p):
             entries.append({

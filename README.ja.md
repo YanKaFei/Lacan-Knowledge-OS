@@ -34,7 +34,7 @@
 > |---|---|
 > | **エンジンのソースコード**（本リポジトリ）| Apache-2.0 —— 利用・改変・再配布・商用製品への組み込みが可能 |
 > | **参照コーパス**（[対応リポジトリ](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus)）| **第三者が著作権を持つテキスト。** 公開で読めますが、**研究・学習目的に限り**利用可。「公開されている」ことは許諾ではありません —— 商用利用・再配布・第三者への提供はいずれも許諾されていません。 |
-> | **パブリックドメインのデモコーパス**（[`demo-corpus/`](demo-corpus)）| パブリックドメイン（Falret 1890 · Binet 1892 · Janet 1909）—— 自由に再配布可能 |
+> | **パブリックドメインのデモコーパス**（[`corpus-demo-v1`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/tag/corpus-demo-v1) · [`demo-corpus/`](demo-corpus)）| パブリックドメイン（Falret 1890 · Binet 1892 · Janet 1909）—— 自由に再配布可能 |
 >
 > **率直に言えば。** コーパスには、ラカンのセミネールの**フランス語作業転写**、**スイユ版印刷本**（S1–S5）からのテキスト抽出、
 > そして**コミュニティによる中国語翻訳プロジェクト**が含まれます。これらの権利は**本プロジェクトには一切ありません**。
@@ -108,7 +108,7 @@ python3 -m workspace_ui.server.cli --port 3090
 | 道 | 得られるもの | 方法 |
 |---|---|---|
 | **A. 参照コーパス**（公開ダウンロード・研究利用のみ）| ラカン・セミネールの全文コーパス：1,979 ファイル · 249,105 段落 · 索引は導入後すぐ動く | 対応リポジトリ [`YanKaFei/Lacan-Knowledge-OS-corpus`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus) → `python3 tools/ensure_corpus.py --install --pack corpus-pack-v1.tar.gz --manifest corpus-pack-v1.manifest.json` |
-| **B. パブリックドメインのデモ** | 19 世紀フランス臨床文献（Falret · Binet · Janet）—— 再配布可能 | `python3 tools/build_demo_corpus.py . && python3 _scripts/_tools/build_lexical_index.py` |
+| **B. パブリックドメインのデモ** | 19 世紀フランス臨床文献（Falret · Binet · Janet）—— 再配布可能 | `python3 tools/build_demo_corpus.py .` |
 | **C. 自分のテキスト** | あなたが使用権を持つ任意のテキストをエンジン付属のビルダーで取り込む | [`CORPUS.md`](CORPUS.md) · `python3 _scripts/inventory_corpus.py --help` |
 
 **道 A の詳細。** 対応リポジトリが提供するのは**コーパスパック**です。ハッシュ・マニフェスト付きの

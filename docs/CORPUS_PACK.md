@@ -62,7 +62,7 @@ that ships only `02_Lacan_Seminars/` + `passage_store/` fails on a clean machine
 | Missing piece | Symptom on a fresh install |
 |---|---|
 | data-version inputs (`_data/corpus_inventory.json`, `_data/index/INDEX_MANIFEST.json`, `_data/index/vector/VECTOR_INDEX_MANIFEST.json`) | `core_freeze.py --verify` reports data-version drift → the launcher refuses to start |
-| scholarly review artifacts (`_data/eval/research_human_review*.jsonl`, `human_adjudication_queue.jsonl`, `scholarly_readiness_gate_v1.json`, `round2_*.json`, `gold_v2/**`, `phase4c1d2_frozen_identity.json`) | `SEMANTIC_DRIFT` → the launcher refuses to start |
+| scholarly review artifacts (`_data/eval/research_human_review*.jsonl`, `human_adjudication_queue.jsonl`, `scholarly_readiness_gate_v1.json`, `round2_*.json`, `gold_v2/**`, `phase4c1d2_frozen_identity.json`) | on a **non-reference** corpus: `--verify` reports unresolved components → the launcher refuses to start. Declare the corpus profile instead (`core_freeze.py --build --profile unreviewed-corpus`) — see §4 |
 | small retrieval inputs (`_data/index/alias_index.jsonl`, evaluation pools, reference vectors, …) | `CORE_EXECUTION_FAILED: No such file or directory: …/alias_index.jsonl` on the first research run |
 
 `tools/pack-corpus.py` therefore **derives its file list from the engine's own code**: it scans
@@ -108,14 +108,38 @@ curl -s localhost:3090/api/status | grep -o '"core": "[A-Z]*"'  # READY
 
 ## 4. Making the public repo demo-able without the corpus
 
-Three lawful options, in increasing effort:
+Four lawful options, in increasing effort:
 
 | Option | What a downloader gets |
 |---|---|
 | **Interface only** (default) | the full UI, the 13-page Help Centre, every contract and gate — research runs report the corpus layer as unavailable: `/help`, `/research`, `/api/help/content`, `/api/status` all answer 200 with no corpus at all |
-| **Their own text** | `_scripts/inventory_corpus.py` + `_scripts/build.py` ingest a folder of their own documents into a passage store; then research runs work end to end ([CORPUS.md](../CORPUS.md)) |
-| **A publicly licensed sample** | if you hold rights to any text (your own writing, your own translation of public-domain material, a CC-licensed corpus), pack just that and ship it publicly as a demo pack |
+| **The demo corpus pack** (`--kind demo`, shipped as `corpus-demo-v1`) | a complete research run on public-domain clinical texts: retrieval → evidence → claims → citations → inspector, plus a 15-entity ontology layer. ~0.3 MB, **redistributable** |
+| **Their own text** | `_scripts/inventory_corpus.py` + `_scripts/build.py` ingest a folder of their own documents into a passage store ([CORPUS.md](../CORPUS.md)) |
+| **A publicly licensed sample of your own** | if you hold rights to some text, pack just that and ship it publicly |
 
-The third option is the honest way to answer "I downloaded it and there was nothing to research":
-a small, clearly-labelled demo corpus that exercises retrieval → evidence contract → answer →
-citation, with no third-party text in it.
+The demo is the honest way to answer "I downloaded it and there was nothing to research": a
+small, clearly-labelled, **public-domain** corpus that exercises the whole chain, with no
+third-party text in it.
+
+### Corpus profiles (why a demo pack cannot say `SCHOLARLY_CORE_READY`)
+
+`core_freeze.py` pins 39 components, and **nine of them are the reference corpus's human
+acceptance artifacts** (review rounds, adjudication queue, readiness gate, error taxonomy,
+review schema, `gold_v2`, frozen identity). No other corpus can have them. Two profiles exist:
+
+| Profile | Built with | `scholarly_status` | Meaning |
+|---|---|---|---|
+| `reference` | `core_freeze.py --build` | `SCHOLARLY_CORE_READY` | all 39 components present and matching — **human acceptance exists** |
+| `unreviewed-corpus` | `core_freeze.py --build --profile unreviewed-corpus` | `CORPUS_HUMAN_REVIEW_NOT_AVAILABLE` | the nine artifacts are listed in `absent_components`; everything else (all 30 semantic code units, all data-version components) must still match. Research runs, **without human-review endorsement** |
+
+`--verify` refuses any *undeclared* absence, any absent component outside the human-acceptance
+group, and any "declared absent but present" (i.e. quietly swapping in other acceptance
+evidence). `freeze_lineage.py` records such absences as `absent_by_declaration` so they are not
+counted as `scholarly_semantic_changes`; the reference corpus is unchanged — a semantic change
+there is still `SEMANTIC_DRIFT`, hard fail.
+
+> The frozen core's **source-attribution wording** (the speaker named in synthesized claim text)
+> was written for the reference corpus and does **not** apply to another corpus. That is why the
+> demo documents its scope as retrieval / evidence / citation / inspector / ontology resolution,
+> and why fixing it properly is a Core Change Request (a hash-pinned semantic component), not a
+> documentation edit.

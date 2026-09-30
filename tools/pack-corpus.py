@@ -30,6 +30,11 @@
     python3 tools/pack-corpus.py --out /tmp/corpus-pack                 # 生成
     python3 tools/pack-corpus.py --out /tmp/corpus-pack --with-vector   # 含向量
     python3 tools/pack-corpus.py --out /tmp/corpus-pack --split 1800    # 分卷（MB）
+
+demo 语料（公有领域，可公开分发）：
+    python3 tools/pack-corpus.py --kind demo --out /tmp/corpus-demo
+    # → corpus-demo-v1.tar.gz + corpus-demo-v1.manifest.json（pack_kind=demo，
+    #    corpus_profile=unreviewed-corpus，**不含**参考语料的人工验收工件）
 """
 from __future__ import annotations
 
@@ -74,6 +79,36 @@ DEFAULT_PATHS = [
 ]
 # 向量索引本体（.npy，+365 MB）。清单始终随包走（冻结校验需要），本体可选：
 #   --with-vector → 语义检索也能即装即用；不给则退回词法检索（界面会显示 dense 不可用）
+# ── demo 语料（公有领域临床文本）的路径清单：**不含**参考语料的人工验收工件
+#    （demo 的冻结档案会把那 9 个组件声明为缺席，见 core_freeze.py 的 corpus profile）
+DEMO_PATHS = [
+    "_data/passage_store",
+    "_data/index",
+    "_data/ontology",
+    "_data/corpus_inventory.json",
+    "_data/terminology_bridge.jsonl",
+    # 冻结与谱系：demo 自己的档案（unreviewed-corpus）+ 参考谱系历史
+    "_data/core_freeze/scholarly_core_freeze_v1.json",
+    "_data/core_freeze/data_version_declarations.json",
+    "_data/core_freeze/freeze_lineage.json",
+    "_data/core_freeze/segments.json",
+    "_data/core_freeze/history",
+    # 引擎随包分发的 eval 契约文件（不是人工验收记录；参考包里那 9 个是另外的文件）
+    "_data/eval/evaluation_run_manifest.schema.json",
+    "_data/eval/round2_review_schema.json",
+    "_data/eval/round2_taxonomy_v1.json",
+]
+
+DEMO_RIGHTS_NOTICE = (
+    "This pack contains **public-domain** texts only (Jules Falret 1890, Alfred Binet 1892, "
+    "Pierre Janet 1909 — transcribed from fr.wikisource with their real imprint data). "
+    "It is redistributable. It comes with a corpus profile of `unreviewed-corpus`: no human "
+    "acceptance evidence exists for this corpus, so the freeze status is "
+    "CORPUS_HUMAN_REVIEW_NOT_AVAILABLE and answers carry no human-review endorsement. The frozen "
+    "core's source-attribution wording was written for the reference corpus and is NOT applicable "
+    "here: the demo promises the retrieval / evidence / citation / inspector / ontology chain."
+)
+
 VECTOR_PATHS = ["_data/index/vector"]
 # 明确**不**进包：私有工作区、缓存、模型权重
 EXCLUDE_DIR = {"__pycache__", ".git", "_workspace", "wheelhouse", ".venv-embedding"}
@@ -155,18 +190,34 @@ def main(argv=None):
     ap.add_argument("--vault", default=None, help="repository root (default: parent of tools/)")
     ap.add_argument("--out", required=True, help="output directory")
     ap.add_argument("--with-vector", action="store_true", help="also include the vector index (+365 MB)")
-    ap.add_argument("--name", default="corpus-pack-v1")
+    ap.add_argument("--name", default=None,
+                    help="archive name (default: corpus-pack-v1 / corpus-demo-v1 by kind)")
+    ap.add_argument("--kind", default="reference", choices=["reference", "demo"],
+                    help="reference = the Lacan corpus pack (default); demo = the "
+                         "public-domain demo corpus pack")
     ap.add_argument("--split", type=int, default=0,
                     help="split into volumes of N megabytes (0 = single file)")
     a = ap.parse_args(argv)
 
     vault = a.vault or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    paths = list(DEFAULT_PATHS) + (VECTOR_PATHS if a.with_vector else [])
+    if a.kind == "demo" and a.with_vector:
+        ap.error("--with-vector 只适用于参考语料包；demo 语料没有向量索引")
+    if a.kind == "demo":
+        paths = list(DEMO_PATHS)
+        name = a.name or "corpus-demo-v1"
+        with_vector = False
+    else:
+        paths = list(DEFAULT_PATHS) + (VECTOR_PATHS if a.with_vector else [])
+        name = a.name or "corpus-pack-v1"
+        with_vector = bool(a.with_vector)
     files = collect(vault, paths)
     # 再把代码引用到、但不在上面清单里的数据文件补进来（缺一个就少一个功能）
     have = {rel for rel, _p, _s in files}
     extra = {rel: fp for rel, fp in referenced_data_files(vault).items()
              if rel not in have and not rel.startswith(tuple(p + "/" for p in VECTOR_PATHS))}
+    if a.kind == "demo":
+        # demo 包只收自己那份清单里的文件：参考语料的人工验收工件绝不能混进来
+        extra = {}
     files += [(rel, fp, os.path.getsize(fp)) for rel, fp in extra.items()]
     files.sort(key=lambda t: t[0])
     if extra:
@@ -177,7 +228,7 @@ def main(argv=None):
         return 2
 
     os.makedirs(a.out, exist_ok=True)
-    archive = os.path.join(a.out, a.name + ".tar.gz")
+    archive = os.path.join(a.out, name + ".tar.gz")
     total = sum(sz for _r, _p, sz in files)
     print("packing %d files (%.1f MB uncompressed) → %s" % (len(files), total / 1048576, archive))
 
@@ -198,7 +249,7 @@ def main(argv=None):
                 chunk = fh.read(limit)
                 if not chunk:
                     break
-                part = "%s.tar.gz.part%02d" % (os.path.join(a.out, a.name), i)
+                part = "%s.tar.gz.part%02d" % (os.path.join(a.out, name), i)
                 with open(part, "wb") as out:
                     out.write(chunk)
                 volumes.append({"path": os.path.basename(part), "bytes": len(chunk),
@@ -218,16 +269,18 @@ def main(argv=None):
             "seminars": sum(1 for r, _p, _s in files if r.startswith("02_Lacan_Seminars/")),
             "passages": sum(1 for r, _p, _s in files if r.startswith("_data/passage_store/")),
         },
-        "includes_vector": bool(a.with_vector),
-        "rights_notice": (
+        "pack_kind": a.kind,
+        "includes_vector": with_vector,
+        "corpus_profile": ("unreviewed-corpus" if a.kind == "demo" else "reference"),
+        "rights_notice": (DEMO_RIGHTS_NOTICE if a.kind == "demo" else (
             "This pack contains third-party copyrighted texts (Lacan seminar transcriptions, "
             "a print-edition extraction, and a community translation). It is NOT for public "
             "redistribution. Whoever receives it must have the right to use those texts. "
             "See NOTICE and CORPUS.md in the engine repository."
-        ),
+        )),
         "files": [{"path": r, "bytes": s, "sha256": sha256(p)} for r, p, s in files],
     }
-    mpath = os.path.join(a.out, a.name + ".manifest.json")
+    mpath = os.path.join(a.out, name + ".manifest.json")
     with io.open(mpath, "w", encoding="utf-8") as fh:
         json.dump(manifest, fh, ensure_ascii=False, indent=1, sort_keys=True)
     print("manifest → %s (%d entries)" % (mpath, len(manifest["files"])))

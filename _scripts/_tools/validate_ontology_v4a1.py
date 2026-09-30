@@ -207,8 +207,12 @@ def validate():
     if want_ch != man.get("content_hash"):
         man_ok, detail["content_hash"] = False, "content_hash 不符"
     ck("MANIFEST：逐文件 hash 与 content_hash 可复算", man_ok, detail)
+    # Gold 计数**由 spec 声明**（参考语料 53）——校验的是「本层没有改动 Gold」，
+    # 不是「世界上只能有 53 条概念」：自建 / demo 语料用同一个校验器。
+    gold_declared = (spec.get("base_layer") or {}).get("gold_concept_count")
     ck("Gold Concept Set 未被本层修改（声明 + 计数）",
-       man.get("gold_concepts_untouched") is True and len(gold) == 53, len(gold))
+       man.get("gold_concepts_untouched") is True and len(gold) == gold_declared,
+       {"on_disk": len(gold), "declared_in_spec": gold_declared})
 
     # 10. 确定性（无墙钟）
     wall = []

@@ -393,6 +393,11 @@ def status_view(status):
         "kind": "status",
         "mcp_connected": mcp_ok,
         "core_freeze_verified": freeze_ok,
+        # 语料档案（P5D-006）：reference = 参考语料；unreviewed-corpus = 无人工验收证据。
+        # 两者都算「核心未漂移」，但**人工背书的有无**是不同的事实，必须分开显示。
+        "core_freeze_profile": status.get("core_freeze_profile") or "reference",
+        "core_human_review": status.get("core_human_review") or "AVAILABLE",
+        "core_freeze_note": status.get("core_freeze_note"),
         "server": status.get("server"),
         "core_freeze": status.get("core_freeze"),
         "checked_at": status.get("checked_at"),

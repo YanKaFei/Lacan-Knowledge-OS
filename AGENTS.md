@@ -18,10 +18,35 @@ python3 tools/ensure_corpus.py --json        # structured status for you to read
 | `3` | **Corpus missing or incomplete** | **tell the user**, in their language, and offer the two paths below — do not proceed as if research works |
 | `4` | Pack present but hash verification failed | stop; report the mismatch; do not hand-edit files to make it pass |
 
+`--json` also reports `corpus_profile`: `reference` (the Lacan corpus, all 39 frozen components
+present incl. the human-acceptance artifacts) or `unreviewed-corpus` (e.g. the demo: no human
+acceptance evidence exists, so those artifacts are declared absent and the status is
+`CORPUS_HUMAN_REVIEW_NOT_AVAILABLE`). Both mean "the core has not drifted"; only the first
+carries human review. Never describe the second as reviewed.
+
 ### If the corpus is missing
 
 This repository ships **no source text** (the seminar corpus is third-party copyrighted and is
-deliberately excluded — see `CORPUS.md`). Two legitimate ways to get one:
+deliberately excluded — see `CORPUS.md`). Three legitimate ways to get one:
+
+**A0. Install the demo corpus pack** (public domain, redistributable, ~0.3 MB — the fastest way
+to see the whole pipeline work)
+
+```sh
+curl -sLO https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/download/corpus-demo-v1/corpus-demo-v1.tar.gz
+curl -sLO https://raw.githubusercontent.com/YanKaFei/Lacan-Knowledge-OS-corpus/main/corpus-demo-v1.manifest.json
+python3 tools/fetch-corpus.py --pack corpus-demo-v1.tar.gz --manifest corpus-demo-v1.manifest.json --into . --force
+python3 tools/ensure_corpus.py --status        # ready, corpus_profile=unreviewed-corpus
+python3 -m workspace_ui.server.cli --port 3090 # → ask: Comment la suggestion agit-elle dans l'hystérie ?
+```
+
+`--force` is needed because a fresh clone carries the engine's **reference** metadata
+(`_data/index/INDEX_MANIFEST.json`, `_data/passage_store/_build_meta.json`, `_concept_meta.json`,
+the shipped freeze files); the installer refuses to mix two corpora. The demo has **no human
+acceptance evidence**: status is `CORPUS_HUMAN_REVIEW_NOT_AVAILABLE` (never `SCHOLARLY_CORE_READY`),
+answers carry no human-review endorsement, and the frozen core's source-attribution wording
+(it names Lacan) does **not** apply — so use the demo for the retrieval / evidence / citation /
+inspector / ontology chain, not for quotable claims. Details: [`docs/DEMO_CORPUS.md`](docs/DEMO_CORPUS.md).
 
 **A. Install the reference corpus pack** (public repository, research use only)
 `https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus`

@@ -34,7 +34,7 @@ D'abord la preuve. Ensuite l'interprétation. Jamais la fabrication.
 > |---|---|
 > | **Code du moteur** (ce dépôt) | Apache-2.0 — usage, modification, redistribution, intégration dans un produit commercial |
 > | **Corpus de référence** ([dépôt compagnon](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus)) | **textes protégés par des tiers.** Accessible publiquement, **à des fins de recherche et d'étude uniquement** ; la visibilité publique n'est pas une licence — **aucune** licence commerciale, de redistribution ou de mise à disposition. |
-> | **Corpus de démonstration** ([`demo-corpus/`](demo-corpus)) | domaine public (Falret 1890 · Binet 1892 · Janet 1909) — librement redistribuable |
+> | **Corpus de démonstration** ([`corpus-demo-v1`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/tag/corpus-demo-v1) · [`demo-corpus/`](demo-corpus)) | domaine public (Falret 1890 · Binet 1892 · Janet 1909) — librement redistribuable |
 >
 > **Dit simplement.** Le corpus contient des **transcriptions de travail** des séminaires de Lacan,
 > une **extraction de l'édition imprimée au Seuil** (S1–S5), et un **projet communautaire de traduction
@@ -111,7 +111,7 @@ python3 -m workspace_ui.server.cli --port 3090
 | Voie | Ce que vous obtenez | Comment |
 |---|---|---|
 | **A. Corpus de référence** (téléchargement public, usage savant) | le corpus complet des séminaires : 1 979 fichiers · 249 105 passages · index prêts à l'emploi | dépôt compagnon [`YanKaFei/Lacan-Knowledge-OS-corpus`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus) → `python3 tools/ensure_corpus.py --install --pack corpus-pack-v1.tar.gz --manifest corpus-pack-v1.manifest.json` |
-| **B. Démonstration domaine public** | sources cliniques françaises du XIXᵉ siècle (Falret · Binet · Janet) — redistribuables | `python3 tools/build_demo_corpus.py . && python3 _scripts/_tools/build_lexical_index.py` |
+| **B. Démonstration domaine public** | sources cliniques françaises du XIXᵉ siècle (Falret · Binet · Janet) — redistribuables | `python3 tools/build_demo_corpus.py .` |
 | **C. Vos propres textes** | tout texte que vous avez le droit d'utiliser, ingéré par les outils du moteur | [`CORPUS.md`](CORPUS.md) · `python3 _scripts/inventory_corpus.py --help` |
 
 **Voie A en détail.** Le dépôt compagnon fournit un **pack de corpus** : une archive à manifeste de

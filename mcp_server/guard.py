@@ -16,24 +16,36 @@ from . import config as C
 from .errors import McpError
 
 
-def core_freeze_version():
+def _manifest():
+    """→ 冻结 manifest（读不到就 None；不猜、不造默认值）。"""
     if not os.path.isfile(C.FREEZE_MANIFEST):
         return None
     try:
         with open(C.FREEZE_MANIFEST, encoding="utf-8") as f:
-            return json.load(f).get("freeze_version")
+            return json.load(f)
     except Exception:  # noqa: BLE001
         return None
+
+
+def core_freeze_version():
+    man = _manifest()
+    return (man or {}).get("freeze_version")
 
 
 def core_status():
-    if not os.path.isfile(C.FREEZE_MANIFEST):
-        return None
-    try:
-        with open(C.FREEZE_MANIFEST, encoding="utf-8") as f:
-            return json.load(f).get("scholarly_status")
-    except Exception:  # noqa: BLE001
-        return None
+    return (_manifest() or {}).get("scholarly_status")
+
+
+def core_profile():
+    """语料档案：reference / unreviewed-corpus（P5D-006）。
+
+    必须一路传到产品层：状态栏要能说清「核心未漂移」与「这份语料有没有人工验收证据」
+    是两件事 —— 只报 READY 会把后者藏起来。
+    """
+    man = _manifest() or {}
+    return {"corpus_profile": man.get("corpus_profile") or "reference",
+            "absent_components_n": len(man.get("absent_components") or []),
+            "profile_note": man.get("profile_note")}
 
 
 def verify_core_freeze(timeout_s=180):
@@ -50,8 +62,10 @@ def verify_core_freeze(timeout_s=180):
         return False, {"reason": "FREEZE_DRIFT",
                        "stdout": (r.stdout or "").strip()[-600:],
                        "stderr": (r.stderr or "").strip()[-300:]}
-    return True, {"freeze_version": core_freeze_version(),
-                  "scholarly_status": core_status()}
+    detail = {"freeze_version": core_freeze_version(),
+              "scholarly_status": core_status()}
+    detail.update(core_profile())
+    return True, detail
 
 
 def assert_core_frozen(state=None):

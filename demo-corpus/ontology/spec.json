@@ -1,0 +1,946 @@
+{
+ "alias_matching": {
+  "alias_exclude_forms": "demo 层未使用（没有 objet / objet a 这类包含关系）。",
+  "min_lengths": {
+   "cjk": 2,
+   "latin": 3
+  },
+  "multiword_policy": "最长匹配优先（与参考层一致）。",
+  "policy": "exact-first：先用保留大小写与变音的规范化形式精确匹配；命中则只用精确命中。精确不中才退到折叠匹配（与参考层同一套实现，见 ontology_v4a1.py）。",
+  "why": "法文变音在这批文本里区分词形（aliéné / aliene），但 demo 层的实体词面本身不含「同形不同义」的陷阱；唯一需要整词匹配的是 conscience（避免吃进 inconscient），它用 match=case_sensitive_word 在规则层解决。"
+ },
+ "base_layer": {
+  "gold_concept_count": 0,
+  "gold_concept_file": "_data/passage_store/concepts.jsonl",
+  "policy": "demo 语料**没有** Gold Concept Set（参考语料的 53 条是它自己的学科成果，不随引擎分发）。本层因此是 demo 唯一的实体来源：实体全部落在这里，由 build_ontology_v4a1.py 从 demo 段落现算证据。"
+ },
+ "context_rules": {},
+ "derived_from": {
+  "gap_issue_ids": [],
+  "source": "demo-corpus（Falret 1890 / Binet 1892 / Janet 1909，公有领域，fr.wikisource 转录）",
+  "why": "参考语料的本体层（spec.json）是对拉康术语的修复层；demo 语料是另一批文本，因此需要**自己的**叠加层。这里只声明 demo 语料里真实出现的临床词，以及它们与英/中形式的受控映射；不搬用参考层的任何理论断言。"
+ },
+ "entities": [
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "hystérie",
+    "hystériques",
+    "hystérique",
+    "hysteria",
+    "癔症"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "hysteria",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "hysteria",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "hystérie",
+      "hystériques",
+      "hystérique"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "hysterie.core.fr",
+     "scope": "global",
+     "tier": "core"
+    },
+    {
+     "assertion_type": "context_scoped_term_occurrence",
+     "caveat": "只证明该形式出现在 seminar.S01（Falret 1890）的段落里；不主张该段落理论上就在讨论「癔症」这一概念。",
+     "forms": [
+      "hystérie",
+      "hystérique"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "hysterie.in.s01",
+     "scope": "global",
+     "scope_seminar": "seminar.S01",
+     "tier": "context_scoped"
+    }
+   ],
+   "fr": "hystérie",
+   "id": "concept.hysterie",
+   "language": "mul",
+   "rationale": "demo 语料（Falret 1890 / Binet 1892 / Janet 1909）里的核心临床词；语料只提供这些文本**实际怎么说**，本层不写理论定义（definition=null）。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描 demo 语料 183 段：hystérie / hystériques / hystérique 命中 53 段；",
+    "进入证据层按 seminar 分层抽样（每期 ≤3 段）。"
+   ],
+   "status": "active",
+   "title": "hystérie（hysteria）：癔症",
+   "type": "concept",
+   "zh": "癔症"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "névrose",
+    "névroses",
+    "névropathe",
+    "névropathes",
+    "neurosis",
+    "神经症"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "neurosis",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "neurosis",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "névrose",
+      "névroses",
+      "névropathe",
+      "névropathes"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "nevrose.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "névrose",
+   "id": "concept.nevrose",
+   "language": "mul",
+   "rationale": "Janet《Les Névroses》的书名词；demo 语料里同时出现名词与 névropathe 形态。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：névrose 系命中 20 段。"
+   ],
+   "status": "active",
+   "title": "névrose（neurosis）：神经症",
+   "type": "concept",
+   "zh": "神经症"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "folie",
+    "folies",
+    "aliéné",
+    "aliénés",
+    "aliénation",
+    "insanity",
+    "精神错乱"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "insanity",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [
+    "concept.nevrose"
+   ],
+   "en": "insanity",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "folie",
+      "folies",
+      "aliéné",
+      "aliénés",
+      "aliénation"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "folie.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "folie",
+   "id": "concept.folie",
+   "language": "mul",
+   "rationale": "19 世纪法国临床语汇：folie / aliéné / aliénation 同属「精神错乱」这一族词面；本层把它们放在同一实体下，**只声明词面同族**。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：folie / aliéné / aliénation 系命中 72 段（demo 语料最高频主题）。"
+   ],
+   "status": "active",
+   "title": "folie（insanity）：精神错乱",
+   "type": "concept",
+   "zh": "精神错乱"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "délire",
+    "délires",
+    "délirant",
+    "délirante",
+    "delusion",
+    "妄想"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "delusion",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "delusion",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "délire",
+      "délires",
+      "délirant",
+      "délirante"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "delire.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "délire",
+   "id": "concept.delire",
+   "language": "mul",
+   "rationale": "临床描述词；语料里与 hallucination / folie 并置出现。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：délire 系命中 28 段。"
+   ],
+   "status": "active",
+   "title": "délire（delusion）：妄想",
+   "type": "concept",
+   "zh": "妄想"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "émotion",
+    "émotions",
+    "emotion",
+    "情绪"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "emotion",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "emotion",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "émotion",
+      "émotions"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "emotion.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "émotion",
+   "id": "concept.emotion",
+   "language": "mul",
+   "rationale": "Janet 的「心理能量」讨论里反复出现的词。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：émotion 系命中 25 段。"
+   ],
+   "status": "active",
+   "title": "émotion（emotion）：情绪",
+   "type": "concept",
+   "zh": "情绪"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "suggestion",
+    "suggestions",
+    "suggérer",
+    "暗示"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "suggestion",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "suggestion",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "suggestion",
+      "suggestions",
+      "suggérer"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "suggestion.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "suggestion",
+   "id": "concept.suggestion",
+   "language": "mul",
+   "rationale": "Binet / Janet 关于催眠与暗示的实验心理学核心词。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：suggestion 系命中 24 段。"
+   ],
+   "status": "active",
+   "title": "suggestion（suggestion）：暗示",
+   "type": "concept",
+   "zh": "暗示"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "stigmate",
+    "stigmates",
+    "stigma",
+    "标记"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "stigma",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "stigma",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "stigmate",
+      "stigmates"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "stigmate.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "stigmate",
+   "id": "concept.stigmate",
+   "language": "mul",
+   "rationale": "癔症临床描述中的「体征/标记」用语。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：stigmate 系命中 18 段。"
+   ],
+   "status": "active",
+   "title": "stigmate（stigma）：标记",
+   "type": "concept",
+   "zh": "标记"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "personnalité",
+    "personnalités",
+    "personality",
+    "人格"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "personality",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "personality",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "personnalité",
+      "personnalités"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "personnalite.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "personnalité",
+   "id": "concept.personnalite",
+   "language": "mul",
+   "rationale": "Binet《Les Altérations de la personnalité》的书名词。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：personnalité 系命中 13 段。"
+   ],
+   "status": "active",
+   "title": "personnalité（personality）：人格",
+   "type": "concept",
+   "zh": "人格"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "angoisse",
+    "angoisses",
+    "anxiety",
+    "焦虑"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "anxiety",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "anxiety",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "angoisse",
+      "angoisses"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "angoisse.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "angoisse",
+   "id": "concept.angoisse",
+   "language": "mul",
+   "rationale": "临床情感词；demo 语料里出现于神经症描述。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：angoisse 系命中 13 段。"
+   ],
+   "status": "active",
+   "title": "angoisse（anxiety）：焦虑",
+   "type": "concept",
+   "zh": "焦虑"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "anesthésie",
+    "anesthésies",
+    "anesthésique",
+    "anesthesia",
+    "感觉缺失"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "anesthesia",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "anesthesia",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "anesthésie",
+      "anesthésies",
+      "anesthésique"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "anesthesie.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "anesthésie",
+   "id": "concept.anesthesie",
+   "language": "mul",
+   "rationale": "癔症性感觉缺失是这一时期临床描述的标准条目。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：anesthésie 系命中 12 段。"
+   ],
+   "status": "active",
+   "title": "anesthésie（anesthesia）：感觉缺失",
+   "type": "concept",
+   "zh": "感觉缺失"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "mémoire",
+    "mémoires",
+    "memory",
+    "记忆"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "memory",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "memory",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "mémoire",
+      "mémoires"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "memoire.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "mémoire",
+   "id": "concept.memoire",
+   "language": "mul",
+   "rationale": "Janet 解离理论里的功能之一（与「心理综合」相对）。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：mémoire 系命中 10 段（注意：法文 mémoire 亦可指「论文/回忆录」，本层只声明词面命中）。"
+   ],
+   "status": "active",
+   "title": "mémoire（memory）：记忆",
+   "type": "concept",
+   "zh": "记忆"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "obsession",
+    "obsessions",
+    "强迫观念"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "obsession",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "obsession",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "obsession",
+      "obsessions"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "obsession.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "obsession",
+   "id": "concept.obsession",
+   "language": "mul",
+   "rationale": "Janet 描述的强迫观念（obsessions）属神经症范畴。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：obsession 系命中 10 段。"
+   ],
+   "status": "active",
+   "title": "obsession（obsession）：强迫观念",
+   "type": "concept",
+   "zh": "强迫观念"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "somnambulisme",
+    "somnambule",
+    "somnambules",
+    "somnambulism",
+    "梦游"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "somnambulism",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "somnambulism",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "somnambulisme",
+      "somnambule",
+      "somnambules"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "somnambulisme.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "somnambulisme",
+   "id": "concept.somnambulisme",
+   "language": "mul",
+   "rationale": "催眠/暗示研究里的现象词；Binet 语料中出现于人工梦游（somnambulisme provoqué）语境。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：somnambulisme 系命中 8 段。"
+   ],
+   "status": "active",
+   "title": "somnambulisme（somnambulism）：梦游",
+   "type": "concept",
+   "zh": "梦游"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "inconscient",
+    "inconsciente",
+    "the unconscious",
+    "无意识"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "the unconscious",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "the unconscious",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "inconscient",
+      "inconsciente"
+     ],
+     "match": "normalized_ci",
+     "rule_id": "inconscient.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "inconscient",
+   "id": "concept.inconscient",
+   "language": "mul",
+   "rationale": "这一法国临床传统里已在使用的词（早于拉康）；本层只收录词面命中。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "归一化词面扫描：inconscient 系命中（与 conscience 分开计数，conscience 一侧用整词匹配以免把 inconscient 计入）。"
+   ],
+   "status": "active",
+   "title": "inconscient（the unconscious）：无意识",
+   "type": "concept",
+   "zh": "无意识"
+  },
+  {
+   "alias_exclude_forms": [],
+   "aliases": [
+    "conscience",
+    "Conscience",
+    "conscient",
+    "conscients",
+    "consciousness",
+    "意识"
+   ],
+   "authority_level": "L2",
+   "bare_form_policy": null,
+   "canonical": false,
+   "canonical_name": "consciousness",
+   "context_required_aliases": [],
+   "definition": null,
+   "definition_status": "not_written_backlog",
+   "distinction_from": [],
+   "en": "consciousness",
+   "entity_role": "concept",
+   "evidence_rules": [
+    {
+     "assertion_type": "explicit",
+     "forms": [
+      "conscience",
+      "Conscience",
+      "conscient",
+      "conscients"
+     ],
+     "match": "case_sensitive_word",
+     "rule_id": "conscience.core.fr",
+     "scope": "global",
+     "tier": "core"
+    }
+   ],
+   "fr": "conscience",
+   "id": "concept.conscience",
+   "language": "mul",
+   "rationale": "注意法文 polysémie：conscience 既指「意识」也指「良心」；本层不做上下文规则（demo 层最小化），只在别名上做**整词**匹配，以免把 inconscient 计入本实体。",
+   "review_status": "candidate",
+   "single_char_aliases_excluded": [],
+   "source_notes": [
+    "整词（case_sensitive_word）扫描：conscience / conscient 命中 36 段以内，inconscient 不计入本实体。"
+   ],
+   "status": "active",
+   "title": "conscience（consciousness）：意识",
+   "type": "concept",
+   "zh": "意识"
+  }
+ ],
+ "evidence_rules": {
+  "method": "在 demo passage store 的 raw_text 上做归一化匹配（NFKC→撇号/连字符归一→去变音→去标点→折叠空白→小写）；大小写敏感的规则保留原大小写。抽样与参考层同法：按 seminar 分层、每期 ≤3 条、总量 ≤40。",
+  "note_on_assertion_type": "词面命中只证明「该形式在此段出现」，**不主张**该段理论上就在讨论该概念；带 seminar 限定的规则一律标 context_scoped_term_occurrence 并附 caveat。"
+ },
+ "layer_id": "ontology.v4a1",
+ "mappings": [
+  {
+   "auto_expansion": true,
+   "auto_resolution": true,
+   "context_requirement": "none",
+   "context_rule": null,
+   "distinction_guard": [
+    "demo 层的映射只做**同一实体的跨语形式**对应；不存在需要上下文消歧的同形词。"
+   ],
+   "entity_id": "concept.hysterie",
+   "layer": "ontology.v4a1",
+   "mapping_id": "map.demo.001",
+   "note": "法文 hystérie 与英文 hysteria 指向同一 demo 实体；两语形式都可作为查询入口。",
+   "relation_type": "controlled_term_mapping",
+   "review_status": "candidate",
+   "source_form": "hystérie",
+   "source_language": "fr",
+   "status": "active",
+   "target_form": "hysteria",
+   "target_language": "en"
+  },
+  {
+   "auto_expansion": true,
+   "auto_resolution": true,
+   "context_requirement": "none",
+   "context_rule": null,
+   "distinction_guard": [
+    "demo 层的映射只做**同一实体的跨语形式**对应；不存在需要上下文消歧的同形词。"
+   ],
+   "entity_id": "concept.hysterie",
+   "layer": "ontology.v4a1",
+   "mapping_id": "map.demo.002",
+   "note": "中文研究语言下的对应形式；demo 语料本身是法文，中文形式只解决**术语解析**，不解决检索。",
+   "relation_type": "controlled_term_mapping",
+   "review_status": "candidate",
+   "source_form": "hystérie",
+   "source_language": "fr",
+   "status": "active",
+   "target_form": "癔症",
+   "target_language": "zh"
+  },
+  {
+   "auto_expansion": true,
+   "auto_resolution": true,
+   "context_requirement": "none",
+   "context_rule": null,
+   "distinction_guard": [
+    "demo 层的映射只做**同一实体的跨语形式**对应；不存在需要上下文消歧的同形词。"
+   ],
+   "entity_id": "concept.nevrose",
+   "layer": "ontology.v4a1",
+   "mapping_id": "map.demo.003",
+   "note": "névrose ↔ neurosis。",
+   "relation_type": "controlled_term_mapping",
+   "review_status": "candidate",
+   "source_form": "névrose",
+   "source_language": "fr",
+   "status": "active",
+   "target_form": "neurosis",
+   "target_language": "en"
+  },
+  {
+   "auto_expansion": true,
+   "auto_resolution": true,
+   "context_requirement": "none",
+   "context_rule": null,
+   "distinction_guard": [
+    "demo 层的映射只做**同一实体的跨语形式**对应；不存在需要上下文消歧的同形词。"
+   ],
+   "entity_id": "concept.nevrose",
+   "layer": "ontology.v4a1",
+   "mapping_id": "map.demo.004",
+   "note": "névrose ↔ 神经症。",
+   "relation_type": "controlled_term_mapping",
+   "review_status": "candidate",
+   "source_form": "névrose",
+   "source_language": "fr",
+   "status": "active",
+   "target_form": "神经症",
+   "target_language": "zh"
+  },
+  {
+   "auto_expansion": true,
+   "auto_resolution": true,
+   "context_requirement": "none",
+   "context_rule": null,
+   "distinction_guard": [
+    "demo 层的映射只做**同一实体的跨语形式**对应；不存在需要上下文消歧的同形词。"
+   ],
+   "entity_id": "concept.somnambulisme",
+   "layer": "ontology.v4a1",
+   "mapping_id": "map.demo.005",
+   "note": "somnambulisme ↔ somnambulism（Binet 的「人工梦游」语境）。",
+   "relation_type": "controlled_term_mapping",
+   "review_status": "candidate",
+   "source_form": "somnambulisme",
+   "source_language": "fr",
+   "status": "active",
+   "target_form": "somnambulism",
+   "target_language": "en"
+  },
+  {
+   "auto_expansion": true,
+   "auto_resolution": true,
+   "context_requirement": "none",
+   "context_rule": null,
+   "distinction_guard": [
+    "demo 层的映射只做**同一实体的跨语形式**对应；不存在需要上下文消歧的同形词。"
+   ],
+   "entity_id": "concept.suggestion",
+   "layer": "ontology.v4a1",
+   "mapping_id": "map.demo.006",
+   "note": "suggestion ↔ 暗示。",
+   "relation_type": "controlled_term_mapping",
+   "review_status": "candidate",
+   "source_form": "suggestion",
+   "source_language": "fr",
+   "status": "active",
+   "target_form": "暗示",
+   "target_language": "zh"
+  }
+ ],
+ "migrations": [],
+ "phase": "Demo corpus — ontology overlay for the public-domain clinical demo",
+ "relations": [
+  {
+   "authority_level": "L2",
+   "confidence": 0.9,
+   "created_by": "demo.corpus",
+   "evidence": {
+    "assertion_type": "explicit",
+    "must_have_passage": true,
+    "note": "folie / aliénation 与 névrose 在 demo 语料里是两组**不同词面**（19 世纪临床分类里也确为不同范畴：névrose 指无谵妄的功能性神经疾患）。本层只声明「不把两组词面合并」，不写理论定义。",
+    "passage_id": [
+     "EVIDENCE:folie.core.fr",
+     "EVIDENCE:nevrose.core.fr"
+    ]
+   },
+   "layer": "ontology.v4a1",
+   "object": "concept.nevrose",
+   "predicate": "distinct_from",
+   "relation_id": "rel.demo.001",
+   "review_status": "candidate",
+   "subject": "concept.folie"
+  },
+  {
+   "authority_level": "L2",
+   "confidence": 0.8,
+   "created_by": "demo.corpus",
+   "evidence": {
+    "assertion_type": "explicit",
+    "must_have_passage": true,
+    "note": "**术语层相关性**：两组词面在 demo 语料中大量并置（Binet/Janet 论暗示与癔症）。本层不主张因果或理论关系。",
+    "passage_id": [
+     "EVIDENCE:hysterie.core.fr",
+     "EVIDENCE:suggestion.core.fr"
+    ]
+   },
+   "layer": "ontology.v4a1",
+   "object": "concept.suggestion",
+   "predicate": "related_to",
+   "relation_id": "rel.demo.002",
+   "review_status": "candidate",
+   "subject": "concept.hysterie"
+  },
+  {
+   "authority_level": "L2",
+   "confidence": 0.7,
+   "created_by": "demo.corpus",
+   "evidence": {
+    "assertion_type": "explicit",
+    "must_have_passage": true,
+    "note": "hystérie 的词面确实出现在 seminar.S01（Falret 1890）的段落中；证据来自按 seminar 限定的规则（scope_seminar=seminar.S01）。",
+    "passage_id": [
+     "EVIDENCE:hysterie.in.s01"
+    ]
+   },
+   "layer": "ontology.v4a1",
+   "object": "seminar.S01",
+   "predicate": "appears_in",
+   "relation_id": "rel.demo.003",
+   "review_status": "candidate",
+   "subject": "concept.hysterie"
+  }
+ ],
+ "schema_version": "ontology-overlay/v1",
+ "vocabulary_extension": {
+  "note": "demo 层不扩展词表：所有谓词都取自 RELATION_MODEL.md 的 17 个基础谓词。",
+  "ontology_defect_classes": [],
+  "relation_predicates_added": [
+   {
+    "example": "concept.folie --distinct_from--> concept.nevrose",
+    "predicate": "distinct_from",
+    "requires_evidence": true,
+    "semantics": "两端是**必须区分、不得等同**的项（对称）。demo 层只用它声明「folie/aliénation 与 névrose 是两组不同词面」，不写理论定义。",
+    "symmetric": true,
+    "why_needed": "17 个基础谓词里没有「必须区分」：写成 related_to 会让区分在数据层消失。参考层已声明该谓词，demo 层沿用同一个扩展（谓词表是**模型**的一部分，不是语料的一部分）。"
+   }
+  ],
+  "term_mapping_types_added": []
+ }
+}

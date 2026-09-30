@@ -24,6 +24,21 @@ First public release: the engine edition (no corpus). Scope of this release.
   Content lives in `_data/daily_use/help/help_content.json`; every cited control name is
   rendered from the real product dictionary, and every functional claim is machine-checked
   (`HELP_CLAIM_VERIFICATION.json`: 45/45 verified, 0 fiction, 0 pending).
+- **Public-domain demo corpus (stage 2).** `tools/build_demo_corpus.py` builds it end to end —
+  `python3 tools/build_demo_corpus.py .` → passage store (183 passages) → lexical/alias index →
+  corpus inventory → **ontology layer** (15 clinical entities, 89 recomputed evidence rows,
+  6 fr↔en↔zh term mappings, 3 relations, from `demo-corpus/ontology/spec.json`) → terminology
+  bridge → freeze + lineage. It ships as the redistributable pack **`corpus-demo-v1`** (~0.3 MB),
+  with `pack-corpus.py --kind demo` / `fetch-corpus.py`. Example question
+  *«Comment la suggestion agit-elle dans l'hystérie ?»* → `VALIDATED_WITH_QUALIFICATIONS`,
+  3 validated claims, 3 eligible citations to real demo passages.
+- **Corpus profiles.** `core_freeze.py --build --profile unreviewed-corpus` pins a corpus that has
+  no human-acceptance evidence: the nine reference review artifacts are listed in
+  `absent_components` and the status is `CORPUS_HUMAN_REVIEW_NOT_AVAILABLE` (never
+  `SCHOLARLY_CORE_READY`). `--verify` rejects undeclared absence, absence outside the
+  human-acceptance group, and "declared absent but present". `freeze_lineage.py` records such
+  absences as `absent_by_declaration` (not semantic drift); the reference corpus is unchanged.
+  `tools/ensure_corpus.py --json`, `/api/status` and the UI's System Status report the profile.
 - **In-product diagrams.** Three diagrams are drawn as **inline SVG** (`workspace_ui/static/src/diagrams.js`)
   rather than shipped images, so their labels follow the interface language instantly and their
   colours come from the same theme variables as the text: *one research task end to end* (home hero),

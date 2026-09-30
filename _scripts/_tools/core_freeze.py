@@ -48,6 +48,53 @@ for p in (TOOLS, LACAN):
 FREEZE_VERSION = "scholarly_core_freeze_v1"
 SCHOLARLY_STATUS = "SCHOLARLY_CORE_READY"
 
+# ── 语料档案（corpus profile）—— P5D-006 / demo corpus 阶段 2
+#
+# 问题（实测）：`_data/eval/` 里那 9 个**人工验收工件**（人工评审记录、裁定队列、
+# 就绪门、错误分类法、评审 schema、gold_v2、冻结身份）是**参考语料自己的学科成果**。
+# 换一份语料（demo / 自建）时它们必然缺席 → 旧实现的 `--verify` 报「未解析组件」→
+# `mcp_server.guard` fail closed → 研究**完全跑不起来**。也就是说
+# 「自带语料」这条被文档承诺的路，此前并未实现。
+#
+# 处理方式：把「这份语料有没有人工验收证据」变成 manifest 里**显式声明**的档案字段。
+#   reference         ：参考语料。组件必须全部在场且哈希一致 → SCHOLARLY_CORE_READY（行为与本字段引入前**逐字节一致**）
+#   unreviewed-corpus ：无人工验收证据的语料。缺席的人工验收组件写进 absent_components，
+#                       其余组件（含全部 semantic 代码单元与 data_version）仍必须一致 →
+#                       CORPUS_HUMAN_REVIEW_NOT_AVAILABLE（研究可运行，但**不带人工验收背书**）
+#
+# 纪律：缺席只能是**声明过的**、且只允许人工验收类组件；任何非声明缺席、任何「声明缺席但文件又在场」
+#       （偷偷换上别的验收证据）都会被 `--verify` 判 FAIL。
+PROFILE_REFERENCE = "reference"
+PROFILE_UNREVIEWED = "unreviewed-corpus"
+PROFILES = (PROFILE_REFERENCE, PROFILE_UNREVIEWED)
+STATUS_UNREVIEWED = "CORPUS_HUMAN_REVIEW_NOT_AVAILABLE"
+
+# 人工验收类组件（只有这一类允许在 unreviewed 档案下声明缺席）
+HUMAN_ACCEPTANCE_KEYS = (
+    "human_review_round1_hash",
+    "human_review_round2_hash",
+    "human_adjudication_hash",
+    "scholarly_readiness_gate_hash",
+    "round2_taxonomy_hash",
+    "round2_review_schema_hash",
+    "gold_v2_tasks_hash",
+    "gold_v2_lane_overrides_hash",
+    "frozen_identity_hash",
+)
+
+PROFILE_NOTES = {
+    PROFILE_REFERENCE: (
+        "参考语料：39 个组件（含 9 个人工验收工件）全部在场且哈希一致。"
+    ),
+    PROFILE_UNREVIEWED: (
+        "本语料**没有人工验收证据**（_data/eval/ 的人工评审 / 金标 / 就绪门文件缺席，"
+        "已在 absent_components 里逐一声明）。因此状态不是 SCHOLARLY_CORE_READY："
+        "研究可以运行，但答案不携带任何人工验收背书，也不得被当作已验收的学科结论。"
+        "另注：冻结内核的来源归属措辞（claim 文字里的说话人）是为参考语料写的，"
+        "对**非参考语料不适用** —— demo 语料的答案只承诺检索 / 证据 / 引文 / 检查器 / 本体解析这条链。"
+    ),
+}
+
 # ── 组件类（**机器可读**，写进 manifest.component_classes）
 #
 # Phase 5A / P5A-006 根因：本文件的 SPEC 早就把下面 6 个组件放在「# ── 数据版本」
@@ -262,9 +309,12 @@ def _d2_run():
     }
 
 
-def build_manifest():
+def build_manifest(profile=PROFILE_REFERENCE):
+    if profile not in PROFILES:
+        raise ValueError("unknown corpus profile: %r（可选：%s）" % (profile, ", ".join(PROFILES)))
     comp = {}
     unresolved = []
+    absent = []
     for name, spec in SPEC.items():
         try:
             comp[name] = compute(*spec)
@@ -272,11 +322,19 @@ def build_manifest():
             comp[name] = None
             unresolved.append("%s: %s" % (name, exc))
         if comp[name] is None:
-            unresolved.append(name)
+            # 只有「无人工验收证据的语料」档案、且属于人工验收类，才允许**声明缺席**
+            if profile == PROFILE_UNREVIEWED and name in HUMAN_ACCEPTANCE_KEYS:
+                absent.append(name)
+            else:
+                unresolved.append(name)
     doc = {
         "schema_version": "scholarly-core-freeze/v1",
         "freeze_version": FREEZE_VERSION,
-        "scholarly_status": SCHOLARLY_STATUS,
+        "scholarly_status": (SCHOLARLY_STATUS if profile == PROFILE_REFERENCE
+                             else STATUS_UNREVIEWED),
+        "corpus_profile": profile,
+        "absent_components": sorted(set(absent)),
+        "profile_note": PROFILE_NOTES[profile],
         "git_commit": _git_head(),
         "created_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "components": comp,
@@ -294,6 +352,9 @@ def build_manifest():
             "组件分三类（component_classes）：scholarly_semantic（语义，变化必硬失败）/"
             "product_boundary（产品边界与 runtime wiring）/ data_version（数据版本，"
             "变化必须由 data_version_declarations 声明且依赖构件状态一致）。",
+            "`corpus_profile`：reference = 参考语料（全部组件在场，SCHOLARLY_CORE_READY）；"
+            "unreviewed-corpus = 无人工验收证据的语料（缺席的人工验收组件在 absent_components "
+            "里显式声明，状态 CORPUS_HUMAN_REVIEW_NOT_AVAILABLE，研究可运行但无人工背书）。",
             "本清单自身也被 scholarly_api.policy 归为 IMMUTABLE_CORE。",
         ],
     }
@@ -304,16 +365,20 @@ def build_manifest():
     return doc
 
 
-def build():
+def build(profile=PROFILE_REFERENCE):
     os.makedirs(OUT_DIR, exist_ok=True)
-    doc = build_manifest()
+    doc = build_manifest(profile)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump(doc, f, ensure_ascii=False, indent=2, sort_keys=True)
-    print("freeze manifest -> %s（%d 个组件；未解析 %d）"
+    print("freeze manifest -> %s（%d 个组件；未解析 %d；档案 %s）"
           % (os.path.relpath(OUT, VAULT), len(doc["components"]),
-             len(doc["unresolved_components"])))
+             len(doc["unresolved_components"]), doc["corpus_profile"]))
+    if doc["absent_components"]:
+        print("  声明缺席（人工验收类）：%s" % ", ".join(doc["absent_components"]))
     if doc["unresolved_components"]:
         print("  未解析：%s" % ", ".join(doc["unresolved_components"]))
+    if profile != PROFILE_REFERENCE:
+        print("  状态：%s —— %s" % (doc["scholarly_status"], doc["profile_note"]))
     return 0
 
 
@@ -323,11 +388,16 @@ def verify(quiet=False):
         return 1
     with open(OUT, encoding="utf-8") as f:
         doc = json.load(f)
+    # 缺 corpus_profile 的历史 manifest = reference（本字段引入前的行为**原样保留**）
+    profile = doc.get("corpus_profile") or PROFILE_REFERENCE
+    absent = set(doc.get("absent_components") or [])
     drift, missing = [], []
     classes = doc.get("component_classes") or component_classes()
     for name, spec in SPEC.items():
         want = (doc.get("components") or {}).get(name)
         if want is None:
+            if name in absent:                       # 声明缺席：不计入 missing（下方单独核验）
+                continue
             missing.append(name)
             continue
         got = compute(*spec)
@@ -337,6 +407,20 @@ def verify(quiet=False):
     data_drift = [n for n, c in drift if c == CLASS_DATA]
     product_drift = [n for n, c in drift if c == CLASS_PRODUCT]
     problems = []
+    if profile not in PROFILES:
+        problems.append("未知 corpus_profile=%s（可选：%s）" % (profile, ", ".join(PROFILES)))
+    if profile == PROFILE_UNREVIEWED:
+        # ① 缺席只能落在人工验收类，且必须**真的仍然缺席**（防止悄悄换上别的验收证据）
+        outside = sorted(k for k in absent if k not in HUMAN_ACCEPTANCE_KEYS)
+        if outside:
+            problems.append("声明缺席的组件不属于人工验收类：%s" % outside)
+        present = sorted(k for k in absent
+                         if (doc.get("components") or {}).get(k) is not None)
+        if present:
+            problems.append("声明缺席但清单里仍有哈希（不得偷偷替换验收证据）：%s" % present)
+        if doc.get("scholarly_status") != STATUS_UNREVIEWED:
+            problems.append("unreviewed 档案的 scholarly_status 必须是 %s（实际 %s）"
+                            % (STATUS_UNREVIEWED, doc.get("scholarly_status")))
     if drift:
         problems.append("哈希漂移：%s" % "; ".join(
             "%s[%s]" % (n, c) for n, c in drift[:6]))
@@ -344,7 +428,7 @@ def verify(quiet=False):
         problems.append("清单缺组件：%s" % ", ".join(missing[:6]))
     if doc.get("freeze_version") != FREEZE_VERSION:
         problems.append("freeze_version=%s" % doc.get("freeze_version"))
-    if doc.get("scholarly_status") != SCHOLARLY_STATUS:
+    if profile == PROFILE_REFERENCE and doc.get("scholarly_status") != SCHOLARLY_STATUS:
         problems.append("scholarly_status=%s" % doc.get("scholarly_status"))
     if doc.get("unresolved_components"):
         problems.append("存在未解析组件：%s" % doc["unresolved_components"][:6])
@@ -364,6 +448,8 @@ def verify(quiet=False):
             codes.append("MISSING_COMPONENT")
         if doc.get("unresolved_components"):
             codes.append("UNRESOLVED_COMPONENT")
+        if doc.get("corpus_profile") not in PROFILES:
+            codes.append("UNKNOWN_CORPUS_PROFILE")
         print("DRIFT_CLASSES: %s" % (",".join(codes) or "NONE"))
         if semantic_drift:
             print("  semantic_drift_components: %s" % ", ".join(semantic_drift[:8]))
@@ -378,6 +464,10 @@ def verify(quiet=False):
                  sum(1 for c in classes.values() if c == CLASS_SCHOLARLY),
                  sum(1 for c in classes.values() if c == CLASS_PRODUCT),
                  sum(1 for c in classes.values() if c == CLASS_DATA)))
+        if profile == PROFILE_UNREVIEWED:
+            print("corpus_profile=%s（声明缺席 %d 个人工验收组件）"
+                  % (profile, len(absent)))
+            print("注意：%s" % doc.get("profile_note", PROFILE_NOTES[PROFILE_UNREVIEWED]))
     return 0
 
 
@@ -394,9 +484,15 @@ def main(argv=None):
     ap.add_argument("--verify", action="store_true")
     ap.add_argument("--show", action="store_true")
     ap.add_argument("--quiet", action="store_true")
+    ap.add_argument("--profile", default=PROFILE_REFERENCE,
+                    choices=list(PROFILES),
+                    help="语料档案：reference（缺省，参考语料）/ unreviewed-corpus"
+                         "（无人工验收证据的语料；缺席的人工验收组件按声明处理）")
     a = ap.parse_args(argv)
     if a.build:
-        return build()
+        return build(profile=a.profile)
+    if a.profile != PROFILE_REFERENCE and not a.verify:
+        ap.error("--profile 只与 --build 一起用（--verify 从 manifest 读档案）")
     if a.show:
         return show()
     return verify(quiet=a.quiet)

@@ -170,10 +170,19 @@ def main(argv=None):
                 return 3
             shutil.rmtree(tmp, ignore_errors=True) if tmp else None
             return 0
+        conflicts = []
         for m, name in members:
             dest = os.path.join(root, name)
             if os.path.exists(dest) and not a.force:
-                print("exists, skipping (use --force): %s" % name)
+                # 与包里**逐字节相同** → 无需动它。
+                # 不同 → **绝不静默跳过**（实测缺陷：公开版自带参考语料的
+                # INDEX_MANIFEST / _concept_meta / _build_meta，跳过它们会装出
+                # 一份"半个参考 + 半个 demo"的混合语料，冻结必然漂移且原因难查）。
+                if expect and sha256(dest) == expect.get(name):
+                    verified += 1
+                    print("already installed (identical): %s" % name)
+                    continue
+                conflicts.append(name)
                 continue
             os.makedirs(os.path.dirname(dest), exist_ok=True)
             src = tf.extractfile(m)
@@ -194,9 +203,31 @@ def main(argv=None):
             installed += 1
     if tmp:
         shutil.rmtree(tmp, ignore_errors=True)
+    if conflicts:
+        print("REFUSING TO MIX CORPUSES: %d file(s) already exist with different content:"
+              % len(conflicts), file=sys.stderr)
+        for name in conflicts[:8]:
+            print("  - %s" % name, file=sys.stderr)
+        print("  这些文件属于**另一份语料**（或引擎随包分发的参考语料元数据）。"
+              "安装一个语料包要么整体生效、要么整体不动 —— 混合语料会让冻结漂移且原因难查。",
+              file=sys.stderr)
+        print("  确认要覆盖它们时重跑并加 --force："
+              "python3 tools/fetch-corpus.py --pack … --manifest … --into . --force",
+              file=sys.stderr)
+        return 3
     print("installed %d files (%d hash-verified)" % (installed, verified))
+    kind = (manifest or {}).get("pack_kind") or "reference"
+    profile = (manifest or {}).get("corpus_profile") or "reference"
+    if kind == "demo" or profile != "reference":
+        print("corpus_profile = %s（%s）" % (profile, kind))
+        print("  ⚠️ 该语料**没有人工验收证据**：冻结状态是 CORPUS_HUMAN_REVIEW_NOT_AVAILABLE，")
+        print("     不是 SCHOLARLY_CORE_READY；答案不携带人工验收背书。")
+        notice = (manifest or {}).get("rights_notice")
+        if notice:
+            print("  " + notice.replace("\n", "\n  "))
     print("\nnext:")
     print("  python3 _scripts/_tools/core_freeze.py --verify")
+    print("  python3 tools/ensure_corpus.py --status")
     print("  python3 -m workspace_ui.server.cli --port 3090    # → http://127.0.0.1:3090/help")
     return 0
 

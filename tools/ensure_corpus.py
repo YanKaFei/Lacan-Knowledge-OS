@@ -50,6 +50,29 @@ OPTIONAL = [
 ]
 
 
+FREEZE_FILE = os.path.join(REPO, "_data", "core_freeze",
+                           "scholarly_core_freeze_v1.json")
+
+
+def corpus_profile():
+    """→ {"corpus_profile": ..., "scholarly_status": ..., "absent_n": ...}
+
+    语料档案由 `core_freeze.py` 写进冻结 manifest。**未装语料时** manifest 是参考语料的
+    （reference），所以"档案"只有在语料真的装上之后才有意义 —— 这里如实报告二者。
+    """
+    if not os.path.isfile(FREEZE_FILE):
+        return {}
+    try:
+        with io.open(FREEZE_FILE, encoding="utf-8") as fh:
+            man = json.load(fh)
+    except Exception:                                                       # noqa: BLE001
+        return {}
+    return {"corpus_profile": man.get("corpus_profile") or "reference",
+            "scholarly_status": man.get("scholarly_status"),
+            "absent_components_n": len(man.get("absent_components") or []),
+            "profile_note": man.get("profile_note")}
+
+
 def reference():
     if not os.path.isfile(CORPUS_JSON):
         return {}
@@ -74,8 +97,14 @@ def check():
         except OSError:
             n_passages = -1
     ready = not missing and n_passages > 0
-    return {"ready": ready, "passages": n_passages, "present": present,
-            "missing": missing, "optional_missing": optional_missing}
+    prof = corpus_profile()
+    out = {"ready": ready, "passages": n_passages, "present": present,
+           "missing": missing, "optional_missing": optional_missing}
+    out.update(prof)
+    # 只有"语料在场"时档案才描述**这份**语料；此时把不带人工背书的边界讲清楚
+    if ready and prof.get("corpus_profile") not in (None, "reference"):
+        out["human_review"] = "NOT_AVAILABLE"
+    return out
 
 
 def instructions(status, ref):
@@ -100,10 +129,22 @@ def instructions(status, ref):
         "   # 校验（必须通过，否则启动器会 fail-closed 拒绝研究）",
         "   python3 _scripts/_tools/core_freeze.py --verify",
         "",
-        "B) 自备语料（你有权使用的文本）",
-        "   docs: CORPUS.md · 快速试跑（公有领域 demo）: docs/DEMO_CORPUS.md",
-        "   python3 tools/build_demo_corpus.py . && python3 _scripts/_tools/build_lexical_index.py",
-        "   python3 _scripts/inventory_corpus.py --help && python3 _scripts/build.py --help",
+        "B) 安装 demo 语料包（**公有领域，可自由分发**；先跑通再换真语料）",
+        "   %s" % (ref.get("demo_repo") or repo),
+        "   curl -sLO %s" % (ref.get("demo_asset_url")
+                             or "https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/"
+                                "releases/download/corpus-demo-v1/corpus-demo-v1.tar.gz"),
+        "   curl -sLO %s" % (ref.get("demo_manifest_url")
+                             or "https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/"
+                                "releases/download/corpus-demo-v1/corpus-demo-v1.manifest.json"),
+        "   python3 tools/fetch-corpus.py --pack corpus-demo-v1.tar.gz \\",
+        "       --manifest corpus-demo-v1.manifest.json --into .",
+        "   # 该包的档案是 unreviewed-corpus：研究可以跑，但**没有人工验收背书**",
+        "",
+        "C) 自备语料（你有权使用的文本）",
+        "   docs: CORPUS.md · 快速试跑（公有领域 demo，本地重建）: docs/DEMO_CORPUS.md",
+        "   python3 tools/build_demo_corpus.py .      # 段落库 → 索引 → 本体层 → 冻结/谱系",
+        "   python3 _scripts/build.py --help",
         "",
         "无论哪条路：**不要**编造段落、引文或书目字段；语料不足时系统会如实弃权。",
         "────────────────────────────────────────────────────────────────",

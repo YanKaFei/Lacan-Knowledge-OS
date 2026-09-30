@@ -34,7 +34,7 @@ Evidence first. Interpretation second. Fabrication never.
 > |---|---|
 > | **Engine source code** (this repository) | Apache-2.0 — use, modify, redistribute, build on it |
 > | **Reference corpus** ([companion repo](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus)) | **third-party copyrighted texts.** Publicly readable **for research and study only**; public visibility is not a licence — **not** licensed for commercial use, redistribution or re-serving. |
-> | **Public-domain demo corpus** ([`demo-corpus/`](demo-corpus)) | public domain (Falret 1890 · Binet 1892 · Janet 1909) — freely redistributable |
+> | **Public-domain demo corpus** ([`corpus-demo-v1`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/tag/corpus-demo-v1) · [`demo-corpus/`](demo-corpus)) | public domain (Falret 1890 · Binet 1892 · Janet 1909) — freely redistributable; ~0.3 MB, one command installs a **complete research run** |
 >
 > **In plain terms.** The corpus repository contains French working transcriptions of Lacan's
 > seminars, a text extraction from the Seuil print edition, and a community Chinese translation
@@ -262,7 +262,7 @@ elapsed time, and “stop waiting” does not cancel the backend job.
 | [`AGENTS.md`](AGENTS.md) | the rules an AI agent must follow here — starting with the corpus check |
 | [`corpus.json`](corpus.json) | machine-readable corpus reference: where it lives, how to install it, what to do if it is missing |
 | [`CORPUS.md`](CORPUS.md) | bringing your own corpus; what the builders expect |
-| [`docs/DEMO_CORPUS.md`](docs/DEMO_CORPUS.md) | the public-domain demo corpus and its remaining ontology step |
+| [`docs/DEMO_CORPUS.md`](docs/DEMO_CORPUS.md) | the public-domain demo corpus: one command builds it (corpus → index → ontology → freeze), and `corpus-demo-v1` installs a complete research run |
 | [`docs/CORPUS_PACK.md`](docs/CORPUS_PACK.md) | packing and shipping a corpus without publishing it |
 | [`docs/PUBLIC_EDITION.md`](docs/PUBLIC_EDITION.md) | how this repository is derived and negatively verified |
 | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · [`docs/MCP_ARCHITECTURE.md`](docs/MCP_ARCHITECTURE.md) | the layering and the MCP surface |
@@ -275,7 +275,9 @@ elapsed time, and “stop waiting” does not cancel the backend job.
 - **Product layer:** complete for daily use; last acceptance run **20/20 blocking gate items**,
   **146 regression suites / 78 validators / 0 failed / 0 skipped**.
 - **Distribution:** engine public (Apache-2.0) · reference corpus public, **research use only** ·
-  public-domain demo corpus in progress.
+  public-domain demo corpus **published** (`corpus-demo-v1`, redistributable).
+- **Corpus profiles:** `reference` → `SCHOLARLY_CORE_READY` (human-reviewed); any other corpus →
+  `CORPUS_HUMAN_REVIEW_NOT_AVAILABLE` (research runs, no human-review endorsement).
 - **Roadmap:** [`docs/ROADMAP.md`](docs/ROADMAP.md).
 
 <div align="center">

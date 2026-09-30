@@ -47,7 +47,7 @@ Zuerst die Evidenz. Dann die Deutung. Nie die Erfindung.
 > |---|---|
 > | **Engine-Quellcode** (dieses Repository) | Apache-2.0 — nutzen, ändern, weitergeben, in kommerzielle Produkte einbetten |
 > | **Referenzkorpus** ([Begleit-Repository](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus)) | **urheberrechtlich geschützte Texte Dritter.** Öffentlich abrufbar, **nur für Forschung und Studium**; öffentliche Sichtbarkeit ist keine Lizenz — **keine** kommerzielle Lizenz, **keine** Weitergabe- oder Bereitstellungs-Lizenz. |
-> | **Gemeinfreier Demo-Korpus** ([`demo-corpus/`](demo-corpus)) | gemeinfrei (Falret 1890 · Binet 1892 · Janet 1909) — frei weitergebbar |
+> | **Gemeinfreier Demo-Korpus** ([`corpus-demo-v1`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/tag/corpus-demo-v1) · [`demo-corpus/`](demo-corpus)) | gemeinfrei (Falret 1890 · Binet 1892 · Janet 1909) — frei weitergebbar |
 >
 > **Klartext.** Der Korpus enthält französische **Arbeitstranskriptionen** der Seminare Lacans, eine
 > **Textextraktion der Seuil-Druckausgabe** (S1–S5) und ein **chinesisches Übersetzungsprojekt einer

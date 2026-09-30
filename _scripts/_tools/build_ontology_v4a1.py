@@ -230,13 +230,25 @@ def build():
     files["entities.jsonl"] = ent_rows
 
     # ── term_mappings.jsonl
+    #    证据段号 = 该 entity **自己**的规则命中的段（按 spec 声明顺序，每条 ≤2、合计 ≤4，
+    #    跳过 0 命中的规则）。参考语料里的映射全部指向 concept.gaze，其前两条命中的规则
+    #    正是 `gaze.core.en` / `gaze.core.zh` —— 与旧实现（硬编码这两个 rule_id）逐字节一致；
+    #    换一份语料（demo / 自建）时不再因为写死了 gaze 而拿到空证据。
+    ent_rules = {e["id"]: [r["rule_id"] for r in e["evidence_rules"]]
+                 for e in spec["entities"]}
     map_rows = []
     for m in spec["mappings"]:
         row = dict(m)
         row["schema_version"] = "ontology-term-mapping/v1"
         row["context_rule"] = spec["context_rules"].get(m["mapping_id"])
-        row["evidence"] = first_ev.get((m["entity_id"], "gaze.core.en"), [])[:2] + \
-                          first_ev.get((m["entity_id"], "gaze.core.zh"), [])[:2]
+        pids = []
+        for rid in ent_rules.get(m["entity_id"], []):
+            for pid in first_ev.get((m["entity_id"], rid), [])[:2]:
+                if pid not in pids:
+                    pids.append(pid)
+            if len(pids) >= 4:
+                break
+        row["evidence"] = pids[:4]
         map_rows.append(row)
     files["term_mappings.jsonl"] = map_rows
 

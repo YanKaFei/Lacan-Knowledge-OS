@@ -135,6 +135,8 @@ export async function renderHome(host, st) {
     h('ul', { class: 'status-list', id: 'status-list' },
       [h('li', { class: 'muted', text: t('home.loading') })]),
     h('p', { class: 'muted', id: 'bib-health', text: '' }),
+    // 语料档案提示（非参考语料时出现）：说明这份语料**没有人工验收背书**
+    h('p', { class: 'notice is-warn', id: 'core-profile-note', hidden: true, text: '' }),
     h('button', { class: 'btn btn-ghost', id: 'home-refresh', text: t('home.refresh'),
                   onclick: () => refreshStatus(statusBox) }),
   ]);
@@ -170,6 +172,17 @@ async function refreshStatus(box) {
          + ' · reviewed ' + reg.reviewed + ' · candidates ' + reg.candidates
          + ' · editions ' + reg.editions)
       : 'Bibliography Registry UNAVAILABLE';
+    // 语料档案：reference 之外（如 unreviewed-corpus）必须**显式**告诉用户缺什么
+    const note = box.querySelector('#core-profile-note');
+    const profile = s.core_freeze_profile || 'reference';
+    if (note) {
+      const unreviewed = (s.core_human_review || 'AVAILABLE') !== 'AVAILABLE';
+      note.hidden = !unreviewed;
+      note.textContent = unreviewed
+        ? t('home.core-profile-unreviewed') : '';
+      note.setAttribute('data-core-profile', profile);
+      note.setAttribute('data-core-human-review', s.core_human_review || 'AVAILABLE');
+    }
     // §30：provider 不可用**不**阻塞本地功能
     box.setAttribute('data-provider', layers.provider || 'UNKNOWN');
   } catch (e) {

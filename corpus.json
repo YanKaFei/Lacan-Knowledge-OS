@@ -31,13 +31,32 @@
   "usage_limit": "Research and study only. No commercial use, no redistribution, no re-serving, no training a publicly distributed model. The determination is the user's."
  },
  "public_demo_corpus": {
-  "status": "stage-1-public-domain",
-  "sources": "demo-corpus/sources/*.txt — Falret 1890, Binet 1892, Janet 1909 (public domain, redistributable)",
+  "status": "stage-2-complete",
+  "pack": {
+   "repo": "https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus",
+   "release_tag": "corpus-demo-v1",
+   "asset_name": "corpus-demo-v1.tar.gz",
+   "manifest_path": "corpus-demo-v1.manifest.json",
+   "install": [
+    "curl -sLO https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/download/corpus-demo-v1/corpus-demo-v1.tar.gz",
+    "curl -sLO https://raw.githubusercontent.com/YanKaFei/Lacan-Knowledge-OS-corpus/main/corpus-demo-v1.manifest.json",
+    "python3 tools/fetch-corpus.py --pack corpus-demo-v1.tar.gz --manifest corpus-demo-v1.manifest.json --into ."
+   ],
+   "pack_kind": "demo",
+   "corpus_profile": "unreviewed-corpus",
+   "redistributable": true
+  },
+  "sources": "demo-corpus/sources/*.txt — Falret 1890, Binet 1892, Janet 1909 (public domain, redistributable; transcribed from fr.wikisource with their real imprint data)",
+  "ontology": "demo-corpus/ontology/spec.json → _data/ontology/v4a1/ (15 clinical entities, evidence recomputed from the demo passages)",
   "build": [
-   "python3 tools/build_demo_corpus.py .",
-   "python3 _scripts/_tools/build_lexical_index.py"
+   "python3 tools/build_demo_corpus.py .   # 段落库 → 词法/别名索引 → 语料清单 → 本体层 → 冻结/谱系（一条命令）"
   ],
-  "known_limit": "No ontology layer yet, so questions abstain with reason ONTOLOGY_GAP. Stage 2 is described in docs/DEMO_CORPUS.md.",
+  "what_works": "检索 → 证据充分性 → 断言 → 引文（真实段号）→ Evidence Inspector → 本体解析；例子问题：Comment la suggestion agit-elle dans l'hystérie ? → VALIDATED_WITH_QUALIFICATIONS，3 条引文",
+  "honest_limits": [
+   "没有人工验收证据：冻结状态是 CORPUS_HUMAN_REVIEW_NOT_AVAILABLE（不是 SCHOLARLY_CORE_READY）",
+   "冻结内核的 claim 归属措辞（说话人）是为参考语料写的，对本语料不适用 —— demo 承诺的是检索/证据/引文/检查器/本体解析这条链，不把 demo 答案当作可引用的学术结论",
+   "不带向量索引（向量运行时不可用）：检索走词法路径"
+  ],
   "docs": "docs/DEMO_CORPUS.md"
  },
  "bring_your_own": {
@@ -49,7 +68,7 @@
   "rule": "The vault is the source of truth; indexes are regenerable. A different corpus requires rebuilding its own freeze (core_freeze.py --build) — never edit a frozen hash by hand."
  },
  "agent_contract": {
-  "check_first": "python3 tools/ensure_corpus.py --status",
+  "check_first": "python3 tools/ensure_corpus.py --status（exit 0 = 可跑研究；报告里带 corpus_profile，若是 unreviewed-corpus 则答案不带人工验收背书）",
   "exit_codes": {
    "0": "corpus ready (research can run)",
    "3": "corpus missing or incomplete — ask the user",

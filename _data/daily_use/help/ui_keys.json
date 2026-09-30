@@ -27,6 +27,12 @@
    "zh": "一次研究任务的全程：提问、核对、读原文、存档、整理书目——以及语料撑不住时，系统会明说。"
   },
   {
+   "key": "home.core-profile-unreviewed",
+   "surface": "Home",
+   "en": "This corpus has no human acceptance evidence (the reference corpus's review records, gold set and readiness gate are declared absent). Research runs, but answers carry no human-review endorsement — and the frozen core's source-attribution wording was written for the reference corpus, so it does not apply here.",
+   "zh": "这份语料没有人工验收证据（参考语料的人工评审记录 / 金标 / 就绪门按**声明缺席**处理）。研究可以运行，但答案不携带人工验收背书；此外冻结内核的来源归属措辞是为参考语料写的，对本语料不适用。"
+  },
+  {
    "key": "home.tasks.title",
    "surface": "Home",
    "en": "What do you want to do?",

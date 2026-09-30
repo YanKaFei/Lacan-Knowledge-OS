@@ -52,7 +52,7 @@
     "corpus_inventory_hash"
   ],
   "failure_codes": [],
-  "generated_at": "2026-09-26T19:32:44+00:00",
+  "generated_at": "2026-09-30T07:01:06+00:00",
   "history_policy": "历史 manifest 以**真实字节**保存在 history/ 下；若字节不可得则标记 unavailable 并只保留 hash，**不伪造**文件。",
   "live_freeze_version": "scholarly_core_freeze_v1",
   "live_manifest": "scholarly_core_freeze_v1.json",
@@ -69,6 +69,8 @@
   "schema_version": "scholarly-core-freeze-lineage/v1",
   "segments": [
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": null,
       "changed_components": [],
@@ -79,6 +81,7 @@
         "scholarly_semantic": 0
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [],
       "data_version_changes_n": 0,
       "failure_codes": [],
@@ -101,6 +104,8 @@
       "unclassified_changes": []
     },
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": null,
       "changed_components": [
@@ -115,6 +120,7 @@
         "scholarly_semantic": 0
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [],
       "data_version_changes_n": 0,
       "failure_codes": [],
@@ -139,6 +145,8 @@
       "unclassified_changes": []
     },
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": null,
       "changed_components": [
@@ -153,6 +161,7 @@
         "scholarly_semantic": 0
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [],
       "data_version_changes_n": 0,
       "failure_codes": [],
@@ -177,6 +186,8 @@
       "unclassified_changes": []
     },
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": null,
       "changed_components": [
@@ -191,6 +202,7 @@
         "scholarly_semantic": 0
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [],
       "data_version_changes_n": 0,
       "failure_codes": [],
@@ -215,6 +227,8 @@
       "unclassified_changes": []
     },
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": "CCR-0001",
       "changed_components": [
@@ -229,6 +243,7 @@
         "scholarly_semantic": 0
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [],
       "data_version_changes_n": 0,
       "failure_codes": [],
@@ -253,6 +268,8 @@
       "unclassified_changes": []
     },
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": "PDR-0001",
       "changed_components": [
@@ -269,6 +286,7 @@
         "scholarly_semantic": 0
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [],
       "data_version_changes_n": 0,
       "failure_codes": [],
@@ -294,6 +312,8 @@
       "unclassified_changes": []
     },
     {
+      "absent_by_declaration": [],
+      "absent_by_declaration_n": 0,
       "all_data_version_changes_declared_and_consistent": true,
       "ccr": "PDR-0001",
       "changed_components": [
@@ -306,6 +326,7 @@
         "scholarly_semantic": 30
       },
       "components_n": 39,
+      "corpus_profile": "reference",
       "data_version_changes": [
         {
           "after_hash": "b40342369ad3014eb0f4dd626b025bdb72aeaa1040952350335640ecfb5dc5c1",

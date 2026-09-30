@@ -28,6 +28,20 @@ python3 tools/pack-corpus.py --out /tmp/corpus-pack          # on the machine ho
 python3 tools/fetch-corpus.py --pack … --manifest … --into .  # on the receiving machine
 ```
 
+Two packs exist, and they follow different rules:
+
+| Pack | Command | Contents | Redistributable |
+|---|---|---|---|
+| **reference** | `pack-corpus.py --out …` | the seminar corpus + its human-acceptance artifacts | **no** — research access only ([RIGHTS.md](RIGHTS.md)) |
+| **demo** | `pack-corpus.py --kind demo --out …` | public-domain clinical texts (Falret/Binet/Janet) + the demo ontology layer | **yes** (public domain) |
+
+A pack also carries a **corpus profile**. The reference pack verifies as
+`SCHOLARLY_CORE_READY`; a demo or BYO pack is built with
+`core_freeze.py --build --profile unreviewed-corpus` and verifies as
+`CORPUS_HUMAN_REVIEW_NOT_AVAILABLE` — nine human-acceptance artifacts cannot exist for it, so
+they are **declared absent** in the manifest. Research runs either way; only the reference pack
+carries human review. `tools/ensure_corpus.py --json` reports which one is installed.
+
 The public edition is produced by
 [`_scripts/_tools/build_public_edition.py`](../_scripts/_tools/build_public_edition.py)
 and then **negatively verified**: corpus N-gram probes (real text fragments must be absent),

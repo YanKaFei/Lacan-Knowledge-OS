@@ -2,8 +2,8 @@
  "counts": {
   "hardcoded": 70,
   "intentional_source_text": 50,
-  "total": 933,
-  "translated": 813
+  "total": 934,
+  "translated": 814
  },
  "entries": [
   {
@@ -4757,6 +4757,15 @@
    "status": "translated",
    "surface": "Home",
    "zh": "问一个拉康问题"
+  },
+  {
+   "en": "This corpus has no human acceptance evidence (the reference corpus's review records, gold set and readiness gate are declared absent). Research runs, but answers carry no human-review endorsement — and the frozen core's source-attribution wording was written for the reference corpus, so it does not apply here.",
+   "files": [],
+   "key": "home.core-profile-unreviewed",
+   "note": "",
+   "status": "translated",
+   "surface": "Home",
+   "zh": "这份语料没有人工验收证据（参考语料的人工评审记录 / 金标 / 就绪门按**声明缺席**处理）。研究可以运行，但答案不携带人工验收背书；此外冻结内核的来源归属措辞是为参考语料写的，对本语料不适用。"
   },
   {
    "en": "Ask the question",

@@ -34,7 +34,7 @@
 > |---|---|
 > | **引擎源码**（本仓库） | Apache-2.0 —— 可自由使用、修改、再分发、在其上做商业产品 |
 > | **参考语料库**（[配套私有仓库](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus)） | **第三方受版权保护的文本。** 公开可读，但**仅供研究与学习**；「公开可见」不等于「授权」—— **未**授权商用、再分发或对外提供服务。 |
-> | **公有领域 demo 语料**（[`demo-corpus/`](demo-corpus)） | 公有领域（Falret 1890 · Binet 1892 · Janet 1909）—— 可自由再分发 |
+> | **公有领域 demo 语料**（[`corpus-demo-v1`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus/releases/tag/corpus-demo-v1) · [`demo-corpus/`](demo-corpus)） | 公有领域（Falret 1890 · Binet 1892 · Janet 1909）—— 可自由再分发 |
 >
 > **说白一点。** 语料库里是：拉康研讨班的**法语工作转录**、**瑟伊版印刷本**（S1–S5）的文本抽取、
 > 以及一个**社区中译项目**。这些权利**都不属于本项目**。它被公开出来，是为了让研究者能拿到语料；而**「公开可得」不等于「给你授权」** —— 它不允许商用、
@@ -106,7 +106,7 @@ python3 -m workspace_ui.server.cli --port 3090
 | 路径 | 你能得到 | 怎么做 |
 |---|---|---|
 | **A. 参考语料库**（公开下载，仅供研究）| 完整拉康研讨班语料：1,979 个文件 · 249,105 段落 · 索引即装即用 | 配套仓库 [`YanKaFei/Lacan-Knowledge-OS-corpus`](https://github.com/YanKaFei/Lacan-Knowledge-OS-corpus) → `python3 tools/ensure_corpus.py --install --pack corpus-pack-v1.tar.gz --manifest corpus-pack-v1.manifest.json` |
-| **B. 公有领域 demo** | 19 世纪法语临床文献（Falret · Binet · Janet）—— 可自由再分发 | `python3 tools/build_demo_corpus.py . && python3 _scripts/_tools/build_lexical_index.py` |
+| **B. 公有领域 demo** | 19 世纪法语临床文献（Falret · Binet · Janet）—— 可自由再分发 | `python3 tools/build_demo_corpus.py .` |
 | **C. 你自己的文本** | 你有权使用的任何文本，用引擎自带的构建器接进来 | [`CORPUS.md`](CORPUS.md) · `python3 _scripts/inventory_corpus.py --help` |
 
 **路径 A 展开说明。** 配套仓库提供的是**语料包**：一个带哈希清单的归档，安装时

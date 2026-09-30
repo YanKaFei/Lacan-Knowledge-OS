@@ -120,13 +120,28 @@ class McpClient:
             return {"connected": False, "detail": exc.detail,
                     "core_freeze_verified": False,
                     "server": None, "checked_at": _now()}
+        freeze = self.freeze or {}
+        status = freeze.get("scholarly_status")
+        profile = freeze.get("corpus_profile") or "reference"
+        # 冻结状态有两种**已核验**的取值（core_freeze.py 的 corpus profile）：
+        #   SCHOLARLY_CORE_READY                   参考语料：全部组件（含人工验收工件）一致
+        #   CORPUS_HUMAN_REVIEW_NOT_AVAILABLE      非参考语料：人工验收工件按**声明缺席**处理
+        # 两者都表示「哈希复算通过、核心未漂移」；差别在于**有没有人工验收背书**，
+        # 这一差别必须显示给用户，而不是被折成一个 READY。
+        verified = bool(freeze.get("freeze_version")) and status in (
+            "SCHOLARLY_CORE_READY", "CORPUS_HUMAN_REVIEW_NOT_AVAILABLE")
         return {"connected": True,
                 "server": self.server_info,
-                "core_freeze": self.freeze,
-                "core_freeze_verified": bool(
-                    (self.freeze or {}).get("freeze_version"))
-                and bool((self.freeze or {}).get("scholarly_status") ==
-                         "SCHOLARLY_CORE_READY"),
+                "core_freeze": freeze,
+                "core_freeze_verified": verified,
+                "core_freeze_profile": profile,
+                "core_human_review": ("NOT_AVAILABLE"
+                                      if status == "CORPUS_HUMAN_REVIEW_NOT_AVAILABLE"
+                                      else "AVAILABLE"),
+                "core_freeze_note": ("本语料没有人工验收证据（人工评审/金标/就绪门工件"
+                                     "按声明缺席处理）：研究可运行，但答案不携带人工验收背书；"
+                                     "claim 的说话人归属模板是为参考语料写的，对本语料不适用。"
+                                     if status == "CORPUS_HUMAN_REVIEW_NOT_AVAILABLE" else None),
                 "checked_at": _now(),
                 "stderr_tail": self._stderr_tail[-5:]}
 
